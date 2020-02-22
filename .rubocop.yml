@@ -1,4 +1,19 @@
-#configuration
+inherit_from: .rubocop_todo.yml
 
-Exclude:
-  - 'db/schema.rb'
+require: 
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.6.4
+   
+  Exclude:
+     - 'db/migrate/*'
+     - 'vebdor/**/*'
+     - 'node_modules/**/*'
+     - 'test/**/*'
+     - 'db/**/*'
+
+  Layout/LineLength:
+    Max: 90
+
+
