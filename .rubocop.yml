@@ -1,11 +1,11 @@
 inherit_from: .rubocop_todo.yml
 
-require: 
+require:
   - rubocop-rails
 
 AllCops:
   TargetRubyVersion: 2.6.4
-   
+
   Exclude:
      - 'db/migrate/*'
      - 'vebdor/**/*'
@@ -13,7 +13,5 @@ AllCops:
      - 'test/**/*'
      - 'db/**/*'
 
-  Layout/LineLength:
+Layout/LineLength:
     Max: 90
-
-
