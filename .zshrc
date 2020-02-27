@@ -2,8 +2,12 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-PS1='\h:\W \u\$ '
-# Make bash check its window size after a process completes
-shopt -s checkwinsize
+#auto tab complete
+autoload -U compinit
+compinit
 
-[ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"
+autoload -U colors && colors
+PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b'
+
+
+#[ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"
