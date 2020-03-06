@@ -153,6 +153,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     regexp_parser (1.6.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
@@ -252,6 +253,7 @@ DEPENDENCIES
   mysql2
   puma (~> 3.11)
   rails (~> 6.0.0)
+  rb-readline
   rspec-rails
   rubocop (~> 0.79.0)
   rubocop-rails
@@ -266,7 +268,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.4p104
+   ruby 2.6.3p62
 
 BUNDLED WITH
    2.1.4
