@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title><%= yield(:title) %> |Portfolio</title>
+    <title><%= yield(:title) %> | Contrail</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 　<body>
     <header>
@@ -27,8 +28,15 @@
       </div>
     </header>
     <main>
+      <div><!--画像表示--></div>
+      <div><!-- おすすめ投稿--></div>
+      <div><!-- 登録ページ--></div>
     </main>
     <footer>
+      <div class="container">
+        <%= link_to "Contrail", '#' %>
+        <small>ⓒ2020 Contrail.com</small>
+      </div>
     </footer>
     <%= yield %>
   </body>
