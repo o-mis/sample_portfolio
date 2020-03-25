@@ -1,0 +1,58 @@
+@import "bootstrap";
+
+/* 共通 */
+
+/* body */
+body {
+  margin: 0;
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fdfdfd;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+/* header */
+
+header {
+display: block;
+font-size: 40px;
+color: #f6f6f6;
+  .navbar {
+    background-color: #fdfdfd;
+    display: flex;
+  }
+  .navbar-brand {
+    color: #6c9bd6;
+    font-size: 40px;
+  }
+  .navbar-toggler {
+    background-color: #6c9bd6;
+  }
+
+}
+
+/* main */
+.container {
+  font-size: 70px;
+  color: #383838;
+  .home-btn {
+    background-color: #6c9bd2;
+    border: #6c9bd6;
+    color: #383838;
+  }
+}
+/* footer */
+.footer {
+  .footer-brand {
+    color: #6c9bd2;
+  }
+  small {
+    color: #b4b4b4;
+  }
+}
