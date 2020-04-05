@@ -4,36 +4,43 @@
     <title><%= yield(:title) %> | Contrail</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
   </head>
 　<body>
     <div id="wrapper">
       <header>
-        <div>
-          <nav class="navbar navbar-expand-lg py-3 mb-3">
-            <a class="navbar-brand" href='#'>Contrail</a>
+        <nav class="navbar navbar-expand-lg py-3 mb-3">
+          <a class="navbar-brand ml-4" href='#'>Contrail</a>
+          <button type="button" class="navbar-toggler mr-4" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <i class="fas fa-bars fa-lg py-4"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="submit" placeholder="探す">
-              <button class="btn search-btn btn-outline-success" type="submit">検索</button>
+              <input class="form-control search-form rounded-sm mr-sm-2 w-50" type="search" placeholder="&#xf002;キーワードで検索" aria-label="キーワードで検索">
             </form>
-            </nav>
+            <ul class="navbar-nav">
+              <li class="nav-item py-2"><%= link_to "プロフィール", "#" %></li>
+              <li class="nav-item pb-2"><%= link_to "ログイン", "#" %></li>
+              <li class="nav-item pb-2"><%= link_to "かんたんログイン", "#" %></li>
+            </ul>
           </div>
-        </header>
-        <main>
-          <div><!--画像表示--></div>
-          <div><!-- おすすめ投稿--></div>
-          <div><!-- 登録ページ--></div>
-        </main>
-        <footer class="fixed-bottom text-center text-muted py-4">
-          <div class="footer">
-            <%= link_to "Contrail", '#',class: "footer-brand" %>
+        </nav>
+      </header>
+      <main>
+        <div><!--画像表示--></div>
+        <div><!-- おすすめ投稿--></div>
+        <div><!-- 登録ページ--></div>
+      </main>
+      <footer class="fixed-bottom text-center text-muted py-4">
+        <div class="footer">
+          <%= link_to "Contrail", '#',class: "footer-brand" %>
           <small>©2020 Contrail.com</small>
-          </div>
-        </footer>
+        </div>
+      </footer>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
