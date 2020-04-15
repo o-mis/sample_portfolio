@@ -9,8 +9,7 @@ class MicropostsController < ApplicationController
 
   # GET /microposts/1
   # GET /microposts/1.json
-  def show
-  end
+  def show; end
 
   # GET /microposts/new
   def new
@@ -18,8 +17,7 @@ class MicropostsController < ApplicationController
   end
 
   # GET /microposts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /microposts
   # POST /microposts.json
@@ -62,6 +60,7 @@ class MicropostsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_micropost
       @micropost = Micropost.find(params[:id])
