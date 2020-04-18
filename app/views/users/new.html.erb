@@ -1,5 +1,18 @@
-<h1>New User</h1>
+<% provide(:title, '登録ページ') %>
 
-<%= render 'form', user: @user %>
+<form class="text-center px-3 mx-3">
+  <div class="form-group d-block px-5">
+    <label for="exampleInputEmail1">メールアドレス</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="メールアドレス">
+  </div>
+  <div class="form-group d-block px-5">
+    <label for="exampleInputPassword1">パスワード</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="パスワード">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">保存する</label>
+  </div>
+  <button type="submit" class="btn btn-primary">登録する</button>
+</form>
 
-<%= link_to 'Back', users_path %>
