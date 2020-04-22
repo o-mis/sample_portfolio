@@ -11,31 +11,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
   </head>
-　<body>
+　<body> <%# TODO リファクタリング #%>
     <header>
-      <nav class="navbar .d-block mb-3 px-5 pt-0">
-        <%=link_to "Contrail", home_path, class: "navbar-brand ml-4" %>
+      <nav class="navbar .d-block sticky-top mb-3 px-5 pt-0">
+        <%=link_to "Contrail", home_path, class: "navbar-brand font-italic font-weight-bold ml-4" %>
         <button type="button" class="navbar-toggler mr-2" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
           <i class="fas fa-bars fa-lg py-4"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <form class="form-inline">
-            <input class="form-control search-form rounded-sm mr-sm-2 w-50" type="search" placeholder="&#xf002;キーワードで検索" aria-label="キーワードで検索">
+            <input class="form-control search-form rounded-0 mr-sm-2 w-50" type="search" placeholder="&#xf002;キーワードで検索" aria-label="キーワードで検索">
           </form>
-          <ul class="navbar-nav">
-            <li class="py-2"><%= link_to "プロフィール", "#", class: "nav-item" %></li>
-            <li class="pb-2"><%= link_to "ログイン",signup_path, class: "nav-item" %></li>
-            <li class="pb-2"><%= link_to "かんたんログイン", "#", class: "nav-item" %></li>
-          </ul>
+            <ul class="navbar-nav text-left">
+              <% if user_signed_in? %>
+              <li class="py-3"><%= link_to "プロフィール", "#", class: "logged-in-item text-decoration-none" %></li>
+              <li class="pb-3"><%= link_to "ログアウト", "#", class: "logged-in-item text-decoration-none" %></li>
+              <% else %>
+              <li class="py-3"><%= link_to "ログイン", signup_path, class: "not-logged-in-item text-decoration-none" %></li>
+              <% end %>
+            </ul>
         </div>
       </nav>
     </header>
-    <main>
+    <main> <%# TODO リファクタリング #%>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
+    <%# TODOリファクタリング #%>
     <footer class="fixed-bottom text-center text-muted py-4">
       <div class="footer">
-        <%= link_to "Contrail", '#',class: "footer-brand" %>
+        <%= link_to "Contrail", home_path,class: "footer-brand text-decoration-none" %>
         <small>©2020 Contrail.com</small>
       </div>
     </footer>

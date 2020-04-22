@@ -1,18 +1,18 @@
-<% provide(:title, '登録ページ') %>
+<% provide(:title, 'ログインページ') %>
 
-<form class="text-center px-3 mx-3">
-  <div class="form-group d-block px-5">
-    <label for="exampleInputEmail1">メールアドレス</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="メールアドレス">
-  </div>
-  <div class="form-group d-block px-5">
-    <label for="exampleInputPassword1">パスワード</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="パスワード">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">保存する</label>
-  </div>
-  <button type="submit" class="btn btn-primary">登録する</button>
-</form>
+<body class="text-center">
+  <form class="form-signin">
+    <h1 class="h4 mb-5 font-weight-bold">メールアドレスでログイン</h1>
+
+      <label for="inputEmail" class="sr-only">メールアドレス</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
+
+      <label for="inputPassword" class="sr-only">パスワード</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
+      <%= link_to "パスワードをお忘れですか?", "#", class: "forget-pass text-dark text-decoration-none" %>
+
+      <button class="btn btn-outline-dark btn-block form-btn" type="submit">ログイン</button>
+      <button class="btn btn-outline-dark btn-block form-btn" type="submit">簡単ログイン</button>
+      <%= link_to "アカウントをお持ちでない方はこちら", new_user_registration_path ,class: "new-user text-secondary text-decoration-none" %>
+  </form>
 
