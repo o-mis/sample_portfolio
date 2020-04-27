@@ -13,29 +13,52 @@
   </head>
 　<body> <%# TODO リファクタリング #%>
     <header>
-      <nav class="navbar .d-block sticky-top mb-3 px-5 pt-0">
-        <%=link_to "Contrail", home_path, class: "navbar-brand font-italic font-weight-bold ml-4" %>
-        <button type="button" class="navbar-toggler mr-2" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
-          <i class="fas fa-bars fa-lg py-4"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <form class="form-inline">
-            <input class="form-control search-form rounded-0 mr-sm-2 w-50" type="search" placeholder="&#xf002;キーワードで検索" aria-label="キーワードで検索">
-          </form>
-            <ul class="navbar-nav text-left">
-              <% if user_signed_in? %>
-              <li class="py-3"><%= link_to "プロフィール", "#", class: "logged-in-item text-decoration-none" %></li>
-              <li class="pb-3"><%= link_to "ログアウト", "#", class: "logged-in-item text-decoration-none" %></li>
-              <% else %>
-              <li class="py-3"><%= link_to "ログイン", signup_path, class: "not-logged-in-item text-decoration-none" %></li>
-              <% end %>
-            </ul>
-        </div>
+      <nav class="navbar sticky-top pr-5">
+
+          <%=link_to "Contrail", home_path, class: "navbar-brand text-monospace ml-4" %>
+
+          <li>
+              <i class="far fa-bookmark fa-lg"></i>
+          </li>
+
+            <button type="button" class="navbar-toggler mr-2" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+              <i class="fas fa-bars fa-lg nav-items py-4"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <% if user_signed_in? %>
+                <ul class="navbar-nav text-left">
+                  <li class="signedin-item py-4">
+                    <%= link_to "#", class: "logged-in-item text-decoration-none" do %>
+                      プロフィール
+                      <i class="far fa-user nav-items"></i>
+                    <% end %>
+                  </li>
+                  <li class="signedin-item">
+                    <%= link_to "#", class: "loggedin-item text-decoration-none" do %>
+                      投稿済みの場所
+                      <i class="fas fa-map-marker-alt nav-items"></i>
+                    <% end %>
+                  </li>
+                  <li class="signedin-item py-4">
+                    <%= link_to "#", class: "logged-in-item text-decoration-none" do %>
+                      ログアウト
+                      <i class="fas fa-power-off nav-items"></i>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li class="not-signedin-item pt-4 mb-5">
+                    <%= link_to "#", class: " not-signedin-item text-decoration-none" do %>
+                      ログイン
+                      <i class="fas fa-sign-in-alt nav-items"></i>
+                    <% end %>
+                  </li>
+                </ul>
+                <% end %>
+              </div>
+        </ul>
       </nav>
     </header>
     <main> <%# TODO リファクタリング #%>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
     <%# TODOリファクタリング #%>

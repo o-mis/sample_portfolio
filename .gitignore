@@ -99,4 +99,5 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
-
+# Ignore zsh-syntax-highlighting
+config/zsh-syntax-highlighting

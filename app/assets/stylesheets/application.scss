@@ -24,33 +24,52 @@ header {
     }
     .navbar-brand {
       color: #6c9bd6;
-      font-size: 28px;
+      font-size: 29px;
+      font-weight: bold;
     }
-
+    li {
+      list-style: none;
+    }
+    .fa-bookmark {
+      font-family: Font Awesome 5 Pro;
+      font-style: regular;
+      font-weight: 400;
+    }
     .fa-bars {
       color: #393939;
       &:focus {
         outline: none;
       }
     }
-    .search-form {
-      font-family: "Font Awesome 5 Free";
+    .signedin-item {
+      color: #393939;
+      font-size: 18px;
+      font-weight: bold;
+      padding-left: 25px;
+    }
+    .not-signedin-item {
+      color: #393939;
+      font-size: 18px;
+      font-weight: bold;
+      padding-left: 25px;
+    }
+    .nav-items {
+      font-family: Font Awesome 5 Free;
       font-style: solid;
-      font-weight: 600;
-    }
-    .logged-in-item {
-      color: #393939;
-      font-size: 18px;
-      font-weight: 600;
-    }
-    .not-logged-in-item {
-      color: #393939;
-      font-size: 18px;
-      font-weight: 600;
+      font-weight: 900;
     }
 }
 
 /* main */
+.search-form {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 600;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
 .home-info{
   color: #393939;
   .head {
