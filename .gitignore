@@ -22,7 +22,8 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+*master.key
+*secrets.yml
 
 /public/packs
 /public/packs-test
@@ -31,6 +32,20 @@
 yarn-debug.log*
 .yarn-integrity
 ### https://raw.github.com/github/gitignore/599646e9d0a26283d67715dead8f26e0eb2df753/Rails.gitignore
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+/public/uploads
+/.nvm
+/.env
+/.DS_Store
+/.rspec
+/.browserslistrc
 
 *.rbc
 capybara-*.html
@@ -56,9 +71,8 @@ config/master.key
 # config/secrets.yml
 
 # dotenv, dotenv-rails
-# TODO Comment out these rules if environment variables can be committed
+# Comment out these rules if environment variables can be committed
 /.env
-.env
 .env.*
 
 ## Environment normalization:
@@ -98,6 +112,7 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+/public/uploads
 
 # Ignore zsh-syntax-highlighting
 config/zsh-syntax-highlighting

@@ -22,6 +22,7 @@ ja:
         name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
+        6_characters_minimum: "6文字以上"
         password_confirmation: "パスワードの確認"
         remember_me: "次回から自動でログイン"
     models:
@@ -78,6 +79,7 @@ ja:
         sign_in: "ログイン"
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: "アカウント登録"
+        log_in: "ログイン"
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
