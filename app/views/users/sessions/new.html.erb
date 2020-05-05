@@ -21,7 +21,7 @@
       <%= f.submit "ログイン", :class => "btn btn-outline-dark btn-block form-btn" %>
     </div>
     <div class="actions">
-      <%= f.submit "簡単ログイン", :class => "btn btn-outline-dark btn-block form-btn" %>
+      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
     </div>
     <div class="actions text-center">
       <%= link_to "アカウントをお持ちでない方はこちら", new_user_registration_path ,class: "new-user text-secondary text-decoration-none" %>

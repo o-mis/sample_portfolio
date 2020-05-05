@@ -19,6 +19,13 @@ class User < ApplicationRecord
     user
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do | user |
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now
+    end
+  end
+
   private
 
   def self.dummy_email(auth)
@@ -29,7 +36,5 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }
 
-  # 以下deviseとの衝突を防ぐためコメントアウト
-  # has_secure_password
-  # validates :password, presence: true, length: { maximum: 6 }
+
 end
