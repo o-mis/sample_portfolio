@@ -1,0 +1,43 @@
+<nav class="navbar sticky-top pr-5">
+  <%=link_to "Contrail", home_path, class: "navbar-brand text-monospace ml-4" %>
+  <li>
+    <%=link_to class: "fa-bookmark" do %>
+      <i class="far fa-bookmark fa-lg"></i>
+    <% end %>
+  </li>
+    <button type="button" class="navbar-toggler mr-2" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <i class="far fa-user fa-lg py-4"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <% if user_signed_in? %>
+            <ul class="navbar-nav text-left">
+              <li class="signedin-item py-4">
+                <%= link_to "#", class: "logged-in-item text-decoration-none" do %>
+                  プロフィール <i class="far fa-user ml-2 nav-items"></i>
+                <% end %>
+              </li>
+              <li class="signedin-item">
+                <%= link_to "#", class: "loggedin-item text-decoration-none" do %>
+                  マップ <i class="fas fa-map-marker-alt ml-2 nav-items"></i>
+                <% end %>
+              </li>
+              <li class="signedin-item py-4">
+                <%= link_to destroy_user_session_path, method: :delete, class: "logged-in-item text-decoration-none" do %>
+                  ログアウト <i class="fas fa-power-off ml-2 mb-5 nav-items"></i>
+                <% end %>
+              </li>
+        <% else %>
+              <li class="not-signedin-item pt-4 mb-3">
+                <%= link_to new_user_session_path, class: " not-signedin-item text-decoration-none" do %>
+                  ログイン <i class="fas fa-sign-in-alt ml-2 nav-items"></i>
+                <% end %>
+              </li>
+              <li class="not-signedin-item mb-5">
+                <%= link_to "#", class: " not-signedin-item text-decoration-none" do %>
+                  簡単ログイン <i class="fas fa-sign-in-alt ml-2 nav-items"></i>
+                <% end %>
+              </li>
+            </ul>
+        <% end %>
+    </div>
+</nav>

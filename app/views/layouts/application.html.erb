@@ -11,65 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
   </head>
-　<body> <%# TODO リファクタリング #%>
+　<body>
     <header>
-      <nav class="navbar sticky-top pr-5">
-
-          <%=link_to "Contrail", home_path, class: "navbar-brand text-monospace ml-4" %>
-
-          <li>
-              <i class="far fa-bookmark fa-lg"></i>
-          </li>
-
-            <button type="button" class="navbar-toggler mr-2" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
-              <i class="fas fa-bars fa-lg nav-items py-4"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <% if user_signed_in? %>
-                <ul class="navbar-nav text-left">
-                  <li class="signedin-item py-4">
-                    <%= link_to "#", class: "logged-in-item text-decoration-none" do %>
-                      プロフィール
-                      <i class="far fa-user nav-items"></i>
-                    <% end %>
-                  </li>
-                  <li class="signedin-item">
-                    <%= link_to "#", class: "loggedin-item text-decoration-none" do %>
-                      投稿済みの場所
-                      <i class="fas fa-map-marker-alt nav-items"></i>
-                    <% end %>
-                  </li>
-                  <li class="signedin-item py-4">
-                    <%= link_to "#", class: "logged-in-item text-decoration-none" do %>
-                      ログアウト
-                      <i class="fas fa-power-off nav-items"></i>
-                    <% end %>
-                  </li>
-                <% else %>
-                  <li class="not-signedin-item pt-4 mb-5">
-                    <%= link_to "#", class: " not-signedin-item text-decoration-none" do %>
-                      ログイン
-                      <i class="fas fa-sign-in-alt nav-items"></i>
-                    <% end %>
-                  </li>
-                </ul>
-                <% end %>
-              </div>
-        </ul>
-      </nav>
+      <%= render "shared/header" %>
     </header>
-    <main> <%# TODO リファクタリング #%>
+    <main>
+      <%= render "shared/main" %>
       <%= yield %>
     </main>
-    <%# TODOリファクタリング #%>
     <footer class="fixed-bottom text-center text-muted py-4">
-      <div class="footer">
-        <%= link_to "Contrail", home_path,class: "footer-brand text-decoration-none" %>
-        <small>©2020 Contrail.com</small>
-      </div>
+      <%= render "shared/footer" %>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <%= render "shared/js" %>
   </body>
 </html>

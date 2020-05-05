@@ -34,8 +34,9 @@ header {
       font-family: Font Awesome 5 Pro;
       font-style: regular;
       font-weight: 400;
+      color: #393939;
     }
-    .fa-bars {
+    .fa-user {
       color: #393939;
       &:focus {
         outline: none;
@@ -48,7 +49,7 @@ header {
       padding-left: 25px;
     }
     .not-signedin-item {
-      color: #393939;
+      color: #3f3f3f;
       font-size: 18px;
       font-weight: bold;
       padding-left: 25px;

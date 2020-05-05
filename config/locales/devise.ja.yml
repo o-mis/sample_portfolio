@@ -25,9 +25,12 @@ ja:
         6_characters_minimum: "6文字以上"
         password_confirmation: "パスワードの確認"
         remember_me: "次回から自動でログイン"
+        sign_up: "アカウント登録"
     models:
       user: "ユーザー"
   devise:
+    failure:
+      already_authenticated: "既にログイン済みです"
     confirmations:
       new:
         resend_confirmation_instructions: "アカウント確認メール再送"
@@ -68,8 +71,9 @@ ja:
       new:
         sign_up: "アカウント登録"
     sessions:
-      new:
-        sign_in: "ログイン"
+        signed_in: "ログインしました"
+        signed_out: "ログアウトしました"
+        already_authenticated: "既にログイン済みです"
     shared:
       links:
         back: "戻る"
