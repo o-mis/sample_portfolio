@@ -12,7 +12,7 @@
         <% if user_signed_in? %>
             <ul class="navbar-nav text-left">
               <li class="signedin-item py-4">
-                <%= link_to "#", class: "signedin-item text-decoration-none" do %>
+                <%= link_to user_path, class: "signedin-item text-decoration-none" do %>
                   プロフィール <i class="far fa-user-circle ml-2 mt-4 nav-items"></i>
                 <% end %>
               </li>
@@ -33,7 +33,7 @@
                 <% end %>
               </li>
               <li class="not-signedin-item mb-5">
-                <%= link_to users_guest_sign_in_path, class: " not-signedin-item text-decoration-none" do %>
+                <%= link_to users_guest_sign_in_path, method: :post, class: " not-signedin-item text-decoration-none" do %>
                   簡単ログイン <i class="fas fa-sign-in-alt ml-2 nav-items"></i>
                 <% end %>
               </li>
