@@ -1,35 +1,47 @@
 <% provide(:title, 'ログインページ') %>
 
-  <h1 class="h4 mb-5 font-weight-bold text-center">メールアドレスでログイン</h1>
+    <h1 class="h5 my-5 font-weight-bold text-center">ログイン</h1>
+    <div class="signin-page">
+      <div class="mt-5 align-items-center">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field text-center">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, required: true, autofocus: true, autocomplete: "email" %>
-    </div>
-    <div class="field text-center">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, required: true, autocomplete: "current-password" %>
-    </div>
-    <% if devise_mapping.rememberable? %>
-      <div class="field text-center">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+          <div class="field mb-4">
+            <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", required: true, class: "form-ls w-100 pl-3" %>
+          </div>
+
+          <div class="field mb-4">
+            <%= f.password_field :password, placeholder: "パスワード", required: true, class: "form-ls w-100 pl-3" %>
+          </div>
+
+          <div class="field remember-box text-center">
+            <% if devise_mapping.rememberable? %>
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+            <% end %>
+          </div>
+
+          <%= f.submit "ログイン", class: "btn signin-btn btn-outline-dark btn-block" %>
+
+          <%= link_to "簡単ログイン", users_guest_sign_in_path, class: "signin-btn text-decoration-none btn btn-outline-primary btn-block", method: :post %>
+        <% end %>
+
+        <div class="signin-option py-5">
+          <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-dark btn-block mb-3' do %>
+                <i class="fab fa-twitter mr-2"></i>ログイン
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "新規アカウントを作成", new_registration_path(resource_name), class: 'btn btn-dark btn-block' %><br />
+          <% end %>
+        </div>
       </div>
-    <% end %>
-    <div class="actions">
-      <%= f.submit "ログイン", :class => "btn btn-outline-dark btn-block form-btn" %>
     </div>
-    <div class="actions">
-      <%= link_to "簡単ログイン", users_guest_sign_in_path, method: :post %>
-    </div>
-    <div class="actions text-center">
-      <%= link_to "アカウントをお持ちでない方はこちら", new_user_registration_path ,class: "new-user text-secondary text-decoration-none" %>
-    </div>
-  <% end %>
 
-  <div class="text-center">
-    <%= render "users/shared/links", class: "text-center" %>
-  </div>
+
+
 
 

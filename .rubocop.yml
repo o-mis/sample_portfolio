@@ -17,7 +17,7 @@ AllCops:
      - 'config/**/*'
 
 Layout/LineLength:
-   Max: 90
+   Max: 120
 
-AsciiComments:
+Style/AsciiComments:
    Enabled: false

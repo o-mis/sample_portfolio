@@ -7,6 +7,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.4.1'
 gem 'devise'
+gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
