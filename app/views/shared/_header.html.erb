@@ -1,19 +1,19 @@
 <nav class="navbar sticky-top mb-4">
-    <%=link_to "Contrail", home_path, class: "navbar-brand text-monospace" %>
+    <%=link_to "Contrail", root_path, class: "navbar-brand text-monospace" %>
       <li>
-        <%=link_to class: "fa-bookmark" do %>
-          <i class="far fa-bookmark fa-lg"></i>
+        <%=link_to class: "fa-heart" do %>
+          <i class="far fa-heart fa-lg"></i>
         <% end %>
       </li>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
-        <i class="far fa-user fa-lg"></i>
+        <i class="fas fa-bars fa-lg"></i>
       </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse text-left" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
-              <ul class="navbar-nav text-left">
+              <ul class="navbar-nav">
                 <li class="signedin-item py-4">
-                  <%= link_to user_path, class: "signedin-item text-decoration-none" do %>
-                    <i class="far fa-user-circle mr-2 nav-items"></i> プロフィール
+                  <%= link_to current_user, class: "signedin-item text-decoration-none" do %>
+                    <i class="far fa-user-circle mr-2 nav-items"></i> 
                   <% end %>
                 </li>
                 <li class="signedin-item">
@@ -28,7 +28,7 @@
                 </li>
                 <li class="signedin-item pb-2">
                   <%= link_to destroy_user_session_path, method: :delete, class: "signedin-item text-decoration-none" do %>
-                    <i class="fas fa-power-off mr-2 nav-items"></i> ログアウト
+                    <span><i class="fas fa-power-off mr-2 nav-items"></i> ログアウト</span>
                   <% end %>
                 </li>
           <% else %>

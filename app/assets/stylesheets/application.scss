@@ -32,23 +32,34 @@ header {
     li {
       list-style: none;
     }
-    .fa-bookmark {
+    .fa-heart {
       font-family: Font Awesome 5 Pro;
       font-style: regular;
       font-weight: 400;
-      color: #393939;
+      color: #222222;
+      float: right;
     }
-    .fa-user {
-      color: #393939;
+    .fa-heart:hover {
+      color: #6a6a6a;
+    }
+    .fa-bars {
+      color: #222222;
       &:focus {
         outline: none;
       }
+    }
+    .fa-bars:hover {
+      color: #6a6a6a;
     }
     .signedin-item {
       color: #393939;
       font-size: 18px;
       font-weight: bold;
       padding-left: 25px;
+    }
+    .signedin-item span {
+      color: #626262;
+      font-weight: bold;
     }
     .not-signedin-item {
       color: #3f3f3f;

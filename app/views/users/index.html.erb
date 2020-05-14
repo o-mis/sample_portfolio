@@ -7,9 +7,10 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'ユーザーの情報を見る', users_path %></td>
+        <td><%= link_to 'ユーザーの情報を見る', user %></td>
         <td><%= link_to '編集する', edit_user_path(user) %></td>
-        <td><%= link_to '削除する', user, method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
+
+        <td><%= link_to '削除する', user_registration_path, method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
