@@ -12,17 +12,19 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
   </head>
 　<body>
-    <header>
-      <%= render "shared/header" %>
-    </header>
-    <main>
-      <%= render "shared/main" %>
-      <%= yield %>
-    </main>
-    <footer class="fixed-bottom text-center text-muted py-4">
-      <%= render "shared/footer" %>
-    </footer>
+    <div id="wrapper">
+      <header>
+        <%= render "shared/header" %>
+      </header>
+      <main>
+        <%= render "shared/main" %>
+        <%= yield %>
+      </main>
+      <footer class="text-center text-muted py-4">
+        <%= render "shared/footer" %>
+      </footer>
 
     <%= render "shared/js" %>
+  </div>
   </body>
 </html>

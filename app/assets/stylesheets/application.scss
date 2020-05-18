@@ -9,12 +9,14 @@
 
 /* body */
 body {
-    width: 80%;
+    width: 75%;
     margin: auto;
 }
 
-.center {
-    text-align: center;
+body, #wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* header */
@@ -25,7 +27,7 @@ header {
       display: flex;
     }
     .navbar-brand {
-      color: #6c9bd6;
+      color: #89c3eb;
       font-size: 28px;
       font-weight: bold;
     }
@@ -37,7 +39,6 @@ header {
       font-style: regular;
       font-weight: 400;
       color: #222222;
-      float: right;
     }
     .fa-heart:hover {
       color: #6a6a6a;
@@ -75,6 +76,11 @@ header {
 }
 
 /* main */
+// TODO メインコンテンツ用のCSSファイルを用意する
+main {
+  padding-top: 10px;
+  padding-bottom: 90px;
+}
 .search-form {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
@@ -84,58 +90,88 @@ header {
   border-left: none;
 }
 
-.home-info{
-  color: #393939;
-  .head {
-    font-size: 35px;
-    font-weight: 540;
+#fab {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  background-color: #89c3eb;
+  text-align: center;
+  border-radius: 50%;
+  transition: .3s;
+  text-decoration: none;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 54px;
+  bottom: 54px;
+  box-shadow: 1px 1px 1px #b0c4de;
+}
+#fab:hover {
+  background-color: #bbe2f1;
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+  border-bottom: none;
+}
+.fa-plus {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.pagination {
+  border: none;
+  color: #7f7f7f;
+}
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 5px 0;
+      border-top: 1px solid #e8e8e8;
   }
-  .sub {
-    font-size: 24px;
-    font-weight: 510;
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
   }
-  .btn-login {
-    font-weight: 500;
-    font-size: 18px;
+  .content {
+    display: block;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: #9f9f9f;
+    display: block;
+    margin-left: 60px;
+    font-size: small;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
   }
 }
 
-// .form-signin {
-//   width: 100%;
-//   max-width: 400px;
-//   padding: 18px;
-//   margin: auto;
-// }
-// .form-signin {
-//   font-weight: 500;
-// }
-// .form-signin .form-control {
-//   position: relative;
-//   box-sizing: border-box;
-//   height: auto;
-//   padding: 10px;
-//   font-size: 14px;
-// }
-// .form-signin .form-control:focus {
-//   z-index: 2;
-// }
-// .form-signin input[type="email"] {
-//   margin-bottom: 10px;
-// }
-// .form-signin input[type="password"] {
-//   margin-bottom: 5px;
-//   margin-top: 15px;
-// }
-// .form-signin button {
-//   margin-top: 25px;
-//   margin-bottom: 10px;
-// }
-// .forget-pass .new-user {
-//   font-size: 12px;
-// }
-// .form-btn {
-//   font-weight: 500;
-// }
+  aside {
+    textarea {
+      height: 100px;
+      margin-bottom: 5px;
+    }
+  }
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
 
 
 
@@ -169,7 +205,7 @@ header {
 /* footer */
 .footer {
     .footer-brand {
-      color: #6c9bd2;
+      color: #89c3eb;
       font-size: medium;
       font-weight: bold;
     }

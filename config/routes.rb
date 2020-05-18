@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get 'users/show'
-  # get 'user', to: 'users#show'
   get 'users', to: 'users#index'
 
   devise_for :users,
@@ -19,6 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  resources :microposts
+  resources :microposts, only: [:new, :create, :destroy]
 
 end

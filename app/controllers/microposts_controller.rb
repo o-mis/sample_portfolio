@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
   # GET /microposts
   # GET /microposts.json
   def index
-    @microposts = Micropost.all
+    @microposts = Microposts.all
   end
 
   # GET /microposts/1
@@ -26,7 +26,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       if @micropost.save
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
+        format.html { redirect_to @micropost, notice: '投稿が完了しました' }
         format.json { render :show, status: :created, location: @micropost }
       else
         format.html { render :new }
@@ -60,6 +60,8 @@ class MicropostsController < ApplicationController
   end
 
   private
+
+  # TODO マイクロソフトのアクセス制御
 
   # Use callbacks to share common setup or constraints between actions.
   def set_micropost
