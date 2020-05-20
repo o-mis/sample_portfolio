@@ -1,5 +1,3 @@
-
-
 @import "bootstrap";
 
 /* 共通 */
@@ -41,7 +39,7 @@ header {
       color: #222222;
     }
     .fa-heart:hover {
-      color: #6a6a6a;
+      color: #89c3eb;
     }
     .fa-bars {
       color: #222222;
@@ -50,7 +48,7 @@ header {
       }
     }
     .fa-bars:hover {
-      color: #6a6a6a;
+      color: #89c3eb;
     }
     .signedin-item {
       color: #393939;
@@ -59,7 +57,7 @@ header {
       padding-left: 25px;
     }
     .signedin-item span {
-      color: #626262;
+      color: #6e6e6e;
       font-weight: bold;
     }
     .not-signedin-item {
@@ -119,6 +117,14 @@ main {
   font-weight: 600;
   color: #ffffff;
   font-size: 20px;
+}
+
+.btn-micropost {
+  background-color: #89c3eb;
+  color: #ffffff;
+}
+.btn-micropost:hover {
+  color: #ffffff;
 }
 
 .pagination {
@@ -201,6 +207,21 @@ span.picture {
 }
 
 
+.form-content {
+  height: 80px;
+}
+.form-image {
+  display: none;
+}
+.fa-image {
+  font-family: "Font Awesome 5 Pro";
+  font-style: regular;
+  font-weight: 400;
+  font-size: 60px;
+  color: #89c3eb;
+  cursor: pointer;
+}
+
 
 /* footer */
 .footer {
@@ -210,7 +231,7 @@ span.picture {
       font-weight: bold;
     }
     small {
-      color: #b4b4b4;
+      color: #7a7a7a;
     }
 }
 
