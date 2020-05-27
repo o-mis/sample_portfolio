@@ -18,7 +18,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.create!(micropost_params)
 
       if @micropost.save
-        redirect_to microposts_path, notice: 'Micropost was succesfully saved.'
+        redirect_to microposts_path, notice: '投稿が完了しました'
       else
         render :new
       end
@@ -35,7 +35,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-      redirect_to microposts_url, notice: 'Micropost was successfully destroyed.'
+      redirect_to microposts_url, notice: '投稿を削除しました'
   end
 
   private
@@ -51,7 +51,7 @@ class MicropostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
 
   def micropost_params
-    params.require(:micropost).permit(:content, :arrived_at, :budget, :restaurant)
+    params.require(:micropost).permit(:content, :arrived_at, :budget, :restaurant, :image)
   end
 
   def has_micropost

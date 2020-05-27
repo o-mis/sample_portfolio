@@ -124,6 +124,8 @@ main {
 .btn-micropost {
   background-color: #89c3eb;
   color: #ffffff;
+  float: right;
+  margin-bottom: 3px;
 }
 .btn-micropost:hover {
   color: #ffffff;
@@ -224,6 +226,7 @@ span.picture {
   color: #89c3eb;
   cursor: pointer;
 }
+
 
 
 /* footer */

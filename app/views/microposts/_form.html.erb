@@ -1,15 +1,12 @@
 <%= form_with(model: micropost, local: true) do |f| %>
-  <% if micropost.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(micropost.errors.count, "error") %> prohibited this micropost from being saved:</h2>
 
-      <ul>
-        <% micropost.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div id="error_explanation">
+    <ul>
+      <% micropost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 
   <div class="field">
     <%= f.radio_button(:arrived_at, :昼) %>

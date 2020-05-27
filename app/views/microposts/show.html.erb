@@ -6,5 +6,8 @@
   <%= @micropost.content %>
 </p>
 
+<p>
+  <%= image_tag @micropost.image.url %>
+</p>
 
 <%= link_to 'Back', microposts_path %>
