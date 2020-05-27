@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @micropost = Micropost.new
+    @micropost = current_user.microposts.create
   end
 
   # private

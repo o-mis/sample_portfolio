@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "microposts";
 
 /* 共通 */
 *:focus {
@@ -89,27 +90,28 @@ main {
 }
 
 #fab {
-  display: flex;
+  display: block;
   width: 56px;
   height: 56px;
-  background-color: #89c3eb;
-  text-align: center;
+  background: #89c3eb;
+  // text-align: center;
   border-radius: 50%;
   transition: .3s;
   text-decoration: none;
-  color: #ffffff;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   position: fixed;
   right: 54px;
   bottom: 54px;
-  box-shadow: 1px 1px 1px #b0c4de;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+  border-color: transparent !important;
 }
 #fab:hover {
-  background-color: #bbe2f1;
-  -webkit-transform: translateY(1px);
-  transform: translateY(1px);
-  border-bottom: none;
+  // background-color: #bbe2f1;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  // -webkit-transform: translateY(1px);
+  // transform: translateY(1px);
+  // border-bottom: none;
 }
 .fa-plus {
   font-family: "Font Awesome 5 Free";
@@ -125,6 +127,7 @@ main {
 }
 .btn-micropost:hover {
   color: #ffffff;
+  background: #a0d8ef;
 }
 
 .pagination {

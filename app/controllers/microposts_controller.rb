@@ -1,62 +1,41 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:show, :create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :has_micropost, only: :destroy
 
-  # GET /microposts
-  # GET /microposts.json
   def index
-    @microposts = Microposts.all
+    @microposts = Micropost.all
   end
 
-  # GET /microposts/1
-  # GET /microposts/1.json
-  def show; end
-
-  # GET /microposts/new
-  def new
-    @micropost = Micropost.new
+  def show
+    @micropost = Micropost.find(params[:id])
   end
 
-  # GET /microposts/1/edit
-  def edit; end
+  # def new
+  #   @micropost = Micropost.new
+  # end
 
-  # POST /microposts
-  # POST /microposts.json
   def create
-    @micropost = Micropost.new(micropost_params)
+    @micropost = current_user.microposts.create!(micropost_params)
 
-    respond_to do |format|
       if @micropost.save
-        format.html { redirect_to @micropost, notice: '投稿が完了しました' }
-        format.json { render :show, status: :created, location: @micropost }
+        redirect_to microposts_path, notice: 'Micropost was succesfully saved.'
       else
-        format.html { render :new }
-        format.json { render json: @micropost.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
-  # PATCH/PUT /microposts/1
-  # PATCH/PUT /microposts/1.json
   def update
-    respond_to do |format|
-      if @micropost.update(micropost_params)
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
-        format.json { render :show, status: :ok, location: @micropost }
+      if @micropost.update!(micropost_params)
+        redirect_to @micropost, notice: 'Micropost was successfully updated.'
+        render :show, status: :ok, location: @micropost
       else
-        format.html { render :edit }
-        format.json { render json: @micropost.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
-  # DELETE /microposts/1
-  # DELETE /microposts/1.json
   def destroy
     @micropost.destroy
-    respond_to do |format|
-      format.html { redirect_to microposts_url, notice: 'Micropost was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to microposts_url, notice: 'Micropost was successfully destroyed.'
   end
 
   private
@@ -73,5 +52,10 @@ class MicropostsController < ApplicationController
 
   def micropost_params
     params.require(:micropost).permit(:content, :arrived_at, :budget, :restaurant)
+  end
+
+  def has_micropost
+    @micropost = current_user.microposts.find_by(params[:id])
+    redirect_to micropost_path if @micropost.nil?
   end
 end
