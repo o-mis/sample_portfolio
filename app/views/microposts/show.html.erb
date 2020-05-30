@@ -1,4 +1,4 @@
-<% provide(:title, @micropost.restaurant) %>
+<% provide(:title, @micropost.id) %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -7,9 +7,7 @@
 </p>
 
 <p>
-  <% if @micropost.image.url %>
-    <%= image_tag @micropost.image.url %>
-  <% end %>
+  <%= image_tag @micropost.image.url %>
 </p>
 
 <%= link_to 'Back', microposts_path %>

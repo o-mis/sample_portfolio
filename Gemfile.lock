@@ -375,7 +375,6 @@ DEPENDENCIES
   kaminari-bootstrap
   listen (>= 3.0.5, < 3.2)
   meta_request
-  mini_magick
   mysql2
   omniauth
   omniauth-twitter

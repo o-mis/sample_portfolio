@@ -1,22 +1,18 @@
 <%= form_with(model: micropost, local: true) do |f| %>
 
-  <%
-=begin%>
- <div id="error_explanation">
+  <div id="error_explanation">
     <ul>
       <% micropost.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
-  </div> 
-<%
-=end%>
+  </div>
 
   <div class="field">
     <%= f.radio_button(:arrived_at, :昼) %>
-    <%= label_tag(:arrived_at, "昼", class: "fa fa-day pr-3") %>
+    <%= label_tag(:arrived_at, "昼") %>
     <%= f.radio_button(:arrived_at, :夜) %>
-    <%= label_tag(:arrived_at, "夜", class: "fa fa-night") %>
+    <%= label_tag(:arrived_at, "夜") %>
   </div>
 
   <div class="field">
