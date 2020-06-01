@@ -26,9 +26,12 @@ header {
       display: flex;
     }
     .navbar-brand {
-      color: #89c3eb;
+      color: #2c2c2c;
       font-size: 28px;
       font-weight: bold;
+    }
+    .navbar-brand:hover {
+      color: #89c3eb;
     }
     li {
       list-style: none;
@@ -87,6 +90,15 @@ main {
   border-top: none;
   border-right: none;
   border-left: none;
+}
+
+.fa-day::before {
+  font-family: Font Awesome 5;
+  content: '\f185';
+}
+.fa-night::before {
+  font-family: Font Awesome 5 Free;
+  content: '\f186';
 }
 
 #fab {

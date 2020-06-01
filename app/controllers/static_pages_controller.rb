@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @micropost = current_user.microposts.create
+    @microposts = Micropost.page(params[:page]).per(6)
   end
 
   # private

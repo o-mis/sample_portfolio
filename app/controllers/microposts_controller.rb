@@ -3,16 +3,16 @@ class MicropostsController < ApplicationController
   before_action :has_micropost, only: :destroy
 
   def index
-    @microposts = Micropost.all
+    @microposts = Micropost.page(params[:page]).per(6)
   end
 
   def show
     @micropost = Micropost.find(params[:id])
   end
 
-  # def new
-  #   @micropost = Micropost.new
-  # end
+  def new
+    @micropost = Micropost.new
+  end
 
   def create
     @micropost = current_user.microposts.create!(micropost_params)
@@ -35,7 +35,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-      redirect_to microposts_url, notice: '投稿を削除しました'
+      redirect_to microposts_path, notice: '投稿を削除しました'
   end
 
   private
@@ -56,6 +56,6 @@ class MicropostsController < ApplicationController
 
   def has_micropost
     @micropost = current_user.microposts.find_by(params[:id])
-    redirect_to micropost_path if @micropost.nil?
+    redirect_to microposts_path if @micropost.nil?
   end
 end
