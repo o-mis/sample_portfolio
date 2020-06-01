@@ -25,17 +25,17 @@ class MicropostsController < ApplicationController
   end
 
   def update
-      if @micropost.update!(micropost_params)
-        redirect_to @micropost, notice: 'Micropost was successfully updated.'
-        render :show, status: :ok, location: @micropost
-      else
-        render :edit
-      end
+    if @micropost.update!(micropost_params)
+      redirect_to @micropost, notice: 'Micropost was successfully updated.'
+      render :show, status: :ok, location: @micropost
+    else
+      render :edit
+    end
   end
 
   def destroy
     @micropost.destroy
-      redirect_to microposts_path, notice: '投稿を削除しました'
+    redirect_to microposts_path, notice: '投稿を削除しました'
   end
 
   private

@@ -2,7 +2,12 @@
     <%=link_to "Contrail", root_path, class: "navbar-brand text-monospace" %>
       <li>
         <%=link_to class: "fa-heart" do %>
-          <i class="far fa-heart fa-lg"></i>
+          <i class="fas fa-heart fa-lg"></i>
+        <% end %>
+      </li>
+      <li>
+        <% link_to class: "fa-bookmark" do %>
+          <i class="fas fa-bookmark fa-lg"></i>
         <% end %>
       </li>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
@@ -16,6 +21,11 @@
                     <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
                   <% end %>
                 </li>
+                <%
+=begin%>
+ TODO CSSのbeforeを使って文字を入れる 
+<%
+=end%>
                 <li class="signedin-item">
                   <%= link_to "#", class: "signedin-item text-decoration-none" do %>
                     <i class="fas fa-map-marker-alt mr-2 nav-items"></i> マップ

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'likes/index'
+  get 'likes/create'
+  get 'likes/destroy'
   root 'static_pages#home'
   get 'users/show'
   get 'users', to: 'users#index'
@@ -19,5 +22,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :microposts, only: [:index, :show, :new, :create, :destroy]
+  resources :likes, only: [:index, :create, :destroy]
 
 end

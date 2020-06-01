@@ -37,12 +37,21 @@ header {
       list-style: none;
     }
     .fa-heart {
-      font-family: Font Awesome 5 Pro;
-      font-style: regular;
-      font-weight: 400;
+      font-family: "Font Awesome 5";
+      font-style: solid;
+      font-weight: 900;
       color: #222222;
     }
     .fa-heart:hover {
+      color: #89c3eb;
+    }
+    .fa-bookmark {
+      font-family: "Font Awesome 5";
+      font-style: solid;
+      font-weight: 900;
+      color: #222222;
+    }
+    .fa-bookmark:hover {
       color: #89c3eb;
     }
     .fa-bars {
@@ -168,6 +177,15 @@ main {
       display: block;
       padding: 5px 0;
     }
+  }
+  .heart-m {
+    font-family: "Font Awesome 5 Free";
+    font-style: solid;
+    font-weight: 900;
+    color: #9f9f9f;
+  }
+  .heart-m:hover {
+    color: #e60012;
   }
   .timestamp {
     color: #9f9f9f;

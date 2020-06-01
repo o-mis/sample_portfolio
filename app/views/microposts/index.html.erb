@@ -25,6 +25,9 @@
             <small class="text-muted">
               <%= link_to 'Show', micropost %>
               <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to class: "fa-heart" do %>
+                <i class="fas fa-heart heart-m"></i>
+              <% end %>
             </small>
           </p>
         </div>

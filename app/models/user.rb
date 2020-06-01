@@ -32,6 +32,7 @@ class User < ApplicationRecord
   # end
 
   has_many :microposts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }
 end
