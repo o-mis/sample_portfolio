@@ -13,7 +13,7 @@
               <ul class="navbar-nav">
                 <li class="signedin-item py-4">
                   <%= link_to current_user, class: "signedin-item text-decoration-none" do %>
-                    <i class="far fa-user-circle mr-2 nav-items"></i> マイページ
+                    <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
                   <% end %>
                 </li>
                 <li class="signedin-item">
