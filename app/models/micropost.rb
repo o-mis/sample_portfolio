@@ -1,6 +1,7 @@
 class Micropost < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
   validates :content, presence: true, length: { maximum: 140 }
   # validates :arrived_at, presence: true
   validates :restaurant, presence: true
@@ -10,5 +11,7 @@ class Micropost < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   enum arrived_at: { 昼: 0, 夜: 1 }
+
+
 
 end

@@ -13,6 +13,12 @@
         </div>
       </h6>
     </div>
+    <div>
+      <% @user.liked_posts.each do |micropost| %>
+        <%= micropost.user.name %>
+        <%= micropost.content %>
+      <% end %>
+    </div>
   </aside>
 </div>
 <div class="col-md-8">
@@ -24,4 +30,3 @@
       <%= paginate @microposts %>
   <% end %>
 </div>
-

@@ -8,6 +8,7 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
+    @like = Like.new
   end
 
   def new
@@ -16,7 +17,6 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.create!(micropost_params)
-
       if @micropost.save
         redirect_to microposts_path, notice: '投稿が完了しました'
       else

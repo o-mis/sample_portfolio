@@ -26,7 +26,7 @@ header {
       display: flex;
     }
     .navbar-brand {
-      color: #2c2c2c;
+      color: #4a4a4a;
       font-size: 28px;
       font-weight: bold;
     }
@@ -36,26 +36,17 @@ header {
     li {
       list-style: none;
     }
-    .fa-heart {
-      font-family: "Font Awesome 5";
-      font-style: solid;
-      font-weight: 900;
-      color: #222222;
-    }
-    .fa-heart:hover {
-      color: #89c3eb;
-    }
     .fa-bookmark {
-      font-family: "Font Awesome 5";
+      font-family: "Font Awesome 5 Free";
       font-style: solid;
       font-weight: 900;
-      color: #222222;
+      color: #555555;
     }
     .fa-bookmark:hover {
       color: #89c3eb;
     }
     .fa-bars {
-      color: #222222;
+      color: #555555;
       &:focus {
         outline: none;
       }
@@ -266,6 +257,19 @@ span.picture {
   font-size: 60px;
   color: #89c3eb;
   cursor: pointer;
+}
+
+.muted-heart {
+  font-family: Font Awesome 5 Free;
+  font-style: solid;
+  font-weight: 900;
+}
+
+.liked-heart {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
+  color: #d7003a;
 }
 
 

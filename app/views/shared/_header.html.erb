@@ -1,58 +1,55 @@
 <nav class="navbar sticky-top mb-4">
-    <%=link_to "Contrail", root_path, class: "navbar-brand text-monospace" %>
+    <%=link_to "Contrail", root_path, class: "navbar-brand text-monospace mr-auto" %>
       <li>
-        <%=link_to class: "fa-heart" do %>
-          <i class="fas fa-heart fa-lg"></i>
+        <%= link_to class: "fa-bookmark" do %>
+          <i class="fas fa-bookmark fa-lg mr-3"></i>
         <% end %>
       </li>
       <li>
-        <% link_to class: "fa-bookmark" do %>
-          <i class="fas fa-bookmark fa-lg"></i>
-        <% end %>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
       </li>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
         <div class="collapse navbar-collapse text-left" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
-              <ul class="navbar-nav">
-                <li class="signedin-item py-4">
-                  <%= link_to current_user, class: "signedin-item text-decoration-none" do %>
-                    <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
-                  <% end %>
-                </li>
+            <ul class="navbar-nav">
+              <li class="signedin-item py-4">
+                <%= link_to current_user, class: "signedin-item text-decoration-none" do %>
+                  <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
+                <% end %>
+              </li>
                 <%
 =begin%>
  TODO CSSのbeforeを使って文字を入れる 
 <%
 =end%>
-                <li class="signedin-item">
-                  <%= link_to "#", class: "signedin-item text-decoration-none" do %>
-                    <i class="fas fa-map-marker-alt mr-2 nav-items"></i> マップ
-                  <% end %>
-                </li>
-                <li class="signedin-item py-4">
-                  <%= link_to users_path, class: "signedin-item text-decoration-none" do %>
-                    <i class="fas fa-check mr-2 nav-items"></i> ユーザー
-                  <% end %>
-                </li>
-                <li class="signedin-item pb-2">
-                  <%= link_to destroy_user_session_path, method: :delete, class: "signedin-item text-decoration-none" do %>
-                    <span><i class="fas fa-power-off mr-2 nav-items"></i> ログアウト</span>
-                  <% end %>
-                </li>
+              <li class="signedin-item">
+                <%= link_to "#", class: "signedin-item text-decoration-none" do %>
+                  <i class="fas fa-map-marker-alt mr-2 nav-items"></i> マップ
+                <% end %>
+              </li>
+              <li class="signedin-item py-4">
+                <%= link_to users_path, class: "signedin-item text-decoration-none" do %>
+                  <i class="fas fa-check mr-2 nav-items"></i> ユーザー
+                <% end %>
+              </li>
+              <li class="signedin-item pb-2">
+                <%= link_to destroy_user_session_path, method: :delete, class: "signedin-item text-decoration-none" do %>
+                  <span><i class="fas fa-power-off mr-2 nav-items"></i> ログアウト</span>
+                <% end %>
+              </li>
           <% else %>
-                <li class="not-signedin-item pt-4 mb-3">
-                  <%= link_to new_user_session_path, class: "not-signedin-item text-decoration-none" do %>
-                    <i class="fas fa-sign-in-alt mr-2 nav-items"></i> ログイン
-                  <% end %>
-                </li>
-                <li class="not-signedin-item mb-5">
-                  <%= link_to users_guest_sign_in_path, method: :post, class: " not-signedin-item text-decoration-none" do %>
-                    <i class="fas fa-sign-in-alt mr-2 nav-items"></i> 簡単ログイン
-                  <% end %>
-                </li>
-              </ul>
+              <li class="not-signedin-item pt-4 mb-3">
+                <%= link_to new_user_session_path, class: "not-signedin-item text-decoration-none" do %>
+                  <i class="fas fa-sign-in-alt mr-2 nav-items"></i> ログイン
+                <% end %>
+              </li>
+              <li class="not-signedin-item mb-5">
+                <%= link_to users_guest_sign_in_path, method: :post, class: " not-signedin-item text-decoration-none" do %>
+                  <i class="fas fa-sign-in-alt mr-2 nav-items"></i> 簡単ログイン
+                <% end %>
+              </li>
+            </ul>
           <% end %>
         </div>
 </nav>

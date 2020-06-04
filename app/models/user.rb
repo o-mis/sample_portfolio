@@ -4,20 +4,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable
 
-  # def self.find_for_oauth(auth)
-  #   user = User.where(uid: auth.uid, provider: auth.provider).first
-
-  #   user ||= User.create(
-  #     provider: auth.provider,
-  #     uid: auth.uid,
-  #     username: auth.info.nickname,
-  #     email: User.dummy_email(auth),
-  #     password: Devise.friendly_token[0, 20]
-  #   )
-
-  #   user
-  # end
-
   def self.guest
     find_or_create_by!(name: 'guest', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -25,14 +11,15 @@ class User < ApplicationRecord
     end
   end
 
-  private
+  def already_liked?(micropost)
+    likes.exists?(micropost_id: micropost.id)
+  end
 
-  # def self.dummy_email(auth)
-  #   "#{auth.uid}-#{auth.provider}@example.com"
-  # end
+  private
 
   has_many :microposts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :micropost
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }
 end
