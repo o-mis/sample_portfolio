@@ -7,24 +7,10 @@
   <% end %>
 </p>
 
-<% if current_user.already_liked?(@post) %>
-  <%= link_to micropost_like_path(@micropost), class: "fa-heart", method: :delete do %>
-    <i class="fas fa-heart liked-heart"></i>
-  <% end %>
-<% else %>
-  <%= link_to micropost_likes_path(@micropost), class: "fa-heart" do %>
-    <i class="fas fa-heart muted-heart text-muted"></i>
-  <% end %>
-<% end %>
-
-<%= @micropost.liked_users.count %>
-
-
-
-
+<%= render "likes/like", micropost: @micropost %>
 
 <p>
   <%= @micropost.content %>
-</%>
+</p>
 
 <%= link_to 'Back', microposts_path %>

@@ -17,11 +17,12 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.create!(micropost_params)
-      if @micropost.save
-        redirect_to microposts_path, notice: '投稿が完了しました'
-      else
-        render :new
-      end
+    @micropost.user_id = current_user.id
+    if @micropost.save
+      redirect_to microposts_path, notice: '投稿が完了しました'
+    else
+      render :new
+    end
   end
 
   def update
@@ -40,7 +41,7 @@ class MicropostsController < ApplicationController
 
   private
 
-  # TODO ログインユーザーのみアクセス可能にする
+  # TODO: ログインユーザーのみアクセス可能にする
   # TODO マイクロポストのアクセス制御
 
   # Use callbacks to share common setup or constraints between actions.
@@ -54,7 +55,7 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:content, :arrived_at, :budget, :restaurant, :image)
   end
 
-  def has_micropost
+  def micropost?
     @micropost = current_user.microposts.find_by(params[:id])
     redirect_to microposts_path if @micropost.nil?
   end

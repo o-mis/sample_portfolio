@@ -1,10 +1,4 @@
-<%
-=begin%>
- <p id="notice"><%= notice %></p> 
-<%
-=end%>
-
-  <% provide(:title, "フィード") %>
+<% provide(:title, "フィード") %>
 
 <div class="card-group">
     <div class="card">
@@ -25,9 +19,7 @@
             <small class="text-muted">
               <%= link_to 'Show', micropost %>
               <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
-              <%= link_to class: "fa-heart" do %>
-                <i class="fas fa-heart muted-heart text-muted"></i>
-              <% end %>
+              <i class="fas fa-heart fa-fw liked-heart"></i>
               <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
             </small>
           </p>
@@ -36,11 +28,3 @@
     </div>
   </div>
 <%= paginate @microposts %>
-
-
-
-<%
-=begin%>
- <%= link_to '投稿する', microposts_path, method: :post %> 
-<%
-=end%>

@@ -12,6 +12,15 @@ class Micropost < ApplicationRecord
 
   enum arrived_at: { 昼: 0, 夜: 1 }
 
+  def like(user)
+    likes.create(user_id: user.id)
+  end
 
+  def unlike(user)
+    likes.find_by(user_id: user.id).destroy
+  end
 
+  def liked?(user)
+    liked_users.include?(user)
+  end
 end

@@ -272,7 +272,11 @@ span.picture {
   color: #d7003a;
 }
 
-
+.clear-decoration {
+  border: none;
+  outline: none;
+  background: transparent;
+}
 
 /* footer */
 .footer {
