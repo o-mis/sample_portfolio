@@ -259,17 +259,16 @@ span.picture {
   cursor: pointer;
 }
 
-.muted-heart {
-  font-family: Font Awesome 5 Free;
-  font-style: solid;
-  font-weight: 900;
-}
-
 .liked-heart {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
   color: #d7003a;
+}
+.muted-heart {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
 }
 
 .clear-decoration {
@@ -278,6 +277,17 @@ span.picture {
   background: transparent;
 }
 
+.bookmarked-btn {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
+  color: #007b43;
+}
+.muted-heart {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
+}
 /* footer */
 .footer {
     .footer-brand {

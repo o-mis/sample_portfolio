@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :micropost
+  has_many :bookmarks, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }

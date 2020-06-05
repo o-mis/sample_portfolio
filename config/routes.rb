@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   get 'likes/index'
   get 'likes/create'
   get 'likes/destroy'
@@ -23,4 +25,5 @@ Rails.application.routes.draw do
   resources :users
   resources :microposts, only: [:index, :show, :new, :create, :destroy]
   resources :likes, only: [:create, :destroy]
+  resources :bookmarks, only: [:create, :destroy]
 end
