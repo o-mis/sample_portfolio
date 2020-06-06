@@ -1,19 +1,15 @@
-<%# ユーザー一覧ページ #%>
+<% provide(:title, 'ユーザー一覧') %>
+<h5 class="text-center font-weight-bold">ユーザー一覧</h5>
 
-<p id="notice"><%= notice %></p>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'ユーザーの情報を見る', user %></td>
-        <td><%= link_to '編集する', edit_user_path(user) %></td>
-
-        <td><%= link_to '削除する', user_registration_path, method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+      <%= link_to '編集する', edit_user_path(user) %>
+      <%= link_to '削除する', user_registration_path, method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+    </li>
+  <% end %>
+</ul>
 
 <br>
 
