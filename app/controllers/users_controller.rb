@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy,
+                                        :following, :followers]
 
   def index
     @users = User.all
@@ -8,6 +9,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.page(params[:page])
+    @following = @user.following
+    @followers = @user.followers
   end
 
   # def new
@@ -49,6 +52,16 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.following
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
   end
 
   private

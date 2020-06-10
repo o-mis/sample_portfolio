@@ -22,8 +22,13 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  resources :users
-  resources :microposts, only: [:index, :show, :new, :create, :destroy]
-  resources :likes, only: [:create, :destroy]
-  resources :bookmarks, only: [:create, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,   only: [:create, :destroy]
+  resources :microposts,      only: [:index, :show, :new, :create, :destroy]
+  resources :likes,           only: [:create, :destroy]
+  resources :bookmarks,       only: [:create, :destroy]
 end

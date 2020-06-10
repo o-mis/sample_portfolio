@@ -14,4 +14,6 @@
   <%= @micropost.content %>
 </p>
 
-<%= link_to 'Back', microposts_path %>
+<%= link_to microposts_path do %>
+  <i class="fas fa-arrow-left fa-lg"></i>
+<% end %>

@@ -1,15 +1,12 @@
-<% provide(:title, 'ユーザー一覧') %>
-<h5 class="text-center font-weight-bold">ユーザー一覧</h5>
+<% provide(:title, 'すべてのユーザー') %>
+<h5 class="text-center font-weight-bold">すべてのユーザー</h5>
 
-<ul>
+<ul class="users-index">
   <% @users.each do |user| %>
     <li>
       <%= link_to user.name, user %>
-      <%= link_to '編集する', edit_user_path(user) %>
-      <%= link_to '削除する', user_registration_path, method: :delete, data: { confirm: '削除してよろしいですか？' } %>
     </li>
   <% end %>
 </ul>
 
-<br>
 

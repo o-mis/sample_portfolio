@@ -26,13 +26,11 @@ header {
       display: flex;
     }
     .navbar-brand {
-      color: #4a4a4a;
-      font-size: 28px;
-      font-weight: bold;
+      color: #353535;
+      font-size: 23px;
+      font-weight: 700;
     }
-    .navbar-brand:hover {
-      color: #89c3eb;
-    }
+
     li {
       list-style: none;
     }
@@ -270,6 +268,7 @@ span.picture {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
+  color: #7f7f7f;
 }
 
 .clear-decoration {
@@ -284,11 +283,73 @@ span.picture {
   font-weight: 900;
   color: #028760;
 }
-.muted-heart {
+.muted-bookmark {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
+  color: #7a7a7a
 }
+
+.fa-arrow-left {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
+  color: #89c3eb;
+}
+
+// Users/index
+.users-index {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #e7e7e7;
+  }
+}
+
+// Users/following
+.users-following {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #e7e7e7;
+  }
+}
+
+.follow-info {
+  font-size: 20px;
+}
+
+
+// Users/show
+.btn-edit {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.relationship {
+  color: #4a4a4a;
+}
+
+.profile span {
+  font-size: 25px;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+.btn-rela {
+  color: #89c3eb;
+  border: solid 2px #89c3eb;
+}
+.btn-rela:hover {
+  background: #dbedff;
+  color: #89c3eb;
+}
+
+
 /* footer */
 .footer {
     .footer-brand {
