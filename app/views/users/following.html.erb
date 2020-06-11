@@ -1,24 +1,17 @@
 <% provide(:title, 'フォロー中') %>
 
-<%= link_to users_path, class: "text-decoration-none" do %>
-  <i class="fas fa-arrow-left fa-lg"></i>
-<% end %>
+  <%= link_to current_user, class: "text-decoration-none" do %>
+    <i class="fas fa-arrow-left fa-lg"></i>
+  <% end %>
 <% if user_signed_in? %>
   <span class="follow-info font-weight-bold ml-4"><%= @user.name %></span>
 <% end %>
 
-<div class="mt-3">
+<div>
   <% if @users.any? %>
-    <h6 class="text-secondary text-center font-weight-bold">フォロー中</h6>
-    <ul class="users-following">
-      <%= @users.each do |user| %>
-        <li>
-        <%= link_to user.name, user %>
-        </li>
-      <% end %>
-    </ul>
+    <h6 class="text-secondary text-center font-weight-bold mt-5">フォロー中</h6>
+      <%= render partial: 'users/following_list', collection: @users, as: "user" %>
   <% else %>
-    <h6 class="text-center font-weight-bold">まだフォローしているユーザーがいません</h6>
-    <div class="text-muted text-center">フォローするとここに表示されます</div>
+    <%= render 'user/following_status' %>
   <% end %>
 </div>

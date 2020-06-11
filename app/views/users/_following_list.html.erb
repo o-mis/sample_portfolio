@@ -1,0 +1,16 @@
+<div class="users-following d-flex flex-row">
+  <div class="userName">
+    <%= link_to user.name, user %>
+  </div>
+  <div class="float-right list-btn">
+    <% if user_signed_in? && @users != current_user %>
+      <div id="follow_btn">
+        <% if current_user.following?(@users) %>
+          <%= render 'users/unfollow' %>
+        <% else %>
+          <%= render 'users/follow' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
