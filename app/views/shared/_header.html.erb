@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top mb-4">
     <%=link_to "Contrail", root_path, class: "navbar-brand mr-auto" %>
       <li>
-        <%= link_to class: "fa-bookmark" do %>
+        <%= link_to bookmarks_path, method: :get, class: "fa-bookmark" do %>
           <i class="fas fa-bookmark fa-lg"></i>
         <% end %>
       </li>
@@ -18,11 +18,6 @@
                   <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
                 <% end %>
               </li>
-                <%
-=begin%>
- TODO CSSのbeforeを使って文字を入れる 
-<%
-=end%>
               <li class="signedin-item">
                 <%= link_to "#", class: "signedin-item text-decoration-none" do %>
                   <i class="fas fa-map-marker-alt mr-2 nav-items"></i> マップ

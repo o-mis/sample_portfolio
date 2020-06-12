@@ -320,9 +320,6 @@ span.picture {
   border-bottom: 1px solid #e7e7e7;
 }
 
-.list-btn {
-  float: right;
-}
 
 .follow-info {
   font-size: 20px;
@@ -352,6 +349,11 @@ span.picture {
 .btn-rela:hover {
   background: #dbedff;
   color: #89c3eb;
+}
+
+.btn-rela-dis {
+  color: #404040;
+  border: solid 2px #89c3eb;
 }
 
 

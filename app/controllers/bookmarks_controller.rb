@@ -20,4 +20,8 @@ class BookmarksController < ApplicationController
       end
     end
   end
+
+  def index
+    @bookmarks = current_user.bookmarked_posts
+  end
 end

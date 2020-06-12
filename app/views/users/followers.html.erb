@@ -1,25 +1,15 @@
 <% provide(:title, 'フォロワー') %>
 
+<%= render 'users/link' %>
+
+<% if user_signed_in? %>
+  <span class="follow-info font-weight-bold ml-4"><%= @user.name %></span>
+<% end %>
 <div>
-  <%= link_to users_path, class: "text-decoration-none" do %>
-    <i class="fas fa-arrow-left fa-lg"></i>
-  <% end %>
-  <% if user_signed_in? %>
-    <span class="follow-info font-weight-bold ml-4"><%= @user.name %></span>
-  <% end %>
-</div>
-<div class="mt-4">
-  <% if @users.any? %>
-    <h5 class="text-secondary text-center font-weight-bold">フォロワー</h5>
-    <ul class="users-following">
-      <%= @users.each do |user| %>
-        <li>
-        <%= link_to user.name, user %>
-        </li>
-      <% end %>
-    </ul>
+  <% if @user.followers.any? %>
+    <h6 class="text-secondary text-center font-weight-bold mt-5">フォロワー</h6>
+      <%= render partial: 'users/followers_list', collection: @followers, as: 'user' %>
   <% else %>
-    <h5 class="text-center font-weight-bold">まだフォロワーがいません</h5>
-    <div class="text-muted text-center">フォローされるとここに表示されます</div>
+    <%= render 'users/followers_status' %>
   <% end %>
 </div>

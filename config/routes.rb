@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   resources :relationships,   only: [:create, :destroy]
   resources :microposts,      only: [:index, :show, :new, :create, :destroy]
   resources :likes,           only: [:create, :destroy]
-  resources :bookmarks,       only: [:create, :destroy]
+  resources :bookmarks,       only: [:index, :create, :destroy]
 end

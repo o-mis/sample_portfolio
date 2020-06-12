@@ -1,17 +1,15 @@
 <% provide(:title, 'フォロー中') %>
 
-  <%= link_to current_user, class: "text-decoration-none" do %>
-    <i class="fas fa-arrow-left fa-lg"></i>
-  <% end %>
+<%= render 'users/link' %>
+
 <% if user_signed_in? %>
   <span class="follow-info font-weight-bold ml-4"><%= @user.name %></span>
 <% end %>
-
 <div>
-  <% if @users.any? %>
+  <% if @user.following.any? %>
     <h6 class="text-secondary text-center font-weight-bold mt-5">フォロー中</h6>
-      <%= render partial: 'users/following_list', collection: @users, as: "user" %>
+      <%= render partial: 'users/following_list', collection: @following, as: "user" %>
   <% else %>
-    <%= render 'user/following_status' %>
+    <%= render 'users/following_status' %>
   <% end %>
 </div>

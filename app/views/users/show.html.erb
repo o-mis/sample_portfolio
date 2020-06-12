@@ -24,29 +24,12 @@
         <%= micropost.content %>
       <% end %>
     </div>
-    <%
-=begin%>
- <div class="relationship">
-      <% if following.any? %>
-        <%= render @followings %>
-      <% else %>
-        <div class="text-center">
-          まだフォローしていません
-        </div>
+    <div class="text-center">
+      <% @user.bookmarked_posts.each do |micropost| %>
+        <%= micropost.user.name %>
+        <%= micropost.content %>
       <% end %>
     </div>
-    <div class="relationship">
-      <% if @user.followers.any? %>
-        <%= render 'show_follow', objects: @followers %>
-      <% else %>
-        <div class="text-center">
-          まだフォロワーがいません
-        </div>
-      <% end %>
-    </div> 
-<%
-=end%>
-
     <div class="col-10">
       <% if @user.microposts.any? %>
         <h5>投稿</h5>
