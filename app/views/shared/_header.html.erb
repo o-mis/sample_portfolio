@@ -10,13 +10,18 @@
           <i class="fas fa-bars fa-lg"></i>
         </button>
       </li>
-        <div class="collapse navbar-collapse text-left" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
             <ul class="navbar-nav">
               <li class="signedin-item py-4">
                 <%= link_to current_user, class: "signedin-item text-decoration-none" do %>
                   <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
                 <% end %>
+              </li>
+              <li class="signedin-item mb-2">
+                <form>
+                  <input class="search-form mb-3" type="search" placeholder="&#xf002;キーワードで検索" aria-label="検索">
+                </form>
               </li>
               <li class="signedin-item">
                 <%= link_to "#", class: "signedin-item text-decoration-none" do %>

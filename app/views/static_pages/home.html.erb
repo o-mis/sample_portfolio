@@ -1,8 +1,12 @@
 <% provide(:title, "ホーム") %>
 
-<div class="search-form pb-4 pt-0">
+<%
+=begin%>
+ <div class="search-form pb-4 pt-0">
   <%= render 'search_bar' %>
-</div>
+</div> 
+<%
+=end%>
 
 <% @microposts.each do |micropost| %>
   <div class="card">
