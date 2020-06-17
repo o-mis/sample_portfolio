@@ -1,6 +1,7 @@
 # README
 
 Contrailは飲食店の口コミ投稿サイトです。
+ポートフォリオとして作成しました。
 
 Things you may want to cover:
 
