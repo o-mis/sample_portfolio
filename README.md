@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Contrailは飲食店の口コミ投稿サイトです。
 
 Things you may want to cover:
 
