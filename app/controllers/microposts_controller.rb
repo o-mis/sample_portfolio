@@ -11,6 +11,8 @@ class MicropostsController < ApplicationController
     @like = Like.new
   end
 
+  def search; end
+
   def new
     @micropost = Micropost.new
   end
