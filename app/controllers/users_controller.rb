@@ -3,6 +3,7 @@ class UsersController < ApplicationController
                                         :following, :followers]
 
   def index
+    @q = User.ransack(params[:q])
     @users = User.all
   end
 
@@ -13,9 +14,10 @@ class UsersController < ApplicationController
     @followers = @user.followers
   end
 
-  # def new
-  #   @user = User.new
-  # end
+  def search
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
+  end
 
   def edit
     @user = User.find(params[:id])

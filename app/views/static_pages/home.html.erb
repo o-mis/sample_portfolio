@@ -1,13 +1,5 @@
 <% provide(:title, "ホーム") %>
 
-<%
-=begin%>
- <div class="search-form pb-4 pt-0">
-  <%= render 'search_bar' %>
-</div> 
-<%
-=end%>
-
 <% @microposts.each do |micropost| %>
   <div class="card">
     <% if micropost.image.url %>

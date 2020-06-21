@@ -13,22 +13,22 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
             <ul class="navbar-nav">
-              <li class="signedin-item py-4">
+              <li class="signedin-item py-3">
                 <%= link_to current_user, class: "signedin-item text-decoration-none" do %>
                   <i class="far fa-user-circle mr-2 nav-items"></i><%= current_user.name %>
                 <% end %>
               </li>
-              <li class="signedin-item mb-2">
-                <form>
-                  <input class="search-form mb-3" type="search" placeholder="&#xf002;キーワードで検索" aria-label="検索">
-                </form>
+              <li class="signedin-item mb-3">
+                <%= link_to search_users_path, class: "signedin-item text-decoration-none" do %>
+                  <i class="fas fa-search mr-2 nav-items"></i> キーワードで検索
+                <% end %>
               </li>
-              <li class="signedin-item">
+              <li class="signedin-item mb-3">
                 <%= link_to "#", class: "signedin-item text-decoration-none" do %>
                   <i class="fas fa-map-marker-alt mr-2 nav-items"></i> マップ
                 <% end %>
               </li>
-              <li class="signedin-item py-4">
+              <li class="signedin-item pb-3">
                 <%= link_to users_path, class: "signedin-item text-decoration-none" do %>
                   <i class="fas fa-check mr-2 nav-items"></i> ユーザー
                 <% end %>
