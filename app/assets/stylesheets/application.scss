@@ -83,12 +83,10 @@ main {
   padding-bottom: 90px;
 }
 .search-form {
-  font-family: "Font Awesome 5 Free";
-  font-style: solid;
-  font-weight: 600;
-  border-top: none;
-  border-right: none;
-  border-left: none;
+  height: 40px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .fa-day::before {
@@ -307,7 +305,7 @@ span.picture {
   margin: 0;
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding: 20px 0;
     border-bottom: 1px solid #e7e7e7;
   }
 }

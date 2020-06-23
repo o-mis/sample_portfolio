@@ -57,8 +57,8 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:content, :arrived_at, :budget, :restaurant, :image)
   end
 
-  def micropost?
-    @micropost = current_user.microposts.find_by(params[:id])
+  def has_micropost
+    @micropost = current_user.microposts.find_by!(params[:id])
     redirect_to microposts_path if @micropost.nil?
   end
 end
