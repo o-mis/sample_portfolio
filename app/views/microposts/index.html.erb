@@ -1,8 +1,9 @@
 <% provide(:title, "フィード") %>
 
 <div class="row">
+  <% if @feed.any? %>
     <div class="col-12">
-        <% @microposts.each do |micropost| %>
+        <% @feed.each do |micropost| %>
           <div class="card mb-3">
             <% if micropost.image.url %>
               <%= image_tag micropost.image.to_s, class: "card-img-top" %>
@@ -27,5 +28,7 @@
           </div>
           </div>
         <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 <%= paginate @microposts %>

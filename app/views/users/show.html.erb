@@ -3,7 +3,11 @@
 <div class="row text-center">
     <div class="profile col-12 mb-5">
       <h6>
-        <%= gravatar_for @user %>
+        <% if current_user.avatar? %>
+          <%= image_tag current_user.avatar.url, size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
+        <% else %>
+          <%= image_tag 'no_avatar.png', size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
+        <% end %>
         <div class="text-center mt-2">
           <span><%= @user.name %></span>
           <% if current_user.id == @user.id %>
