@@ -6,9 +6,9 @@ class CreateLikes < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      add_index :user_id
-      add_index :micropost_id
-      add_index [:user_id, :micropost_id], unique: true
+      t.index :user_id
+      t.index :micropost_id
+      t.index [:user_id, :micropost_id], unique: true
     end
   end
 end
