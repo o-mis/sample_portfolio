@@ -1,14 +1,6 @@
 <% provide(:title, "ホーム") %>
 
-<%
-=begin%>
- <div class="search-form pb-4 pt-0">
-  <%= render 'search_bar' %>
-</div> 
-<%
-=end%>
-
-<% @microposts.each do |micropost| %>
+<% @feed.each do |micropost| %>
   <div class="card">
     <% if micropost.image.url %>
       <%= image_tag micropost.image.to_s, class: "card-img-top" %>
@@ -25,7 +17,7 @@
       <p class="card-text">
         <small class="text-muted">
           <%= link_to 'Show', micropost %>
-          <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: '削除してよろしいですか?' } %>
           <i class="fas fa-heart fa-fw liked-heart"></i>
           <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
         </small>
@@ -33,7 +25,7 @@
     </div>
   </div>
 <% end %>
-<%= paginate @microposts %>
+<%= paginate @feed %>
 
 <%= render 'microposts/modal' %>
 

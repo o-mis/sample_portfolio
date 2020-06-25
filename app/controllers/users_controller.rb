@@ -3,7 +3,8 @@ class UsersController < ApplicationController
                                         :following, :followers]
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = User.page(params[:page]).per(10)
   end
 
   def show
@@ -13,9 +14,10 @@ class UsersController < ApplicationController
     @followers = @user.followers
   end
 
-  # def new
-  #   @user = User.new
-  # end
+  def search
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page]).per(20)
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -77,6 +79,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 end

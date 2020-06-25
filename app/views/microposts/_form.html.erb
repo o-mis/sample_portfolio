@@ -1,17 +1,5 @@
 <%= form_with(model: micropost, local: true) do |f| %>
 
-  <%
-=begin%>
- <div id="error_explanation">
-    <ul>
-      <% micropost.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div> 
-<%
-=end%>
-
   <div class="field">
     <%= f.radio_button(:arrived_at, :昼) %>
     <%= label_tag(:arrived_at, "昼", class: "fa fa-day pr-3") %>
@@ -44,7 +32,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit class: "btn rounded-pill btn-micropost" %>
+    <%= f.submit "投稿する", class: "btn rounded-pill btn-micropost" %>
   </div>
 
 <% end %>
