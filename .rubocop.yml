@@ -4,20 +4,21 @@ require:
    - rubocop-rails
 
 AllCops:
-   TargetRubyVersion: 2.6
+   TargetRubyVersion: 2.6.3
 
    Exclude:
-      - 'db/migrate/*'
-      - 'vebdor/**/*'
-      - 'node_modules/**/*'
-      - 'test/**/*'
-      - 'db/**/*'
-      - 'spec/**/*'
       - 'bin/**'
       - 'config/**/*'
+      - 'db/**/*'
+      - 'lib/**'
+      - 'node_modules/**/*'
+      - 'spec/**/*'
+      - 'test/**/*'
+      - 'vendor/**/*'
 
-# Style/Documentation:
-#    Enabled: false
+
+Style/Documentation:
+   Enabled: false
 
 Style/ClassAndModuleChildren:
    Enabled: false
@@ -29,4 +30,7 @@ Style/FrozenStringLiteralComment:
    Enabled: false
 
 Style/AsciiComments:
+   Enabled: false
+
+Rails/InverseOf:
    Enabled: false

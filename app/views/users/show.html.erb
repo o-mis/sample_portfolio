@@ -9,9 +9,9 @@
           <%= image_tag 'no_avatar.png', size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
         <% end %>
         <div class="text-center mt-2">
-          <span><%= @user.name %></span>
+          <span class="mr-2"><%= @user.name %></span>
           <% if current_user.id == @user.id %>
-            <%= link_to edit_user_path(@user), class: "btn btn-edit btn-outline-secondary rounded-pill" do %>
+            <%= link_to edit_user_registration_path(@user), class: "btn btn-edit btn-outline-secondary rounded-pill ml-2" do %>
               プロフィールを編集
             <% end %>
           <% end %>

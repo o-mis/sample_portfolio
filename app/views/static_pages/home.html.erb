@@ -1,33 +1,10 @@
 <% provide(:title, "ホーム") %>
 
-<% @feed.each do |micropost| %>
-  <div class="card">
-    <% if micropost.image.url %>
-      <%= image_tag micropost.image.to_s, class: "card-img-top" %>
-    <% end %>
-    <div class="card-body">
-      <h6 class="card-title">
-        <% if micropost.restaurant %>
-          <small class="text-muted"><%= micropost.restaurant %></small>
-        <% end %>
-      </h6>
-      <p class="card-text">
-        <%= micropost.content %>
-      </p>
-      <p class="card-text">
-        <small class="text-muted">
-          <%= link_to 'Show', micropost %>
-          <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: '削除してよろしいですか?' } %>
-          <i class="fas fa-heart fa-fw liked-heart"></i>
-          <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
-        </small>
-      </p>
-    </div>
-  </div>
+<% if user_signed_in? %>
+  <%= render 'static_pages/signedin_home' %>
+<% else %>
+  <%= render 'static_pages/not_signedin_home' %>
 <% end %>
-<%= paginate @feed %>
-
-<%= render 'microposts/modal' %>
 
 
 

@@ -19,9 +19,9 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.create!(micropost_params)
-    @micropost.user_id = current_user.id
+
     if @micropost.save
-      redirect_to microposts_path, notice: '投稿が完了しました'
+      redirect_to users_show_path, notice: '投稿が完了しました'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class MicropostsController < ApplicationController
 
   def update
     if @micropost.update!(micropost_params)
-      redirect_to @micropost, notice: 'Micropost was successfully updated.'
+      redirect_to @micropost, notice: '投稿が編集されました'
       render :show, status: :ok, location: @micropost
     else
       render :edit
@@ -38,7 +38,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    redirect_to microposts_path, notice: '投稿を削除しました'
+    redirect_to root_path, notice: '投稿を削除しました'
   end
 
   private

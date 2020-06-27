@@ -11,10 +11,10 @@
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/ArgumentAlignment:
-  Exclude:
-    - 'bin/webpack'
-    - 'bin/webpack-dev-server'
+# Layout/ArgumentAlignment:
+#   Exclude:
+#     - 'bin/webpack'
+#     - 'bin/webpack-dev-server'
 
 
 # Offense count: 3
@@ -27,17 +27,17 @@ Layout/ArgumentAlignment:
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBrackets: space, no_space
-Layout/SpaceInsideArrayLiteralBrackets:
-  Exclude:
-    - 'config/environments/production.rb'
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Exclude:
+#     - 'config/environments/production.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Exclude:
-    - 'Gemfile'
-    - 'config/environments/test.rb'
+# Layout/TrailingWhitespace:
+#   Exclude:
+#     - 'Gemfile'
+#     - 'config/environments/test.rb'
 
 # Offense count: 1
 Metrics/AbcSize:
@@ -59,34 +59,33 @@ Metrics/PerceivedComplexity:
 # Offense count: 1
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: slashes, arguments
-Rails/FilePath:
-  Exclude:
-    - 'config/environments/development.rb'
+# Rails/FilePath:
+#   Exclude:
+#     - 'config/environments/development.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: NotNilAndNotEmpty, NotBlank, UnlessBlank.
-Rails/Present:
-  Exclude:
-    - 'bin/bundle'
+# Rails/Present:
+#   Exclude:
+#     - 'bin/bundle'
 
 # Offense count: 4
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/helpers/application_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
-    - 'config/application.rb'
+# Style/Documentation:
+#   Exclude:
+#     - 'spec/**/*'
+#     - 'test/**/*'
+#     - 'app/helpers/application_helper.rb'
+#     - 'app/mailers/application_mailer.rb'
+#     - 'app/models/application_record.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'bin/bundle'
-    - 'bin/rails'
-    - 'bin/rake'
+# Style/ExpandPathArguments:
+#   Exclude:
+#     - 'bin/bundle'
+#     - 'bin/rails'
+#     - 'bin/rake'
 
 # Offense count: 35
 # Cop supports --auto-correct.
@@ -97,21 +96,21 @@ Style/FrozenStringLiteralComment:
 
 # Offense count: 2
 # Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'bin/bundle'
+# Style/IfUnlessModifier:
+#   Exclude:
+#     - 'bin/bundle'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/PerlBackrefs:
-  Exclude:
-    - 'bin/bundle'
+# Style/PerlBackrefs:
+#   Exclude:
+#     - 'bin/bundle'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/RedundantBegin:
-  Exclude:
-    - 'bin/yarn'
+# Style/RedundantBegin:
+#   Exclude:
+#     - 'bin/yarn'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -122,23 +121,23 @@ Style/SpecialGlobalVars:
 
 # Offense count: 2
 # Cop supports --auto-correct.
-Style/StderrPuts:
-  Exclude:
-    - 'bin/yarn'
+# Style/StderrPuts:
+#   Exclude:
+#     - 'bin/yarn'
 
 # Offense count: 53
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
 # SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'bin/bundle'
-    - 'bin/webpack'
-    - 'bin/webpack-dev-server'
-    - 'bin/yarn'
-    - 'config/environments/production.rb'
-    - 'config/puma.rb'
-    - 'config/spring.rb'
+# Style/StringLiterals:
+#   Exclude:
+#     - 'bin/bundle'
+#     - 'bin/webpack'
+#     - 'bin/webpack-dev-server'
+#     - 'bin/yarn'
+#     - 'config/environments/production.rb'
+#     - 'config/puma.rb'
+#     - 'config/spring.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.

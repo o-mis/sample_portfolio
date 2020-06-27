@@ -181,18 +181,6 @@ main {
     margin-left: 60px;
     font-size: small;
   }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
-
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 10px;
-  }
 }
 
 span.picture {
@@ -206,15 +194,6 @@ span.picture {
   font-size: 20px;
   font-weight: normal;
 }
-.fa-user-edit {
-  color: #5f5f5f;
-}
-.fa-user-edit:hover {
-  color: #858585;
-}
-
-
-
 
 .field {
   width: 100%;
@@ -352,6 +331,21 @@ span.picture {
 .btn-rela-dis {
   color: #404040;
   border: solid 2px #89c3eb;
+}
+
+.avatar-selected {
+  display: none;
+}
+
+.user-avatar:hover {
+  filter: opacity(70%);
+  cursor: pointer;
+}
+
+.guest-alart {
+  color: #e5171f;
+  font-weight: bold;
+  font-size: 17px;
 }
 
 
