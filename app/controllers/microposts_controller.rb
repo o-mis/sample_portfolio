@@ -14,15 +14,16 @@ class MicropostsController < ApplicationController
   def search; end
 
   def new
-    @micropost = Micropost.new
+    @micropost = current_user.microposts.build if user_signed_in?
   end
 
   def create
-    @micropost = current_user.microposts.create!(micropost_params)
+    @micropost = current_user.microposts.build(micropost_params)
 
     if @micropost.save
-      redirect_to users_show_path, notice: '投稿が完了しました'
+      redirect_to root_path, notice: '投稿が完了しました'
     else
+      @feed = []
       render :new
     end
   end
@@ -54,7 +55,7 @@ class MicropostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
 
   def micropost_params
-    params.require(:micropost).permit(:content, :arrived_at, :budget, :restaurant, :image)
+    params.permit(:content, :arrived_at, :budget, :restaurant, :image)
   end
 
   def has_micropost

@@ -23,9 +23,9 @@
         </p>
       </div>
     </div>
-    <%= paginate @feed %>
-    <%= render 'microposts/modal' %>
   <% end %>
+  <%= paginate @feed %>
+  <%= render 'microposts/modal' %>
 <% else %>
     <%= render 'microposts/modal' %>
 <% end %>
