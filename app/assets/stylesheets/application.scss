@@ -92,10 +92,12 @@ main {
 .fa-day::before {
   font-family: Font Awesome 5;
   content: '\f185';
+  color: #ff870f;
 }
 .fa-night::before {
   font-family: Font Awesome 5 Free;
   content: '\f186';
+  color: #0f0fff;
 }
 
 #fab {

@@ -1,8 +1,8 @@
 <% if @feed.any? %>
   <% @feed.each do |micropost| %>
-    <div class="card">
+    <div class="card mb-2">
       <% if micropost.image.url %>
-        <%= image_tag micropost.image.to_s, class: "card-img-top" %>
+        <%= image_tag micropost.image.to_s, class: "card-img-top", alt: "投稿画像" %>
       <% end %>
       <div class="card-body">
         <h6 class="card-title">
@@ -15,10 +15,10 @@
         </p>
         <p class="card-text">
           <small class="text-muted">
+            <i class="fas fa-heart fa-fw liked-heart"></i>
+              <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
             <%= link_to 'Show', micropost %>
             <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: '削除してよろしいですか?' } %>
-            <i class="fas fa-heart fa-fw liked-heart"></i>
-            <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
           </small>
         </p>
       </div>
