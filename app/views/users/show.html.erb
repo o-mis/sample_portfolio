@@ -1,28 +1,57 @@
 <% provide(:title, @user.name) %>
 
-<div class="row text-center">
-  <div class="profile col-12 mb-5">
-    <h6>
-      <% if current_user.avatar? %>
-        <%= image_tag current_user.avatar.url, size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
-      <% else %>
-        <%= image_tag 'no_avatar.png', size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
-      <% end %>
-      <div class="text-center mt-2">
-        <span class="mr-2"><%= @user.name %></span>
-        <% if current_user.id == @user.id %>
-          <%= link_to edit_user_registration_path(@user), class: "btn btn-edit btn-outline-secondary rounded-pill ml-2" do %>
-            プロフィールを編集
-          <% end %>
+<div class="container">
+  <div class="row mx-auto text-center">
+    <div class="profile d-flex justify-content-center col-12 mb-5">
+      <h6>
+        <% if current_user.avatar? %>
+          <%= image_tag current_user.avatar.url, size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
+        <% else %>
+          <%= image_tag 'no_avatar.png', size: "160x160", class: "rounded-circle mb-3", alt: "avatar image" %>
         <% end %>
-        <%= render 'follow_btn' if user_signed_in? %>
+        <div class="text-center mt-2">
+          <span class="mr-2"><%= @user.name %></span>
+          <% if current_user.id == @user.id %>
+            <%= link_to edit_user_registration_path(@user), class: "btn btn-edit btn-outline-secondary rounded-pill ml-2" do %>
+              プロフィールを編集
+            <% end %>
+          <% end %>
+          <%= render 'follow_btn' if user_signed_in? %>
+        </div>
+        <div class="mt-3">
+          <%= render 'relationships' %>
+        </div>
+      </h6>
+    </div>
+
+    <!-- タブ部分 -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a href="#item1" id="posts-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="item1" aria-selected="true">投稿</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#item2" id="likes-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="item2" aria-selected="false">いいね</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#item3" id="bookmarks-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="item3" aria-selected="false">ブックマーク</a>
+      </li>
+    </ul>
+    
+    <!-- パネル部分 -->
+    <div class="tab-content mt-3">
+      <div id="item1" class="tab-pane active" role="tabpanel" aria-labelledby="posts-tab">
+        このスペースには投稿一覧を設置予定
       </div>
-      <div class="mt-3">
-        <%= render 'relationships' %>
+      <div id="item2" class="tab-pane" role="tabpanel" aria-labelledby="likes-tab">
+        プロフィールの文章です。...
       </div>
-    </h6>
-  </div>
-  <div class="text-center">
+      <div id="item3" class="tab-pane" role="tabpanel" aria-labelledby="bookmarks-tab">コンタクトの文章です。...</div>
+    </div>
+
+
+  <%
+=begin%>
+ <div class="text-center">
     <% @user.liked_posts.each do |micropost| %>
       <%= micropost.user.name %>
       <%= micropost.content %>
@@ -48,5 +77,8 @@
         <% end %>
       </div>
     </div>
+  </div> 
+<%
+=end%>
   </div>
 </div>
