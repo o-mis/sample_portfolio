@@ -3,16 +3,17 @@
 
 /* 共通 */
 *:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 /* body */
 body {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
-body, #wrapper {
+body,
+#wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -21,59 +22,59 @@ body, #wrapper {
 /* header */
 
 header {
-    display: block;
-    .navbar {
-      display: flex;
-    }
-    .navbar-brand {
-      color: #353535;
-      font-size: 23px;
-      font-weight: 700;
-    }
+  display: block;
+  .navbar {
+    display: flex;
+  }
+  .navbar-brand {
+    color: #353535;
+    font-size: 23px;
+    font-weight: 700;
+  }
 
-    li {
-      list-style: none;
+  li {
+    list-style: none;
+  }
+  .fa-bookmark {
+    font-family: "Font Awesome 5 Free";
+    font-style: solid;
+    font-weight: 900;
+    color: #555555;
+    margin-right: 30px;
+  }
+  .fa-bookmark:hover {
+    color: #89c3eb;
+  }
+  .fa-bars {
+    color: #555555;
+    &:focus {
+      outline: none;
     }
-    .fa-bookmark {
-      font-family: "Font Awesome 5 Free";
-      font-style: solid;
-      font-weight: 900;
-      color: #555555;
-      margin-right: 30px;
-    }
-    .fa-bookmark:hover {
-      color: #89c3eb;
-    }
-    .fa-bars {
-      color: #555555;
-      &:focus {
-        outline: none;
-      }
-    }
-    .fa-bars:hover {
-      color: #89c3eb;
-    }
-    .signedin-item {
-      color: #393939;
-      font-size: 18px;
-      font-weight: bold;
-      float: left;
-    }
-    .signedin-item span {
-      color: #6e6e6e;
-      font-weight: bold;
-    }
-    .not-signedin-item {
-      color: #3f3f3f;
-      font-size: 18px;
-      font-weight: bold;
-      padding-left: 25px;
-    }
-    .nav-items {
-      font-family: Font Awesome 5 Free;
-      font-style: solid;
-      font-weight: 900;
-    }
+  }
+  .fa-bars:hover {
+    color: #89c3eb;
+  }
+  .signedin-item {
+    color: #393939;
+    font-size: 18px;
+    font-weight: bold;
+    float: left;
+  }
+  .signedin-item span {
+    color: #6e6e6e;
+    font-weight: bold;
+  }
+  .not-signedin-item {
+    color: #3f3f3f;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 25px;
+  }
+  .nav-items {
+    font-family: Font Awesome 5 Free;
+    font-style: solid;
+    font-weight: 900;
+  }
 }
 
 /* main */
@@ -91,12 +92,12 @@ main {
 
 .fa-day::before {
   font-family: Font Awesome 5;
-  content: '\f185';
+  content: "\f185";
   color: #ff870f;
 }
 .fa-night::before {
   font-family: Font Awesome 5 Free;
-  content: '\f186';
+  content: "\f186";
   color: #0f0fff;
 }
 
@@ -107,19 +108,20 @@ main {
   background: #89c3eb;
   // text-align: center;
   border-radius: 50%;
-  transition: .3s;
+  transition: 0.3s;
   text-decoration: none;
   align-items: center;
   // justify-content: center;
   position: fixed;
   right: 54px;
   bottom: 54px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   border-color: transparent !important;
 }
 #fab:hover {
   // background-color: #bbe2f1;
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
   // -webkit-transform: translateY(1px);
   // transform: translateY(1px);
   // border-bottom: none;
@@ -153,7 +155,7 @@ main {
   padding: 0;
   li {
     padding: 5px 0;
-      border-top: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
   }
   .user {
     margin-top: 5em;
@@ -221,7 +223,6 @@ span.picture {
   font-size: 15px;
 }
 
-
 .form-content {
   height: 80px;
 }
@@ -266,7 +267,7 @@ span.picture {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
-  color: #7a7a7a
+  color: #7a7a7a;
 }
 
 .fa-arrow-left {
@@ -299,11 +300,9 @@ span.picture {
   border-bottom: 1px solid #e7e7e7;
 }
 
-
 .follow-info {
   font-size: 20px;
 }
-
 
 // Users/show
 .btn-edit {
@@ -350,17 +349,16 @@ span.picture {
   font-size: 17px;
 }
 
-
 /* footer */
 .footer {
-    .footer-brand {
-      color: #89c3eb;
-      font-size: medium;
-      font-weight: bold;
-    }
-    small {
-      color: #7a7a7a;
-    }
+  .footer-brand {
+    color: #89c3eb;
+    font-size: medium;
+    font-weight: bold;
+  }
+  small {
+    color: #7a7a7a;
+  }
 }
 
 /*
