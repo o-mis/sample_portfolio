@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  avatar                 :string(255)
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  email                  :string(255)
+#  encrypted_password     :string(255)      default(""), not null
+#  name                   :string(255)      default(""), not null
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string(255)
+#  unconfirmed_email      :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :validatable, :confirmable, :omniauthable
@@ -15,8 +39,12 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  validates :name, presence: true, length: { maximum: 10 }
-  validates :email, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 10 }, uniqueness: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, presence: true,
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false },
+                    length: { maximum: 255 }
 
   mount_uploader :avatar, AvatarUploader
 

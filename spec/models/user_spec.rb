@@ -1,12 +1,40 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  avatar                 :string(255)
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  email                  :string(255)
+#  encrypted_password     :string(255)      default(""), not null
+#  name                   :string(255)      default(""), not null
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string(255)
+#  unconfirmed_email      :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
 require 'rails_helper'
 
-RSpec.it User, type: :model do
+RSpec.describe User, type: :model do
   before do
     @user = build(:user)
   end
 
+  it '有効なファクトリを持つこと' do
+    expect(build(:user)).to be_valid
+  end
+
   it 'ユーザー名、メールアドレス、パスワードが有効であること' do
-    user = User.create(
+    user = User.new(
                 name: 'テストユーザー',
                 email: 'test@example.com',
                 password: 'password'
@@ -16,54 +44,57 @@ RSpec.it User, type: :model do
 
   describe '存在性の検証' do
     it 'ユーザー名が無ければ無効であること' do
-      @user.name = nil
+      @user.name = ''
       @user.valid?
-      expect(@user).to_not be_valid
+      expect(@user.errors).to be_of_kind(:name, :blank)
     end
 
     it 'メールアドレスが無ければ無効であること' do
-      @user.email = nil
+      @user.email = ''
       @user.valid?
-      expect(@user).to_not be_valid
+      expect(@user.errors).to be_of_kind(:email, :blank)
+    end
+
+    it 'パスワードが無ければ無効であること' do
+      @user.password = @user.password_confirmation = '' * 6
+      @user.valid?
+      expect(@user.errors).to be_of_kind(:password, :blank)
     end
   end
 
-  describe '形式の検証' do
-    it 'ユーザー名が正当な形式であれば有効であること' do
-      valid_usernames = %w[aaaa aaaa_ aaaa0]
-      valid_usernames.each do |valid_username|
-        @user.name = valid_username
-        expect(@user).to be_valid
-    end
-    it 'ユーザー名が不正な形式であれば無効であること' do
-      invalid_usernames = %w[aaaa- aaaa+ aaaa! aaaa? aaaa@ aaaa# aaaa$ aaaa%
-                              aaaa` aaaa& aaaa* aaaa, aaaa. ああああ]
-      invalid_usernames.each do |invalid_username|
-        @user.name = invalid_username
-        expect(@user).to_not be_valid
-    end
+  describe 'フォーマットの検証' do
     it 'メールアドレスが正当な形式であれば有効であること' do
-      valid_emails = %w[spec@example.com SPEC@example.COM S_PE-C@example.foo.org
-                        s.pec@example.jp spec_123@example.com spec+spec@example.com]
+      valid_emails = %w[example@example.com EXAMPLE@example.COM EX_AMPL_E@example.foo.org
+                        e.xample@example.jp example_123@example.com example+foo@example.com]
       valid_emails.each do |valid_email|
         @user.email = valid_email
         expect(@user).to be_valid
+      end
     end
+
     it 'メールアドレスが不正な形式であれば無効であること' do
-      invalid_emails = %[spec@example,com SPEC@example. spec@example-com spec@example+com
-                          spec@example spえc@example.com spec@exあmple.com]
+      invalid_emails = %[test@example,com test@example. test@example-com test@example+com
+                        tえst@example.com test@exあmple.com]
       invalid_emails.each do |invalid_email|
         @user.email = invalid_email
-        expect(@user).to_not be_valid
+        expect(@user.errors).to be_of_kind(:email, :invalid)
+      end
     end
   end
 
   describe '一意性の検証' do
+    it '重複したユーザー名なら無効であること' do
+      user = create(:user, name: 'テストユーザー')
+      duplicate_user = create(:user, name: 'テストユーザー')
+      duplicate_user.valid?
+      expect(duplicate_user.errors).to be_of_kind(:name, :taken)
+    end
+
     it '重複したメールアドレスなら無効であること' do
       user = create(:user, email: 'test@example.com')
-      same_user = build(:user, email: 'test@example.com')
-      same_user.valid?
-      expect(same_user).to_not be_valid
+      duplicate_user = build(:user, email: 'test@example.com')
+      duplicate_user.valid?
+      expect(duplicate_user.errors).to be_of_kind(:email, :taken)
     end
   end
 
@@ -72,46 +103,31 @@ RSpec.it User, type: :model do
       @user.name = 'a' * 10
       expect(@user).to be_valid
     end
+
     it 'ユーザー名が10文字以上なら無効であること' do
       @user.name = 'a' * 11
       expect(@user).to_not be_valid
     end
+
     it 'メールアドレスは255文字以内であれば有効であること' do
-      @user.email = 'a' * 255
+      @user.email = 'a' * 243 + '@example.com'
       expect(@user).to be_valid
     end
+
     it 'メールアドレスが255字以上なら無効であること' do
-      @user.email = 'a' * 256
+      @user.email = 'a' * 244 + '@example.com'
+      @user.valid?
       expect(@user).to_not be_valid
     end
-  end
 
-  describe'依存性の検証' do
-    it 'ユーザーを削除すると投稿も削除される' do
-      user = create(:user, :with_micropost, micropost_count: 1)
-      expect { user.destroy }.to change(Micropost, :count).by(-1)
+    it 'パスワードが6文字以上であれば有効であること' do
+      @user.password = @user.password_confirmation = 'a' * 6
+      expect(@user).to be_valid
     end
-    it 'ユーザーを削除するといいね履歴も削除される' do
-      user = create(:user)
-      micropost = create(:micropost)
-      user.like(:micropost)
-      expect { micropost.liked? }.to change(Like, :count).by(-1)
-    end
-    it 'ユーザーを削除するとブックマーク履歴も削除される' do
-      user = create(:user, :with_bookmark, bookmark_count: 1)
-      expect { user.destroy }.to change(Bookmark, :count).by(-1)
-    end
-    it 'ユーザーを削除すると他のユーザーとのフォロー関係も削除される' do
-      user = create(:user)
-      following_user = create(:user)
-      user.follow(following_user)
-      expect { user.destroy }.to change(following_user.followers.count).by(-1)
-    end
-    it 'ユーザーを削除すると他のユーザーとのフォロワー関係も削除される' do
-      user = create(:user)
-      follower_user = create(:user)
-      follower_user.follow(user)
-      expect { user.destroy }.to change(follower_user.followings.count).by(-1)
+
+    it 'パスワードが6文字未満であれば無効であること' do
+      @user.password = @user.password_confirmation = 'a' * 5
+      expect(@user.errors).to be_of_kind(:password, :too_short)
     end
   end
 end

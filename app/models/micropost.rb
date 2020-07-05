@@ -1,13 +1,26 @@
+# == Schema Information
+#
+# Table name: microposts
+#
+#  id         :bigint           not null, primary key
+#  arrived_at :integer          default("昼"), not null
+#  budget     :decimal(5, 3)
+#  content    :text(65535)      not null
+#  image      :string(255)
+#  restaurant :text(65535)      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
 class Micropost < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_users, through: :bookmarks, source: :user
-  validates :content, presence: true, length: { maximum: 140 }
-  # validates :arrived_at, presence: true
+  validates :content, presence: true, length: { maximum:  150 }
+  validates :arrived_at, presence: true
   validates :restaurant, presence: true
-  validates :image, presence: true
 
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
