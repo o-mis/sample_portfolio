@@ -24,8 +24,8 @@ RSpec.describe Micropost, type: :model do
   it '利用時間帯、予算、コメント、画像が有効であること' do
     user = create(:user)
     micropost = Micropost.new(
-      arrived_at: = '昼'
-      budget: '~¥999'
+      arrived_at: '昼',
+      budget: '~¥999',
       content: '本当に美味しかった',
       image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpg')),
       restaurant: 'Contrail 神楽坂店'
