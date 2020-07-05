@@ -1,4 +1,6 @@
-<%# homeに移動 %>
+<%
+=begin%>
+ <%# homeに移動 %>
 
 <div class="row">
   <% if @feed.any? %>
@@ -32,4 +34,6 @@
   <% end %>
 </div>
 <%= paginate @microposts %>
-
+ 
+<%
+=end%>
