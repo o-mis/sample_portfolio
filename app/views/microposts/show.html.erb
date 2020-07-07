@@ -1,34 +1,11 @@
-<%
-=begin%>
- <% provide(:title, @micropost.restaurant) %>
-<div id="notice"><%= notice %></p>
-
 <div class="container">
   <div class="card">
     <% if @micropost.image.url %>
       <%= image_tag @micropost.image.url, class: "card-img-top", alt: "投稿画像" %>
     <% end %>
-    <div class="card-body">
-      <h6 class="card-title"></h6>
-      <p class="card-text">
-      </p>
-      <p class="card-text">
-        <small class="text-muted">
-            <i class="fas fa-heart fa-fw liked-heart"></i>
-            <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
-        </small>
-      </p>
+    <div class="d-flex flex-row card-body">
+        <%= render "likes/like", micropost: @micropost %>
+        <%= render "bookmarks/bookmark", micropost: @micropost %>
     </div>
   </div>
 </div>
-
-
-
-<%= render "likes/like", micropost: @micropost %>
-<%= render "bookmarks/bookmark", micropost: @micropost %> 
-<%
-=end%>
-
-<%= link_to :back do %>
-  <i class="fas fa-arrow-left fa-lg"></i>
-<% end %>

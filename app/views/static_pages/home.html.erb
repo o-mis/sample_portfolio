@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
   <%= render 'static_pages/signedin_home' %>
+  <%= render 'microposts/modal' %>
 <% else %>
   <%= render 'static_pages/not_signedin_home' %>
 <% end %>

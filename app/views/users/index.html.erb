@@ -8,7 +8,7 @@
       <% unless user.avatar? %>
         <%= link_to image_tag("no_avatar.png", size: "60x60", class: "rounded-circle mr-3", alt: "avatar image"), user_path(user) %>
       <% end %>
-      <%= link_to user.name, user %>
+      <%= link_to user.name, user, class: "user-index text-secondary font-weight-bold" %>
     </li>
   <% end %>
 </ul>

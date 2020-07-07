@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :microposts,      only: [:index, :show, :new, :create, :destroy] do
+  resources :microposts,      only: [:show, :new, :create, :destroy] do
     collection do
       get :search
     end

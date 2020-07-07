@@ -9,6 +9,7 @@ class MicropostsController < ApplicationController
   def show
     @micropost = Micropost.find(params[:id])
     @like = Like.new
+    @bookmark = Bookmark.new
   end
 
   def search; end

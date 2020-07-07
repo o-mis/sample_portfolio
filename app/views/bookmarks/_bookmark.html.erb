@@ -1,7 +1,7 @@
 <% if micropost.bookmarked?(current_user) %>
   <%= form_for(micropost.bookmarks.find_by(user_id: current_user.id), method: :delete, remote: true) do %>
     <%= button_tag type: 'submit', class: "btn-bookmark clear-decoration" do %>
-      <i class="fas fa-bookmark bookmarked-btn"></i>
+      <i class="fas fa-bookmark fa-lg bookmarked-btn"></i>
     <% end %>
     <span class="text-muted"><%= micropost.bookmarks.count %></span>
   <% end %>
@@ -9,7 +9,7 @@
   <%= form_for(micropost.bookmarks.build, remote: true) do |f| %>
     <div><%= hidden_field_tag :micropost_id, micropost.id %>
     <%= button_tag type: 'submit', class: "btn-bookmark clear-decoration" do %>
-      <i class="fas fa-bookmark muted-bookmark"></i>
+      <i class="fas fa-bookmark fa-lg muted-bookmark"></i>
     <% end %>
     <span class="text-muted"><%= micropost.bookmarks.count %></span>
   <% end %>

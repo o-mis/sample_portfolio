@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "microposts";
 
+$main-color: #89c3eb;
+
 /* 共通 */
 *:focus {
   outline: none !important;
@@ -43,7 +45,7 @@ header {
     margin-right: 30px;
   }
   .fa-bookmark:hover {
-    color: #89c3eb;
+    color: $main-color;
   }
   .fa-bars {
     color: #555555;
@@ -52,7 +54,7 @@ header {
     }
   }
   .fa-bars:hover {
-    color: #89c3eb;
+    color: $main-color;
   }
   .signedin-item {
     color: #393939;
@@ -135,7 +137,7 @@ main {
 }
 
 .btn-micropost {
-  background-color: #89c3eb;
+  background-color: $main-color;
   color: #ffffff;
   float: right;
   margin-bottom: 3px;
@@ -234,7 +236,7 @@ span.picture {
   font-style: regular;
   font-weight: 400;
   font-size: 60px;
-  color: #89c3eb;
+  color: $main-color;
   cursor: pointer;
 }
 
@@ -274,7 +276,7 @@ span.picture {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
-  color: #89c3eb;
+  color: $main-color;
   margin-left: 20px;
 }
 .fa-arrow-left:hover {
@@ -321,8 +323,8 @@ span.picture {
 }
 
 .btn-rela {
-  color: #89c3eb;
-  border: solid 2px #89c3eb;
+  color: $main-color;
+  border: solid 2px $main-color;
 }
 .btn-rela:hover {
   background: #dbedff;
@@ -331,7 +333,7 @@ span.picture {
 
 .btn-rela-dis {
   color: #404040;
-  border: solid 2px #89c3eb;
+  border: solid 2px $main-color;
 }
 
 .avatar-selected {
@@ -349,10 +351,14 @@ span.picture {
   font-size: 17px;
 }
 
+// Users index
+.user-index {
+  font-size: 19px;
+}
 /* footer */
 .footer {
   .footer-brand {
-    color: #89c3eb;
+    color: $main-color;
     font-size: medium;
     font-weight: bold;
   }
