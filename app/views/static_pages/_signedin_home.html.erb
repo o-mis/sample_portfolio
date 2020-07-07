@@ -1,29 +1,38 @@
 <% if @feed.any? %>
   <% @feed.each do |micropost| %>
+
     <div class="card mb-2">
       <% if micropost.image.url %>
         <%= image_tag micropost.image.to_s, class: "card-img-top", alt: "投稿画像" %>
       <% end %>
+
       <div class="card-body">
-        <h6 class="card-title">
-          <% if micropost.restaurant %>
-            <small class="text-muted"><%= micropost.restaurant %></small>
+        <div class="post-user">
+          <% if current_user.avatar? %>
+            <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+          <% else %>
+            <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
           <% end %>
-        </h6>
-        <p class="card-text">
+          <%= link_to micropost.user.name, micropost.user, class: "post-avatar text-secondary" %>
+          <% if micropost.restaurant %>
+            <small class="text-muted ml-2"><%= micropost.restaurant %></small>
+          <% end %>
+        </div>
+        <div class="post-content ml-2 mb-3">
           <%= micropost.content %>
-        </p>
-        <p class="card-text">
+        </div>
+        <div class="post-info ml-2">
           <small class="text-muted">
             <i class="fas fa-heart fa-lg liked-heart"></i>
               <%= micropost.liked_users.count %> <small class="text-muted">いいねの数</small>
             <%= link_to 'Show', micropost %>
             <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: '削除してよろしいですか?' } %>
           </small>
-        </p>
+        </div>
       </div>
     </div>
   <% end %>
+
   <%= paginate @feed %>
   <%= render 'microposts/modal' %>
 <% else %>
