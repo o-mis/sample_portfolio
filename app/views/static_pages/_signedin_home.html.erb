@@ -15,8 +15,8 @@
         </p>
         <p class="card-text">
           <small class="text-muted">
-            <i class="fas fa-heart fa-fw liked-heart"></i>
-              <%= micropost.liked_users.count %><small class="text-muted">いいねの数</small>
+            <i class="fas fa-heart fa-lg liked-heart"></i>
+              <%= micropost.liked_users.count %> <small class="text-muted">いいねの数</small>
             <%= link_to 'Show', micropost %>
             <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: '削除してよろしいですか?' } %>
           </small>
