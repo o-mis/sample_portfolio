@@ -1,22 +1,3 @@
 <% provide(title: 'ブックマーク') %>
 
-<% if current_user.bookmarked_posts.any? %>
-  <div class="row">
-    <% current_user.bookmarked_posts.each do |micropost| %>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="card mb-1">
-            <%= link_to image_tag(micropost.image.to_s, size: '230x230') %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="text-center font-weight-bold">
-    まだブックマークがありません
-  </div>
-  <div class="text-muted text-center">
-    投稿をブックマークするとここに表示されます
-  </div>
-<% end %>
+<%= render 'shared/bookmark_tab' %>
