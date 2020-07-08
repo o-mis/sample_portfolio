@@ -240,12 +240,23 @@ span.picture {
   cursor: pointer;
 }
 
+.fa-angle-down {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
+}
+
+.angle-down {
+  color: #4e4d4d;
+}
+
 .liked-heart {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
   color: #d7003a;
 }
+
 .muted-heart {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
@@ -263,7 +274,7 @@ span.picture {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
-  color: #028760;
+  color: #3f3f3f;
 }
 .muted-bookmark {
   font-family: "Font Awesome 5 Free";
@@ -281,6 +292,10 @@ span.picture {
 }
 .fa-arrow-left:hover {
   color: #dbedff;
+}
+
+.details-avatar {
+  font-size: 20px;
 }
 
 // Users/index

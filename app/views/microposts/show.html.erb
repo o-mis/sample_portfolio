@@ -1,3 +1,18 @@
+<div class="container mx-sm-auto" style="max-width: 700px">
+  <%= render 'microposts/post_detail', object: @micropost %>
+</div>
+
+
+<%
+=begin%>
+ 
+<div class="post-avatar">
+  <% if micropost.user.avatar? %>
+    <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+  <% else %>
+    <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+  <% end %>
+</div>
 <div class="container">
   <div class="card">
     <% if @micropost.image.url %>
@@ -8,4 +23,6 @@
         <%= render "bookmarks/bookmark", micropost: @micropost %>
     </div>
   </div>
-</div>
+</div> 
+<%
+=end%>
