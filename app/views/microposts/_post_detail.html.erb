@@ -1,21 +1,83 @@
-<div class="d-flex align-items-center">
-  <% if object.user.avatar? %>
-    <%= link_to image_tag(object.user.avatar.url, size: "55x55", class: "rounded-circle", alt: "avatar image"), object.user %>
-  <% else %>
-    <%= link_to image_tag('no_avatar.png', size: "55x55", class: "post-avatar rounded-circle", alt: "avatar image"), object.user %>
-  <% end %>
-  <div class="ml-2">
-    <%= link_to object.user.name, object.user, class: "details-avatar text-secondary" %>
-  </div>
-
-  <% if user_signed_in? %>
-    <div class="dropdown ml-5">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
-        <i class="fas fa-lg fa-angle-down angle-down"></i>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "dropdown-item" %>
-      </div>
+<%
+=begin%>
+ <div class="container">
+  <div class="d-flex align-items-center">
+    <% if object.user.avatar? %>
+      <%= link_to image_tag(object.user.avatar.url, size: "55x55", class: "rounded-circle", alt: "avatar image"), object.user %>
+    <% else %>
+      <%= link_to image_tag('no_avatar.png', size: "55x55", class: "post-avatar rounded-circle", alt: "avatar image"), object.user %>
+    <% end %>
+    <div class="ml-2">
+      <%= link_to object.user.name, object.user, class: "details-avatar text-secondary" %>
     </div>
-  <% end %>
-</div>
+
+    <% if current_user.id == object.user.id %>
+      <div class="dropdown ml-5">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
+          <i class="fas fa-lg fa-angle-down angle-down"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "dropdown-item" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div>
+      <% if object.image.url %>
+        <%= image_tag object.image.url, alt: "投稿画像" %>
+      <% end %>
+    </div>
+  </div>
+</div> 
+<%
+=end%>
+  <div class="card mb-2">
+    <% if object.image.url %>
+      <%= image_tag object.image.url, class: "card-img-top", alt: "投稿画像" %>
+    <% end %>
+      <div class="card-body">
+        <div class="post-user">
+          <% if object.user.avatar? %>
+            <%= link_to image_tag(object.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), object.user %>
+          <% else %>
+            <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), object.user %>
+          <% end %>
+          <%= link_to object.user.name, object.user, class: "text-secondary" %>
+          <% if object.restaurant %>
+            <small class="text-muted ml-2"><%= object.restaurant %></small>
+          <% end %>
+
+          <% if object.arrived_at == "昼" %>
+            <span style="color: Tomato">
+              <i class="fas fa-sun fa-lg arrived-icon"></i>
+            </span>
+          <% else %>
+            <span style="color: Darkblue">
+              <i class="fas fa-moon fa-lg arrived-icon"></i>
+            <span>
+          <% end %>
+        </div>
+          <% if current_user.id == object.user.id %>
+            <div class="dropdown ml-5">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
+                <i class="fas fa-lg fa-angle-down angle-down"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "dropdown-item" %>
+              </div>
+            </div>
+          <% end %>
+
+        <div class="post-content ml-2 mb-3">
+          <%= object.content %>
+        </div>
+        <div class="post-content">
+          <%= object.budget %>
+        </div>
+
+        <div class="post-info d-flex flex-row">
+          <%= render "likes/like", micropost: @micropost %>
+          <%= render "bookmarks/bookmark", micropost: @micropost %>
+        </div>
+      </div>
+  </div>
