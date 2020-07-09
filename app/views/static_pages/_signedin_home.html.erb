@@ -17,6 +17,16 @@
           <% if micropost.restaurant %>
             <small class="text-muted ml-2"><%= micropost.restaurant %></small>
           <% end %>
+
+          <% if micropost.arrived_at == "昼" %>
+            <span style="color: Tomato">
+              <i class="fas fa-sun fa-lg arrived-icon"></i>
+            </span>
+          <% else %>
+            <span style="color: Darkblue">
+              <i class="fas fa-moon fa-lg arrived-icon"></i>
+            <span>
+          <% end %>
         </div>
         <div class="post-content ml-2 mb-3">
           <%= micropost.content %>

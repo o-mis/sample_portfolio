@@ -6,8 +6,8 @@
     <%= label_tag(:arrived_at, "夜", class: "fa fa-night") %>
   </div>
 
-  <div class="field">
-    <%= f.label :budget, "予算" %>
+  <div class="field mt-3">
+    <%= f.label :budget, "予算 (必須)" %>
     <%= f.select :budget, [['〜¥999', 1],
                           ['¥1,000〜¥1,999', 2],
                           ['¥2,000〜¥2,999', 3],
@@ -20,16 +20,16 @@
                           ['¥9,000〜¥9,999', 10],
                           ['¥10,000〜¥19,999', 11],
                           ['¥20,000〜¥29,999', 12],
-                          ['¥30,000〜', 13]], { prompt: "" }, { class: "form-control rounded" } %>
+                          ['¥30,000〜', 13]], { prompt: "選択してください" }, { class: "form-control rounded" } %>
   </div>
 
-  <div class="field mt-5">
+  <div class="field mt-3">
     <%= f.label :restaurant, "店舗名" %>
     <%= f.text_field :restaurant, class: "form-control rounded", required: true %>
   </div>
 
   <div class="field my-5">
-    <%= f.label :content, "投稿内容" %>
+    <%= f.label :content, "コメント(必須)" %>
     <%= f.text_area :content, class: "form-control rounded form-content", placeholder: "このお店の評価を投稿しましょう(140字以内)", required: true %>
   </div>
 
