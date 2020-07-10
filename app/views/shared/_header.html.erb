@@ -45,12 +45,17 @@
               </li>
           <% else %>
               <li class="not-signedin-item pt-4 mb-3">
+                <%= link_to search_users_path, class: "not-signedin-item text-decoration-none" do %>
+                  <i class="fas fa-search mr-2 nav-items"></i> キーワードで検索
+                <% end %>
+              </li>
+              <li class="not-signedin-item mb-3">
                 <%= link_to new_user_session_path, class: "not-signedin-item text-decoration-none" do %>
                   <i class="fas fa-sign-in-alt mr-2 nav-items"></i> ログイン
                 <% end %>
               </li>
               <li class="not-signedin-item mb-5">
-                <%= link_to users_guest_sign_in_path, method: :post, class: " not-signedin-item text-decoration-none" do %>
+                <%= link_to users_guest_sign_in_path, method: :post, class: "not-signedin-item text-decoration-none" do %>
                   <i class="fas fa-sign-in-alt mr-2 nav-items"></i> 簡単ログイン
                 <% end %>
               </li>

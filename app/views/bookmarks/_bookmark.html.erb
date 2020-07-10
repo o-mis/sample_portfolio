@@ -3,7 +3,6 @@
     <%= button_tag type: 'submit', class: "btn-bookmark clear-decoration" do %>
       <i class="fas fa-bookmark fa-lg bookmarked-btn"></i>
     <% end %>
-    <span class="text-muted"><%= micropost.bookmarks.count %></span>
   <% end %>
 <% else %>
   <%= form_for(micropost.bookmarks.build, remote: true) do |f| %>
@@ -11,6 +10,5 @@
     <%= button_tag type: 'submit', class: "btn-bookmark clear-decoration" do %>
       <i class="fas fa-bookmark fa-lg muted-bookmark"></i>
     <% end %>
-    <span class="text-muted"><%= micropost.bookmarks.count %></span>
   <% end %>
 <% end %>

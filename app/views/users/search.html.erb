@@ -4,12 +4,9 @@
   <% end %>
 </div>
 
+<div class="container">
 <% if @users.any? %>
   <ul class="users-index">
-    <% @users.each do |user| %>
-      <li>
-        <%= link_to user.name, user %>>
-      </li>
-    <% end %>
+    <%= render 'users/index_users' %>
   </ul>
 <% end %>

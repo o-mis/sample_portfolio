@@ -1,9 +1,9 @@
 <% if @feed.any? %>
   <% @feed.each do |micropost| %>
 
-    <div class="card mb-2">
+    <div class="card mb-2 position-relative">
       <% if micropost.image.url %>
-        <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
+        <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
       <% end %>
 
       <div class="card-body">
@@ -17,8 +17,18 @@
           <% if micropost.restaurant %>
             <small class="text-muted ml-2"><%= micropost.restaurant %></small>
           <% end %>
+
+          <% if micropost.arrived_at == "昼" %>
+            <span style="color: Tomato">
+              <i class="fas fa-sun fa-lg arrived-icon"></i>
+            </span>
+          <% else %>
+            <span style="color: Darkblue">
+              <i class="fas fa-moon fa-lg arrived-icon"></i>
+            <span>
+          <% end %>
         </div>
-        <div class="post-content ml-2 mb-3">
+        <div class="post-content ml-2 mt-1 mb-5">
           <%= micropost.content %>
         </div>
         <div class="post-info ml-2">
@@ -26,6 +36,8 @@
             <i class="fas fa-heart fa-lg liked-heart"></i>
               <%= micropost.liked_users.count %> <small class="text-muted">いいねの数</small>
           </small>
+
+          <small class="text-muted float-right"><%= micropost.created_at.strftime('%Y/%m/%d %H:%M') %></small>
         </div>
       </div>
     </div>
