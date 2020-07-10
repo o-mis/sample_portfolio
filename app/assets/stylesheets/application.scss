@@ -91,15 +91,19 @@ main {
   }
 }
 
-.fa-day::before {
-  font-family: Font Awesome 5;
+.fa-sun::before {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
   content: "\f185";
-  color: #ff870f;
+  color: tomato;
 }
-.fa-night::before {
-  font-family: Font Awesome 5 Free;
+.fa-moon::before {
+  font-family: "Font Awesome 5 Free";
+  font-style: solid;
+  font-weight: 900;
   content: "\f186";
-  color: #0f0fff;
+  color: darkblue;
 }
 
 #fab {
@@ -107,12 +111,10 @@ main {
   width: 56px;
   height: 56px;
   background: #89c3eb;
-  // text-align: center;
   border-radius: 50%;
   transition: 0.3s;
   text-decoration: none;
   align-items: center;
-  // justify-content: center;
   position: fixed;
   right: 54px;
   bottom: 54px;
@@ -120,12 +122,8 @@ main {
   border-color: transparent !important;
 }
 #fab:hover {
-  // background-color: #bbe2f1;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
     0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  // -webkit-transform: translateY(1px);
-  // transform: translateY(1px);
-  // border-bottom: none;
 }
 .fa-plus {
   font-family: "Font Awesome 5 Free";
@@ -239,13 +237,14 @@ span.picture {
   cursor: pointer;
 }
 
-.fa-angle-down {
+
+.fa-ellipsis-h {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
   font-weight: 900;
 }
 
-.angle-down {
+.ellipsis {
   color: #4e4d4d;
 }
 
@@ -297,13 +296,15 @@ span.picture {
   font-size: 20px;
 }
 
+
+
 // Users/index
 .users-index {
   list-style: none;
   margin: 0;
   li {
     overflow: auto;
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #e7e7e7;
   }
 }
