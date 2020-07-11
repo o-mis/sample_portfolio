@@ -19,6 +19,7 @@ class Micropost < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_users, through: :bookmarks, source: :user
   has_many :comments, dependent: :destroy
+  has_many :commented_users, through: :comments, source: :user
   validates :content, presence: true, length: { maximum: 150 }
   validates :arrived_at, presence: true
   validates :restaurant, presence: true
@@ -50,5 +51,9 @@ class Micropost < ApplicationRecord
 
   def bookmarked?(user)
     bookmarked_users.include?(user)
+  end
+
+  def commented?(user)
+    commented_users.include?(user)
   end
 end

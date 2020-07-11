@@ -8,12 +8,15 @@
 
       <div class="card-body">
         <div class="post-user">
+
           <% if micropost.user.avatar? %>
             <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
           <% else %>
             <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
           <% end %>
+
           <%= link_to micropost.user.name, micropost.user, class: "post-avatar text-secondary" %>
+
           <% if micropost.restaurant %>
             <small class="text-muted ml-2"><%= micropost.restaurant %></small>
           <% end %>
@@ -28,13 +31,20 @@
             <span>
           <% end %>
         </div>
+
         <div class="post-content ml-2 mt-1 mb-5">
           <%= micropost.content %>
         </div>
+
         <div class="post-info ml-2">
           <small class="text-muted">
             <i class="fas fa-heart fa-lg liked-heart"></i>
               <%= micropost.liked_users.count %> <small class="text-muted">いいねの数</small>
+          </small>
+
+          <small class="comment-info ml-3 text-muted">
+            <i class="fas fa-comment-alt commented-user"></i>
+              <%= micropost.commented_users.count %>
           </small>
 
           <small class="text-muted float-right"><%= micropost.created_at.strftime('%Y/%m/%d %H:%M') %></small>
