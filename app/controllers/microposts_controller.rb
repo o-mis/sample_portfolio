@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: %i[create destroy]
   before_action :has_micropost, only: :destroy
 
   def index
@@ -10,6 +10,8 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @like = Like.new
     @bookmark = Bookmark.new
+    @comments = @micropost.comments.page(params[:page])
+    @comment = @micropost.comments.build
   end
 
   def search; end
@@ -44,9 +46,6 @@ class MicropostsController < ApplicationController
   end
 
   private
-
-  # TODO: ログインユーザーのみアクセス可能にする
-  # TODO マイクロポストのアクセス制御
 
   # Use callbacks to share common setup or constraints between actions.
   # def set_micropost
