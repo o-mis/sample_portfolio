@@ -1,0 +1,13 @@
+<div>
+  <div class="mb-2">
+    <%= render 'comments/content', comments: @comments %>
+  </div>
+
+  <%= form_with model: [@micropost, @comment] do |f| %>
+    <%= f.hidden_field :micropost_id %>
+    <div>
+      <%= f.text_area :content, class: "rounded-sm comment-area", placeholder: "コメントを送信.." %>
+      <%= f.submit '送信', class: "btn rounded-pill btn-comment" %>
+    </div>
+  <% end %>
+</div>

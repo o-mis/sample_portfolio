@@ -1,0 +1,9 @@
+<% if comments.any? %>
+  <% comments.each do |comment| %>
+    <div class="ml-2"><%= comment.content %></div>
+  <% end %>
+<% else %>
+  <div class="d-flex align-items-center justify-content-center">
+    まだコメントがありません
+  </div>
+<% end %>

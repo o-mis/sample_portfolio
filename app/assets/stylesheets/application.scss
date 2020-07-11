@@ -237,7 +237,6 @@ span.picture {
   cursor: pointer;
 }
 
-
 .fa-ellipsis-h {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
@@ -281,6 +280,22 @@ span.picture {
   color: #7a7a7a;
 }
 
+.btn-comment {
+  background-color: $main-color;
+  color: #ffffff;
+}
+
+.comment-area {
+  height: 40px;
+  width: 80%;
+  border-color: #dfdfdf;
+  color: #7f7f7f;
+  font-size: 16px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
 .fa-arrow-left {
   font-family: "Font Awesome 5 Free";
   font-style: solid;
@@ -295,8 +310,6 @@ span.picture {
 .details-avatar {
   font-size: 20px;
 }
-
-
 
 // Users/index
 .users-index {
