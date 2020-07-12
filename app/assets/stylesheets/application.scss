@@ -4,6 +4,7 @@
 $main-color: #89c3eb;
 $fa-family: "Font Awesome 5 Free";
 $white: #ffffff;
+$gray: #555555;
 
 /* 共通 */
 *:focus {
@@ -43,14 +44,14 @@ header {
     font-family: $fa-family;
     font-style: solid;
     font-weight: 900;
-    color: #555555;
+    color: $gray;
     margin-right: 30px;
   }
   .fa-bookmark:hover {
     color: $main-color;
   }
   .fa-bars {
-    color: #555555;
+    color: $gray;
     &:focus {
       outline: none;
     }
@@ -290,7 +291,7 @@ span.picture {
 
 .comment-area {
   height: 40px;
-  width: 80%;
+  width: 85%;
   border-color: #dfdfdf;
   color: #777777;
   font-size: 16px;
@@ -365,6 +366,16 @@ span.picture {
 .btn-rela-dis {
   color: #404040;
   border: solid 2px $main-color;
+}
+
+.user-tabs {
+  color: #7a7a7a;
+}
+.user-tabs:hover {
+  color: black;
+}
+.user-tabs:active {
+  color: black;
 }
 
 .avatar-selected {

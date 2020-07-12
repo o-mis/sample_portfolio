@@ -1,15 +1,15 @@
 <% if comments.any? %>
   <% comments.each do |comment| %>
-    <div class="my-3">
+    <div class="my-4">
         <% if comment.user.avatar? %>
-          <%= link_to image_tag(comment.user.avatar.to_s, size: "30x30", class: "post-avatar rounded-circle mb-1", alt: "avatar image"), comment.user %>
+          <%= link_to image_tag(comment.user.avatar.to_s, size: "30x30", class: "post-avatar rounded-circle mb-2", alt: "avatar image"), comment.user %>
         <% else %>
           <%= link_to image_tag('no_avatar.png', size: "30x30", class: "post-avatar rounded-circle mb-2", alt: "avatar image"), comment.user %>
         <% end %>
 
         <%= link_to comment.user.name, comment.user, class: "text-secondary mr-3" %>
 
-        <%= comment.content %>
+        <span class="text-break"><%= comment.content %></span>
       <small class="text-muted float-right mt-2"><%= time_ago_in_words(comment.created_at) %></small>
     </div>
   <% end %>
