@@ -20,10 +20,11 @@
           <span style="color: Tomato">
             <i class="fas fa-sun fa-lg arrived-icon"></i>
           </span>
-        <% else %>
+        <% elsif object.arrived_at == "夜" %>
           <span style="color: Darkblue">
             <i class="fas fa-moon fa-lg arrived-icon"></i>
           <span>
+        <% else %>
         <% end %>
       </div>
 
