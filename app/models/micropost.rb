@@ -29,6 +29,9 @@ class Micropost < ApplicationRecord
 
   enum arrived_at: { 昼: 0, 夜: 1 }
 
+  geocoded_by :address
+  before_validation :geocode
+
   def like(user)
     likes.create(user_id: user.id)
   end

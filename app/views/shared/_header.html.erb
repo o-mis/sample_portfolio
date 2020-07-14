@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top mb-4">
+<nav class="navbar sticky-top mb-1">
   <div class="container">
     <%=link_to "Contrail", root_path, class: "navbar-brand mr-auto" %>
     <% if user_signed_in? %>
@@ -29,7 +29,7 @@
                 <% end %>
               </li>
               <li class="signedin-item mb-3">
-                <%= link_to "#", class: "signedin-item text-decoration-none" do %>
+                <%= link_to maps_path, class: "signedin-item text-decoration-none" do %>
                   <i class="fas fa-map-marker-alt mr-2 nav-items"></i> マップ
                 <% end %>
               </li>
