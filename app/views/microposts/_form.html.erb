@@ -1,13 +1,24 @@
 <%= form_with(model: @micropost) do |f| %>
   <div class="field">
-    <%= f.radio_button(:arrived_at, :昼) %>
-    <%= label_tag(:arrived_at, "昼", class: "fas fa-sun pr-3") %>
-    <%= f.radio_button(:arrived_at, :夜) %>
-    <%= label_tag(:arrived_at, "夜", class: "fas fa-moon") %>
+    <%= f.label :arrived_at do %>
+      利用時間帯 <span class="post-required"> (必須)</span>
+    <% end %>
+      <div class="mt-1">
+        <%= f.radio_button(:arrived_at, :未選択) %>
+        <%= label_tag(:arrived_at, "未選択", class: "mr-4") %>
+
+        <%= f.radio_button(:arrived_at, :昼) %>
+        <%= label_tag(:arrived_at, "昼", class: "fas fa-sun mr-4") %>
+
+        <%= f.radio_button(:arrived_at, :夜) %>
+        <%= label_tag(:arrived_at, "夜", class: "fas fa-moon") %>
+      </div>
   </div>
 
-  <div class="field mt-2">
-    <%= f.label :budget, "予算 (必須)" %>
+  <div class="field mt-4">
+    <%= f.label :budget do %>
+      予算 <span class="post-required">(必須)</span>
+    <% end %>
     <%= f.select :budget, [['〜¥999', 1],
                           ['¥1,000〜¥1,999', 2],
                           ['¥2,000〜¥2,999', 3],
@@ -23,24 +34,24 @@
                           ['¥30,000〜', 13]], { prompt: "選択してください" }, { class: "form-control rounded" } %>
   </div>
 
-  <div class="field mt-5">
+  <div class="field mt-4">
     <%= f.label :restaurant, "店舗名" %>
     <%= f.text_field :restaurant, class: "form-control rounded" %>
   </div>
 
-  <div class="field my-5">
-    <%= f.label :content, "コメント(必須)" %>
+  <div class="field my-4">
+    <%= f.label :content do %>
+      コメント <span class="post-required">(必須)</span>
+    <% end %>
     <%= f.text_area :content, class: "form-control rounded form-content", placeholder: "(150字以内)", required: true %>
   </div>
 
-  <div class="field mt-5">
+  <div class="field d-flex flex-row">
     <%= f.label :image do %>
-      <i class="far fa-image"></i>
+      <i class="far fa-image ml-1"></i>
     <% end %>
     <%= f.file_field :image, class: "form-image" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "投稿する", { class: "btn rounded-pill btn-micropost" } %>
+    <%= f.submit "投稿する", { class: "btn rounded-pill ml-auto mt-2 mr-1 btn-micropost" } %>
   </div>
 <% end %>
