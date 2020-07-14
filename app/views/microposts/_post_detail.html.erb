@@ -33,14 +33,14 @@
       </div>
 
       <div class="post-info d-flex flex-row">
-        <%= render "likes/like", micropost: @micropost %>
-        <%= render "bookmarks/bookmark", micropost: @micropost %>
+        <div class="mr-2"><%= render "likes/like", micropost: @micropost %></div>
+        <div><%= render "bookmarks/bookmark", micropost: @micropost %></div>
         <% if current_user.id == object.user.id %>
           <div class="dropleft ml-auto">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
+            <button type="button" class="btn dropdown-toggle btn-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
               <i class="fas fa-ellipsis-h fa-lg ellipsis"></i>
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
               <%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "dropdown-item" %>
             </div>
           </div>
