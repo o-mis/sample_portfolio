@@ -25,7 +25,6 @@ body {
 // }
 
 /* header */
-
 .navbar {
   .navbar-brand {
     color: #353535;
@@ -390,6 +389,12 @@ span.picture {
 .user-index {
   font-size: 19px;
 }
+
+// Maps index
+#map {
+  height: 700px;
+}
+
 /* footer */
 .footer {
   .footer-brand {
