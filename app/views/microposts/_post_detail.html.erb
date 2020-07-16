@@ -18,11 +18,11 @@
 
         <% if object.arrived_at == "昼" %>
           <span style="color: Tomato">
-            <i class="fas fa-sun fa-lg arrived-icon"></i>
+            <i class="fas fa-sun arrived-icon"></i>
           </span>
         <% elsif object.arrived_at == "夜" %>
           <span style="color: Darkblue">
-            <i class="fas fa-moon fa-lg arrived-icon"></i>
+            <i class="fas fa-moon arrived-icon"></i>
           <span>
         <% else %>
         <% end %>
@@ -35,16 +35,9 @@
       <div class="post-info d-flex flex-row">
         <div class="mr-2"><%= render "likes/like", micropost: @micropost %></div>
         <div><%= render "bookmarks/bookmark", micropost: @micropost %></div>
-        <% if current_user.id == object.user.id %>
-          <div class="dropleft ml-auto">
-            <button type="button" class="btn dropdown-toggle btn-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow: none">
-              <i class="fas fa-ellipsis-h fa-lg ellipsis"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "dropdown-item" %>
-            </div>
-          </div>
-        <% end %>
+          <% if current_user.id == object.user.id %>
+            <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-sm btn-outline-secondary" %></div>
+          <% end %>
       </div>
     </div>
   </div>
