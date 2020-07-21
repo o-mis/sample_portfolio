@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_165811) do
+ActiveRecord::Schema.define(version: 2020_07_19_103641) do
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 2020_07_10_165811) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "budget", precision: 5, scale: 3
-    t.text "restaurant", null: false
     t.integer "arrived_at", default: 0, null: false
     t.string "image"
+    t.string "address", default: ""
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

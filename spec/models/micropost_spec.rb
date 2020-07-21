@@ -3,11 +3,13 @@
 # Table name: microposts
 #
 #  id         :bigint           not null, primary key
-#  arrived_at :integer          default("昼"), not null
+#  address    :string(255)      default("")
+#  arrived_at :integer          default("未選択"), not null
 #  budget     :decimal(5, 3)
 #  content    :text(65535)      not null
 #  image      :string(255)
-#  restaurant :text(65535)      not null
+#  latitude   :float(24)
+#  longitude  :float(24)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer

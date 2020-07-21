@@ -3,11 +3,13 @@
 # Table name: microposts
 #
 #  id         :bigint           not null, primary key
-#  arrived_at :integer          default("昼"), not null
+#  address    :string(255)      default("")
+#  arrived_at :integer          default("未選択"), not null
 #  budget     :decimal(5, 3)
 #  content    :text(65535)      not null
 #  image      :string(255)
-#  restaurant :text(65535)      not null
+#  latitude   :float(24)
+#  longitude  :float(24)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
@@ -22,15 +24,16 @@ class Micropost < ApplicationRecord
   has_many :commented_users, through: :comments, source: :user
   validates :content, presence: true, length: { maximum: 150 }
   validates :arrived_at, presence: true
-  validates :restaurant, presence: true
+  validates :address, presence: true
+  # validates :restaurant, presence: true
 
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
 
   enum arrived_at: { 未選択: 0, 昼: 1, 夜: 2 }
 
-  # geocoded_by :address
-  # before_validation :geocode
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def like(user)
     likes.create(user_id: user.id)
