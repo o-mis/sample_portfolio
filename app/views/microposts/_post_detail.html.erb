@@ -12,8 +12,8 @@
         <% end %>
 
         <%= link_to object.user.name, object.user, class: "text-secondary" %>
-        <% if object.restaurant %>
-          <small class="text-muted ml-2"><%= object.restaurant %></small>
+        <% if object.address %>
+          <small class="text-muted ml-2"><%= object.address %></small>
         <% end %>
 
         <% if object.arrived_at == "昼" %>
@@ -44,4 +44,10 @@
 
   <div class="container">
       <%= render 'comments/form', micropost: object, group: @comments %>
+  </div>
+
+  <div class="mt-5">
+    <% if user_signed_in? %>
+      <%= render 'microposts/show_map' %>
+    <% end %>
   </div>

@@ -71,6 +71,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  #投稿をlikeしていたらtrueを返す
+  def like?(micropost)
+    liked_posts.include?(micropost)
+  end
+
   # 自分とフォローしているユーザーの投稿を取得
   def feed
     following_ids = "SELECT followed_id FROM relationships

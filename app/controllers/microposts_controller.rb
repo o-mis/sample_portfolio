@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: %i[create destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
   before_action :has_micropost, only: :destroy
 
   def index
@@ -22,7 +22,6 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-
     if @micropost.save
       redirect_to root_path, notice: '投稿が完了しました'
     else
@@ -55,7 +54,7 @@ class MicropostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
 
   def micropost_params
-    params.permit(:content, :arrived_at, :budget, :restaurant, :image)
+    params.permit(:content, :arrived_at, :budget, :address, :image)
   end
 
   def has_micropost

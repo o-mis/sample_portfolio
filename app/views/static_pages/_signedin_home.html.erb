@@ -17,8 +17,8 @@
 
           <%= link_to micropost.user.name, micropost.user, class: "post-avatar text-secondary" %>
 
-          <% if micropost.restaurant %>
-            <small class="text-muted ml-2"><%= micropost.restaurant %></small>
+          <% if micropost.address %>
+            <small class="text-muted ml-2"><%= micropost.address %></small>
           <% end %>
 
           <% if micropost.arrived_at == "昼" %>
@@ -40,8 +40,12 @@
 
         <div class="post-info ml-2">
           <small class="text-muted">
-            <i class="fas fa-heart fa-lg liked-heart"></i>
-              <%= micropost.liked_users.count %> <small class="text-muted">いいねの数</small>
+            <% if current_user.like?(micropost) %>
+              <i class="fas fa-heart fa-lg liked-heart"></i>
+            <% else %>
+              <i class="fas fa-heart fa-lg muted-heart"></i>
+            <% end %>
+            <%= micropost.liked_users.count %> <small class="text-muted">いいねの数</small>
           </small>
 
           <small class="comment-info ml-2 text-muted">
