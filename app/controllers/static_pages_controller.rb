@@ -5,5 +5,6 @@ class StaticPagesController < ApplicationController
     @feed = current_user.feed.page(params[:page]).per(15) if user_signed_in?
     @like = Like.new
     @bookmark = Bookmark.new
+    @micropost = Micropost.new
   end
 end
