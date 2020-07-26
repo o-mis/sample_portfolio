@@ -2,28 +2,25 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  socket:   /tmp/mysql.sock
+  socket: /tmp/mysql.sock
   username: root
   host: localhost
   password: <%= ENV['ROOT_PASS'] %>
-
-
 
 development:
   <<: *default
   database: <%= ENV['DB_NAME_DEV'] %>
   username: root
   password: <%= ENV['ROOT_PASS'] %>
-  host:     localhost
+  host: localhost
 
 test:
   <<: *default
   database: <%= ENV['DB_NAME_TEST'] %>
-  host:     localhost
+  host: localhost
 
 production:
   <<: *default
   database: sample
-  username: sample
-  password: <%= ENV['DB_SAMPLE_PASSWORD']
-  host:     sample
+  username: root
+  password:
