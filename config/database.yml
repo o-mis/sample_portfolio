@@ -24,3 +24,7 @@ production:
   database: sample
   username: root
   password:
+<<<<<<< HEAD
+=======
+  host:     sample
+>>>>>>> 78374cae0e751cea069a771d926cab76a8438f73
