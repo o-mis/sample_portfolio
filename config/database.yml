@@ -24,6 +24,5 @@ test:
 production:
   <<: *default
   database: sample
-  username: sample
-  password: <%= ENV['DB_SAMPLE_PASSWORD']
-  host:     sample
+  username: root
+  password: 
