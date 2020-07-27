@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.4'
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.2',       require: false
 gem 'bootstrap', '~> 4.4.1'
 gem 'carrierwave'
 gem 'devise'
@@ -34,10 +34,15 @@ gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano', '~> 3.14',      require: false
+  gem 'capistrano-bundler',         require: false
+  gem 'capistrano3-puma',           require: false
+  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'capistrano-rbenv', '~> 2.2', require: false
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.79.0', require: false
-  gem 'rubocop-rails'
+  gem 'rubocop', '~> 0.79.0',       require: false
+  gem 'rubocop-rails',              require: false
 end
 
 group :development do
