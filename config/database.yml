@@ -25,5 +25,4 @@ production:
   <<: *default
   database: sample
   username: root
-  password:
-  host:     sample
+  password: 
