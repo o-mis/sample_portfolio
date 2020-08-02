@@ -1,0 +1,12 @@
+<div class="container">
+  <%= search_form_for(@q, url: search_users_path)  do |f| %>
+    <%= f.search_field :name_cont, class: "search-form form-control rounded-sm text-center mb-3", placeholder: "ユーザーを検索" %>
+  <% end %>
+</div>
+
+<div class="container">
+<% if @users.any? %>
+  <ul class="users-index">
+    <%= render 'users/index_users' %>
+  </ul>
+<% end %>
