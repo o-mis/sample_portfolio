@@ -1,8 +1,3 @@
-server '54.248.5.111', user: 'Mayo', roles: %w{app db web}
-
-set :ssh_options, keys: '~/.ssh/contrail_key_pair.pem'
-
-
 # role-based syntax
 # ==================
 
