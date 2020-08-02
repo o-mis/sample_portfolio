@@ -1,18 +1,6 @@
-# server-based syntax
-# ======================
-# Defines a single server with a list of roles and multiple properties.
-# You can define all roles on a single server, or split them:
+server '54.248.5.111', user: 'Mayo', roles: %w{app db web}
 
-# server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
-# server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-# server "db.example.com", user: "deploy", roles: %w{db}
-
-server '172.31.32.239',
-    user: 'mayo',
-    roles: %w{app db web}
-
-set :ssh_options,
-    keys: Rails.application.credentials.production[:secret_key_base]
+set :ssh_options, keys: '~/.ssh/contrail_key_pair.pem'
 
 
 # role-based syntax
@@ -57,13 +45,17 @@ set :ssh_options,
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
-#   }
+
+set :stage, :production
+set :rails_env, 'production'
+set :branch, master
+set :migration_role, 'db'
+
+server "54.248.5.111", user: "Mayo", roles: %w{web app db}
+   
+set :ssh_options, {
+     keys: %w(~/.ssh/contrail_key_rsa),
+     forward_agent: true,
+     auth_methods: %w(publickey)
+    }
+
