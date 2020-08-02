@@ -67,6 +67,7 @@ GEM
     autoprefixer-rails (9.8.5)
       execjs
     bcrypt (3.1.15)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.7)
       msgpack (~> 1.0)
@@ -125,6 +126,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     excon (0.75.0)
     execjs (2.7.0)
@@ -404,6 +406,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt (~> 3.1.7)
+  bcrypt_pbkdf
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.4.1)
   byebug
@@ -417,6 +420,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  ed25519
   factory_bot_rails
   faker
   fog-aws
@@ -442,7 +446,7 @@ DEPENDENCIES
   rubocop (~> 0.79.0)
   rubocop-rails
   sass-rails (~> 5)
-  sassc (~> 2.1.0)
+  sassc (= 2.4.0)
   selenium-webdriver
   spring
   spring-commands-rspec
@@ -457,4 +461,4 @@ RUBY VERSION
    ruby 2.6.4p104
 
 BUNDLED WITH
-   2.1.0
+   2.1.4

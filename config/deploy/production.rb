@@ -1,8 +1,3 @@
-server '54.248.5.111', user: 'Mayo', roles: %w{app db web}
-
-set :ssh_options, keys: '~/.ssh/contrail_key_pair.pem'
-
-
 # role-based syntax
 # ==================
 
@@ -48,7 +43,7 @@ set :ssh_options, keys: '~/.ssh/contrail_key_pair.pem'
 
 set :stage, :production
 set :rails_env, 'production'
-set :branch, master
+set :branch, 'master'
 set :migration_role, 'db'
 
 server "54.248.5.111", user: "Mayo", roles: %w{web app db}
