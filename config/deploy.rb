@@ -7,8 +7,8 @@ set :deploy_to, "/var/www/rails/Contrail"
 
 set :pty, true
 
-append :linked_files, %w{config/credentials/master.key}
-append :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
+append :linked_files, "config/credentials/master.key"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle"
 
 set :keep_releases, 5
 
