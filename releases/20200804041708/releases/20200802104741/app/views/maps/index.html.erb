@@ -1,0 +1,9 @@
+
+<% provide(title: "マップ") %>
+
+<% if user_signed_in? %>
+
+  <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.googleMapsApi[:google_api_key] %>&libraries=places&callback=initMap&language=ja"
+            async defer></script>
+<% end %>

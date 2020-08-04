@@ -1,0 +1,14 @@
+<%
+=begin%>
+ <% provide(:title, @title) %>
+
+<div class="row">
+  <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+  <% end %>
+</div> 
+<%
+=end%>
+
