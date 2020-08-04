@@ -10,14 +10,10 @@ default: &default
 development:
   <<: *default
   database: <%= ENV['DB_NAME_DEV'] %>
-  username: root
-  password: <%= ENV['ROOT_PASS'] %>
-  host: localhost
 
 test:
   <<: *default
   database: <%= ENV['DB_NAME_TEST'] %>
-  host: localhost
 
 production:
   <<: *default
