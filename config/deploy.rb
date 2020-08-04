@@ -7,7 +7,7 @@ set :deploy_to, "/var/www/rails/Contrail"
 
 set :pty, true
 
-set :linked_files, %w{config/detabase.yml config/master.key }
+set :linked_files, %w{config/master.key }
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
 
 set :keep_releases, 5
