@@ -31,10 +31,10 @@ append :rbenv_map_bins, 'puma', 'pumactl'
 
 
 namespace :deploy do
-  desc 'Restart application'
-  task :restart do
-    invoke 'puma:restart'
-  end
+  # desc 'Restart application'
+  # task :restart do
+  #   invoke 'puma:restart'
+  # end
 
   desc 'Create database'
   task :db_create do
