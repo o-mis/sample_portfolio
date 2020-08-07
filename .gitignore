@@ -109,3 +109,4 @@ config/zsh-syntax-highlighting
 
 # Ignore geocoder.rb
 config/initializers/geocoder.rb
+
