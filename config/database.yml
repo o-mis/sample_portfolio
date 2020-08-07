@@ -5,7 +5,7 @@ default: &default
   socket: /tmp/mysql.sock
   username: root
   host: localhost
-  password: <%= ENV['ROOT_PASS'] %>
+  password: <%= ENV['RDS_DEV_PASS'] %>
 
 development:
   <<: *default
