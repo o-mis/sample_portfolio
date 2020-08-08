@@ -1,0 +1,15 @@
+<% provide(:title, 'フォロワー') %>
+
+<%= render 'users/link' %>
+
+<% if user_signed_in? %>
+  <span class="follow-info font-weight-bold ml-4"><%= @user.name %></span>
+<% end %>
+<div>
+  <% if @user.followers.any? %>
+    <h6 class="text-secondary text-center font-weight-bold mt-5">フォロワー</h6>
+      <%= render partial: 'users/followers_list', collection: @followers, as: 'user' %>
+  <% else %>
+    <%= render 'users/followers_status' %>
+  <% end %>
+</div>

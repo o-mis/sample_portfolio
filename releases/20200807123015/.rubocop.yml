@@ -1,0 +1,36 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+   - rubocop-rails
+
+AllCops:
+   TargetRubyVersion: 2.6.3
+
+   Exclude:
+      - 'bin/**'
+      - 'config/**/*'
+      - 'db/**/*'
+      - 'lib/**'
+      - 'node_modules/**/*'
+      - 'spec/**/*'
+      - 'test/**/*'
+      - 'vendor/**/*'
+
+
+Style/Documentation:
+   Enabled: false
+
+Style/ClassAndModuleChildren:
+   Enabled: false
+
+Layout/LineLength:
+   Max: 120
+
+Style/FrozenStringLiteralComment:
+   Enabled: false
+
+Style/AsciiComments:
+   Enabled: false
+
+Rails/InverseOf:
+   Enabled: false

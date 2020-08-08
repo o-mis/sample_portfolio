@@ -72,4 +72,10 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  unless Rails.env.production?
+    config.web_console.whitelisted_ips = '181.129.122.18'
+  end
+
+  config.hosts << "www.contrail-app.com"
 end
