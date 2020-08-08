@@ -1,0 +1,11 @@
+=== puma startup: 2020-08-05 12:15:13 +0000 ===
+=== puma startup: 2020-08-05 12:15:13 +0000 ===
+=== puma startup: 2020-08-07 04:20:18 +0000 ===
+=== puma startup: 2020-08-07 04:26:09 +0000 ===
+=== puma startup: 2020-08-07 04:26:09 +0000 ===
+=== puma startup: 2020-08-07 04:36:24 +0000 ===
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+=== puma startup: 2020-08-07 04:48:18 +0000 ===
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+=== puma startup: 2020-08-07 04:55:50 +0000 ===
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.

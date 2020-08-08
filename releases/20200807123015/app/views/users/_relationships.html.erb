@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<div class="relationships">
+  <%= link_to following_user_path(@user), class: "text-decoration-none mr-3" do %>
+    <strong class="relationship">
+      <%= @user.following.count %>
+    </strong>
+    <small class="text-muted">フォロー中</small>
+  <% end %>
+  <%= link_to followers_user_path(@user), class: "text-decoration-none ml-3" do %>
+    <strong class="relationship">
+      <%= @user.followers.count %>
+    </strong>
+    <small class="text-muted">フォロワー</small>
+  <% end %>
+</div>
