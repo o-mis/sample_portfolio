@@ -21,6 +21,7 @@ production:
   encoding: utf8
   pool: 5
   database: <%= Rails.application.credentials.production[:rds_database] %>
+  host:     <%= Rails.application.credentials.production[:rds_endpoint] %>
   username: <%= Rails.application.credentials.production[:rds_username] %>
   password: <%= Rails.application.credentials.production[:rds_passwd] %>
   socket: /var/lib/mysql/mysql.sock
