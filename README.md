@@ -15,9 +15,12 @@ https://www.contrail-app.com
 - MySQL 8.0.20
 - Nginx,puma(ソケット通信)
 - AWS
-  - VPC - EC2/ELB
-  - RDS(MySQL) - Route53 - ACM
-  - S3
+	- VPC
+	- EC2/ELB
+	- RDS(MySQL)
+	- Route53
+	- ACM
+	- S3
 - Capistrano
 - Github
 
