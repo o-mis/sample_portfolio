@@ -1,42 +1,25 @@
+FROM node:14.7.0-alpine as node
+
+RUN apk add --no-cache bash curl && \
+    curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
+
 FROM ruby:2.6.4-alpine
 
-ENV APP_ROOT /Contrail \
-    LANG=C.UTF-8 \
-    TZ=Asia/Tokyo
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /opt/yarn-* /opt/yarn
+RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn
+RUN apk add --no-cache git build-base libxml2-dev libxslt-dev mysql-dev mysql-client tzdata bash less && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
+ENV APP_ROOT /Contrail
 RUN mkdir /Contrail
 WORKDIR $APP_ROOT
 
-COPY Gemfile $APP_ROOT/Gemfile
-COPY Gemfile.lock $APP_ROOT/Gemfile.lock
+ENV LANG=C.UTF-8
 
-RUN apk update && \
-    apk add --no-cache \
-        gcc \
-        g++ \
-        libc-dev \
-        libxml2-dev \
-        linux-headers \
-	libc-dev \
-	libxslt-dev \
-	libxml2-dev \
-	mysql-dev \
-	mysql-client \
-	tzdata \
-	yarn && \
-    apk add --virtual build-packs --no-cache \
-	build-base \
-    gem install bundler && \
-    bundle install && \
-    apk del build-packages && \
-    rm -rf /usr/lib/mysqld* \
-        /usr/bin/mysql* \
-        /usr/local/bundle/cache/* \
-        /usr/local/share/.cache/*
+RUN gem update --system && \
+    gem install --no-document bundler:2.1.4
 
-RUN gem install nokogiri
-	
-RUN mkdir -p $APP_ROOT/tmp/sockets
-
+COPY Gemfile /$APP_ROOT
+COPY Gemfile.lock /$APP_ROOT
 COPY . $APP_ROOT
-
