@@ -1,15 +1,24 @@
-FROM node:14.7.0-alpine as node
+FROM ruby:2.6.4
 
-RUN apk add --no-cache bash curl && \
-    curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev --no-install-recommends \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-FROM ruby:2.6.4-alpine
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-COPY --from=node /usr/local/bin/node /usr/local/bin/node
-COPY --from=node /opt/yarn-* /opt/yarn
-RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn
-RUN apk add --no-cache git build-base libxml2-dev libxslt-dev mysql-dev mysql-client tzdata bash less && \
-    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update -qq && apt-get install -y yarn --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt-get install -y nodejs --no-install-recommends \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update -qq && apt-get install -y default-mysql-client --no-install-recommends \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV APP_ROOT /Contrail
 RUN mkdir /Contrail
@@ -17,9 +26,21 @@ WORKDIR $APP_ROOT
 
 ENV LANG=C.UTF-8
 
-RUN gem update --system && \
-    gem install --no-document bundler:2.1.4
-
 COPY Gemfile /$APP_ROOT
 COPY Gemfile.lock /$APP_ROOT
+#RUN  apt-get update -qq && apt-get install -y patch ruby-dev zlib1g-dev liblzma-dev --no-install-recommends \
+#     && gem install nokogiri \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/*
+RUN gem install bundler
+RUN bundle install
 COPY . $APP_ROOT
+
+# Add a script to be executed every time the container starts.
+#COPY entrypoint.sh /usr/bin/
+#RUN chmod +x /usr/bin/entrypoint.sh
+#ENTRYPOINT ["entrypoint.sh"]
+#EXPOSE 3000
+
+# Start the main process.
+#CMD ["rails", "server", "-b", "0.0.0.0"]

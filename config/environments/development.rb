@@ -77,5 +77,7 @@ Rails.application.configure do
     config.web_console.whitelisted_ips = '181.129.122.18'
   end
 
-  config.hosts << "www.contrail-app.com"
+  #config.hosts << "www.contrail-app.com"
+
+  config.hosts.clear
 end

@@ -1,6 +1,14 @@
 version: 1
 task_definition:
-  services:
-    web:
-      cpu_shares: 256
-      mem_limit: 512
+  task_execution_role: ecsTaskExecutionRole
+  task_size:
+    cpu_limit: 256
+    mem_limit: 0.5 vcpu
+ run_params:
+  network_configuration:
+    awsvpc_configuration:
+      subnets:
+        - subnet-06a7a123e0cf67574
+        - subnet-06a7a123e0cf67574 
+      security_groups: 
+        - vpc-0c0dc139c3157a939

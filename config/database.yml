@@ -1,19 +1,19 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   socket: /tmp/mysql.sock
   username: root
-  host: localhost
-  password: <%= ENV['RDS_DEV_PASS'] %>
+  host: db
+  password: password
 
 development:
   <<: *default
-  database: <%= ENV['DB_NAME_DEV'] %>
+  database: contrail_development
 
 test:
   <<: *default
-  database: <%= ENV['DB_NAME_TEST'] %>
+  database: contrail_test
 
 production:
   <<: *default
