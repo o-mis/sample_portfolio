@@ -14,8 +14,24 @@ services:
     stdin_open: true
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/Contrail
     ports:
       - 3000:3000
     depends_on:
       - db
+  #nginx:
+  #  build:
+  #    context: .
+  #    dockerfile: ./nginx/Dockerfile
+  #  volumes:
+  #    - public-data:/Contrail/public
+  #    - tmp-data:/Contrail/tmp
+  #    - sockets:/Contrail/tmp/sockets 
+  #  ports: 
+  #    - 80:80
+  #  depends_on:
+  #    - web
+#volumes:
+#  public-data:
+#  tmp-data:
+#  sockets:
