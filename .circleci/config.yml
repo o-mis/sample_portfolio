@@ -1,9 +1,64 @@
-version: 2.1
-orbs:
-  aws-ecr: circleci/aws-ecr@6.12.2
-  aws-ecs: circleci/aws-ecs@1.3.0
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.4-node-browsers
+        environment:
+          RAILS_ENV: test
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: ''
+          MYSQL_PORT: 3306
+      - image: circleci/mysql:8.0.19
+        environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: true
+        MYSQL_ROOT_HOST: '%'
+    #依存関係をキャッシュする
+    steps:
+      - checkout
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          key: vi-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
+
+      #database.yml.ciを使用する
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+
+      #テストの自動化
+      - run:
+          name: start RuboCop
+          command: bundle exec rubocop
+      - run:
+          name: start Rspec
+          command: |
+            mkdir /tmp/test-reports
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      #レポートと結果を保存
+      - store_artifacts:
+          path: /tmp/test-reports
+          destination: tr1
+      - store_test_results:
+          path: /tmp/test-reports
+
 workflows:
-  rails_deploy:
+  build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
