@@ -1,3 +1,9 @@
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/aws-ecr@6.12.2
+  aws-ecs: circleci/aws-ecs@1.3.0
+
 jobs:
   build:
     docker:
@@ -10,28 +16,26 @@ jobs:
           MYSQL_PORT: 3306
       - image: circleci/mysql:8.0.19
         environment:
-        MYSQL_ALLOW_EMPTY_PASSWORD: true
-        MYSQL_ROOT_HOST: '%'
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_HOST: '%'
     #依存関係をキャッシュする
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          - v1-dependencies-
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run: gem install bundler -v 2.1.4
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: vi-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
 
       #database.yml.ciを使用する
-      - run: mv config/database.yml.ci config/database.yml
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:schema:load
+      - run: mv -f ./config/database.yml.ci ./config/database.yml
+      - run: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+      - run: bundle exec rails db:create db:schema:load --trace
 
       #テストの自動化
       - run:
@@ -58,25 +62,26 @@ jobs:
           path: /tmp/test-reports
 
 workflows:
+  version: 2.1
+  # Railsのデプロイ
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
+          filters:
+            branches:
+              only: master
           account-url: AWS_ECR_ACCOUNT_URL
+          region: AWS_DEFAULT_REGION
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: ./Dockerfile
-          region: AWS_DEFAULT_REGION
           repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          skip-when-tags-exist: false
           tag: "${CIRCLE_SHA1}"
-          filters:
-            branches:
-              only: master
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: "${ECS_TASK}"
-          cluster-name: "${ECS_ARN}"
-          service_name: "${ECS_SERVICE}"
-          container-image-name-updates: 'container=contrail,tag=${CIRCLE_SHA1}'
+          family: '${ECS_TASK}'
+          cluster-name: '${ECS_ARN}'
+          service-name: '${ECS_SERVICE}'
+          container-image-name-updates: "container=contrail,tag=${CIRCLE_SHA1}"
