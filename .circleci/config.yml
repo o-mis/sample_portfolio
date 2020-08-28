@@ -76,7 +76,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: "${ECS_TASK}"
-          cluster-name: "${ECS_ARN}"
-          service-name: "${ECS_SERVICE}"
-          container-image-name-updates: 'container=contrail,tag=${CIRCLE_SHA1}'
+          family: '${ECS_TASK}'
+          cluster-name: '${ECS_ARN}'
+          service-name: '${ECS_SERVICE}'
+          container-image-name-updates: "container=contrail,tag=${CIRCLE_SHA1}"
