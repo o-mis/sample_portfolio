@@ -84,4 +84,4 @@ workflows:
           family: '${ECS_TASK}'
           cluster-name: '${ECS_ARN}'
           service-name: '${ECS_SERVICE}'
-          container-image-name-updates: "container=contrail,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}_web01,tag=${CIRCLE_SHA1}"
