@@ -63,7 +63,7 @@ jobs:
 
 workflows:
   version: 2.1
-  # Railsのデプロイ
+  # ECRとECSを使用してRailsのデプロイ
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
