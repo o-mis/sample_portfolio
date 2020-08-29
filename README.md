@@ -28,7 +28,7 @@ https://www.contrail-app.com
 
 # AWS構成図
 
-![contrail-chart](https://user-images.githubusercontent.com/54735254/91636753-04f10e00-ea3e-11ea-96f8-89acd6d43896.jpeg)
+![contrail-chart](https://user-images.githubusercontent.com/54735254/91636940-885f2f00-ea3f-11ea-8ef0-70394a838416.jpeg)
 
 # 機能一覧と使用 gem
 
