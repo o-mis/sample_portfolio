@@ -14,6 +14,7 @@ https://www.contrail-app.com
 - Sass
 - MySQL 8.0.20
 - Nginx,puma(ソケット通信)
+- Docker, docker-compose
 - AWS
 	- VPC
 	- EC2/ELB
@@ -21,10 +22,13 @@ https://www.contrail-app.com
 	- Route53
 	- ACM
 	- S3
-- Capistrano
-- Github
+        - ECS
+        - ECR
+- CircleCI(CI/CDパイプライン)
 
-# クラウドアーキテクチャ
+# AWS構成図
+
+![contrail-chart](https://user-images.githubusercontent.com/54735254/91636753-04f10e00-ea3e-11ea-96f8-89acd6d43896.jpeg)
 
 # 機能一覧と使用 gem
 
