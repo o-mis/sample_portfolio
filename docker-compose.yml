@@ -3,35 +3,35 @@ services:
   db:
     image: mysql:8.0.19
     environment:
-#      MYSQL_ROOT_PASSWORD: password
-       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+#     MYSQL_ROOT_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
     ports:
-      - 3306:3306
+      - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     restart: always
   web:
     build: .
     tty: true
     stdin_open: true
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/Contrail
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - db
-  #nginx:
-  #  build:
-  #    context: .
-  #    dockerfile: ./nginx/Dockerfile
-  #  volumes:
-  #    - public-data:/Contrail/public
-  #    - tmp-data:/Contrail/tmp
-  #    - sockets:/Contrail/tmp/sockets 
-  #  ports: 
-  #    - 80:80
-  #  depends_on:
-  #    - web
+#  nginx:
+#    build:
+#      context: .
+#      dockerfile: ./nginx/Dockerfile
+#    volumes:
+#      - public-data:/Contrail/public
+#      - tmp-data:/Contrail/tmp
+#      - sockets:/Contrail/tmp/sockets
+#    ports:
+#      - 80:80
+#    depends_on:
+#      - web
 #volumes:
 #  public-data:
 #  tmp-data:
