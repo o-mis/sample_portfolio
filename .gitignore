@@ -111,3 +111,16 @@ config/zsh-syntax-highlighting
 config/initializers/geocoder.rb
 
 /zsh-syntax-highlighting/*
+/.zprofile
+/.zshrc
+
+# Ignore Capistrano files 
+/config/deproy/*
+/deproy.rb
+/Capfile
+
+/.git-prompt.sh
+/aws/*
+/aws-scripts-mon/*
+/awscliv2.zip
+/.browserslistrc

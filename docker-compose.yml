@@ -20,19 +20,19 @@ services:
       - "3000:3000"
     depends_on:
       - db
-#  nginx:
-#    build:
-#      context: .
-#      dockerfile: ./nginx/Dockerfile
-#    volumes:
-#      - public-data:/Contrail/public
-#      - tmp-data:/Contrail/tmp
-#      - sockets:/Contrail/tmp/sockets
-#    ports:
-#      - 80:80
-#    depends_on:
-#      - web
-#volumes:
-#  public-data:
-#  tmp-data:
-#  sockets:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+      - public-data:/Contrail/public
+      - tmp-data:/Contrail/tmp
+      - sockets:/Contrail/tmp/sockets
+    ports:
+      - 80:80
+    depends_on:
+      - web
+volumes:
+  public-data:
+  tmp-data:
+  sockets:
