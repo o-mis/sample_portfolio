@@ -63,7 +63,7 @@ jobs:
 
 workflows:
   version: 2.1
-  # Railsのデプロイ
+  # ECRとECSを使用してRailsのデプロイ
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
@@ -71,7 +71,7 @@ workflows:
             branches:
               only: master
           account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_DEFAULT_REGION
+          region: AWS_REGION
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
@@ -84,4 +84,4 @@ workflows:
           family: '${ECS_TASK}'
           cluster-name: '${ECS_ARN}'
           service-name: '${ECS_SERVICE}'
-          container-image-name-updates: "container=contrail,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}_web01,tag=${CIRCLE_SHA1}"

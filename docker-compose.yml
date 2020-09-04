@@ -3,14 +3,16 @@ services:
   db:
     image: mysql:8.0.19
     environment:
-#     MYSQL_ROOT_PASSWORD: password
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      RAILS_ENV: development
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     restart: always
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     tty: true
     stdin_open: true
     command: bundle exec puma -C config/puma.rb
@@ -20,19 +22,19 @@ services:
       - "3000:3000"
     depends_on:
       - db
-#  nginx:
-#    build:
-#      context: .
-#      dockerfile: ./nginx/Dockerfile
-#    volumes:
-#      - public-data:/Contrail/public
-#      - tmp-data:/Contrail/tmp
-#      - sockets:/Contrail/tmp/sockets
-#    ports:
-#      - 80:80
-#    depends_on:
-#      - web
-#volumes:
-#  public-data:
-#  tmp-data:
-#  sockets:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+      - public-data:/Contrail/public
+      - tmp-data:/Contrail/tmp
+      - sockets:/Contrail/tmp/sockets
+    ports:
+      - 80:80
+    depends_on:
+      - web
+volumes:
+  public-data:
+  tmp-data:
+  sockets:
