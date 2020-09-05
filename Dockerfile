@@ -37,3 +37,5 @@ EXPOSE 3000
 
 ENV RAILS_ENV=production
 RUN RAILS_ENV=production bundle exec rails assets:precompile
+
+CMD ["bundle","exec","rails","server","puma","-b","0.0.0.0","-p","3000"]
