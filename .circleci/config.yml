@@ -89,7 +89,7 @@ workflows:
   #nginxのデプロイ
   build-and-deploy-nginx:
     jobs:
-      - aws-ecr/build_and_push_image:
+      - aws-ecr/build-and-push-image:
           filters:
             branches:
               only: master
@@ -107,4 +107,4 @@ workflows:
           family: '${ECS_TASK}'
           cluster-name: '${ECS_ARN}'
           service-name: '${ECS_SERVICE}'
-          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_NGINX},tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_NGINX}04,tag=${CIRCLE_SHA1}"
