@@ -35,6 +35,10 @@ COPY . $APP_ROOT
 
 EXPOSE 3000
 
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY ${RAILS_MASTER_KEY}
+
+
 ENV RAILS_ENV=production
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 
