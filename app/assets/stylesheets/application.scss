@@ -34,7 +34,7 @@ body {
   li {
     list-style: none;
   }
-  .fa-bookmark {
+  .head-bookmark {
     font-family: $fa-family;
     font-style: solid;
     font-weight: 900;
@@ -44,6 +44,7 @@ body {
       color: $main-color;
     }
   }
+
   .fa-bars {
     color: $gray;
     &:focus {
@@ -263,6 +264,12 @@ span.picture {
   outline: none;
   background: transparent;
 }
+
+// .post-bookmark {
+//   font-family: $fa-family;
+//   font-style: solid;
+//   font-weight: 900;
+// }
 
 .bookmarked-btn {
   font-family: $fa-family;

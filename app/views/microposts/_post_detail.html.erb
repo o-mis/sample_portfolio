@@ -33,16 +33,21 @@
       </div>
 
       <div class="post-info d-flex flex-row">
-        <div class="mr-2"><%= render "likes/like", micropost: @micropost %></div>
-        <div><%= render "bookmarks/bookmark", micropost: @micropost %></div>
-          <% if current_user.id == object.user.id %>
-            <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-sm btn-outline-secondary" %></div>
-          <% end %>
+        <div id="micropost-<%= object.id %>">
+          <%= render "likes/like", micropost: @micropost %>
+        </div>
+        <div class="ml-4" id="micropostB-<%= object.id %>">
+          <%= render "bookmarks/bookmark", micropost: @micropost %>
+        </div>
+
+        <% if current_user.id == object.user.id %>
+          <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-sm btn-outline-secondary" %></div>
+        <% end %>
       </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" id="comment">
       <%= render 'comments/form', micropost: object, group: @comments %>
   </div>
 

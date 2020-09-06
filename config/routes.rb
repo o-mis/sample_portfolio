@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :microposts,      only: %i[show new create destroy] do
-    resources :comments,        only: %i[create destroy]
+    resources :comments,      only: %i[create destroy]
 
     collection do
       get :search
