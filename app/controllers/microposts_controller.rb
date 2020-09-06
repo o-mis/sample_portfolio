@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @like = Like.new
     @bookmark = Bookmark.new
-    @comments = @micropost.comments.page(params[:page])
+    @comments = @micropost.comments.page(params[:page]).per(6)
     @comment = @micropost.comments.build
   end
 
@@ -54,7 +54,7 @@ class MicropostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
 
   def micropost_params
-    params.permit(:content, :arrived_at, :budget, :address, :image)
+    params.require(:micropost).permit(:content, :arrived_at, :budget, :address, :image)
   end
 
   def has_micropost
