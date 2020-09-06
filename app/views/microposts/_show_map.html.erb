@@ -23,7 +23,7 @@
     });
   };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.googleMapsApi[:google_api_key] %>&libraries=places&callback=initMap&language=ja"
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:googleMapsApi,:google_api_key) %>&libraries=places&callback=initMap&language=ja"
           async defer></script>
 
 
