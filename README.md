@@ -16,15 +16,15 @@ https://www.contrail-app.com
 - Nginx,puma(ソケット通信)
 - Docker, docker-compose
 - AWS
-	- VPC
-	- EC2/ELB
-	- RDS(MySQL)
-	- Route53
-	- ACM
-	- S3
-        - ECS
-        - ECR
-- CircleCI(CI/CDパイプライン)
+  - VPC
+  - EC2/ELB
+  - RDS(MySQL)
+  - Route53
+  - ACM
+  - S3
+  - ECS
+  - ECR
+- CircleCI(orbsを使用してデプロイしています)
 
 # AWS構成図
 
