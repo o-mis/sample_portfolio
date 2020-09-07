@@ -11,7 +11,7 @@
           <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), object.user %>
         <% end %>
 
-        <%= link_to object.user.name, object.user, class: "text-secondary" %>
+        <%= link_to object.user.name, object.user, class: "text-dark post-name" %>
         <% if object.address %>
           <small class="text-muted ml-2"><%= object.address %></small>
         <% end %>
@@ -39,9 +39,8 @@
         <div class="ml-4" id="micropostB-<%= object.id %>">
           <%= render "bookmarks/bookmark", micropost: @micropost %>
         </div>
-
         <% if current_user.id == object.user.id %>
-          <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-sm btn-outline-secondary" %></div>
+          <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-sm btn-outline-dark" %></div>
         <% end %>
       </div>
     </div>
