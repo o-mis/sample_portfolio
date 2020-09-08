@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     unless @micropost.liked?(current_user)
       @micropost.like(current_user)
       respond_to do |format|
-        format.html { redirect_to request.referer || root_path }
+        format.html { redirect_to request.referer || root_url }
         format.js
       end
     end

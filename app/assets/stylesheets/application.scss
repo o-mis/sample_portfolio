@@ -1,8 +1,10 @@
 @import "bootstrap";
 @import "microposts";
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
 
 $main-color: #89c3eb;
 $fa-family: "Font Awesome 5 Free";
+$font: "Teko", sans-serif;
 $white: #ffffff;
 $gray: #555555;
 
@@ -14,27 +16,28 @@ $gray: #555555;
 /* body */
 body {
   width: 80%;
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
-// body,
-// #wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100vh;
-// }
+main {
+  padding-top: 0px !important;
+}
 
 /* header */
 .navbar {
+  padding-top: 0 !important;
   .navbar-brand {
     color: #353535;
-    font-size: 23px;
-    font-weight: 700;
+    font-size: 26px;
+    font-family: $font;
   }
   li {
     list-style: none;
   }
-  .fa-bookmark {
+  .head-bookmark {
     font-family: $fa-family;
     font-style: solid;
     font-weight: 900;
@@ -44,6 +47,7 @@ body {
       color: $main-color;
     }
   }
+
   .fa-bars {
     color: $gray;
     &:focus {
@@ -54,7 +58,7 @@ body {
     }
   }
   .signedin-item {
-    color: #393939;
+    color: #353535;
     font-size: 18px;
     font-weight: bold;
     float: left;
@@ -64,7 +68,7 @@ body {
     }
   }
   .not-signedin-item {
-    color: #3f3f3f;
+    color: #353535;
     font-size: 18px;
     font-weight: bold;
   }
@@ -79,7 +83,7 @@ body {
 // TODO メインコンテンツ用のCSSファイルを用意する
 main {
   padding-top: 10px;
-  padding-bottom: 90px;
+  padding-bottom: 50px;
 }
 
 .search-form {
@@ -87,6 +91,11 @@ main {
   &:focus {
     outline: none;
   }
+}
+
+.post-name {
+  font-size: 18px;
+  font-family: $font;
 }
 
 .fa-sun::before {
@@ -104,7 +113,29 @@ main {
   color: darkblue;
 }
 
-#fab {
+.fab-lg {
+  display: block;
+  width: 76px;
+  height: 76px;
+  background: $main-color;
+  border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+  align-items: center;
+  position: fixed;
+  // right: 54px;
+  // bottom: 54px;
+  right: 110px;
+  bottom: 74px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+  border-color: transparent !important;
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.fab-md {
   display: block;
   width: 56px;
   height: 56px;
@@ -114,7 +145,7 @@ main {
   text-decoration: none;
   align-items: center;
   position: fixed;
-  right: 54px;
+  right: 70px;
   bottom: 54px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   border-color: transparent !important;
@@ -147,10 +178,10 @@ main {
   }
 }
 
-.pagination {
-  border: none;
-  color: #7f7f7f;
-}
+// .pagination {
+//   border: none;
+//   color: #7f7f7f;
+// }
 
 .microposts {
   list-style: none;
@@ -249,6 +280,9 @@ span.picture {
   font-style: solid;
   font-weight: 900;
   color: #d7003a;
+  &:hover {
+    color: #9f9f9f;
+  }
 }
 
 .muted-heart {
@@ -256,6 +290,9 @@ span.picture {
   font-style: solid;
   font-weight: 900;
   color: #7f7f7f;
+  &:hover {
+    color: #d7003a;
+  }
 }
 
 .clear-decoration {
@@ -269,12 +306,18 @@ span.picture {
   font-style: solid;
   font-weight: 900;
   color: #3f3f3f;
+  &:hover {
+    color: #7a7a7a;
+  }
 }
 .muted-bookmark {
   font-family: $fa-family;
   font-style: solid;
   font-weight: 900;
   color: #7a7a7a;
+  &:hover {
+    color: #3f3f3f;
+  }
 }
 
 .dropdown-toggle {
