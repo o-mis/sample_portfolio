@@ -1,4 +1,4 @@
-<div>
+<div class="comment-block">
   <div class="mb-5">
     <%= render 'comments/content', comments: @comments %>
   </div>
@@ -6,8 +6,8 @@
   <%= form_with(model: [@micropost, @comment], remote: true ) do |f| %>
     <%= f.hidden_field :micropost_id %>
     <div class="d-flex flex-row">
-      <%= f.text_area :content, id: "comment-field", class: "rounded-sm comment-area", placeholder: "コメントを送信.." %>
-      <%= f.submit '送信', class: "btn btn-outline-dark rounded-sm ml-1 btn-comment" %>
+      <%= f.text_area :content, id: "comment-field", class: "rounded-0 comment-area", placeholder: "コメントを送信.." %>
+      <%= f.submit '送信', class: "btn btn-sm btn-outline-dark rounded-0 ml-1 btn-comment" %>
     </div>
   <% end %>
 </div>

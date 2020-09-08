@@ -1,9 +1,10 @@
 @import "bootstrap";
 @import "microposts";
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
 
 $main-color: #89c3eb;
 $fa-family: "Font Awesome 5 Free";
+$font: "Teko", sans-serif;
 $white: #ffffff;
 $gray: #555555;
 
@@ -18,21 +19,20 @@ body {
   margin-right: auto;
   margin-left: auto;
   margin-top: 0px;
+  padding-top: 0px;
 }
 
-// body,
-// #wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100vh;
-// }
+main {
+  padding-top: 0px !important;
+}
 
 /* header */
 .navbar {
+  padding-top: 0 !important;
   .navbar-brand {
     color: #353535;
     font-size: 26px;
-    font-family: 'Teko', sans-serif;
+    font-family: $font;
   }
   li {
     list-style: none;
@@ -95,6 +95,7 @@ main {
 
 .post-name {
   font-size: 18px;
+  font-family: $font;
 }
 
 .fa-sun::before {
@@ -112,7 +113,29 @@ main {
   color: darkblue;
 }
 
-#fab {
+.fab-lg {
+  display: block;
+  width: 76px;
+  height: 76px;
+  background: $main-color;
+  border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+  align-items: center;
+  position: fixed;
+  // right: 54px;
+  // bottom: 54px;
+  right: 110px;
+  bottom: 74px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+  border-color: transparent !important;
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.fab-md {
   display: block;
   width: 56px;
   height: 56px;
@@ -122,7 +145,7 @@ main {
   text-decoration: none;
   align-items: center;
   position: fixed;
-  right: 54px;
+  right: 70px;
   bottom: 54px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   border-color: transparent !important;
