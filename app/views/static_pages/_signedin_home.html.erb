@@ -15,7 +15,7 @@
               <% end %>
               <%= link_to micropost.user.name, micropost.user, class: "post-avatar post-name text-dark" %>
               <% if micropost.address %>
-                <small class="text-muted ml-2"><%= micropost.address %></small>
+                <small class="post-address ml-2"><%= micropost.address %></small>
               <% end %>
               <% if micropost.arrived_at == "昼" %>
                 <span style="color: Tomato">

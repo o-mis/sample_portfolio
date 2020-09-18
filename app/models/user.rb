@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  admin                  :boolean          default(FALSE)
 #  avatar                 :string(255)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string(255)
@@ -24,7 +25,7 @@
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :validatable, :confirmable, :omniauthable
+          :rememberable, :validatable, :confirmable, :omniauthable
   has_many :microposts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :micropost
@@ -34,14 +35,14 @@ class User < ApplicationRecord
                                   foreign_key: 'follower_id',
                                   dependent: :destroy
   has_many :passive_relationships, class_name: 'Relationship',
-                                   foreign_key: 'followed_id',
-                                   dependent: :destroy
+                                  foreign_key: 'followed_id',
+                                  dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 10 }, uniqueness: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :name, presence: true, length: { maximum: 10 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false },

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :following, :followers]
+  before_action :logged_in_user, only: [:edit, :update, :destroy, :following, :followers]
 
   def index
     @q = User.ransack(params[:q])
@@ -79,6 +79,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :email, :avatar)
+    params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation)
   end
 end

@@ -98,6 +98,15 @@ main {
   font-family: $font;
 }
 
+.post-address {
+  font-size: 15px;
+  color: $gray;
+}
+
+.post-budget {
+  color: $gray;
+}
+
 .fa-sun::before {
   font-family: $fa-family;
   font-style: solid;
@@ -194,15 +203,15 @@ main {
     margin-top: 5em;
     padding-top: 0;
   }
-  .content {
-    display: block;
-    margin-left: 60px;
-    margin-bottom: 10px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
+  // .content {
+  //   display: block;
+  //   margin-left: 60px;
+  //   margin-bottom: 10px;
+  //   img {
+  //     display: block;
+  //     padding: 5px 0;
+  //   }
+  // }
   .heart-m {
     font-family: "Font Awesome 5 Free";
     font-style: solid;
@@ -212,20 +221,14 @@ main {
       color: #e60012;
     }
   }
-  // .timestamp {
-  //   color: #9f9f9f;
-  //   display: block;
-  //   margin-left: 60px;
-  //   font-size: small;
-  // }
 }
 
-span.picture {
-  margin-top: 10px;
-  input {
-    border: 0;
-  }
-}
+// span.picture {
+//   margin-top: 10px;
+//   input {
+//     border: 0;
+//   }
+// }
 
 .profile span {
   font-size: 20px;
@@ -386,12 +389,11 @@ span.picture {
 }
 
 .btn-rela {
-  color: $main-color;
-  border: solid 2px $main-color;
-  &:hover {
-    background: #dbedff;
-    color: $main-color;
-  }
+  font-size: 15px;
+}
+
+.user-show {
+  font-size: 9px;
 }
 
 .btn-rela-dis {
@@ -426,7 +428,9 @@ span.picture {
 
 // Users index
 .user-index {
-  font-size: 19px;
+  font-size: 17px;
+  color: #353535;
+  font-family: $font;
 }
 
 // Maps index
