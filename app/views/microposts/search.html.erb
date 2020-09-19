@@ -1,0 +1,19 @@
+<div class="container mb-4">
+  <div class="d-flex flex-row">
+    <div class="flex-fill">
+      <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
+        <%= f.search_field :content_cont, class: "search-form form-control rounded-sm text-center", placeholder: "投稿を検索..." %>
+      <% end %>
+    </div>
+    <div class="flex-fill ml-4">
+      <%= link_to search_users_path, class: "btn btn-outline-secondary w-100 search-from-u text-decoration-none" do %>
+        ユーザーを検索
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<% if @microposts.any? %>
+  <%= render 'microposts/index_posts' %>
+<% end %>
