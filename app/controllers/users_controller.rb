@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @micropost = @user.microposts.page(params[:page])
     @following = @user.following
     @followers = @user.followers
     @feed = current_user.feed.page(params[:page]).per(15) if user_signed_in?
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
 
   def search
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).per(20)
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def edit

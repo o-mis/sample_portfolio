@@ -3,7 +3,16 @@ class MicropostsController < ApplicationController
   before_action :has_micropost, only: :destroy
 
   def index
+    @q = Micropost.ransack(params[:q])
     @microposts = Micropost.page(params[:page]).per(6)
+    if @q_post
+      @micropost = @q_post.result(distinct: true)
+    end
+  end
+
+  def search
+    @q = Micropost.ransack(params[:q])
+    @microposts = @q.result(distinct: true).page(params[:page]).per(6)
   end
 
   def show
@@ -13,8 +22,6 @@ class MicropostsController < ApplicationController
     @comments = @micropost.comments.page(params[:page]).per(6)
     @comment = @micropost.comments.build
   end
-
-  def search; end
 
   def new
     @micropost = current_user.microposts.build if user_signed_in?

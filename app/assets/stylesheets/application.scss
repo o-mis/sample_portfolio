@@ -34,44 +34,63 @@ main {
     font-size: 26px;
     font-family: $font;
   }
-  li {
-    list-style: none;
-  }
-  .head-bookmark {
+  // li {
+  //   list-style: none;
+  // }
+  .head-search {
     font-family: $fa-family;
     font-style: solid;
-    font-weight: 900;
+    font-weight: 600;
     color: $gray;
-    margin-right: 30px;
     &:hover {
       color: $main-color;
     }
   }
 
-  .fa-bars {
+  .head-bookmark {
+    font-family: $fa-family;
+    font-style: solid;
+    font-weight: 900;
     color: $gray;
-    &:focus {
-      outline: none;
-    }
+    margin-right: 15px;
     &:hover {
       color: $main-color;
     }
   }
-  .signedin-item {
-    color: #353535;
-    font-size: 18px;
-    font-weight: bold;
-    float: left;
-    span {
-      color: #6e6e6e;
-      font-weight: bold;
-    }
+
+  button .btn {
+    background-color: $main-color;
   }
-  .not-signedin-item {
-    color: #353535;
-    font-size: 18px;
-    font-weight: bold;
+
+  .head-menu {
+    font-family: $font;
+    color: $white;
   }
+
+  .head-user {
+    font-family: $font;
+    font-size: 22px;
+  }
+
+  .head-logout {
+    color: $gray;
+  }
+
+  // .signedin-item {
+  //   color: #353535;
+  //   font-size: 18px;
+  //   font-weight: bold;
+  //   float: left;
+  //   span {
+  //     color: #6e6e6e;
+  //     font-weight: bold;
+  //   }
+  // }
+  // .not-signedin-item {
+  //   color: #353535;
+  //   font-size: 18px;
+  //   font-weight: bold;
+  // }
   .nav-items {
     font-family: $fa-family;
     font-style: solid;
@@ -86,10 +105,24 @@ main {
   padding-bottom: 50px;
 }
 
-.search-form {
-  height: 40px;
-  &:focus {
-    outline: none;
+// .search-form {
+//   width: 500px;
+//   &:focus {
+//     outline: none;
+//   }
+// }
+// .search-form-u {
+//   width: 500px;
+// }
+
+nav-pills .tab-search {
+  background-color: #7a7a7a;
+  color: black;
+  &:hover {
+    color: black;
+  }
+  &:active {
+    color: black;
   }
 }
 
@@ -132,8 +165,6 @@ main {
   text-decoration: none;
   align-items: center;
   position: fixed;
-  // right: 54px;
-  // bottom: 54px;
   right: 110px;
   bottom: 74px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
@@ -187,11 +218,6 @@ main {
   }
 }
 
-// .pagination {
-//   border: none;
-//   color: #7f7f7f;
-// }
-
 .microposts {
   list-style: none;
   padding: 0;
@@ -203,15 +229,7 @@ main {
     margin-top: 5em;
     padding-top: 0;
   }
-  // .content {
-  //   display: block;
-  //   margin-left: 60px;
-  //   margin-bottom: 10px;
-  //   img {
-  //     display: block;
-  //     padding: 5px 0;
-  //   }
-  // }
+
   .heart-m {
     font-family: "Font Awesome 5 Free";
     font-style: solid;
@@ -222,13 +240,6 @@ main {
     }
   }
 }
-
-// span.picture {
-//   margin-top: 10px;
-//   input {
-//     border: 0;
-//   }
-// }
 
 .profile span {
   font-size: 20px;
@@ -323,12 +334,12 @@ main {
   }
 }
 
-.dropdown-toggle {
-  color: $gray;
-  &:hover {
-    color: $main-color;
-  }
-}
+// .dropdown-toggle {
+//   color: $gray;
+//   &:hover {
+//     color: $main-color;
+//   }
+// }
 
 .comment-area {
   height: 40px;
@@ -428,7 +439,7 @@ main {
 
 // Users index
 .user-index {
-  font-size: 17px;
+  font-size: 18px;
   color: #353535;
   font-family: $font;
 }

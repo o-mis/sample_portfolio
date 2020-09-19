@@ -27,7 +27,6 @@ Rails.application.routes.draw do
 
   resources :microposts,      only: %i[show new create destroy] do
     resources :comments,      only: %i[create destroy]
-
     collection do
       get :search
     end
@@ -36,5 +35,4 @@ Rails.application.routes.draw do
   resources :relationships,   only: %i[create destroy]
   resources :likes,           only: %i[create destroy]
   resources :bookmarks,       only: %i[index create destroy]
-  # resources :maps,            only: :index
 end

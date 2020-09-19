@@ -1,61 +1,56 @@
 <nav class="navbar mb-4">
   <div class="container">
     <%=link_to "Contrail", root_path, class: "navbar-brand mr-auto" %>
-    <% if user_signed_in? %>
-      <%= link_to bookmarks_path, class: "bookmark" do %>
-        <i class="fas fa-bookmark head-bookmark fa-lg"></i>
-      <% end %>
-    <% end %>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
-      <i class="fas fa-bars fa-lg"></i>
-    </button>
-        <div class="collapse navbar-collapse mt-3" id="navbarNavAltMarkup">
-          <% if user_signed_in? %>
-            <ul class="navbar-nav">
-              <li class="signedin-item mr-auto mb-1 d-flex align-items-center">
-                <% if current_user.avatar? %>
-                  <%= link_to image_tag(current_user.avatar.mini.url, class: "rounded-circle", alt: "avatar image"), user_path(current_user) %>
-                <% else %>
-                  <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle mb-3", alt: "avatar image"), user_path(current_user) %>
-                <% end %>
 
-                <%= link_to user_path(current_user), class: "signedin-item" do %>
-                  <div><div class="ml-2"><%= current_user.name %></div></div>
-                <% end %>
-              </li>
-              <li class="signedin-item mb-3">
-                <%= link_to search_users_path, class: "signedin-item text-decoration-none" do %>
-                  <i class="fas fa-search mr-2 nav-items"></i> キーワードで検索
-                <% end %>
-              </li>
-              <li class="signedin-item pb-3">
-                <%= link_to users_path, class: "signedin-item text-decoration-none" do %>
-                  <i class="fas fa-check mr-2 nav-items"></i> ユーザー
-                <% end %>
-              </li>
-              <li class="signedin-item pb-2">
-                <%= link_to destroy_user_session_path, method: :delete, class: "signedin-item text-decoration-none" do %>
-                  <span><i class="fas fa-power-off mr-2 nav-items"></i> ログアウト</span>
-                <% end %>
-              </li>
-          <% else %>
-              <li class="not-signedin-item pt-4 mb-3">
-                <%= link_to search_users_path, class: "not-signedin-item text-decoration-none" do %>
-                  <i class="fas fa-search mr-2 nav-items"></i> キーワードで検索
-                <% end %>
-              </li>
-              <li class="not-signedin-item mb-3">
-                <%= link_to new_user_session_path, class: "not-signedin-item text-decoration-none" do %>
-                  <i class="fas fa-sign-in-alt mr-2 nav-items"></i> ログイン
-                <% end %>
-              </li>
-              <li class="not-signedin-item mb-5">
-                <%= link_to users_guest_sign_in_path, method: :post, class: "not-signedin-item text-decoration-none" do %>
-                  <i class="fas fa-sign-in-alt mr-2 nav-items"></i> 簡単ログイン
-                <% end %>
-              </li>
-            </ul>
+    <%= link_to search_microposts_path do %>
+      <i class="fas fa-search head-search fa-lg mr-4"></i>
+    <% end %>
+
+    <%= link_to bookmarks_path, class: "bookmark" do %>
+      <i class="fas fa-bookmark head-bookmark fa-lg mr-4"></i>
+    <% end %>
+
+    <div class="dropdown">
+      <button class="btn btn-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="head-menu">menu</span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% if user_signed_in? %>
+          <div class="d-flex flex-row">
+            <% if current_user.avatar? %>
+              <div><%= link_to image_tag(current_user.avatar.mini.url, class: "ml-3 mt-2 rounded-circle", alt: "avatar image"), user_path(current_user) %></div>
+            <% else %>
+              <div><%= link_to image_tag('no_avatar.png', size: "30x30", class: "ml-3 mt-2 rounded-circle", alt: "avatar image"), user_path(current_user) %></div>
+            <% end %>
+            <div>
+              <%= link_to user_path(current_user), class: "pl-1 dropdown-item" do %>
+                <span class="head-user"><%= current_user.name %></span>
+              <% end %>
+            </div>
+          </div>
+          <%= link_to search_users_path, class: "dropdown-item" do %>
+            <i class="fas fa-search nav-items"></i> キーワードで検索
           <% end %>
-        </div>
+          <%= link_to users_path, class: "dropdown-item" do %>
+            <i class="fas fa-check nav-items"></i> ユーザー
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to destroy_user_session_path, method: :delete, class: "head-logout dropdown-item text-decoration-none" do %>
+            <span><i class="fas fa-power-off nav-items"></i> ログアウト</span>
+          <% end %>
+        <% else %>
+            <%= link_to search_users_path, class: "dropdown-item text-decoration-none" do %>
+              <i class="fas fa-search nav-items"></i> キーワードで検索
+            <% end %>
+            <%= link_to new_user_session_path, class: "dropdown-item not-signedin-item text-decoration-none" do %>
+              <i class="fas fa-sign-in-alt nav-items"></i> ログイン
+            <% end %>
+            <%= link_to users_guest_sign_in_path, method: :post, class: "dropdown-item text-decoration-none" do %>
+              <i class="fas fa-sign-in-alt nav-items"></i> 簡単ログイン
+            <% end %>
+          </li>
+        <% end %>
+      </div>
     </div>
+  </div>
 </nav>

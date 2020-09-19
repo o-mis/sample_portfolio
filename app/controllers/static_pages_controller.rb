@@ -6,5 +6,6 @@ class StaticPagesController < ApplicationController
     @like = Like.new
     @bookmark = Bookmark.new
     @micropost = Micropost.new
+    @q = Micropost.ransack(params[:q])
   end
 end
