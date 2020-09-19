@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :following, :followers]
+  before_action :logged_in_user, only: [:edit, :update, :destroy, :following, :followers]
 
   def index
     @q = User.ransack(params[:q])
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @micropost = @user.microposts.page(params[:page])
     @following = @user.following
     @followers = @user.followers
     @feed = current_user.feed.page(params[:page]).per(15) if user_signed_in?
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
 
   def search
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).per(20)
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def edit
@@ -79,6 +78,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :email, :avatar)
+    params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation)
   end
 end
