@@ -39,14 +39,11 @@
             <span><i class="fas fa-power-off nav-items"></i> ログアウト</span>
           <% end %>
         <% else %>
-            <%= link_to search_users_path, class: "dropdown-item text-decoration-none" do %>
-              <i class="fas fa-search nav-items"></i> キーワードで検索
-            <% end %>
             <%= link_to new_user_session_path, class: "dropdown-item not-signedin-item text-decoration-none" do %>
               <i class="fas fa-sign-in-alt nav-items"></i> ログイン
             <% end %>
             <%= link_to users_guest_sign_in_path, method: :post, class: "dropdown-item text-decoration-none" do %>
-              <i class="fas fa-sign-in-alt nav-items"></i> 簡単ログイン
+              <i class="fas fa-sign-in-alt nav-items"></i> ゲストログイン
             <% end %>
           </li>
         <% end %>

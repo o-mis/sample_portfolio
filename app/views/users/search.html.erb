@@ -14,8 +14,10 @@
 </div>
 
 <div class="container">
-<% if @users.any? %>
-  <ul class="users-index">
-    <%= render 'users/index_users' %>
-  </ul>
-<% end %>
+  <% if @users.any? %>
+    <ul class="users-index">
+      <%= render 'users/index_users' %>
+    </ul>
+  <% end %>
+</div>
+<div class="mt-2 ml-5"><%= paginate @users %></div>

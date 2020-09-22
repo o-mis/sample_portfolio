@@ -26,6 +26,7 @@ main {
   padding-top: 0px !important;
 }
 
+
 /* header */
 .navbar {
   padding-top: 0 !important;
@@ -103,6 +104,16 @@ main {
 main {
   padding-top: 10px;
   padding-bottom: 50px;
+}
+
+.not-signedin-latest {
+  font-size: 19px;
+  color: $gray;
+  font-weight: bold;
+  border-bottom: solid 4px $main-color;
+}
+.info-tab {
+  float: right;
 }
 
 // .search-form {
@@ -235,9 +246,6 @@ nav-pills .tab-search {
     font-style: solid;
     font-weight: 900;
     color: #9f9f9f;
-    &:hover {
-      color: #e60012;
-    }
   }
 }
 
@@ -294,9 +302,9 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #d7003a;
-  &:hover {
-    color: #9f9f9f;
-  }
+  // &:hover {
+  //   color: #9f9f9f;
+  // }
 }
 
 .muted-heart {
@@ -304,9 +312,9 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #7f7f7f;
-  &:hover {
-    color: #d7003a;
-  }
+  // &:hover {
+  //   color: #d7003a;
+  // }
 }
 
 .clear-decoration {
@@ -320,18 +328,18 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #3f3f3f;
-  &:hover {
-    color: #7a7a7a;
-  }
+  // &:hover {
+  //   color: #7a7a7a;
+  // }
 }
 .muted-bookmark {
   font-family: $fa-family;
   font-style: solid;
   font-weight: 900;
   color: #7a7a7a;
-  &:hover {
-    color: #3f3f3f;
-  }
+  // &:hover {
+  //   color: #3f3f3f;
+  // }
 }
 
 // .dropdown-toggle {
