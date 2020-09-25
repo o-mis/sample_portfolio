@@ -1,5 +1,5 @@
 # 管理ユーザー作成
-User.create!(name: '管理ユーザー',
+User.create!(name: 'Admin User',
             email: 'admin-contrail@example.com',
             password: 'abcdefg',
             password_confirmation: 'abcdefg',
@@ -36,6 +36,7 @@ Micropost.create!(
       budget: "2",
       address: "VIRON 渋谷",
       content: "ここのクロワッサンはサイズ大きめ、バターの風味は強めです。",
+      tag_list: "渋谷,パン,クロワッサン,おすすめ"
     },
     {
       user_id: 2,
@@ -43,7 +44,8 @@ Micropost.create!(
       arrived_at: "未選択",
       budget: "2",
       address: "池袋 天丼ふじ",
-      content: "ししとうやキスが入っているのが少し珍しい。甘辛いタレによく合います。"
+      content: "ししとうやキスが入っているのが少し珍しい。甘辛いタレによく合います。",
+      tag_list: "池袋,天丼,おすすめ"
     },
     {
       user_id: 3,
@@ -51,7 +53,8 @@ Micropost.create!(
       arrived_at: "夜",
       budget: "4",
       address: "渋谷 寿司の美登利",
-      content: "コスパの良いお店。ランチセットも美味しい。"
+      content: "コスパの良いお店。ランチセットも美味しい。",
+      tag_list: "渋谷,寿司,おすすめ"
     },
     {
       user_id: 4,
@@ -59,7 +62,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "神楽坂 紀の善",
-      content: "全体的に甘さ控えめの抹茶ババロア。年中食べたい。"
+      content: "全体的に甘さ控えめの抹茶ババロア。年中食べたい。",
+      tag_list: "神楽坂,ババロア,スイーツ"
     },
     {
       user_id: 5,
@@ -67,7 +71,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "かつき亭 吾妻橋店",
-      content: "エビフライとヒレカツが特に美味しい。エビがプリプリで大きい。"
+      content: "エビフライとヒレカツが特に美味しい。エビがプリプリで大きい。",
+      tag_list: "吾妻橋,エビフライ,ヒレカツ"
     },
     {
       user_id: 6,
@@ -75,7 +80,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "亀有 つけ麺道",
-      content: "ラーメン屋のクリームブリュレ。これを目当てに行くのも良いですね。"
+      content: "ラーメン屋のクリームブリュレ。これを目当てに行くのも良いですね。",
+      tag_list: "スイーツ, ラーメン"
     },
     {
       user_id: 7,
@@ -83,7 +89,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "Cafe&Meal MUJI 渋谷",
-      content: "濃厚な硬めプリン。もっとMUJIプリンが流行ってほしい。"
+      content: "濃厚な硬めプリン。もっとMUJIプリンが流行ってほしい。",
+      tag_list: "渋谷,プリン,スイーツ"
     },
     {
       user_id: 8,
@@ -91,7 +98,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "とんかつ檍 大門店",
-      content: "お肉が甘くて柔らかい。勇気を出して塩を付けて食べるのが良いです。"
+      content: "お肉が甘くて柔らかい。勇気を出して塩を付けて食べるのが良いです。",
+      tag_list: "とんかつ,おすすめ"
     },
     {
       user_id: 9,
@@ -99,7 +107,8 @@ Micropost.create!(
       arrived_at: "夜",
       budget: "2",
       address: "十二分屋 早稲田店",
-      content: "コシの強い麺に少し酸味の効いたスープは食欲が無い時にも。"
+      content: "コシの強い麺に少し酸味の効いたスープは食欲が無い時にも。",
+      tag_list: "ラーメン,つけ麺"
     },
     {
       user_id: 10,
@@ -107,7 +116,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "Mr.チキン 要町店",
-      content: "甘辛いタレにザクザクの衣がついている。お餅とさつまいもも付いています。"
+      content: "甘辛いタレにザクザクの衣がついている。お餅とさつまいもも付いています。",
+      tag_list: "池袋,チキン,デリバリー"
     },
     {
       user_id: 11,
@@ -115,7 +125,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "チャオチャオバンブー",
-      content: "バイキング形式で食べたいものをよそってもらえる。雰囲気も良いです。"
+      content: "バイキング形式で食べたいものをよそってもらえる。雰囲気も良いです。",
+      tag_list: "表参道,タイ料理"
     },
     {
       user_id: 12,
@@ -123,7 +134,8 @@ Micropost.create!(
       arrived_at: "夜",
       budget: "7",
       address: "万両 東天満店",
-      content: "幻カルピが一番おすすめ。こんなに美味しいお店東京ならもっと高いはず..."
+      content: "幻カルピが一番おすすめ。こんなに美味しいお店東京ならもっと高いはず...",
+      tag_list: "大阪,焼き肉,コスパ"
     },
     {
       user_id: 13,
@@ -131,7 +143,8 @@ Micropost.create!(
       arrived_at: "夜",
       budget: "3",
       address: "幸寿司 高田馬場",
-      content: "どれを食べても美味しいです。ちなみにお昼はお蕎麦屋さんです。"
+      content: "どれを食べても美味しいです。ちなみにお昼はお蕎麦屋さんです。",
+      tag_list: "高田馬場,寿司"
     },
     {
       user_id: 14,
@@ -139,7 +152,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "2",
       address: "新宿割烹中嶋",
-      content: "薄味の鰯の煮付けが本当に美味しい。脂がのっていて最高です。"
+      content: "薄味の鰯の煮付けが本当に美味しい。脂がのっていて最高です。",
+      tag_list: "新宿,和食"
     },
     {
       user_id: 15,
@@ -147,7 +161,8 @@ Micropost.create!(
       arrived_at: "昼",
       budget: "1",
       address: "ラーメン凪 新宿",
-      content: "太めのちぢれ麺に濃厚な煮干スープは相性抜群です。"
+      content: "太めのちぢれ麺に濃厚な煮干スープは相性抜群です。",
+      tag_list: "新宿,ラーメン,おすすめ"
     }
   ]
 )

@@ -26,7 +26,6 @@ class Micropost < ApplicationRecord
   validates :arrived_at, presence: true
   validates :address, presence: true
   validates :image, presence: true
-  # validates :restaurant, presence: true
 
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
@@ -35,6 +34,8 @@ class Micropost < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  acts_as_taggable
 
   def like(user)
     likes.create(user_id: user.id)

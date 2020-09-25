@@ -5,6 +5,6 @@ class StaticPagesController < ApplicationController
     @like = Like.new
     @bookmark = Bookmark.new
     @micropost = Micropost.new
-    # @q = Micropost.ransack(params[:q])
+    # @tags = Micropost.tag_counts_on(:tags).order('count DESC')
   end
 end
