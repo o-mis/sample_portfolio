@@ -2,10 +2,10 @@
   <div class="d-flex flex-row">
     <div class="flex-fill">
       <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
-        <%= f.search_field :content_cont, class: "search-form form-control rounded-sm text-center", placeholder: "投稿を検索..." %>
+        <%= f.search_field :content_cont, class: "search-form form-control rounded-sm pl-4", placeholder: "投稿を検索..." %>
       <% end %>
     </div>
-    <div class="flex-fill ml-4">
+    <div class="ml-4">
       <%= link_to search_users_path, class: "btn btn-outline-secondary w-100 search-from-u text-decoration-none" do %>
         ユーザーを検索
       <% end %>
@@ -47,6 +47,9 @@
               </div>
               <div class="post-content ml-2 mt-1 mb-5">
                 <%= micropost.content %>
+              </div>
+              <div class="mt-2 ml-2 mb-3">
+                <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
               </div>
               <div class="post-info ml-2">
                 <small class="text-muted">

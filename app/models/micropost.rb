@@ -28,6 +28,7 @@ class Micropost < ApplicationRecord
   validates :image, presence: true
 
   default_scope -> { order(created_at: :desc) }
+
   mount_uploader :image, ImageUploader
 
   enum arrived_at: { 未選択: 0, 昼: 1, 夜: 2 }

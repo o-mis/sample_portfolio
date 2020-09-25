@@ -3,19 +3,20 @@ class UsersController < ApplicationController
 
   def index
     @q = User.ransack(params[:q])
-    @users = User.page(params[:page]).per(10)
+    @users = User.page(params[:page]).per(15)
   end
 
   def show
     @user = User.find(params[:id])
     @following = @user.following
     @followers = @user.followers
-    @feed = current_user.feed.page(params[:page]).per(15) if user_signed_in?
+    # @feed = current_user.feed.page(params[:page]).per(8) if user_signed_in?
+    @microposts = @user.microposts.page(params[:page]).per(10) if user_signed_in?
   end
 
   def search
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).per(10)
+    @users = @q.result(distinct: true).page(params[:page]).per(15)
   end
 
   def edit
