@@ -1,2 +1,2 @@
-$("#comment").html("<%= escape_javascript(render "comments/content", { comments: @micropost.comments }) %>");
-$("text_area").val('');
+$(".comment").html("<%= escape_javascript(render "comments/content", { comments: @micropost.comments }) %>");
+$("textarea").val('');

@@ -65,6 +65,9 @@
             <div class="mt-4">
               <%= object.content %>
             </div>
+            <div class="mt-2">
+              <%= render 'tag_list', tag_list: @micropost.tag_list %>
+            </div>
           </div>
           <div class="post-info d-flex flex-row">
             <div id="micropost-<%= object.id %>">
@@ -79,7 +82,7 @@
           </div>
         </div>
       </div>
-      <div id="comment">
+      <div>
         <%= render 'comments/form', micropost: object, group: @comments %>
       </div>
     </div>
