@@ -151,6 +151,32 @@ nav-pills .tab-search {
   color: $gray;
 }
 
+.tag_link {
+  // text-decoration: none;
+  color: #6a6a6a;
+  font-weight: 600;
+  font-size: 15px;
+  &:hover {
+    color: $gray;
+  }
+}
+.tag_sharp {
+  color: #a3a3a3;
+}
+
+.tag_link-home {
+  color: #6a6a6a;
+  font-weight: 600;
+  font-size: 18px;
+  &:hover {
+    color: $gray;
+  }
+}
+.tag_sharp-home {
+  color: #a3a3a3;
+  font-size: 16px;
+}
+
 .fa-sun::before {
   font-family: $fa-family;
   font-style: solid;
