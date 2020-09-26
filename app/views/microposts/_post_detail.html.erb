@@ -76,8 +76,11 @@
             <div class="ml-4" id="micropostB-<%= object.id %>">
               <%= render "bookmarks/bookmark", micropost: @micropost %>
             </div>
+            <div class="ml-auto">
+              <a href="https://twitter.com/share?url=<%= micropost_url(object) %>" target="_blank" class="btn btn-outline-dark">Twitter</a>
+            </div>
             <% if current_user.id == object.user.id || current_user.admin? %>
-              <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-0 btn-outline-dark" %></div>
+              <div><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-0 btn-outline-dark" %></div>
             <% end %>
           </div>
         </div>
