@@ -1,23 +1,6 @@
-<div class="container mb-4">
-  <div class="d-flex flex-row">
-    <div class="flex-fill">
-      <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
-        <%= f.search_field :content_cont, class: "search-form form-control rounded-sm pl-4", placeholder: "投稿を検索..." %>
-      <% end %>
-    </div>
-    <div class="ml-4">
-      <%= link_to search_users_path, class: "btn btn-outline-secondary w-100 search-from-u text-decoration-none" do %>
-        ユーザーを検索
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <% if @microposts.any? %>
-    <div class="row search-posts">
-      <% @microposts.each do |micropost| %>
-        <div class="col-md-6 post-cards">
+<div class="row">
+  <% @microposts.each do |micropost| %>
+    <div class="col-md-6">
           <div class="card mb-2">
             <% if micropost.image.url %>
               <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
@@ -45,19 +28,21 @@
                   <div></div>
                 <% end %>
               </div>
-              <div class="post-content ml-2 mt-1 mb-5">
+              <div class="post-content ml-2 mt-1">
                 <%= micropost.content %>
               </div>
-              <div class="mt-2 ml-2 mb-3">
-                <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
+              <div class="mt-2 mb-2 ml-2">
+                <%= render 'tag_list', tag_list: micropost.tag_list %>
               </div>
               <div class="post-info ml-2">
                 <small class="text-muted">
-                  <% if current_user.like?(micropost) %>
-                    <i class="fas fa-heart fa-lg liked-heart"></i>
-                  <% else %>
-                    <i class="fas fa-heart fa-lg muted-heart"></i>
-                  <% end %>
+                  <% if user_signed_in? %>
+                    <% if current_user.like?(micropost) %>
+                      <i class="fas fa-heart fa-lg liked-heart"></i>
+                    <% else %>
+                      <i class="fas fa-heart fa-lg muted-heart"></i>
+                    <% end %>
+                  <% end%>
                   <%= micropost.liked_users.count %>
                 </small>
                 <small class="comment-info ml-3 text-muted">
@@ -69,10 +54,7 @@
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
-    <div class="search-next">
-      <%= paginate @microposts %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+<%= paginate @microposts %>

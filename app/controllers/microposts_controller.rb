@@ -1,10 +1,15 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:show, :create, :destroy]
+  before_action :logged_in_user, only: [:search, :show, :create, :destroy]
   before_action :has_micropost, only: :destroy
 
   def index
-    @q = Micropost.ransack(params[:q])
-    @microposts = @q.result(distinct: true).page(params[:page]).per(6)
+    # @q = Micropost.ransack(params[:q])
+    # @microposts = @q.result(distinct: true).page(params[:page]).per(6)
+    if params[:tag_name]
+      @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(6)
+    else
+      @microposts = Micropost.page(params[:page]).per(6)
+    end
   end
 
   def search
@@ -14,6 +19,9 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
+    # if params[:tag_name]
+    #   @microposts = Micropost.tagged_with("#{params[:tag_name]}")
+    # end
     @like = Like.new
     @bookmark = Bookmark.new
     @comments = @micropost.comments.page(params[:page]).per(6)
@@ -58,7 +66,7 @@ class MicropostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
 
   def micropost_params
-    params.require(:micropost).permit(:content, :arrived_at, :budget, :address, :image)
+    params.require(:micropost).permit(:content, :arrived_at, :budget, :address, :image, :tag_list)
   end
 
   def has_micropost
