@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:search, :edit, :update, :destroy, :following, :followers]
+  before_action :admin_user,     only: :destroy
 
   def index
     @q = User.ransack(params[:q])
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'ユーザーを削除しました' }
       format.json { head :no_content }
     end
   end
@@ -80,5 +81,9 @@ class UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation)
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end
