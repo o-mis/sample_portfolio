@@ -25,7 +25,8 @@
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
-          :rememberable, :validatable, :confirmable, :omniauthable
+          :rememberable, :validatable
+
   has_many :microposts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :micropost

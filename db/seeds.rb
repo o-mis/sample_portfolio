@@ -163,15 +163,6 @@ Micropost.create!(
       address: "ラーメン凪 新宿",
       content: "太めのちぢれ麺に濃厚な煮干スープは相性抜群です。",
       tag_list: "新宿,ラーメン,おすすめ"
-    },
-    {
-      user_id: 32,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-"),
-      arrived_at: ,
-      budget: "",
-      address: "",
-      content: "",
-      tag_list: ""
     }
   ]
 )

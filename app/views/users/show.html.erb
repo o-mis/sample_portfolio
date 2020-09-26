@@ -5,7 +5,7 @@
     <div class="profile d-flex justify-content-center col-12 mt-3 mb-5">
       <h6>
         <% if current_user.avatar? %>
-          <%= image_tag current_user.avatar.url, size: "100x100", class: "rounded-circle mb-3", alt: "avatar image" %>
+          <%= image_tag @user.avatar.url, size: "100x100", class: "rounded-circle mb-3", alt: "avatar image" %>
         <% else %>
           <%= image_tag 'no_avatar.png', size: "100x100", class: "rounded-circle mb-3", alt: "avatar image" %>
         <% end %>
@@ -19,6 +19,11 @@
             <% end %>
           </div>
           <div><%= render 'follow_btn' if user_signed_in? %></div>
+          <% if current_user.admin? %>
+            <div class="ml-2">
+              <%= link_to "削除する", @user, method: :delete, data: { confirm: "削除してよろしいですか?" }, class: "btn admin-delete btn-outline-danger rounded-0" %>
+            </div>
+          <% end %>
         </div>
         <div class="mt-3">
           <%= render 'relationships' %>
@@ -101,7 +106,7 @@
           <% end %>
         </div>
       <% else %>
-        <div>
+        <div class="no-userpost-info">
           <div class="text-center font-weight-bold mt-3 mb-2">投稿がありません</div>
           <div class="text-center text-muted">投稿するとここに表示されます</div>
         </div>

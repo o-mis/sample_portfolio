@@ -4,6 +4,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_fill: [500, 500, 'Center']
 
+  version :mini do
+    process resize_to_fill: [30, 30, 'Center']
+  end
+
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     storage :fog

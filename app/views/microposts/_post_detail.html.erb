@@ -76,7 +76,7 @@
             <div class="ml-4" id="micropostB-<%= object.id %>">
               <%= render "bookmarks/bookmark", micropost: @micropost %>
             </div>
-            <% if current_user.id == object.user.id %>
+            <% if current_user.id == object.user.id || current_user.admin? %>
               <div class="ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-0 btn-outline-dark" %></div>
             <% end %>
           </div>
