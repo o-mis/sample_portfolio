@@ -69,7 +69,7 @@ main {
 
   .head-user {
     font-family: $font;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .head-logout {
@@ -356,9 +356,6 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #d7003a;
-  // &:hover {
-  //   color: #9f9f9f;
-  // }
 }
 
 .muted-heart {
@@ -366,9 +363,6 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #7f7f7f;
-  // &:hover {
-  //   color: #d7003a;
-  // }
 }
 
 .clear-decoration {
