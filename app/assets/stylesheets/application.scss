@@ -203,14 +203,14 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   content: "\f185";
-  color: tomato;
+  color: #fa8072;
 }
 .fa-moon::before {
   font-family: $fa-family;
   font-style: solid;
   font-weight: 900;
   content: "\f186";
-  color: darkblue;
+  color: #19448e;
 }
 
 .fab-lg {
@@ -336,6 +336,13 @@ nav-pills .tab-search {
   font-size: 60px;
   color: $main-color;
   cursor: pointer;
+}
+
+.fa-coins {
+  font-family: $fa-family;
+  font-style: solid;
+  font-weight: 600;
+  color: #7a7a7a;
 }
 
 .commented-user {
