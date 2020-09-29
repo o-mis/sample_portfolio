@@ -1,16 +1,32 @@
 <div class="container mb-4">
-  <div class="d-flex flex-row">
-    <div class="flex-fill">
+<form class="mb-1">
+  <div class="form-row justify-content-center">
       <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
-        <%= f.search_field :content_cont, class: "search-form form-control rounded-sm pl-4", placeholder: "投稿を検索..." %>
+        <div class="form-group col-md-4 pr-0">
+          <%= f.search_field :content_cont, class: "search-form form-control rounded-0 pl-4", placeholder: "コメント内容" %>
+        </div>
+        <div class="form-group col-md-2 px-0">
+          <%= f.search_field :address_cont, class: "form-control rounded-0", placeholder: "エリア/駅" %>
+        </div>
+        <div class="form-group col-md-2 px-0">
+          <%= f.select :budget_eq, [['〜¥999', 1],
+                          ['¥1,000〜¥1,999', 2],
+                          ['¥2,000〜¥2,999', 3],
+                          ['¥3,000〜¥3,999', 4],
+                          ['¥4,000〜¥4,999', 5],
+                          ['¥5,000〜¥5,999', 6],
+                          ['¥6,000〜¥6,999', 7],
+                          ['¥7,000〜¥7,999', 8],
+                          ['¥8,000〜¥8,999', 9],
+                          ['¥9,000〜¥9,999', 10],
+                          ['¥10,000〜¥19,999', 11],
+                          ['¥20,000〜¥29,999', 12],
+                          ['¥30,000〜', 13]], { include_blank: "価格帯" }, { class: "form-control rounded-0" } %>
+        </div>
+        <div class="form-group col-md-2 pl-0">
+          <%= f.submit "検索", class: "btn btn-outline-dark  rounded-0" %>
+        </div>
       <% end %>
-    </div>
-    <div class="ml-4">
-      <%= link_to search_users_path, class: "btn btn-outline-secondary w-100 search-from-u text-decoration-none" do %>
-        ユーザーを検索
-      <% end %>
-    </div>
-  </div>
 </div>
 
 <div class="container">
@@ -73,6 +89,15 @@
     </div>
     <div class="search-next">
       <%= paginate @microposts %>
+    </div>
+  <% else %>
+    <div class="no-content-info mt-5">
+      <div class="text-center font-weight-bold">
+        検索条件に合う投稿は0件です。
+      </div>
+      <div class="text-muted text-center">
+        検索条件を変更して、再度お試しください。
+      </div>
     </div>
   <% end %>
 </div>
