@@ -31,7 +31,7 @@ Micropost.create!(
   [
     {
       user_id: 1,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-1.JPG"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-1.jpg"),
       arrived_at: "昼",
       budget: "2",
       address: "VIRON 渋谷",
@@ -58,7 +58,7 @@ Micropost.create!(
     },
     {
       user_id: 4,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-4.JPG"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-4.jpg"),
       arrived_at: "昼",
       budget: "2",
       address: "神楽坂 紀の善",
@@ -121,7 +121,7 @@ Micropost.create!(
     },
     {
       user_id: 11,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-11.JPG"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-11.jpg"),
       arrived_at: "昼",
       budget: "2",
       address: "チャオチャオバンブー",
@@ -139,7 +139,7 @@ Micropost.create!(
     },
     {
       user_id: 13,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-13.JPG"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-13.jpg"),
       arrived_at: "夜",
       budget: "3",
       address: "幸寿司 高田馬場",
@@ -157,7 +157,7 @@ Micropost.create!(
     },
     {
       user_id: 15,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-15.JPG"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-15.jpg"),
       arrived_at: "昼",
       budget: "1",
       address: "ラーメン凪 新宿",
