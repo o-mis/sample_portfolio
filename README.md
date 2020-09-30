@@ -1,6 +1,6 @@
 # Contrail
 
-飲食店の口コミを手軽に投稿できるサービスです。
+飲食店の口コミを投稿できるサービスです。
 150 字の文字制限を設けお気に入りのお店を気軽に共有、検索することができるのが特徴です。
 
 # リンク
@@ -28,19 +28,23 @@ https://www.contrail-app.com
 
 # AWS構成図
 
-![contrail-chart](https://user-images.githubusercontent.com/54735254/91636940-885f2f00-ea3f-11ea-8ef0-70394a838416.jpeg)
+![contrail](https://user-images.githubusercontent.com/54735254/94371958-2f191700-0135-11eb-9be5-b73970e491c0.png)
 
 # 機能一覧と使用 gem
 
-- かんたんログイン機能
+- ゲストログイン機能
 - ユーザー登録、ログイン、編集機能(devise)
+- 管理ユーザーログイン機能
+- 管理ユーザーのみ全投稿/全ユーザー削除機能
 - プロフィール画像アップロード機能
 - 口コミ投稿、削除機能
-- ページネーション機能(kaminari)
-- 画像ファイルアップロード機能(carrierwave)
+- 画像ファイルアップロード機能(carrierwave,minimagick)
+- タグ付け機能(acts-as-taggable-on)
+- 投稿場所のマップ表示機能(Google API,geocoder)
 - コメント機能
+- ページネーション機能(kaminari)
 - ユーザー間でのフォロー機能
-- 検索機能(ransack)
+- 投稿/ユーザー検索機能(ransack)
 - いいね機能
 - ブックマーク機能
-- 投稿場所のマップ表示機能(Google API)
+- Twitterシェア機能

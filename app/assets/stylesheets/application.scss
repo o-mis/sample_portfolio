@@ -26,7 +26,6 @@ main {
   padding-top: 0px !important;
 }
 
-
 /* header */
 .navbar {
   padding-top: 0 !important;
@@ -70,7 +69,7 @@ main {
 
   .head-user {
     font-family: $font;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .head-logout {
@@ -129,7 +128,7 @@ main {
 .home-tab {
   color: #353535;
   font-weight: 600;
-  border-bottom: solid 3px #353535;
+  // border-bottom: solid 3px #353535;
   &:hover {
     color: $main-color;
     border-bottom: solid 3px $main-color;
@@ -160,7 +159,7 @@ nav-pills .tab-search {
 }
 
 .post-name {
-  font-size: 18px;
+  font-size: 13px;
   font-family: $font;
 }
 
@@ -204,14 +203,14 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   content: "\f185";
-  color: tomato;
+  color: #fa8072;
 }
 .fa-moon::before {
   font-family: $fa-family;
   font-style: solid;
   font-weight: 900;
   content: "\f186";
-  color: darkblue;
+  color: #19448e;
 }
 
 .fab-lg {
@@ -339,6 +338,13 @@ nav-pills .tab-search {
   cursor: pointer;
 }
 
+.fa-coins {
+  font-family: $fa-family;
+  font-style: solid;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
 .commented-user {
   font-family: $fa-family;
   font-style: solid;
@@ -350,9 +356,6 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #d7003a;
-  // &:hover {
-  //   color: #9f9f9f;
-  // }
 }
 
 .muted-heart {
@@ -360,9 +363,6 @@ nav-pills .tab-search {
   font-style: solid;
   font-weight: 900;
   color: #7f7f7f;
-  // &:hover {
-  //   color: #d7003a;
-  // }
 }
 
 .clear-decoration {
@@ -449,7 +449,7 @@ nav-pills .tab-search {
   font-size: 14px;
 }
 
-.no-bookmark-info {
+.no-content-info {
   height: 500px;
 }
 

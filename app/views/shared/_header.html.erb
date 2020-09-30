@@ -29,10 +29,7 @@
             </div>
           </div>
           <%= link_to search_users_path, class: "dropdown-item" do %>
-            <i class="fas fa-search nav-items"></i> キーワードで検索
-          <% end %>
-          <%= link_to users_path, class: "dropdown-item" do %>
-            <i class="fas fa-check nav-items"></i> ユーザー
+            <i class="fas fa-search nav-items"></i> ユーザー検索
           <% end %>
           <div class="dropdown-divider"></div>
           <%= link_to destroy_user_session_path, method: :delete, class: "head-logout dropdown-item text-decoration-none" do %>

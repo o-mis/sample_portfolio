@@ -44,26 +44,26 @@
                           ['¥9,000〜¥9,999', 10],
                           ['¥10,000〜¥19,999', 11],
                           ['¥20,000〜¥29,999', 12],
-                          ['¥30,000〜', 13]], { prompt: "選択してください" }, { class: "form-control rounded" } %>
+                          ['¥30,000〜', 13]], { prompt: "選択してください" }, { class: "form-control rounded-0" } %>
   </div>
 
   <div class="field mt-4">
     <%= f.label :address, "店舗名" %>
-    <%= f.text_field :address, class: "form-control rounded" %>
+    <%= f.text_field :address, class: "form-control rounded-0" %>
   </div>
 
   <div class="field mt-4">
     <%= f.label :content do %>
       コメント <span class="post-required">(必須)</span>
     <% end %>
-    <%= f.text_area :content, class: "form-control rounded form-content", placeholder: "(150字以内)", required: true %>
+    <%= f.text_area :content, class: "form-control rounded-0 form-content", placeholder: "(150字以内)", required: true %>
   </div>
 
   <div class="field my-4">
     <%= f.label :tag_list do %>
-      タグを追加 <span class="text-muted">例:タグ1, タグ2</span>
+      タグを追加
     <% end %>
-    <%= f.text_field :tag_list, value: @micropost.tag_list.join(','), class: "form-control rouded" %>
+    <%= f.text_field :tag_list, value: @micropost.tag_list.join(','), class: "form-control rounded-0", placeholder: "(例: タグ1,タグ2)" %>
   </div>
 
   <div class="d-flex flex-row">
