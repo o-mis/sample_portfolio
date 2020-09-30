@@ -38,6 +38,11 @@ class Micropost < ApplicationRecord
 
   acts_as_taggable
 
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.micropost_id) FROM likes WHERE likes.micropost_id = microposts.id GROUP BY likes.micropost_id)'
+    Arel.sql(query)
+  end
+
   def like(user)
     likes.create(user_id: user.id)
   end
