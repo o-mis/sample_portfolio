@@ -76,21 +76,6 @@ main {
     color: $gray;
   }
 
-  // .signedin-item {
-  //   color: #353535;
-  //   font-size: 18px;
-  //   font-weight: bold;
-  //   float: left;
-  //   span {
-  //     color: #6e6e6e;
-  //     font-weight: bold;
-  //   }
-  // }
-  // .not-signedin-item {
-  //   color: #353535;
-  //   font-size: 18px;
-  //   font-weight: bold;
-  // }
   .nav-items {
     font-family: $fa-family;
     font-style: solid;
@@ -106,11 +91,12 @@ main {
 }
 
 .not-signedin-latest {
-  font-size: 19px;
-  color: $gray;
-  font-weight: bold;
-  border-bottom: solid 4px $main-color;
+  font-size: 17px;
+  color: #353535;
+  font-weight: 600;
+  // border-bottom: solid 4px $main-color;
 }
+
 .info-tab {
   float: right;
 }
