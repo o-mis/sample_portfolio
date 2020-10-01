@@ -4,7 +4,7 @@
   <div class="row mx-auto text-center">
     <div class="profile d-flex justify-content-center col-12 mt-3 mb-5">
       <h6>
-        <% if current_user.avatar? %>
+        <% if @user.avatar? %>
           <%= image_tag @user.avatar.url, size: "100x100", class: "rounded-circle mb-3", alt: "avatar image" %>
         <% else %>
           <%= image_tag 'no_avatar.png', size: "100x100", class: "rounded-circle mb-3", alt: "avatar image" %>
