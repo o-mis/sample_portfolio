@@ -108,7 +108,7 @@ yarn-debug.log*
 config/zsh-syntax-highlighting
 
 # Ignore geocoder.rb
-config/initializers/geocoder.rb
+# config/initializers/geocoder.rb
 
 /zsh-syntax-highlighting/*
 /.zprofile
