@@ -15,7 +15,7 @@
 <div class="container">
   <% if @users.any? %>
     <ul class="users-index">
-      <%= render 'users/index_users' %>
+      <%= render partial: 'users/index_users' , collection: @users, as: "user" %>
     </ul>
   <% end %>
 </div>

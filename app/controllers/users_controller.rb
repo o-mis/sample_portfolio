@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @q = User.ransack(params[:q])
     @users = User.page(params[:page]).per(15)
   end
 
@@ -11,13 +10,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @following = @user.following
     @followers = @user.followers
-    # @feed = current_user.feed.page(params[:page]).per(8) if user_signed_in?
     @microposts = @user.microposts.page(params[:page]).per(10) if user_signed_in?
   end
 
   def search
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).per(15)
+    @users =
+      if params[:q].nil?
+        @q.result(distinct: true).page(params[:page]).per(15)
+      # elsif params[:q][:username_cont].blank?
+      #   User.none
+      else
+        @q.result(distinct: true).page(params[:page]).per(15)
+      end
   end
 
   def edit
@@ -73,12 +78,10 @@ class UsersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation)
   end
