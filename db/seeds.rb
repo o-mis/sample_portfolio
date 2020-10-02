@@ -34,9 +34,9 @@ Micropost.create!(
       image: open("#{Rails.root}/db/fixtures/pic/pic-1.JPG"),
       arrived_at: "昼",
       budget: "2",
-      address: "VIRON 渋谷",
-      content: "ここのクロワッサンはサイズ大きめ、バターの風味は強めです。",
-      tag_list: "渋谷,パン,クロワッサン,おすすめ"
+      address: "まる伊 銀座総本店",
+      content: "ボリュームたっぷりのづけあなちらしがおすすめです。コスパが良い。",
+      tag_list: "銀座,寿司,おすすめ,コスパ"
     },
     {
       user_id: 2,
