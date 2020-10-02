@@ -31,7 +31,7 @@ Micropost.create!(
   [
     {
       user_id: 1,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-1.jpg"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-1.JPG"),
       arrived_at: "昼",
       budget: "2",
       address: "VIRON 渋谷",
