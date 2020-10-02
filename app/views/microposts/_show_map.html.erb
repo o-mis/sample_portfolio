@@ -2,20 +2,20 @@
 
 <script>
   function initMap() {
+    var latlng = new google.maps.LatLng(<%= micropost.latitude %>,<%= micropost.longitude %>);
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat:<%= @micropost.latitude %>,lng:<%= @micropost.longitude %>},
-        zoom: 16
+        zoom: 16,
+        center: latlng
     });
 
-    var contentString = '<%= image_tag @micropost.image.url, size: "200x200" %>';
+    var contentString = '<%= image_tag micropost.image.url, size: "200x200" %>';
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
 
-    var markerPosition = {lat: <%= @micropost.latitude %>, lng: <%= @micropost.longitude %>};
     var marker = new google.maps.Marker({
       map: map,
-      position: markerPosition,
+      position: latlng,
     });
 
     marker.addListener('click', function() {
