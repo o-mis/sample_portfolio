@@ -32,14 +32,14 @@
             <i class="fas fa-search nav-items"></i> ユーザー検索
           <% end %>
           <div class="dropdown-divider"></div>
-          <%= link_to destroy_user_session_path, method: :delete, class: "head-logout dropdown-item text-decoration-none" do %>
+          <%= link_to sign_out_path, method: :delete, class: "head-logout dropdown-item text-decoration-none" do %>
             <span><i class="fas fa-power-off nav-items"></i> ログアウト</span>
           <% end %>
         <% else %>
             <%= link_to users_guest_sign_in_path, method: :post, class: "dropdown-item text-decoration-none" do %>
               <i class="fas fa-sign-in-alt nav-items"></i> ゲストログイン
             <% end %>
-            <%= link_to new_user_session_path, class: "dropdown-item not-signedin-item text-decoration-none" do %>
+            <%= link_to sign_in_path, class: "dropdown-item not-signedin-item text-decoration-none" do %>
               <i class="fas fa-sign-in-alt nav-items"></i> ログイン
             <% end %>
           </li>

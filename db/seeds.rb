@@ -38,15 +38,15 @@ Micropost.create!(
       content: "ボリュームたっぷりのづけあなちらしがおすすめです。コスパが良い。",
       tag_list: "銀座,寿司,おすすめ,コスパ"
     },
-    {
-      user_id: 2,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-2.jpg"),
-      arrived_at: "未選択",
-      budget: "2",
-      address: "池袋 天丼ふじ",
-      content: "ししとうやキスが入っているのが少し珍しい。甘辛いタレによく合います。",
-      tag_list: "池袋,天丼,おすすめ"
-    },
+    # {
+    #   user_id: 2,
+    #   image: open("#{Rails.root}/db/fixtures/pic/pic-2.jpg"),
+    #   arrived_at: "未選択",
+    #   budget: "2",
+    #   address: "池袋 天丼ふじ",
+    #   content: "ししとうやキスが入っているのが少し珍しい。甘辛いタレによく合います。",
+    #   tag_list: "池袋,天丼,おすすめ"
+    # },
     {
       user_id: 3,
       image: open("#{Rails.root}/db/fixtures/pic/pic-3.jpg"),
