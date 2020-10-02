@@ -2,12 +2,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   # post "/" => "microposts#create"
 
-  devise_for :users,
-    controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations',
-      passwords: 'users/passwords'
-    }
+  # devise_for :users, controllers: {
+  #     sessions: 'users/sessions',
+  #     registrations: 'users/registrations'
+  #     # passwords: 'users/passwords'
+  #   }
 
   devise_scope :user do
     get 'sign_in', to: 'users/sessions#new'
@@ -15,6 +14,12 @@ Rails.application.routes.draw do
     delete "sign_out", to: 'users/sessions#destroy'
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+    # passwords: 'users/passwords'
+  }
 
   resources :users,           only: %i[show index] do
     member do
