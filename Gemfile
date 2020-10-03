@@ -20,8 +20,6 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'mini_magick'
 gem 'mysql2'
-gem 'omniauth'
-gem 'omniauth-twitter'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'puma', '>= 3.12.4'
@@ -37,12 +35,6 @@ gem 'webpacker', '~> 4.0'
 group :development, :test do
   gem 'bcrypt_pbkdf'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-#  gem 'capistrano', '~> 3.14',      require: false
-#  gem 'capistrano-bundler',         require: false
-#  gem 'capistrano3-puma',           require: false
-#  gem 'capistrano-rails', '~> 1.6', require: false
-#  gem 'capistrano-rbenv', '~> 2.2', require: false
-#  gem 'ed25519'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.79.0',       require: false
