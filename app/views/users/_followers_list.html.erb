@@ -1,10 +1,15 @@
 <div class="users-following d-flex flex-row">
-  <!-- フォロワーリスト: ユーザーネーム -->
-  <div class="userName">
-    <%= link_to user.name, user %>
+  <div class="mt-1">
+    <% if user.avatar? %>
+      <%= link_to image_tag(user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
+      <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
+    <% else %>
+      <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
+      <%= link_to user.name, user, class: "user-index font-weight-bold ml-2 text-dark" %>
+    <% end %>
   </div>
   <!-- フォロワーリスト: フォローボタン -->
-  <div class="float-right list-btn">
-    <%= render 'users/list_follow_btn.html.erb' %>
+  <div class="ml-auto mr-5 list-btn">
+    <%= render 'users/list_follow_btn.html.erb', user: @user %>
   </div>
 </div>

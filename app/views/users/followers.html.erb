@@ -1,13 +1,13 @@
 <% provide(:title, 'フォロワー') %>
 
-<%= render 'users/link' %>
+<div class="d-flex flex-row ml-5 mt-5">
+  <div class="mt-1"><%= render 'users/link' %></div>
+  <div class="follow-info font-weight-bold ml-2"><%= @user.name %></div>
+</div>
 
-<% if user_signed_in? %>
-  <span class="follow-info font-weight-bold ml-4"><%= @user.name %></span>
-<% end %>
-<div>
+<div class="col-md-5 mx-auto">
   <% if @user.followers.any? %>
-    <h6 class="text-secondary text-center font-weight-bold mt-5">フォロワー</h6>
+    <h5 class="text-dark text-center font-weight-bold mt-3">フォロワー</h5>
       <%= render partial: 'users/followers_list', collection: @followers, as: 'user' %>
   <% else %>
     <%= render 'users/followers_status' %>

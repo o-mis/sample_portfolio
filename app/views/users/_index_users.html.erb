@@ -1,9 +1,9 @@
 <li>
   <% if user.avatar? %>
-    <%= image_tag user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image" %>
+    <%= link_to image_tag(user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
     <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
   <% else %>
-    <%= image_tag 'no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image" %>
+    <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
     <%= link_to user.name, user, class: "user-index post-name text-dark font-weight-bold ml-2" %>
   <% end %>
 </li>
