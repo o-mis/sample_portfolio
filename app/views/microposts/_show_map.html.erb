@@ -23,4 +23,7 @@
     });
   };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API'] %>&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:map,:google_api) %>&callback=initMap" async defer></script>
+
+map:
+  google_api
