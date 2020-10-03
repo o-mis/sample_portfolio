@@ -6,11 +6,11 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
           <div class="field mb-4">
-            <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", required: true, class: "form-control rounded-sm w-100 pl-3" %>
+            <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", required: true, class: "form-control rounded-0 w-100 pl-3" %>
           </div>
 
           <div class="field mb-2">
-            <%= f.password_field :password, placeholder: "パスワード", required: true, class: "form-control rounded-sm w-100 pl-3" %>
+            <%= f.password_field :password, placeholder: "パスワード", required: true, class: "form-control rounded-0 w-100 pl-3" %>
           </div>
 
           <div class="field remember-box mb-5">
@@ -20,15 +20,15 @@
             <% end %>
           </div>
 
-          <%= f.submit "ログイン", class: "btn signin-btn btn-outline-dark rounded-sm w-100 mb-3" %>
+          <%= f.submit "ログイン", class: "btn signin-btn btn-outline-dark rounded-0 w-100 mb-3" %>
 
-          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "signin-btn text-decoration-none btn btn-outline-dark rounded-sm w-100 mb-3" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "signin-btn text-decoration-none btn btn-outline-dark rounded-0 w-100 mb-3" %>
         <% end %>
 
         <%# <%= link_to "メールが届きませんか?", new_confirmation_path(resource_name), class: "no-confirm text-decoration-none mb-5" %>
 
           <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "新規アカウントを作成", new_registration_path(resource_name), class: 'btn btn-dark rounded-sm w-100 mt-5' %>
+            <%= link_to "新規アカウントを作成", new_registration_path(resource_name), class: 'btn btn-dark rounded-0 w-100 mt-5' %>
           <% end %>
         </div>
       </div>
