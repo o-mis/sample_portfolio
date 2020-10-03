@@ -20,10 +20,10 @@
     <% if @feed.any? %>
       <div class="row mb-2">
         <% @feed.each do |micropost| %>
-          <div class="col-md-6">
+          <div class="col-md-6 mx-auto">
             <div class="card mb-2">
               <% if micropost.image.url %>
-                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
+                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
               <% end %>
               <div class="card-body">
                 <div class="post-user">
@@ -48,26 +48,21 @@
                     <div></div>
                   <% end %>
                 </div>
-                <div class="post-content ml-2 mt-1">
-                  <%= micropost.content %>
+                <div class="post-content ml-2 mt-1 mb-3">
+                  <%= link_to micropost.content, micropost, class: "text-decoration-none text-dark" %>
                 </div>
                 <div class="mt-2 ml-2 mb-3">
                   <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
                 </div>
-                <div class="post-info ml-2">
-                  <small class="text-muted">
-                    <% if current_user.like?(micropost) %>
-                      <i class="fas fa-heart fa-lg liked-heart"></i>
-                    <% else %>
-                      <i class="fas fa-heart fa-lg muted-heart"></i>
-                    <% end %>
-                    <%= micropost.liked_users.count %>
-                  </small>
-                  <small class="comment-info ml-3 text-muted">
-                    <i class="fas fa-comment-alt fa-lg commented-user"></i>
+                <div class="post-info ml-1 d-flex">
+                  <div id="micropost-<%= micropost.id %>">
+                    <%= render "likes/like", micropost: micropost %>
+                  </div>
+                  <div class="comment-info ml-3 text-muted">
+                    <i class="fas fa-comment-alt fa-lg pt-1 commented-user"></i>
                       <%= micropost.commented_users.count %>
-                  </small>
-                  <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+                  </div>
+                  <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
                 </div>
               </div>
             </div>
@@ -94,7 +89,7 @@
         <div class="col-md-6">
           <div class="card mb-2">
             <% if micropost.image.url %>
-                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
+                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
               <% end %>
               <div class="card-body">
                 <div class="post-user">
@@ -120,21 +115,20 @@
                   <% end %>
                 </div>
                 <div class="post-content ml-2 mt-1">
-                  <%= micropost.content %>
+                  <%= link_to micropost.content, micropost, class: "text-decoration-none text-dark" %>
                 </div>
                 <div class="mt-2 ml-2 mb-3">
                   <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
                 </div>
-                <div class="post-info ml-2">
-                  <small class="text-muted">
-                    <i class="fas fa-heart fa-lg muted-heart"></i>
-                    <%= micropost.liked_users.count %>
-                  </small>
-                  <small class="comment-info ml-3 text-muted">
-                    <i class="fas fa-comment-alt fa-lg commented-user"></i>
+                <div class="post-info ml-1 d-flex">
+                  <div id="micropost-<%= micropost.id %>">
+                    <%= render "likes/like", micropost: micropost %>
+                  </div>
+                  <div class="comment-info ml-3 text-muted">
+                    <i class="fas fa-comment-alt fa-lg pt-2 commented-user"></i>
                       <%= micropost.commented_users.count %>
-                  </small>
-                  <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+                  </div>
+                  <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
                 </div>
               </div>
             </div>
@@ -151,7 +145,7 @@
         <div class="col-md-6">
           <div class="card mb-2">
             <% if micropost.image.url %>
-                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
+                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
               <% end %>
               <div class="card-body">
                 <div class="post-user">
@@ -177,21 +171,20 @@
                   <% end %>
                 </div>
                 <div class="post-content ml-2 mt-1">
-                  <%= micropost.content %>
+                  <%= link_to micropost.content, micropost, class: "text-decoration-none text-dark" %>
                 </div>
                 <div class="mt-2 ml-2 mb-3">
                   <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
                 </div>
-                <div class="post-info ml-2">
-                  <small class="text-muted">
-                    <i class="fas fa-heart fa-lg muted-heart"></i>
-                    <%= micropost.liked_users.count %>
-                  </small>
-                  <small class="comment-info ml-3 text-muted">
-                    <i class="fas fa-comment-alt fa-lg commented-user"></i>
+                <div class="post-info ml-1 d-flex">
+                  <div id="micropost-<%= micropost.id %>">
+                    <%= render "likes/like", micropost: micropost %>
+                  </div>
+                  <div class="comment-info ml-3 text-muted">
+                    <i class="fas fa-comment-alt fa-lg pt-1 commented-user"></i>
                       <%= micropost.commented_users.count %>
-                  </small>
-                  <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+                  </div>
+                  <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
                 </div>
               </div>
             </div>

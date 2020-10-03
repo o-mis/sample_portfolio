@@ -34,9 +34,7 @@ main {
     font-size: 26px;
     font-family: $font;
   }
-  // li {
-  //   list-style: none;
-  // }
+
   .head-search {
     font-family: $fa-family;
     font-style: solid;
@@ -137,6 +135,16 @@ nav-pills .tab-search {
 .post-name {
   font-size: 15px;
   font-family: $font;
+}
+
+.card-img {
+  position: relative;
+}
+
+.card-bookmark {
+  position: absolute;
+  top: 5%;
+  left: 90%;
 }
 
 .post-address {
@@ -351,27 +359,14 @@ nav-pills .tab-search {
   font-family: $fa-family;
   font-style: solid;
   font-weight: 900;
-  color: #3f3f3f;
-  // &:hover {
-  //   color: #7a7a7a;
-  // }
+  color: #7f7f7f;
 }
 .muted-bookmark {
   font-family: $fa-family;
   font-style: solid;
   font-weight: 900;
   color: #7a7a7a;
-  // &:hover {
-  //   color: #3f3f3f;
-  // }
 }
-
-// .dropdown-toggle {
-//   color: $gray;
-//   &:hover {
-//     color: $main-color;
-//   }
-// }
 
 .comment-area {
   height: 40px;
@@ -390,6 +385,15 @@ nav-pills .tab-search {
 
 .details-avatar {
   font-size: 20px;
+}
+
+.pagination li a {
+  border: none;
+  color: #696969;
+}
+
+.pagination .active a {
+  background-color: $main-color;
 }
 
 // Users/index

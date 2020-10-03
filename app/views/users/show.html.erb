@@ -51,7 +51,7 @@
       <% if @microposts.any? %>
         <div class="row">
           <% @microposts.each do |micropost| %>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="card mb-2">
                 <% if micropost.image.url %>
                   <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>

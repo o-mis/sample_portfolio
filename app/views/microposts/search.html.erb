@@ -70,20 +70,15 @@
               <div class="mt-2 ml-2 mb-3">
                 <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
               </div>
-              <div class="post-info ml-2">
-                <small class="text-muted">
-                  <% if current_user.like?(micropost) %>
-                    <i class="fas fa-heart fa-lg liked-heart"></i>
-                  <% else %>
-                    <i class="fas fa-heart fa-lg muted-heart"></i>
-                  <% end %>
-                  <%= micropost.liked_users.count %>
-                </small>
-                <small class="comment-info ml-3 text-muted">
-                  <i class="fas fa-comment-alt fa-lg commented-user"></i>
-                    <%= micropost.commented_users.count %>
-                </small>
-                <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+              <div class="post-info ml-2 d-flex">
+                <div id="micropost-<%= micropost.id %>">
+                    <%= render "likes/like", micropost: micropost %>
+                  </div>
+                  <div class="comment-info ml-3 text-muted">
+                    <i class="fas fa-comment-alt fa-lg  commented-user"></i>
+                      <%= micropost.commented_users.count %>
+                  </div>
+                  <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
               </div>
             </div>
           </div>
