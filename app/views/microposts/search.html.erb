@@ -1,4 +1,4 @@
-<div class="container mb-4">
+<div class="mb-4">
 <form class="mb-2 ml-5">
   <div class="form-row justify-content-center">
       <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
@@ -32,11 +32,11 @@
       <% end %>
 </div>
 
-<div class="container">
+<%# <div class="container"> %>
   <% if @microposts.any? %>
     <div class="row search-posts">
       <% @microposts.each do |micropost| %>
-        <div class="col-md-6 post-cards">
+        <div class="col-md-6 mx-auto post-cards">
           <div class="card mb-2">
             <% if micropost.image.url %>
               <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
@@ -98,4 +98,4 @@
       </div>
     </div>
   <% end %>
-</div>
+<%# </div> %>

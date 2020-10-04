@@ -1,10 +1,8 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:search, :show, :create, :destroy]
+  before_action :logged_in_user, only: [:search, :show, :create, :edit, :destroy]
   before_action :has_micropost, only: :destroy
 
   def index
-    # @q = Micropost.ransack(params[:q])
-    # @microposts = @q.result(distinct: true).page(params[:page]).per(6)
     if params[:tag_name]
       @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(6)
     else
@@ -19,9 +17,6 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
-    # if params[:tag_name]
-    #   @microposts = Micropost.tagged_with("#{params[:tag_name]}")
-    # end
     @like = Like.new
     @bookmark = Bookmark.new
     @comments = @micropost.comments.page(params[:page]).per(6)
@@ -42,10 +37,14 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def edit
+    @micropost = Micropost.find_by!(params[:id])
+  end
+
   def update
-    if @micropost.update!(micropost_params)
+    @micropost = Micropost.find_by!(params[:id])
+    if @micropost.update(micropost_params)
       redirect_to @micropost, notice: '投稿が編集されました'
-      render :show, status: :ok, location: @micropost
     else
       render :edit
     end

@@ -24,9 +24,9 @@ https://www.contrail-app.com
   - S3
   - ECS
   - ECR
-- CircleCI(orbsを使用してデプロイしています)
+- CircleCI(orbs を使用してデプロイしています)
 
-# AWS構成図
+# AWS 構成図
 
 ![contrail](https://user-images.githubusercontent.com/54735254/94371958-2f191700-0135-11eb-9be5-b73970e491c0.png)
 
@@ -37,7 +37,7 @@ https://www.contrail-app.com
 - 管理ユーザーログイン機能
 - 管理ユーザーのみ全投稿/全ユーザー削除機能
 - プロフィール画像アップロード機能
-- 口コミ投稿、削除機能
+- 投稿機能、削除機能
 - 画像ファイルアップロード機能(carrierwave,minimagick)
 - タグ付け機能(acts-as-taggable-on)
 - 投稿場所のマップ表示機能(Google API,geocoder)
@@ -47,4 +47,3 @@ https://www.contrail-app.com
 - 投稿/ユーザー検索機能(ransack)
 - いいね機能
 - ブックマーク機能
-- Twitterシェア機能
