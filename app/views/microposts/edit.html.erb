@@ -1,10 +1,6 @@
-<%
-=begin%>
- <% provide(:title, @micropost) %>
+  <%# <div class="row">
+    <div class="col-lg-7">
+      <%= render 'form' %>
+    </div>
+  </div>
 
-<%= render 'form', micropost: @micropost %>
-
-<%= link_to 'Show', @micropost %> |
-<%= link_to 'Back', microposts_path %> 
-<%
-=end%>
