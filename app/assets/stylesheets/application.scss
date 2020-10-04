@@ -14,10 +14,8 @@ $gray: #555555;
 }
 
 /* body */
-body {
+main {
   width: 80%;
-  margin-right: auto;
-  margin-left: auto;
   margin-top: 0px;
   padding-top: 0px;
 }
@@ -28,6 +26,7 @@ main {
 
 /* header */
 .navbar {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   padding-top: 0 !important;
   .navbar-brand {
     color: #353535;
@@ -58,6 +57,13 @@ main {
 
   button .btn {
     background-color: $main-color;
+  }
+
+  .header-toggle {
+    &:hover {
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1),
+        0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    }
   }
 
   .head-menu {
