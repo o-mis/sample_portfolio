@@ -18,7 +18,7 @@
               <% end %>
             <% end %>
           </div>
-          <div><%= render 'follow_btn' if user_signed_in? %></div>
+          <div><%= render 'follow_btn' %></div>
           <% if current_user.admin? %>
             <div class="ml-2">
               <%= link_to "削除する", @user, method: :delete, data: { confirm: "削除してよろしいですか?" }, class: "btn admin-delete btn-outline-danger rounded-0" %>
@@ -52,7 +52,7 @@
         <div class="row">
           <% @microposts.each do |micropost| %>
             <div class="col-md-4">
-              <div class="card mb-2">
+              <div class="card shadow-sm mb-2">
                 <% if micropost.image.url %>
                   <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
                 <% end %>
@@ -118,7 +118,7 @@
         <div class="row">
           <% current_user.liked_posts.each do |micropost| %>
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-2">
+              <div class="card shadow-sm mb-2">
                 <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
               </div>
             </div>
