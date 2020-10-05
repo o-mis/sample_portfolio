@@ -37,7 +37,7 @@
     <div class="row search-posts">
       <% @microposts.each do |micropost| %>
         <div class="col-md-6 mx-auto post-cards">
-          <div class="card mb-2">
+          <div class="card shadow-sm mb-2">
             <% if micropost.image.url %>
               <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
             <% end %>

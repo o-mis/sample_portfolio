@@ -1,9 +1,32 @@
-<li>
-  <% if user.avatar? %>
-    <%= link_to image_tag(user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
-    <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
-  <% else %>
-    <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
-    <%= link_to user.name, user, class: "user-index post-name text-dark font-weight-bold ml-2" %>
-  <% end %>
-</li>
+<div class="container">
+<div class="users-following justify-content-center d-flex flex-row mr-5">
+  <div class="mr-5">
+    <% if user.avatar? %>
+      <%= link_to image_tag(user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
+      <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
+    <% else %>
+      <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
+      <%= link_to user.name, user, class: "user-index post-name text-dark font-weight-bold ml-2" %>
+    <% end %>
+  </div>
+  <div class="ml-5">
+    <% if user_signed_in? && user != current_user %>
+    <div id="follow_btn">
+      <% if current_user.following?(user) %>
+        <%# フォロー解除 %>
+        <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+            html: { method: :delete}) do |f| %>
+          <%= f.submit "フォロー中", class: "btn-rela btn btn-dark rounded-0" %>
+        <% end %>
+      <% else %>
+        <%# フォロー %>
+        <%= form_for(current_user.active_relationships.build) do |f| %>
+          <div><%= hidden_field_tag :followed_id, user.id %></div>
+          <%= f.submit "フォローする", class: "btn-rela btn btn-sm btn-outline-dark rounded-0" %>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
