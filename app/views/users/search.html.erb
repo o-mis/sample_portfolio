@@ -12,11 +12,9 @@
   </form>
 </div>
 
-<div class="col-md-10 mx-auto">
+<div class="col-md-6 mx-auto">
   <% if @users.any? %>
-    <ul class="users-index">
-      <%= render partial: 'users/index_users' , collection: @users, as: "user" %>
-    </ul>
+    <%= render partial: 'users/index_users' , collection: @users, as: "user" %>
   <% end %>
 </div>
 <div class="col-md-10 mt-3 mx-auto"><%= paginate @users %></div>
