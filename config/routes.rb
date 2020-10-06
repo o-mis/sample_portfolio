@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   resources :relationships,   only: %i[create destroy]
   resources :likes,           only: %i[create destroy]
   resources :bookmarks,       only: %i[index create destroy]
+  resources :maps,            only: :index
 end

@@ -12,7 +12,7 @@ https://www.contrail-app.com
 
 # 特に力を入れたところ
 - Dockerを用いて開発環境と本番環境の差異を無くしたこと
-- CircleCIをgithubと連携させてECS上にコンテナデプロイさせてCI/CDを構築していること
+- CircleCI orbsを使用してECSにビルド、デプロイすることでCI/CDパイプラインを構築していること
 
 # 使用技術
 

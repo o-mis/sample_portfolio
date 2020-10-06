@@ -29,6 +29,9 @@
           <%= link_to user_path(current_user), class: "dropdown-item" do %>
             <i class="fas fa-user"></i> マイページ
           <% end %>
+          <%= link_to maps_path, class: "dropdown-item" do %>
+            <i class="fas fa-map-marker-alt"></i> マップ表示
+          <% end %>
           <%= link_to search_users_path, class: "dropdown-item" do %>
             <i class="fas fa-search nav-items"></i> ユーザー検索
           <% end %>
