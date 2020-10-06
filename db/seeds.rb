@@ -38,15 +38,15 @@ Micropost.create!(
       content: "ボリュームたっぷりのづけあなちらしがおすすめです。コスパが良い。",
       tag_list: "銀座,寿司,おすすめ,コスパ"
     },
-    # {
-    #   user_id: 2,
-    #   image: open("#{Rails.root}/db/fixtures/pic/pic-2.jpg"),
-    #   arrived_at: "未選択",
-    #   budget: "2",
-    #   address: "池袋 天丼ふじ",
-    #   content: "ししとうやキスが入っているのが少し珍しい。甘辛いタレによく合います。",
-    #   tag_list: "池袋,天丼,おすすめ"
-    # },
+    {
+      user_id: 2,
+      image: open("#{Rails.root}/db/fixtures/pic/pic-2.jpg"),
+      arrived_at: "未選択",
+      budget: "8",
+      address: "東京タワー",
+      content: "皆様にお知らせです。本日特別なお肉をご用意しております！金木犀の香りに誘われるように、うちにもふらっとお立ち寄りくださいませ。",
+      tag_list: "ステーキ,GoToイート"
+    },
     {
       user_id: 3,
       image: open("#{Rails.root}/db/fixtures/pic/pic-3.jpg"),
@@ -106,9 +106,9 @@ Micropost.create!(
       image: open("#{Rails.root}/db/fixtures/pic/pic-9.jpg"),
       arrived_at: "夜",
       budget: "2",
-      address: "十二分屋 早稲田店",
-      content: "コシの強い麺に少し酸味の効いたスープは食欲が無い時にも。",
-      tag_list: "ラーメン,つけ麺"
+      address: "東京スカイツリー",
+      content: "店長です。季節の変わり目体調いかがでしょうか。スパイシーなカレーで毎日頑張るあなたを応援します。",
+      tag_list: "カレー,GoToイート"
     },
     {
       user_id: 10,
@@ -139,12 +139,12 @@ Micropost.create!(
     },
     {
       user_id: 13,
-      image: open("#{Rails.root}/db/fixtures/pic/pic-13.JPG"),
+      image: open("#{Rails.root}/db/fixtures/pic/pic-13.jpg"),
       arrived_at: "夜",
-      budget: "3",
-      address: "幸寿司 高田馬場",
-      content: "どれを食べても美味しいです。ちなみにお昼はお蕎麦屋さんです。",
-      tag_list: "高田馬場,寿司"
+      budget: "10",
+      address: "梅田スカイビル",
+      content: "本日のおすすめは...。",
+      tag_list: "寿司,GoToイート"
     },
     {
       user_id: 14,
