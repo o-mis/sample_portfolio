@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @following = @user.following
     @followers = @user.followers
-    @microposts = @user.microposts.page(params[:page]).per(10) if user_signed_in?
+    @microposts = @user.microposts.page(params[:page]).per(20) if user_signed_in?
   end
 
   def search
