@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.page(params[:page]).per(15)
+    @users = User.page(params[:page]).per(20)
   end
 
   def show
@@ -17,11 +17,11 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     @users =
       if params[:q].nil?
-        @q.result(distinct: true).page(params[:page]).per(15)
+        @q.result(distinct: true).page(params[:page]).per(20)
       # elsif params[:q][:username_cont].blank?
       #   User.none
       else
-        @q.result(distinct: true).page(params[:page]).per(15)
+        @q.result(distinct: true).page(params[:page]).per(20)
       end
   end
 
