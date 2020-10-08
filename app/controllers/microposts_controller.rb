@@ -4,22 +4,22 @@ class MicropostsController < ApplicationController
 
   def index
     if params[:tag_name]
-      @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(6)
+      @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(8)
     else
-      @microposts = Micropost.page(params[:page]).per(6)
+      @microposts = Micropost.page(params[:page]).per(8)
     end
   end
 
   def search
     @q = Micropost.ransack(params[:q])
-    @microposts = @q.result(distinct: true).page(params[:page]).per(6)
+    @microposts = @q.result(distinct: true).page(params[:page]).per(8)
   end
 
   def show
     @micropost = Micropost.find(params[:id])
     @like = Like.new
     @bookmark = Bookmark.new
-    @comments = @micropost.comments.page(params[:page]).per(6)
+    @comments = @micropost.comments.page(params[:page]).per(8)
     @comment = @micropost.comments.build
   end
 
