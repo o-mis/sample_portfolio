@@ -6,12 +6,14 @@
       <i class="fas fa-search head-search fa-lg mr-4"></i>
     <% end %>
 
-    <%= link_to bookmarks_path, class: "bookmark" do %>
-      <i class="fas fa-bookmark head-bookmark fa-lg mr-4 pl-1"></i>
+    <% if user_signed_in? %>
+      <%= link_to bookmarks_path, class: "bookmark" do %>
+        <i class="fas fa-bookmark head-bookmark fa-lg mr-4 pl-1"></i>
+      <% end %>
     <% end %>
 
-    <div class="dropdown">
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="dropdown">
         <button class="btn btn-white header-toggle btn-sm dropdown-toggle mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.avatar? %>
             <span class="head-menu"><%= image_tag current_user.avatar.mini.url, class: "rounded-circle", alt: "avatar" %></span>
@@ -19,36 +21,37 @@
             <span class="head-menu"><%= image_tag 'no_avatar.png', size: "30x30", class: "rounded-circle", alt: "avatar" %></span>
           <% end %>
         </button>
-      <% else %>
-          <button class="btn btn-dark header-toggle btn-sm dropdown-toggle mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="head-menu">menu</span>
-          </button>
-      <% end %>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <% if user_signed_in? %>
-          <%= link_to user_path(current_user), class: "dropdown-item" do %>
-            <i class="fas fa-user"></i> マイページ
-          <% end %>
-          <%= link_to maps_path, class: "dropdown-item" do %>
-            <i class="fas fa-map-marker-alt"></i> マップ表示
-          <% end %>
-          <%= link_to search_users_path, class: "dropdown-item" do %>
-            <i class="fas fa-search nav-items"></i> ユーザー検索
-          <% end %>
-          <div class="dropdown-divider"></div>
-          <%= link_to sign_out_path, method: :delete, class: "head-logout dropdown-item text-decoration-none" do %>
-            <span class="text-muted"><i class="fas fa-power-off nav-items"></i> ログアウト</span>
-          <% end %>
-        <% else %>
-            <%= link_to users_guest_sign_in_path, method: :post, class: "dropdown-item text-decoration-none" do %>
-              <i class="fas fa-sign-in-alt nav-items"></i> ゲストログイン
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <% if user_signed_in? %>
+            <%= link_to user_path(current_user), class: "dropdown-item" do %>
+              <i class="fas fa-user"></i> マイページ
             <% end %>
-            <%= link_to sign_in_path, class: "dropdown-item not-signedin-item text-decoration-none" do %>
-              <i class="fas fa-sign-in-alt nav-items"></i> ログイン
+            <%= link_to maps_path, class: "dropdown-item" do %>
+              <i class="fas fa-map-marker-alt"></i> マップ表示
             <% end %>
-          </li>
-        <% end %>
+            <%= link_to search_users_path, class: "dropdown-item" do %>
+              <i class="fas fa-search nav-items"></i> ユーザー検索
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to sign_out_path, method: :delete, class: "head-logout dropdown-item text-decoration-none" do %>
+              <span class="text-muted"><i class="fas fa-power-off nav-items"></i> ログアウト</span>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <div class="d-flex flex-row">
+        <div>
+          <%= link_to users_guest_sign_in_path, method: :post, class: "not-signedin-link text-decoration-none" do %>
+            <span class="text-muted">ゲストログイン</span>
+          <% end %>
+        </div>
+        <div class="ml-2">
+          <%= link_to sign_in_path, class: "not-signedin-link text-decoration-none" do %>
+            <span class="text-muted">ログイン</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </nav>

@@ -20,10 +20,6 @@ main {
   padding-top: 0px;
 }
 
-main {
-  padding-top: 0px !important;
-}
-
 /* header */
 .navbar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -41,6 +37,14 @@ main {
     color: $gray;
     &:hover {
       color: $main-color;
+    }
+  }
+
+  .not-signedin-link {
+    font-size: 15px;
+    font-weight: bold;
+    &:hover {
+      color: #353535;
     }
   }
 
