@@ -24,7 +24,7 @@
             <span class="head-menu">menu</span>
           </button>
       <% end %>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <% if user_signed_in? %>
           <%= link_to user_path(current_user), class: "dropdown-item" do %>
             <i class="fas fa-user"></i> マイページ
