@@ -23,7 +23,7 @@ class Micropost < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
   validates :content, presence: true, length: { maximum: 150 }
-  validates :arrived_at, presence: true
+  # validates :arrived_at, presence: true
   validates :address, presence: true
   validates :image, presence: true
 
