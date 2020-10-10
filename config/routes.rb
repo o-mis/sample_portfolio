@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :microposts,      only: %i[index show new create edit update destroy] do
+  resources :microposts,      only: %i[show new create edit update destroy] do
     resources :comments,      only: %i[create destroy]
     collection do
       get :search

@@ -8,11 +8,14 @@ ja:
     user:
       name: ユーザー名
       password: パスワード
-      password_confirmation: パスワードをもう一度入力してください
+      password_confirmation: 確認用パスワード
       email: メールアドレス
       current_password: 現在のパスワード
-      image: 現在のプロフィール画像
-    id: ID
+      image: プロフィール画像
+    micropost:
+      image: 投稿画像
+      address: 店舗名
+      content: コメント
   errors:
     messages:
       record_invalid: "バリデーションに失敗しました: %{errors}"

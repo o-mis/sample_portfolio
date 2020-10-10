@@ -20,7 +20,7 @@
     <% if @feed.any? %>
       <div class="row mb-2">
         <% @feed.each do |micropost| %>
-          <div class="col-md-6 mx-auto">
+          <div class="card-group col-md-6 mx-auto">
             <div class="card shadow-sm mb-2">
               <% if micropost.image.url %>
                 <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>

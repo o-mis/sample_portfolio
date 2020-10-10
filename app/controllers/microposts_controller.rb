@@ -2,14 +2,6 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:show, :create, :edit, :destroy]
   before_action :has_micropost, only: :destroy
 
-  def index
-    if params[:tag_name]
-      @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(8)
-    else
-      @microposts = Micropost.page(params[:page]).per(8)
-    end
-  end
-
   def search
     @q = Micropost.ransack(params[:q])
     @microposts = @q.result(distinct: true).page(params[:page]).per(8)
@@ -32,7 +24,6 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to root_path, notice: '投稿が完了しました'
     else
-      @feed = []
       render :new
     end
   end
@@ -70,6 +61,6 @@ class MicropostsController < ApplicationController
 
   def has_micropost
     @micropost = current_user.microposts.find_by!(params[:id])
-    redirect_to microposts_path if @micropost.nil?
+    redirect_to root_path if @micropost.nil?
   end
 end
