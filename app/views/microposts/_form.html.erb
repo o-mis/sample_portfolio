@@ -1,15 +1,5 @@
 <%= form_with model: @micropost do |f| %>
     <div class="field d-flex">
-      <%# <% render 'shared/error_messages', object: f.object %>
-      <% if object.errors.any? %>
-        <div class="col alert alert-danger">
-          <ul class="mr-3 mt-2">
-            <% object.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
 
       <%= f.label :image do %>
       <% end %>
@@ -60,14 +50,14 @@
     <%= f.label :address do %>
       店舗名 <span class="post-required">(必須)</span>
     <% end %>
-    <%= f.text_field :address, class: "form-control rounded-0" %>
+    <%= f.text_field :address, class: "form-control rounded-0", required: true %>
   </div>
 
   <div class="field mt-4">
     <%= f.label :content do %>
       コメント <span class="post-required">(必須)</span>
     <% end %>
-    <%= f.text_area :content, class: "form-control rounded-0 form-content", placeholder: "(150字以内)" %>
+    <%= f.text_area :content, class: "form-control rounded-0 form-content", placeholder: "(150字以内)", required: true %>
   </div>
 
   <div class="field my-4">
