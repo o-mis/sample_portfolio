@@ -74,28 +74,21 @@ RSpec.describe User, type: :model do
     end
 
     it 'メールアドレスが不正な形式であれば無効であること' do
-      invalid_emails = %[test@example,com test@example. test@example-com test@example+com
-                        tえst@example.com test@exあmple.com]
+      invalid_emails = %w[test@example,com test@example. test@example-com test@example+com
+                          tえst@example.com test@exあmple.com]
       invalid_emails.each do |invalid_email|
         @user.email = invalid_email
+        @user.valid?
         expect(@user.errors).to be_of_kind(:email, :invalid)
       end
     end
   end
 
   describe '一意性の検証' do
-    it '重複したユーザー名なら無効であること' do
-      user = create(:user, name: 'テストユーザー')
-      duplicate_user = create(:user, name: 'テストユーザー')
-      duplicate_user.valid?
-      expect(duplicate_user.errors).to be_of_kind(:name, :taken)
-    end
-
     it '重複したメールアドレスなら無効であること' do
-      user = create(:user, email: 'test@example.com')
-      duplicate_user = build(:user, email: 'test@example.com')
-      duplicate_user.valid?
-      expect(duplicate_user.errors).to be_of_kind(:email, :taken)
+      user1 = create(:user, name: 'cont', email: 'cont@example.com')
+      user2 = build(:user, name: 'rail', email: 'cont@example.com')
+      expect(user2).to_not be_valid
     end
   end
 
@@ -128,6 +121,7 @@ RSpec.describe User, type: :model do
 
     it 'パスワードが6文字未満であれば無効であること' do
       @user.password = @user.password_confirmation = 'a' * 5
+      @user.valid?
       expect(@user.errors).to be_of_kind(:password, :too_short)
     end
   end
