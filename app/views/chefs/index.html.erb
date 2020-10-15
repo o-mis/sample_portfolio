@@ -1,0 +1,45 @@
+<div class="container chef-info mb-5">
+  <div class="top-info">
+    <div class="chef-info-text">お店からのお知らせ</div>
+    <div class="mt-3 mr-3 float-right">
+      <%= link_to new_chef_path, class: "btn rounded-pill btn-lg btn-info" do %>
+        <span class="info-size">お知らせを投稿する</span>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @chef.any? %>
+  <div class="row mb-2">
+    <% @chef.each do |chef| %>
+      <div class="card-group col-md-4 mx-auto">
+        <div class="card shadow-sm mb-2">
+          <% if chef.image.url %>
+            <%= link_to image_tag(chef.image.to_s, class: "card-img-top", alt: "投稿画像"), chef %>
+          <% end %>
+          <div class="card-body">
+            <div class="post-user">
+              <% if chef.user.avatar? %>
+                <%= link_to image_tag(chef.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), chef.user %>
+              <% else %>
+                <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), chef.user %>
+              <% end %>
+              <%= link_to chef.user.name, chef.user, class: "post-avatar post-name text-dark" %>
+              <% if chef.address %>
+                <small class="post-address ml-2"><%= chef.address %></small>
+              <% end %>
+            </div>
+            <div class="post-content ml-2 mt-1 mb-4">
+              <%= link_to chef.comment, chef, class: "text-decoration-none text-dark" %>
+            </div>
+            <div>
+              <div class="ml-auto"><small class="text-muted float-right"><%= chef.created_at.strftime('%m/%d %H:%M') %></small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<%= paginate @chef %>
+

@@ -1,5 +1,4 @@
 @import "bootstrap";
-@import "microposts";
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
 
 $main-color: #89c3eb;
@@ -41,10 +40,24 @@ main {
   }
 
   .not-signedin-link {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     &:hover {
-      color: #353535;
+      color: $main-color;
+    }
+  }
+
+  .head-info {
+    font-weight: bold;
+    color: #6a6a6a;
+  }
+  .head-chef {
+    font-family: $fa-family;
+    font-style: solid;
+    font-weight: 600;
+    color: #6a6a6a;
+    &:hover {
+      color: $main-color;
     }
   }
 
@@ -53,7 +66,7 @@ main {
     font-style: solid;
     font-weight: 900;
     color: $gray;
-    margin-right: 15px;
+    // margin-right: 15px;
     &:hover {
       color: $main-color;
     }
@@ -61,13 +74,6 @@ main {
 
   button .btn {
     background-color: $main-color;
-  }
-
-  .header-toggle {
-    &:hover {
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1),
-        0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-    }
   }
 
   .head-menu {
@@ -92,7 +98,6 @@ main {
 }
 
 /* main */
-// TODO メインコンテンツ用のCSSファイルを用意する
 main {
   padding-top: 10px;
   padding-bottom: 50px;
@@ -508,11 +513,17 @@ nav-pills .tab-search {
   height: 600px;
 }
 
+// chef
+.chef-info {
+  background-image: url("<%= asset_path('");
+}
+
 /* footer */
 .footer {
   .footer-brand {
     color: $main-color;
-    font-size: medium;
+    font-family: $font;
+    font-size: 20px;
     font-weight: bold;
   }
   small {
@@ -520,7 +531,4 @@ nav-pills .tab-search {
   }
 }
 
-/*
-*= require_tree
-*= require_self
-*/
+@import "chefs";

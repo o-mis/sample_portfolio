@@ -41,4 +41,5 @@ Rails.application.routes.draw do
   resources :likes,           only: %i[create destroy]
   resources :bookmarks,       only: %i[index create destroy]
   resources :maps,            only: :index
+  resources :chefs,           only: %i[create show show new index]
 end

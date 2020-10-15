@@ -86,7 +86,7 @@
   <div class="tab-pane" id="popular" role="tabpanel" aria-labelledby="popular-tab">
     <div class="row mb-2">
       <% @popular.each do |micropost| %>
-        <div class="col-md-6">
+        <div class="card-group col-md-6">
           <div class="card shadow-sm mb-2">
             <% if micropost.image.url %>
                 <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
@@ -142,7 +142,7 @@
   <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">
     <div class="row">
       <% @latest.each do |micropost| %>
-        <div class="col-md-6">
+        <div class="card-group col-md-6">
           <div class="card shadow-sm mb-2">
             <% if micropost.image.url %>
                 <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
