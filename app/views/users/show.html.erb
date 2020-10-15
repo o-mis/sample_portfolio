@@ -40,6 +40,9 @@
       <a href="#item1" id="posts-tab" class="nav-link user-tabs active" role="tab" data-toggle="tab" aria-controls="item1" aria-selected="true">投稿</a>
     </li>
     <li class="nav-item" role="presentation">
+      <a href="#item3" id="chefs-tab" class="nav-link user-tabs" role="tab" data-toggle="tab" aria-controls="item3" aria-selected="false">お知らせ</a>
+    </li>
+    <li class="nav-item" role="presentation">
       <a href="#item2" id="likes-tab" class="nav-link user-tabs" role="tab" data-toggle="tab" aria-controls="item2" aria-selected="false">いいね</a>
     </li>
   </ul>
@@ -112,6 +115,46 @@
         </div>
       <% end %>
     </div>
+    <%# お店のお知らせ %>
+    <div id="item3" class="tab-pane" role="tabpanel" aria-labelledby="chefs-tab">
+      <% if @chefs.any? %>
+        <div class="row">
+          <% @chefs.each do |chef| %>
+            <div class="col-md-4">
+              <div class="card shadow-sm mb-2">
+                <% if chef.image.url %>
+                  <%= link_to image_tag(chef.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), chef %>
+                <% end %>
+                <div class="card-body">
+                  <div class="post-user">
+                    <% if chef.user.avatar? %>
+                      <%= link_to image_tag(chef.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), chef.user %>
+                    <% else %>
+                      <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), chef.user %>
+                    <% end %>
+                    <%= link_to chef.user.name, chef.user, class: "post-avatar post-name text-dark" %>
+                    <% if chef.address %>
+                      <small class="post-address ml-2"><%= chef.address %></small>
+                    <% end %>
+                  </div>
+                  <div class="post-content ml-2 mt-1">
+                    <%= chef.comment %>
+                  </div>
+                  <div class="mt-2 ml-2 mb-3">
+                    <%= render 'microposts/tag_list', tag_list: chef.tag_list %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="no-userpost-info">
+          <div class="text-center font-weight-bold mt-3 mb-2">お店のお知らせは投稿していません</div>
+          <div class="text-center text-muted">投稿するとここに表示されます</div>
+        </div>
+      <% end %>
+    </div>
     <%# いいね済みの投稿 %>
     <div id="item2" class="tab-pane" role="tabpanel" aria-labelledby="likes-tab">
       <% if current_user.liked_posts.any? %>
@@ -125,11 +168,9 @@
           <% end %>
         </div>
       <% else %>
-        <div class="text-center font-weight-bold">
-          まだいいねがありません
-        </div>
-        <div class="text-muted text-center">
-          投稿をいいねするとここに表示されます
+        <div class="no-userpost-info">
+          <div class="text-center font-weight-bold">まだいいねがありません</div>
+          <div class="text-muted text-center">投稿をいいねするとここに表示されます</div>
         </div>
       <% end %>
     </div>

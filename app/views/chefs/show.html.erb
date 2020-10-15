@@ -1,0 +1,40 @@
+<div class="container mx-auto">
+  <div class="ml-3 balloon5">
+    <div class="faceicon ml-5">
+      <% if @chef.user.avatar? %>
+        <%= link_to image_tag(@chef.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle ml-2", alt: "avatar image"), @chef.user %>
+      <% else %>
+        <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle ml-2", alt: "avatar image"), @chef.user %>
+      <% end %>
+      <%= link_to @chef.user.name, @chef.user, class: "text-dark post-name ml-4" %>
+    </div>
+    <div class="chatting">
+      <div class="says">
+        <p><%= @chef.comment %></p>
+      </div>
+    </div>
+  </div>
+  <!-- タブ部分 -->
+  <div class="row text-center">
+    <ul class="nav nav-tabs no-gutters mx-auto mb-2" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a href="#item1" id="posts-tab" class="nav-link user-tabs active" role="tab" data-toggle="tab" aria-controls="item1" aria-selected="true">写真</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#item2" id="likes-tab" class="nav-link user-tabs" role="tab" data-toggle="tab" aria-controls="item2" aria-selected="false">アクセス</a>
+      </li>
+    </ul>
+  </div>
+  <!-- パネル部分 -->
+  <div class="tab-content tab-post" id ="pills-tabContent">
+    <div id="item1" class="tab-pane active" role="tabpanel" aria-labelledby="posts-tab">
+      <% if @chef.image.url %>
+        <%= image_tag @chef.image.url, class: "col-md-5 ", alt: "投稿画像" %>
+      <% end %>
+    </div>
+    <%# アクセス %>
+    <div id="item2" class="tab-pane" role="tabpanel" aria-labelledby="likes-tab">
+      <%= render 'microposts/show_map', object: @chef %>
+    </div>
+  </div>
+</div>

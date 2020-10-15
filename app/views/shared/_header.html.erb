@@ -2,6 +2,10 @@
   <div class="container">
     <%=link_to "Contrail", root_path, class: "navbar-brand mr-auto" %>
 
+    <%= link_to chefs_path, class: "mb-1 mr-3 btn btn-sm rounded-pill" do %>
+      <i class="fas fa-utensils head-chef fa-lg"></i><span class="head-info"> お店の情報</span>
+    <% end %>
+
     <%= link_to search_microposts_path do %>
       <i class="fas fa-search head-search fa-lg mr-4"></i>
     <% end %>
@@ -40,7 +44,7 @@
         </div>
       </div>
     <% else %>
-      <div class="d-flex flex-row">
+      <div class=" ml-3 d-flex flex-row">
         <div>
           <%= link_to users_guest_sign_in_path, method: :post, class: "not-signedin-link text-decoration-none" do %>
             <span class="text-muted">ゲストログイン</span>

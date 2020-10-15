@@ -23,14 +23,15 @@ RSpec.describe Micropost, type: :model do
     expect(micropost).to be_valid
   end
 
-  it '利用時間帯、予算、コメント、画像が有効であること' do
+  it '投稿内容が有効であること' do
     user = create(:user)
     micropost = Micropost.new(
+      user: user,
       arrived_at: '昼',
       budget: '~¥999',
       content: '本当に美味しかった',
       image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpg')),
-      restaurant: 'Contrail 神楽坂店'
+      address: 'Contrail 神楽坂店'
     )
     expect(micropost).to be_valid
   end
@@ -58,7 +59,7 @@ RSpec.describe Micropost, type: :model do
     end
 
     it '店舗名が無い場合無効であること' do
-      micropost.restaurant = ''
+      micropost.address = ''
       expect(micropost).to_not be_valid
     end
   end

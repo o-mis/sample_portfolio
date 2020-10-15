@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 
   def search
     @q = Micropost.ransack(params[:q])
-    @microposts = @q.result(distinct: true).page(params[:page]).per(8)
+    @microposts = @q.result(distinct: true).page(params[:page]).per(12)
   end
 
   def show

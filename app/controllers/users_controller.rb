@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @following = @user.following
     @followers = @user.followers
     @microposts = @user.microposts.page(params[:page]).per(20) if user_signed_in?
+    @chefs = @user.chefs.page(params[:page]).per(20)
   end
 
   def search

@@ -21,8 +21,8 @@
 #
 FactoryBot.define do
   factory :comment do
-    comment { "MyText" }
-    user { nil }
-    micropost { nil }
+    content { "美味しそうですね！" }
+    association :micropost
+    user { micropost.user }
   end
 end
