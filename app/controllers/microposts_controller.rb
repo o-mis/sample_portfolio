@@ -2,6 +2,14 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:show, :create, :edit, :destroy]
   before_action :has_micropost, only: :destroy
 
+  def index
+    if params[:tag_name]
+      @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(6)
+    else
+      @microposts = Micropost.page(params[:page]).per(6)
+    end
+  end
+
   def search
     @q = Micropost.ransack(params[:q])
     @microposts = @q.result(distinct: true).page(params[:page]).per(12)

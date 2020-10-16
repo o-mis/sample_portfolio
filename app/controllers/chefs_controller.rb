@@ -1,12 +1,12 @@
 class ChefsController < ApplicationController
-  before_action :logged_in_user, only: [:show, :create, :edit, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :destroy]
 
   def index
     @like = Like.new
     @bookmark = Bookmark.new
     @micropost = Micropost.new
     @chef = Chef.new
-    @chef = current_user.chefs.page(params[:page]).per(12) if user_signed_in?
+    @chef = Chef.page(params[:page]).per(20)
   end
 
   def new
@@ -24,7 +24,7 @@ class ChefsController < ApplicationController
 
   def show
     @chef = Chef.find(params[:id])
-    @chefs = @user.chefs.page(params[:page]).per(20)
+    # @chefs = @user.chefs.page(params[:page]).per(20)
     @micropost = Micropost.find(params[:id])
   end
 

@@ -9,7 +9,6 @@
   </div>
 </div>
 
-<% if @chef.any? %>
   <div class="row mb-2">
     <% @chef.each do |chef| %>
       <div class="card-group col-md-4 mx-auto">
@@ -40,6 +39,5 @@
       </div>
     <% end %>
   </div>
-<% end %>
 <%= paginate @chef %>
 
