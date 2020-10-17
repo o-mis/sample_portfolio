@@ -162,27 +162,9 @@ nav-pills .tab-search {
   left: 90%;
 }
 
-.tab-post-detail {
-  width: 400px;
-}
-
-.post-detail-user {
-  font-size: 15px;
-  font-family: $font;
-}
-
-.post-detail-address {
-  font-size: 17px;
-  font-weight: bold;
-  color: $gray;
-}
 .post-address {
   font-size: 15px;
   color: $gray;
-}
-
-.post-detail-content {
-  font-size: 17px;
 }
 
 .post-budget {
@@ -214,9 +196,6 @@ nav-pills .tab-search {
   color: #a3a3a3;
   font-size: 16px;
 }
-
-// .post-detail-map {
-// }
 
 .fa-sun::before {
   font-family: $fa-family;
