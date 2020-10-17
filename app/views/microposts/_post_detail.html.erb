@@ -1,96 +1,113 @@
-<div class="container">
+<div class="container ml-5">
   <div class="row">
     <div class="col-lg-6">
+      <% if object.user.avatar? %>
+        <%= link_to image_tag(object.user.avatar.to_s, size: "50x50", class: "rounded-circle mb-3", alt: "avatar image"), object.user %>
+      <% else %>
+        <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle mb-3", alt: "avatar image"), object.user %>
+      <% end %>
+      <%= link_to object.user.name, object.user, class: "text-dark post-detail-user" %>
+      <% if object.address %>
+        <small class="post-detail-address ml-2"><%= object.address %></small>
+      <% end %>
+      <% if object.arrived_at == "昼" %>
+        <span style="color: Tomato">
+          <i class="fas fa-sun arrived-icon"></i>
+        </span>
+      <% elsif object.arrived_at == "夜" %>
+        <span style="color: Darkblue">
+          <i class="fas fa-moon arrived-icon"></i>
+        <span>
+      <% else %>
+      <% end %>
       <div class="card mb-1">
         <% if object.image.url %>
           <%= image_tag object.image.url, class: "card-img-top", alt: "投稿画像" %>
         <% end %>
       </div>
     </div>
-    <div class="col-lg-5">
-      <div class="card rounded-0">
-        <div class="card-body">
-          <div class="post-user mr-auto">
-            <% if object.user.avatar? %>
-              <%= link_to image_tag(object.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), object.user %>
-            <% else %>
-              <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), object.user %>
-            <% end %>
-            <%= link_to object.user.name, object.user, class: "text-dark post-name" %>
-            <% if object.address %>
-              <small class="post-address ml-2"><%= object.address %></small>
-            <% end %>
-            <% if object.arrived_at == "昼" %>
-              <span style="color: Tomato">
-                <i class="fas fa-sun arrived-icon"></i>
-              </span>
-            <% elsif object.arrived_at == "夜" %>
-              <span style="color: Darkblue">
-                <i class="fas fa-moon arrived-icon"></i>
-              <span>
-            <% else %>
-            <% end %>
-          </div>
-          <div class="d-flex flex-column post-content ml-2 mb-4">
-            <div class="post-budget">
-            <i class="fas fa-coins"></i>
-              <% if object.budget == 1.0 %>
-                〜￥999
-              <% elsif object.budget == 2.0 %>
-                ￥1000〜￥1999
-              <% elsif object.budget == 3.0 %>
-                ￥2,000〜￥2,999
-              <% elsif object.budget == 4.0 %>
-                ￥3,000〜￥3,999
-              <% elsif object.budget == 5.0 %>
-                ￥4,000〜￥4,999
-              <% elsif object.budget == 6.0 %>
-                ￥5,000〜￥5,999
-              <% elsif object.budget == 7.0 %>
-                ￥6,000〜￥6,999
-              <% elsif object.budget == 8.0 %>
-                ￥7,000〜¥7,999
-              <% elsif object.budget == 9.0 %>
-                ￥8,000〜￥8,999
-              <% elsif object.budget == 10.0 %>
-                ￥9,000〜￥9,999
-              <% elsif object.budget == 11.0 %>
-                ￥10,000〜￥19,999
-              <% elsif object.budget == 12.0 %>
-                ￥20,000〜￥29,999
-              <% else %>
-                ￥30,000〜
-              <% end %>
+    <div class="col-lg-5 mt-3">
+      <%# タブ %>
+      <div class="row text-center">
+        <ul class="nav nav-tabs no-gutters mx-auto mb-2" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a href="#item1" id="posts-tab" class="nav-link user-tabs active" role="tab" data-toggle="tab" aria-controls="item1" aria-selected="true">投稿</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a href="#item2" id="comments-tab" class="nav-link user-tabs" role="tab" data-toggle="tab" aria-controls="item2" aria-selected="false">コメント</a>
+          </li>
+        </ul>
+      </div>
+      <%# 投稿パネル %>
+      <div class="tab-content tab-post" id ="pills-tabContent">
+        <div id="item1" class="tab-pane active" role="tabpanel" aria-labelledby="posts-tab">
+          <div class="card p-3">
+            <div class="card-body">
+              <div class="d-flex flex-column post-content ml-2 mb-4">
+                <div class="post-budget">
+                <i class="fas fa-coins"></i>
+                  <% if object.budget == 1.0 %>
+                    〜￥999
+                  <% elsif object.budget == 2.0 %>
+                    ￥1000〜￥1999
+                  <% elsif object.budget == 3.0 %>
+                    ￥2,000〜￥2,999
+                  <% elsif object.budget == 4.0 %>
+                    ￥3,000〜￥3,999
+                  <% elsif object.budget == 5.0 %>
+                    ￥4,000〜￥4,999
+                  <% elsif object.budget == 6.0 %>
+                    ￥5,000〜￥5,999
+                  <% elsif object.budget == 7.0 %>
+                    ￥6,000〜￥6,999
+                  <% elsif object.budget == 8.0 %>
+                    ￥7,000〜¥7,999
+                  <% elsif object.budget == 9.0 %>
+                    ￥8,000〜￥8,999
+                  <% elsif object.budget == 10.0 %>
+                    ￥9,000〜￥9,999
+                  <% elsif object.budget == 11.0 %>
+                    ￥10,000〜￥19,999
+                  <% elsif object.budget == 12.0 %>
+                    ￥20,000〜￥29,999
+                  <% else %>
+                    ￥30,000〜
+                  <% end %>
+                </div>
+                <div class="mt-4">
+                  <span class="post-detail-content"><%= object.content %></span>
+                </div>
+                <div class="mt-2">
+                  <%= render 'tag_list', tag_list: @micropost.tag_list %>
+                </div>
+              </div>
+              <div class="post-info d-flex flex-row mt-2">
+                <div id="micropost-<%= object.id %>">
+                  <%= render "likes/like", micropost: @micropost %>
+                </div>
+                <div class="ml-2" id="micropostB-<%= object.id %>">
+                  <%= render "bookmarks/bookmark", micropost: @micropost %>
+                </div>
+                <div class="ml-auto">
+                  <a href="https://twitter.com/share?url=<%= micropost_url(object) %>" target="_blank" class="btn btn-sm btn-outline-dark">Twitter</a>
+                </div>
+                <% if current_user.id == object.user.id || current_user.admin? %>
+                  <div class="ml-2 ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-0 btn-outline-dark" %></div>
+                <% end %>
+              </div>
             </div>
-            <div class="mt-4">
-              <%= object.content %>
-            </div>
-            <div class="mt-2">
-              <%= render 'tag_list', tag_list: @micropost.tag_list %>
-            </div>
-          </div>
-          <div class="post-info d-flex flex-row">
-            <div id="micropost-<%= object.id %>">
-              <%= render "likes/like", micropost: @micropost %>
-            </div>
-            <div class="ml-2" id="micropostB-<%= object.id %>">
-              <%= render "bookmarks/bookmark", micropost: @micropost %>
-            </div>
-            <div class="ml-auto">
-              <a href="https://twitter.com/share?url=<%= micropost_url(object) %>" target="_blank" class="btn btn-sm btn-outline-dark">Twitter</a>
-            </div>
-            <% if current_user.id == object.user.id || current_user.admin? %>
-              <div class="ml-2 ml-auto"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-sm rounded-0 btn-outline-dark" %></div>
-            <% end %>
           </div>
         </div>
-      </div>
-      <div>
-        <%= render 'comments/form', micropost: object, group: @comments %>
+        <%# コメントパネル %>
+        <div id="item2" class="tab-pane" role="tabpanel" aria-labelledby="comments-tab">
+          <div class="card pb-2 p-4">
+            <%= render 'comments/form', micropost: object, group: @comments %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="mt-5">
+<div class="mt-3 post-detail-map container">
   <%= render 'microposts/show_map', object: @micropost %>
 </div>
