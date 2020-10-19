@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:show, :create, :edit, :destroy]
-  before_action :has_micropost, only: :destroy
+  # before_action :has_micropost, only: :destroy
 
   def index
     if params[:tag_name]
@@ -67,8 +67,8 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:content, :arrived_at, :budget, :address, :image, :tag_list)
   end
 
-  def has_micropost
-    @micropost = current_user.microposts.find_by!(params[:id])
-    redirect_to root_path if @micropost.nil?
-  end
+  # def has_micropost
+  #   @micropost = current_user.microposts.find_by!(params[:id])
+  #   redirect_to root_path if @micropost.nil?
+  # end
 end
