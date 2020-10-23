@@ -6,6 +6,7 @@
 #  content      :text(65535)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  chef_id      :integer
 #  micropost_id :bigint           not null
 #  user_id      :bigint           not null
 #
