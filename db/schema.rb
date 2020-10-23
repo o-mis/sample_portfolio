@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_173434) do
+ActiveRecord::Schema.define(version: 2020_10_23_120640) do
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "micropost_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "chef_id"
     t.index ["micropost_id"], name: "index_bookmarks_on_micropost_id"
     t.index ["user_id", "micropost_id"], name: "index_bookmarks_on_user_id_and_micropost_id", unique: true
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_10_11_173434) do
     t.bigint "micropost_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "chef_id"
     t.index ["micropost_id"], name: "index_comments_on_micropost_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_10_11_173434) do
     t.integer "micropost_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "chef_id"
     t.index ["micropost_id"], name: "index_likes_on_micropost_id"
     t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"

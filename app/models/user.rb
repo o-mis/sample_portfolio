@@ -49,6 +49,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false },
                     length: { maximum: 255 }
+  validates :password, presence: true
 
   mount_uploader :avatar, AvatarUploader
 
