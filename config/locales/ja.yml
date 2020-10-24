@@ -11,7 +11,7 @@ ja:
         password: パスワード
         password_confirmation: パスワードの確認
         avatar: プロフィール画像
-      moicropost:
+      micropost:
         image: 投稿画像
         arrived_at: 利用時間帯
         budget: 予算
