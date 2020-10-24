@@ -24,7 +24,8 @@ class MicropostsController < ApplicationController
   end
 
   def new
-    @micropost = current_user.microposts.build if user_signed_in?
+    # @micropost = current_user.microposts.build if user_signed_in?
+    @micropost = Micropost.new
   end
 
   def create
