@@ -1,0 +1,20 @@
+<script>
+  $(function() {
+    // 変数定義
+    var $tabSelect = $('#tab-select'),
+        $tabContents = $('.tab-contents'),
+        activeClass = 'is-active';
+
+    // ある動作をきっかけにして動作をつける
+    $tabSelect.on('change', function() {
+      // セレクトボックスの要素を取得
+      var target = $(this).val(),
+          targetSelectNum = $(this).prop('selectedIndex');
+
+      $tabSelect.removeClass(activeClass);
+      $tabSelect.eq(targetSelectNum).addClass(activeClass);
+      $tabContents.hide();
+      $(target).show();
+    });
+  });
+</script>
