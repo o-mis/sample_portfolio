@@ -10,15 +10,7 @@
 #  longitude  :float(24)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint
-#
-# Indexes
-#
-#  index_chefs_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
+#  user_id    :integer
 #
 FactoryBot.define do
   factory :chef do

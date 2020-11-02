@@ -4,12 +4,7 @@
   <%= render 'static_pages/signedin_home' %>
   <%= render 'microposts/modal' %>
 <% else %>
-  <div class="col float-right mr-3">
-    <div class="mb-3 info-tab"><span class="not-signedin-latest">最新投稿</span></div>
-  </div>
-  <div class="row">
-    <%= render partial: 'static_pages/not_signedin_home', collection: @latest, as: "micropost" %>
-  </div>
+  <%= render partial: 'static_pages/not_signedin_home' %>
   <%= paginate @latest %>
 <% end %>
 

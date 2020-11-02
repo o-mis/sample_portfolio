@@ -1,50 +1,45 @@
-<div class="card-group col-md-6">
-  <div class="card shadow-sm mb-2">
-    <% if micropost.image.url %>
-      <%= image_tag micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像" %>
-    <% end %>
-    <div class="card-body">
-      <div class="post-user">
-        <% if micropost.user.avatar? %>
-          <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
-        <% else %>
-          <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
-        <% end %>
-        <%= link_to micropost.user.name, micropost.user, class: "post-avatar post-name text-dark" %>
-        <% if micropost.address %>
-          <small class="post-address ml-2"><%= micropost.address %></small>
-        <% end %>
-        <% if micropost.arrived_at == "昼" %>
-          <span style="color: Tomato">
-            <i class="fas fa-sun arrived-icon"></i>
-          </span>
-        <% elsif micropost.arrived_at == "夜" %>
-          <span style="color: Darkblue">
-            <i class="fas fa-moon arrived-icon"></i>
-          <span>
-        <% else %>
-          <div></div>
-        <% end %>
-      </div>
-      <div class="post-content ml-2 mt-1">
-        <%= micropost.content %>
-      </div>
-      <div class="mt-2 ml-2 mb-3">
-        <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
-      </div>
-      <div class="post-info ml-2">
-        <small class="text-muted">
-          <i class="fas fa-heart fa-lg muted-heart"></i>
-          <%= micropost.liked_users.count %>
-        </small>
-        <small class="comment-info ml-3 text-muted">
-          <i class="fas fa-comment-alt fa-lg commented-user"></i>
-            <%= micropost.commented_users.count %>
-        </small>
-        <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+<div class="row">
+  <% @latest.each do |micropost| %>
+    <div class="card-group col-md-4">
+      <div class="card mb-2">
+        <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
+        <div class="card-body">
+          <div class="post-user">
+            <% if micropost.user.avatar? %>
+              <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+            <% else %>
+              <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+            <% end %>
+            <%= link_to micropost.user.name, micropost.user, class: "post-avatar post-name text-dark" %>
+            <% if micropost.address %>
+              <small class="post-address ml-2"><%= micropost.address %></small>
+            <% end %>
+            <% if micropost.arrived_at == 'day' %>
+              <i class="material-icons orange-text text-darken-4">brightness_5</i>
+            <% elsif micropost.arrived_at == 'night' %>
+              <i class="material-icons indigo-text text-darken-4">brightness_2</i>
+            <% else %>
+            <% end %>
+          </div>
+          <div class="post-content ml-2 mt-1">
+            <%= micropost.content %>
+          </div>
+          <div class="mt-2 ml-2 mb-3">
+            <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
+          </div>
+          <div class="post-info ml-2">
+            <small class="text-muted">
+              <i class="fas fa-heart fa-lg muted-heart"></i>
+              <%= micropost.liked_users.count %>
+            </small>
+            <small class="comment-info ml-3 text-muted">
+              <i class="fas fa-comment-alt fa-lg commented-user"></i>
+                <%= micropost.commented_users.count %>
+            </small>
+            <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
-
-

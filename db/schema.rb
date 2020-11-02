@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_120640) do
+ActiveRecord::Schema.define(version: 2020_10_31_140430) do
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "micropost_id", null: false
+    t.integer "micropost_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "chef_id"
     t.index ["micropost_id"], name: "index_bookmarks_on_micropost_id"
-    t.index ["user_id", "micropost_id"], name: "index_bookmarks_on_user_id_and_micropost_id", unique: true
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
@@ -29,10 +28,9 @@ ActiveRecord::Schema.define(version: 2020_10_23_120640) do
     t.string "address", default: ""
     t.float "longitude"
     t.float "latitude"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_chefs_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,12 +46,11 @@ ActiveRecord::Schema.define(version: 2020_10_23_120640) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "micropost_id", null: false
+    t.integer "micropost_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "chef_id"
     t.index ["micropost_id"], name: "index_likes_on_micropost_id"
-    t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -126,7 +123,6 @@ ActiveRecord::Schema.define(version: 2020_10_23_120640) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chefs", "users"
   add_foreign_key "comments", "microposts"
   add_foreign_key "comments", "users"
 end

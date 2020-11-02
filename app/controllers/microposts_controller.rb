@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:show, :create, :edit, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :destroy]
   # before_action :has_micropost, only: :destroy
 
   def index
@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      redirect_to root_path, notice: '投稿が完了しました'
+      redirect_to root_path
     else
       render :new
     end
@@ -51,8 +51,9 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
+    @micropost = Micropost.find_by!(params[:id])
     @micropost.destroy
-    redirect_to root_path, notice: '投稿を削除しました'
+    redirect_to root_path
   end
 
   private

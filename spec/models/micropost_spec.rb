@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  address    :string(255)      default("")
-#  arrived_at :integer          default("未選択"), not null
+#  arrived_at :integer          default("no_choice"), not null
 #  budget     :decimal(5, 3)
 #  content    :text(65535)      not null
 #  image      :string(255)

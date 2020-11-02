@@ -21,7 +21,7 @@
         <%# フォロー %>
         <%= form_for(current_user.active_relationships.build) do |f| %>
           <div><%= hidden_field_tag :followed_id, user.id %></div>
-          <%= f.submit "フォローする", class: "btn-rela btn btn-sm btn-outline-dark rounded-0" %>
+          <%= f.submit "フォローする", class: "btn-rela btn blue lighten-3" %>
         <% end %>
       <% end %>
       </div>
