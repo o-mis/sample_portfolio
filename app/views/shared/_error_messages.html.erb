@@ -1,9 +1,9 @@
 <% if model.errors.any? %>
-  <div class="alert alert-danger">
-    <ul>
-      <% model.errors.full_messages.each do |msg| %>
-        <li class="mt-2"><%= msg %></li>
-      <% end %>
-    </ul>
+  <div>
+    <% model.errors.full_messages.each do |msg| %>
+      <script type="text/javascript">
+        M.toast({html: '<%= msg %>', classes: "red"})
+      </script>
+    <% end %>
   </div>
 <% end %>

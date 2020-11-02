@@ -17,6 +17,26 @@ ja:
         budget: 予算
         address: 店舗名
         content: 投稿内容
+  enums:
+    micropost:
+      arrived_at:
+        no_choice: 未選択
+        day: 昼
+        night: 夜
+      budget:
+        yen0: 〜¥999
+        yen1: ¥1,000〜¥1,999
+        yen2: ¥2,000〜¥2,999
+        yen3: ¥3,000〜¥3,999
+        yen4: ¥4,000〜¥4,999
+        yen5: ¥5,000〜¥5,999
+        yen6: ¥6,000〜¥6,999
+        yen7: ¥7,000〜¥7,999
+        yen8: ¥8,000〜¥8,999
+        yen9: ¥9,000〜¥9,999
+        yen10: ¥10,000〜¥19,999
+        yen20: ¥20,000〜¥29,999
+        yen30: ¥30,000〜
   errors:
     messages:
       record_invalid: "バリデーションに失敗しました: %{errors}"

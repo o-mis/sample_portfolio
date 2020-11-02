@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  address    :string(255)      default("")
-#  arrived_at :integer          default("未選択"), not null
+#  arrived_at :integer          default("no_choice"), not null
 #  budget     :decimal(5, 3)
 #  content    :text(65535)      not null
 #  image      :string(255)
@@ -31,7 +31,11 @@ class Micropost < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  enum arrived_at: { 未選択: 0, 昼: 1, 夜: 2 }
+  enum arrived_at: { no_choice: 0, day: 1, night: 2 }
+
+  enum budget: { yen0: 0, yen1: 1, yen2: 2, yen3: 3, yen4: 4,
+                  yen5: 5, yen6: 6, yen7: 7, yen8: 8, yen9: 9,
+                  yen10: 10, yen20: 11, yen30: 12 }
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

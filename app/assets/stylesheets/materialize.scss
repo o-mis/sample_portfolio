@@ -1,0 +1,25 @@
+// @import "materialize/components/color";
+// $primary-color: color("blue", "lighten-2") !default;
+// @import "materialize";
+$font: "Teko", sans-serif;
+
+// 共通
+.font {
+  font-weight: 500;
+}
+
+.nav-wrapper {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.brand-logo {
+  font-family: $font;
+}
+
+.dropdown-font-size {
+  font-size: 8px;
+}
+
+.select-post-form {
+  color: #212121;
+}

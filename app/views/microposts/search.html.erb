@@ -1,35 +1,26 @@
-<div class="mb-4">
+<div class="container">
 <form class="mb-2 ml-5">
-  <div class="form-row justify-content-center">
+  <div class="form-row">
       <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
-        <div class="form-group search-posts col-md-2 px-0">
-          <%= f.search_field :content_cont, class: "search-form form-control rounded-0", placeholder: "コメント内容" %>
+        <div class="input-field col s3">
+          <%= f.label :content_cont, "投稿内容" %>
+          <%= f.search_field :content_cont, autocomplete: "off" %>
         </div>
-        <div class="form-group search-posts col-md-2 px-0">
-          <%= f.search_field :address_cont, class: "form-control rounded-0", placeholder: "エリア/駅" %>
+        <div class="input-field col s3">
+          <%= f.label :content_cont, "エリア" %>
+          <%= f.search_field :address_cont, autocomplete: "off" %>
         </div>
-        <div class="form-group search-posts col-md-2 px-0">
-          <%= f.select :budget_eq, [['〜¥999', 1],
-                          ['¥1,000〜¥1,999', 2],
-                          ['¥2,000〜¥2,999', 3],
-                          ['¥3,000〜¥3,999', 4],
-                          ['¥4,000〜¥4,999', 5],
-                          ['¥5,000〜¥5,999', 6],
-                          ['¥6,000〜¥6,999', 7],
-                          ['¥7,000〜¥7,999', 8],
-                          ['¥8,000〜¥8,999', 9],
-                          ['¥9,000〜¥9,999', 10],
-                          ['¥10,000〜¥19,999', 11],
-                          ['¥20,000〜¥29,999', 12],
-                          ['¥30,000〜', 13]], { include_blank: "価格帯" }, { class: "form-control rounded-0" } %>
+        <div class="input-field col s6">
+          <%= f.select :budget, Micropost.budgets.keys.map {|k| [I18n.t("enums.micropost.budget.#{k}"), k]} %>
+          <%= f.label :budget %>
         </div>
         <% if user_signed_in? %>
-          <div class="form-group search-posts col-md-2 px-0">
-            <%= f.select :sorts, { 'いいねの多い順': 'likes_count desc' }, { include_blank: "並べ替え" }, { class: "form-control rounded-0" } %>
+          <div class="input-field col s6">
+            <%= f.select :sorts, { 'いいねの多い順': 'likes_count desc' }, { include_blank: "並べ替え" } %>
           </div>
         <% end %>
-        <div class="form-group col-md-2 pl-0">
-          <%= f.submit "検索", class: "btn btn-outline-dark  rounded-0" %>
+        <div>
+          <button class="btn black mt-4" type="submit" name="action">検索</button>
         </div>
       <% end %>
 </div>
@@ -54,11 +45,11 @@
                 <% if micropost.address %>
                   <small class="post-address ml-2"><%= micropost.address %></small>
                 <% end %>
-                <% if micropost.arrived_at == "昼" %>
+                <% if micropost.arrived_at == 'day' %>
                   <span style="color: Tomato">
                     <i class="fas fa-sun arrived-icon"></i>
                   </span>
-                <% elsif micropost.arrived_at == "夜" %>
+                <% elsif micropost.arrived_at == 'night' %>
                   <span style="color: Darkblue">
                     <i class="fas fa-moon arrived-icon"></i>
                   <span>
@@ -77,8 +68,8 @@
                     <%= render "likes/like", micropost: micropost %>
                   </div>
                   <div class="comment-info ml-3 text-muted">
-                    <i class="fas fa-comment-alt fa-lg  commented-user"></i>
-                      <%= micropost.commented_users.count %>
+                    <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
+                    <%= micropost.commented_users.count %>
                   </div>
                   <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
               </div>

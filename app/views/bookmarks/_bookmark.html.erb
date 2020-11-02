@@ -1,15 +1,15 @@
 <% if user_signed_in? %>
   <% if micropost.bookmarked?(current_user) %>
     <%= form_for(micropost.bookmarks.find_by(user_id: current_user.id), method: :delete, remote: true) do %>
-      <%= button_tag type: 'submit', class: "clear-decoration" do %>
-        <i class="fas fa-bookmark  fa-lg bookmarked-btn"></i>
+      <%= button_tag type: 'submit', class: "clear-decoration gray-text" do %>
+        <i class="material-icons grey-text text-darken-3">bookmark</i>
       <% end %>
     <% end %>
   <% else %>
     <%= form_for(micropost.bookmarks.build, remote: true) do %>
       <%= hidden_field_tag :micropost_id, micropost.id %>
-      <%= button_tag type: 'submit', class: "clear-decoration" do %>
-        <i class="fas fa-bookmark fa-lg muted-bookmark"></i>
+      <%= button_tag type: 'submit', class: "clear-decoration gray-text" do %>
+        <i class="material-icons grey-text text-darken-1">bookmark_border</i>
       <% end %>
     <% end %>
   <% end %>
