@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-Rspec.describe 'Users', type: :system do
+RSpec.describe 'Users', type: :system do
   before do
-    @user = User.create!(name: "Test")
-  end
-  
+    @user = User.create!(name: 'Test')
   end
 end

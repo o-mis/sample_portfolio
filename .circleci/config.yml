@@ -4,45 +4,70 @@ orbs:
   aws-ecr: circleci/aws-ecr@6.12.2
   aws-ecs: circleci/aws-ecs@1.3.0
 
+references:
+  defaults: &defaults
+    working_directory: ~/Contrail
+
+  ruby-docker-image: &ruby-docker-image
+    #steps共通のプライマリコンテナ
+    image: circleci/ruby:2.6.4-node-browsers
+    #プライマリコンテナの環境変数
+    environment:
+      RAILS_ENV: test
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_USERNAME: "root"
+      MYSQL_PASSWORD: ""
+      MYSQL_PORT: 3306
+
+  mysql-docker-image: &mysql-docker-image
+    image: circleci/mysql:8.0.19
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ROOT_HOST: "%"
+
 jobs:
-  build:
+  checkout_code:
+    <<: *defaults
     docker:
-      - image: circleci/ruby:2.6.4-node-browsers
-        environment:
-          RAILS_ENV: test
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
-          MYSQL_PORT: 3306
-      - image: circleci/mysql:8.0.19
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_HOST: '%'
-    #依存関係をキャッシュする
+      - *ruby-docker-image
+      - *mysql-docker-image
     steps:
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/project
+
+  test:
+    <<: *defaults
+    docker:
+      - *ruby-docker-image
+      - *mysql-docker-image
+    steps:
+      #ソースコードをworking dirにチェックアウト
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
+      #ruby依存関係
       - run: gem install bundler -v 2.1.4
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: vi-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
-
-      #database.yml.ciを使用する
+      #DBの待機/セットアップ
       - run: mv -f ./config/database.yml.ci ./config/database.yml
       - run: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
       - run: bundle exec rails db:create db:schema:load --trace
-
-      #テストの自動化
+      #Rubocop自動化
       - run:
           name: start RuboCop
           command: bundle exec rubocop
+      #RSpec自動化
       - run:
-          name: start Rspec
+          name: start RSpec
           command: |
             mkdir /tmp/test-reports
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
@@ -53,7 +78,6 @@ jobs:
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
-
       #レポートと結果を保存
       - store_artifacts:
           path: /tmp/test-reports
@@ -82,10 +106,11 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: '${ECS_TASK}'
-          cluster-name: '${ECS_ARN}'
-          service-name: '${ECS_SERVICE}'
+          family: "${ECS_TASK}"
+          cluster-name: "${ECS_ARN}"
+          service-name: "${ECS_SERVICE}"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_WEB},tag=${CIRCLE_SHA1}"
+
   #nginxのデプロイ
   build-and-deploy-nginx:
     jobs:
@@ -104,7 +129,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: '${ECS_TASK}'
-          cluster-name: '${ECS_ARN}'
-          service-name: '${ECS_SERVICE}'
+          family: "${ECS_TASK}"
+          cluster-name: "${ECS_ARN}"
+          service-name: "${ECS_SERVICE}"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_NGINX},tag=${CIRCLE_SHA1}"

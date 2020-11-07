@@ -41,6 +41,7 @@ RSpec.describe Micropost, type: :model do
       micropost.content = 'a' * 150
       expect(micropost).to be_valid
     end
+
     it 'コンテンツが150文字以上であれば無効であること' do
       micropost.content = 'a' * 151
       expect(micropost).to_not be_valid
@@ -48,11 +49,6 @@ RSpec.describe Micropost, type: :model do
   end
 
   describe '存在性の検証' do
-    it '利用時間帯が選択されていない場合無効であること' do
-      micropost.arrived_at = nil
-      expect(micropost).to_not be_valid
-    end
-
     it 'コンテンツが無い場合無効であること' do
       micropost.content = ''
       expect(micropost).to_not be_valid
