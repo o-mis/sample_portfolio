@@ -22,8 +22,10 @@ class Micropost < ApplicationRecord
   has_many :bookmarked_users, through: :bookmarks, source: :user
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
+  has_many :marks, dependent: :destroy
+  has_many :marked_users, through: :marks, source: :user
+
   validates :content, presence: true, length: { maximum: 150 }
-  # validates :arrived_at, presence: true
   validates :address, presence: true
   validates :image, presence: true
 
@@ -34,8 +36,8 @@ class Micropost < ApplicationRecord
   enum arrived_at: { no_choice: 0, day: 1, night: 2 }
 
   enum budget: { yen0: 0, yen1: 1, yen2: 2, yen3: 3, yen4: 4,
-                  yen5: 5, yen6: 6, yen7: 7, yen8: 8, yen9: 9,
-                  yen10: 10, yen20: 11, yen30: 12 }
+                 yen5: 5, yen6: 6, yen7: 7, yen8: 8, yen9: 9,
+                 yen10: 10, yen20: 11, yen30: 12 }
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

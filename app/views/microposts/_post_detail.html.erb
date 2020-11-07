@@ -39,7 +39,7 @@
       <%# 投稿パネル %>
       <div class="tab-content tab-post" id ="pills-tabContent">
         <div id="item1" class="tab-pane active" role="tabpanel" aria-labelledby="posts-tab">
-          <div class="card p-3">
+          <div class="card-panel p-3">
             <div class="card-body">
               <div class="d-flex flex-column post-content ml-2 mb-4">
                 <div class="post-budget">
@@ -91,7 +91,7 @@
                     <a href="https://twitter.com/share?url=<%= micropost_url(object) %>" target="_blank" class="btn btn-sm btn-outline-dark">Twitter</a>
                   </div>
                   <% if current_user.id == object.user.id || current_user.admin? %>
-                    <div class="ml-2 ml-auto gray darken-4"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn gray darken-4" %></div>
+                    <div class="ml-2 ml-auto gray-text text-darken-4"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn gray darken-4" %></div>
                   <% end %>
                 <% end %>
               </div>

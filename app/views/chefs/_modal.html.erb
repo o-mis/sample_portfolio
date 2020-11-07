@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <div class="d-none d-lg-block">
+    <button type="button" class="fab-lg-chef">
+      <%= link_to new_chef_path do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    </button>
+  </div>
+  <div class="d-lg-none d-block">
+    <button type="button" class="fab-md-chef">
+      <%= link_to new_chef_path do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    </button>
+  </div>
+<% end %>

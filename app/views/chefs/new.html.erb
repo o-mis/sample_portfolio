@@ -1,42 +1,41 @@
-<div class="container w-70">
-  <div class="card mx-auto" style="width: 50rem; height: 30rem;">
-    <div class="card-body overflow-auto">
-      <%= form_with model: @chef do |f| %>
-        <div class="field d-flex">
+<div class="container">
+  <div class="mx-auto">
+      <%= form_with model: @chef, local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <div class="input-field d-flex">
           <%= f.label :image do %>
           <% end %>
-          <%= f.file_field :image, class: "form-image", id: "image" %>
+          <%= f.file_field :image, accept: "image/jpeg,image/png,image/gif", class: "form-image", id: "image" %>
           <div id="img_field" onClick="$('#image').click()">
             <% if @chef.image.url.present? %>
               <%= image_tag(@chef.image.url) %>
             <% else %>
-              <i class="far fa-image ml-1"></i>
+              <i class="material-icons large gray-text text-lighten-1" style="cursor: pointer">library_add</i>
             <% end %>
           </div>
         </div>
-        <div class="field mt-2">
+        <div class="input-field mt-2">
           <%= f.label :address do %>
-            店舗名 <span class="post-required">(必須)</span>
+            店舗名 (必須)
           <% end %>
-          <%= f.text_field :address, class: "form-control rounded-0", required: true %>
+          <%= f.text_field :address, autocomplete: "off" %>
         </div>
-        <div class="field">
+        <div class="input-field">
           <%= f.label :comment do %>
-            コメント <span class="post-required">(必須)</span>
+            コメント (必須)
           <% end %>
-          <%= f.text_area :comment, class: "form-control rounded-0 form-content", placeholder: "(150字以内)", required: true %>
+          <%= f.text_area :comment, class: "materialize-textarea textarea2", maxlength: "150" %>
         </div>
-        <div class="field my-4">
+        <div class="input-field my-4">
           <%= f.label :tag_list do %>
-            タグを追加
+            タグを追加 (例: タグ1,タグ2)
           <% end %>
-          <%= f.text_field :tag_list, value: @chef.tag_list.join(','), class: "form-control rounded-0", placeholder: "(例: タグ1,タグ2)" %>
+          <%= f.text_field :tag_list, value: @chef.tag_list.join(','), autocomplete: "off" %>
         </div>
         <div class="d-flex flex-row">
-          <%= f.submit "投稿する", { class: "btn rounded-0 ml-auto mt-2 mr-1 btn-micropost" } %>
+          <%= f.submit "投稿する", { class: "btn ml-auto grey darken-4" } %>
         </div>
       <% end %>
       <%= render 'microposts/image_review' %>
-    </div>
   </div>
 </div>

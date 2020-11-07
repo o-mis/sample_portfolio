@@ -1,21 +1,21 @@
-lock "3.14.1"
+lock '3.14.1'
 
-set :application, "Contrail"
-set :repo_url, "git@github.com:o-mis/Contrail.git"
-set :branch, "master"
-set :deploy_to, "/var/www/rails/Contrail"
+set :application, 'Contrail'
+set :repo_url, 'git@github.com:o-mis/Contrail.git'
+set :branch, 'master'
+set :deploy_to, '/var/www/rails/Contrail'
 
 set :pty, true
 
-append :linked_files, "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle"
+append :linked_files, 'config/master.key'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'vendor/bundle'
 
 set :keep_releases, 5
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.4'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 set :rbenv_roles, :all
 
 set :format, :pretty
@@ -29,7 +29,6 @@ set :puma_error_log, "#{shared_path}/log/puma_error.log"
 set :puma_role, :app
 append :rbenv_map_bins, 'puma', 'pumactl'
 
-
 namespace :deploy do
   # desc 'Restart application'
   # task :restart do
@@ -38,7 +37,7 @@ namespace :deploy do
 
   desc 'Create database'
   task :db_create do
-    on roles(:db) do |host|
+    on roles(:db) do |_host|
       with rails_env: fetch(:rails_env) do
         within current_path do
           execute :bundle, :exec, :rake, 'db:create'

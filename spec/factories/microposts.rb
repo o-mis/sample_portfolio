@@ -16,7 +16,7 @@
 #
 FactoryBot.define do
   factory :micropost do
-    arrived_at { "昼" }
+    arrived_at { '昼' }
     budget { 1 }
     content { '本当に美味しかった' }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpg')) }

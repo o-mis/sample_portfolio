@@ -3,26 +3,26 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.page(params[:page]).per(20)
+    @users = User.page(params[:page]).per(25)
   end
 
   def show
     @user = User.find(params[:id])
     @following = @user.following
     @followers = @user.followers
-    @microposts = @user.microposts.page(params[:page]).per(20) if user_signed_in?
-    @chefs = @user.chefs.page(params[:page]).per(20)
+    @microposts = @user.microposts.page(params[:page]).per(25) if user_signed_in?
+    @chefs = @user.chefs.page(params[:page]).per(25)
   end
 
   def search
     @q = User.ransack(params[:q])
     @users =
       if params[:q].nil?
-        @q.result(distinct: true).page(params[:page]).per(20)
+        @q.result(distinct: true).page(params[:page]).per(25)
       # elsif params[:q][:username_cont].blank?
       #   User.none
       else
-        @q.result(distinct: true).page(params[:page]).per(20)
+        @q.result(distinct: true).page(params[:page]).per(25)
       end
   end
 
