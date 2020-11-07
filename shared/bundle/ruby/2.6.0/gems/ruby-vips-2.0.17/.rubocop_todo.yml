@@ -10,32 +10,32 @@
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/object.rb'
-    - 'spec/vips_spec.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/object.rb"
+    - "spec/vips_spec.rb"
 
 # Offense count: 5
 Lint/IneffectiveAccessModifier:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 7
 # Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
 Lint/UselessAccessModifier:
   Exclude:
-    - 'lib/vips/image.rb'
-    - 'lib/vips/object.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips/image.rb"
+    - "lib/vips/object.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 6
 Lint/UselessComparison:
   Exclude:
-    - 'spec/image_spec.rb'
+    - "spec/image_spec.rb"
 
 # Offense count: 7
 Metrics/AbcSize:
@@ -73,17 +73,17 @@ Metrics/PerceivedComplexity:
 # Offense count: 9
 Naming/AccessorMethodName:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/operation.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 1
 # Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts, AllowedAcronyms.
 # AllowedAcronyms: CLI, DSL, ACL, API, ASCII, CPU, CSS, DNS, EOF, GUID, HTML, HTTP, HTTPS, ID, IP, JSON, LHS, QPS, RAM, RHS, RPC, SLA, SMTP, SQL, SSH, TCP, TLS, TTL, UDP, UI, UID, UUID, URI, URL, UTF8, VM, XML, XMPP, XSRF, XSS
 Naming/FileName:
   Exclude:
-    - 'lib/ruby-vips.rb'
+    - "lib/ruby-vips.rb"
 
 # Offense count: 1
 # Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist, MethodDefinitionMacros.
@@ -93,16 +93,16 @@ Naming/FileName:
 # MethodDefinitionMacros: define_method, define_singleton_method
 Naming/PredicateName:
   Exclude:
-    - 'spec/**/*'
-    - 'lib/vips/image.rb'
+    - "spec/**/*"
+    - "lib/vips/image.rb"
 
 # Offense count: 6
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
 # AllowedNames: io, id, to, by, on, in, at, ip, db
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Exclude:
-    - 'lib/vips.rb'
-    - 'lib/vips/image.rb'
+    - "lib/vips.rb"
+    - "lib/vips/image.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -110,7 +110,7 @@ Naming/UncommunicativeMethodParamName:
 # SupportedStyles: prefer_alias, prefer_alias_method
 Style/Alias:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -118,7 +118,7 @@ Style/Alias:
 # SupportedStyles: always, conditionals
 Style/AndOr:
   Exclude:
-    - 'example/example2.rb'
+    - "example/example2.rb"
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -129,14 +129,14 @@ Style/AndOr:
 # IgnoredMethods: lambda, proc, it
 Style/BlockDelimiters:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/operation.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 5
 Style/ClassVars:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 173
 # Cop supports --auto-correct.
@@ -146,38 +146,38 @@ Style/ColonMethodCall:
 # Offense count: 47
 Style/Documentation:
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'example/inheritance_with_refcount.rb'
-    - 'example/wobble.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/gobject.rb'
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/interpolate.rb'
-    - 'lib/vips/object.rb'
-    - 'lib/vips/operation.rb'
-    - 'lib/vips/region.rb'
+    - "spec/**/*"
+    - "test/**/*"
+    - "example/inheritance_with_refcount.rb"
+    - "example/wobble.rb"
+    - "lib/vips.rb"
+    - "lib/vips/gobject.rb"
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/interpolate.rb"
+    - "lib/vips/object.rb"
+    - "lib/vips/operation.rb"
+    - "lib/vips/region.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/Encoding:
   Exclude:
-    - 'Rakefile'
-    - 'ruby-vips.gemspec'
+    - "Rakefile"
+    - "ruby-vips.gemspec"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/EvenOdd:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/ExpandPathArguments:
   Exclude:
-    - 'ruby-vips.gemspec'
-    - 'spec/spec_helper.rb'
+    - "ruby-vips.gemspec"
+    - "spec/spec_helper.rb"
 
 # Offense count: 51
 # Cop supports --auto-correct.
@@ -190,14 +190,14 @@ Style/FrozenStringLiteralComment:
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
+    - "example/inheritance_with_refcount.rb"
 
 # Offense count: 5
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
 
 # Offense count: 21
 # Cop supports --auto-correct.
@@ -205,27 +205,27 @@ Style/GuardClause:
 # SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
 Style/HashSyntax:
   Exclude:
-    - 'Rakefile'
-    - 'example/annotate.rb'
-    - 'example/daltonize8.rb'
-    - 'example/example3.rb'
-    - 'example/example5.rb'
-    - 'spec/image_spec.rb'
-    - 'spec/spec_helper.rb'
+    - "Rakefile"
+    - "example/annotate.rb"
+    - "example/daltonize8.rb"
+    - "example/example3.rb"
+    - "example/example5.rb"
+    - "spec/image_spec.rb"
+    - "spec/spec_helper.rb"
 
 # Offense count: 30
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
   Exclude:
-    - 'example/daltonize8.rb'
-    - 'example/example2.rb'
-    - 'example/example5.rb'
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/operation.rb'
-    - 'ruby-vips.gemspec'
+    - "example/daltonize8.rb"
+    - "example/example2.rb"
+    - "example/example5.rb"
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/operation.rb"
+    - "ruby-vips.gemspec"
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -233,15 +233,15 @@ Style/IfUnlessModifier:
 # SupportedStyles: call, braces
 Style/LambdaCall:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 9
 # Cop supports --auto-correct.
 Style/LineEndConcatenation:
   Exclude:
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 81
 # Cop supports --auto-correct.
@@ -249,24 +249,24 @@ Style/LineEndConcatenation:
 # SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
 Style/MethodDefParentheses:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/gobject.rb'
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/interpolate.rb'
-    - 'lib/vips/object.rb'
-    - 'lib/vips/operation.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/gobject.rb"
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/interpolate.rb"
+    - "lib/vips/object.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 2
 Style/MethodMissingSuper:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 2
 Style/MissingRespondToMissing:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -274,17 +274,17 @@ Style/MissingRespondToMissing:
 # SupportedStyles: module_function, extend_self
 Style/ModuleFunction:
   Exclude:
-    - 'spec/spec_helper.rb'
+    - "spec/spec_helper.rb"
 
 # Offense count: 5
 Style/MultilineTernaryOperator:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 1
 Style/MultipleComparison:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -292,11 +292,11 @@ Style/MultipleComparison:
 # SupportedStyles: literals, strict
 Style/MutableConstant:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/object.rb'
-    - 'lib/vips/operation.rb'
-    - 'lib/vips/version.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/object.rb"
+    - "lib/vips/operation.rb"
+    - "lib/vips/version.rb"
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -304,7 +304,7 @@ Style/MutableConstant:
 # Whitelist: be, be_a, be_an, be_between, be_falsey, be_kind_of, be_instance_of, be_truthy, be_within, eq, eql, end_with, include, match, raise_error, respond_to, start_with
 Style/NestedParenthesizedCalls:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -312,7 +312,7 @@ Style/NestedParenthesizedCalls:
 # SupportedStyles: skip_modifier_ifs, always
 Style/Next:
   Exclude:
-    - 'lib/vips/operation.rb'
+    - "lib/vips/operation.rb"
 
 # Offense count: 15
 # Cop supports --auto-correct.
@@ -320,18 +320,18 @@ Style/Next:
 # SupportedStyles: predicate, comparison
 Style/NilComparison:
   Exclude:
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/interpolate.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/interpolate.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: IncludeSemanticChanges.
 Style/NonNilCheck:
   Exclude:
-    - 'lib/vips.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -345,9 +345,9 @@ Style/NumericLiterals:
 # SupportedStyles: predicate, comparison
 Style/NumericPredicate:
   Exclude:
-    - 'spec/**/*'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/operation.rb'
+    - "spec/**/*"
+    - "lib/vips/image.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -355,43 +355,43 @@ Style/NumericPredicate:
 # SupportedStyles: short, verbose
 Style/PreferredHashMethods:
   Exclude:
-    - 'lib/vips/operation.rb'
+    - "lib/vips/operation.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/Proc:
   Exclude:
-    - 'lib/vips.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/RedundantConditional:
   Exclude:
-    - 'lib/vips/gvalue.rb'
+    - "lib/vips/gvalue.rb"
 
 # Offense count: 13
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
 Style/RedundantReturn:
   Exclude:
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/object.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/object.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 4
 # Cop supports --auto-correct.
 Style/RedundantSelf:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips/gobject.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips/gobject.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/SelfAssignment:
   Exclude:
-    - 'example/daltonize8.rb'
+    - "example/daltonize8.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -399,14 +399,14 @@ Style/SelfAssignment:
 # SupportedStyles: use_perl_names, use_english_names
 Style/SpecialGlobalVars:
   Exclude:
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/StderrPuts:
   Exclude:
-    - 'Rakefile'
+    - "Rakefile"
 
 # Offense count: 192
 # Cop supports --auto-correct.
@@ -414,21 +414,21 @@ Style/StderrPuts:
 # SupportedStyles: single_quotes, double_quotes
 Style/StringLiterals:
   Exclude:
-    - 'Rakefile'
-    - 'example/annotate.rb'
-    - 'example/example1.rb'
-    - 'example/example2.rb'
-    - 'example/example3.rb'
-    - 'example/example4.rb'
-    - 'example/inheritance_with_refcount.rb'
-    - 'lib/vips.rb'
-    - 'lib/vips/gvalue.rb'
-    - 'lib/vips/image.rb'
-    - 'lib/vips/object.rb'
-    - 'lib/vips/operation.rb'
-    - 'lib/vips/version.rb'
-    - 'ruby-vips.gemspec'
-    - 'spec/vips_spec.rb'
+    - "Rakefile"
+    - "example/annotate.rb"
+    - "example/example1.rb"
+    - "example/example2.rb"
+    - "example/example3.rb"
+    - "example/example4.rb"
+    - "example/inheritance_with_refcount.rb"
+    - "lib/vips.rb"
+    - "lib/vips/gvalue.rb"
+    - "lib/vips/image.rb"
+    - "lib/vips/object.rb"
+    - "lib/vips/operation.rb"
+    - "lib/vips/version.rb"
+    - "ruby-vips.gemspec"
+    - "spec/vips_spec.rb"
 
 # Offense count: 15
 # Cop supports --auto-correct.
@@ -443,13 +443,13 @@ Style/SymbolArray:
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
 Style/TrailingCommaInHashLiteral:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/RedundantInterpolation:
   Exclude:
-    - 'lib/vips/image.rb'
+    - "lib/vips/image.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -462,12 +462,12 @@ Style/WordArray:
 # Cop supports --auto-correct.
 Style/ZeroLengthPredicate:
   Exclude:
-    - 'lib/vips/image.rb'
-    - 'lib/vips/operation.rb'
+    - "lib/vips/image.rb"
+    - "lib/vips/operation.rb"
 
 # Offense count: 107
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
-Metrics/LineLength:
+Layout/LineLength:
   Max: 179

@@ -7,66 +7,112 @@
 
 .top-info {
   position: absolute;
-  top: 60%;
-  left: 60%;
+  top: 15%;
+  left: 30%;
 }
 
 .chef-info-text {
-  color: #fdfdfd;
+  color: white;
   font-weight: bold;
-  font-size: 46px;
+  font-size: 48px;
 }
 
 .info-size {
   font-size: 18px;
 }
 
-.balloon5 {
-  width: 100%;
-  margin: 1.5em 0;
-  overflow: hidden;
-}
-
-.balloon5 .faceicon {
-  float: left;
-  margin-right: -90px;
-  width: 80px;
-}
-
-.balloon5 .faceicon img {
-  width: 80%;
-  height: auto;
-  // border: solid 3px #d7ebfe;
+.fab-lg-chef {
+  display: block;
+  width: 76px;
+  height: 76px;
+  background: #90ee90;
   border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+  align-items: center;
+  position: fixed;
+  right: 110px;
+  bottom: 74px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+  border-color: transparent !important;
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
 }
 
-.balloon5 .chatting {
-  width: 100%;
+.fab-md-chef {
+  display: block;
+  width: 56px;
+  height: 56px;
+  background: #90ee90;
+  border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+  align-items: center;
+  position: fixed;
+  right: 70px;
+  bottom: 54px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+  border-color: transparent !important;
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
 }
 
-.says {
-  display: inline-block;
-  position: relative;
-  margin: 5px 0 0 105px;
-  padding: 17px 13px;
-  border-radius: 12px;
-  background: #d7ebfe;
+.search-field {
+  background-color: white;
+  width: 620px;
+  height: 68px;
 }
 
-.says:after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 18px;
-  left: -24px;
-  border: 12px solid transparent;
-  border-right: 12px solid #d7ebfe;
-}
+// .balloon5 {
+//   width: 100%;
+//   margin: 1.5em 0;
+//   overflow: hidden;
+// }
 
-.says p {
-  margin: 0;
-  padding: 0;
-}
+// .balloon5 .faceicon {
+//   float: left;
+//   margin-right: -90px;
+//   width: 80px;
+// }
+
+// .balloon5 .faceicon img {
+//   width: 80%;
+//   height: auto;
+//   // border: solid 3px #d7ebfe;
+//   border-radius: 50%;
+// }
+
+// .balloon5 .chatting {
+//   width: 100%;
+// }
+
+// .says {
+//   display: inline-block;
+//   position: relative;
+//   margin: 5px 0 0 105px;
+//   padding: 17px 13px;
+//   border-radius: 12px;
+//   background: #d7ebfe;
+// }
+
+// .says:after {
+//   content: "";
+//   display: inline-block;
+//   position: absolute;
+//   top: 18px;
+//   left: -24px;
+//   border: 12px solid transparent;
+//   border-right: 12px solid #d7ebfe;
+// }
+
+// .says p {
+//   margin: 0;
+//   padding: 0;
+// }
 
 .chef-img {
   width: 600px;

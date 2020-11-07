@@ -14,4 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 # materializeを使用する
-Rails.application.config.assets.precompile += %w( materialize.js )
+Rails.application.config.assets.precompile += %w[materialize.js]

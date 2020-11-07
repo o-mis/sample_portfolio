@@ -12,12 +12,19 @@ $gray: #555555;
   outline: none !important;
 }
 
+.alert-primary {
+  color: black !important;
+}
+.alert-danger {
+  color: black;
+}
+
 // body
 
 main {
   // width: 80%;
   margin-top: 0px;
-  padding-top: 0px;
+  padding-top: 0px !important;
 }
 
 // header
@@ -91,11 +98,11 @@ main {
     color: $gray;
   }
 
-  .nav-items {
-    font-family: $fa-family;
-    font-style: solid;
-    font-weight: 900;
-  }
+  // .nav-items {
+  //   font-family: $fa-family;
+  //   font-style: solid;
+  //   font-weight: 900;
+  // }
 }
 
 // main
@@ -115,19 +122,27 @@ main {
   float: right;
 }
 
-.home-tab {
+.nav-link {
   color: #353535;
-  font-weight: 600;
-  // border-bottom: solid 3px #353535;
+  // font-weight: 600;
   &:hover {
     color: $main-color;
-    border-bottom: solid 3px $main-color;
-  }
-  &:active {
-    color: $main-color;
-    border-bottom: solid 3px $main-color;
   }
 }
+
+// .home-tab {
+//   color: #353535;
+//   font-weight: 600;
+//   // border-bottom: solid 3px #353535;
+//   &:hover {
+//     color: $main-color;
+//     border-bottom: solid 3px $main-color;
+//   }
+//   &:active {
+//     color: $main-color;
+//     border-bottom: solid 3px $main-color;
+//   }
+// }
 
 .no-post-info {
   height: 470px;
@@ -161,6 +176,21 @@ nav-pills .tab-search {
   position: absolute;
   top: 5%;
   left: 90%;
+}
+
+.tab-post-detail {
+  width: 400px;
+}
+
+.post-detail-user {
+  font-size: 15px;
+  font-family: $font;
+}
+
+.post-detail-address {
+  font-size: 17px;
+  // font-weight: bold;
+  color: $gray;
 }
 
 .post-address {
@@ -265,17 +295,6 @@ nav-pills .tab-search {
   color: $gray;
 }
 
-.btn-micropost {
-  background-color: $main-color;
-  color: $white;
-  width: 130px;
-  height: 40px;
-  &:hover {
-    color: $white;
-    background: #a0d8ef;
-  }
-}
-
 .microposts {
   list-style: none;
   padding: 0;
@@ -366,9 +385,9 @@ nav-pills .tab-search {
 }
 
 .clear-decoration {
-  border: none;
-  outline: none;
-  background: transparent;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
 }
 
 .bookmarked-btn {
@@ -530,6 +549,11 @@ nav-pills .tab-search {
   small {
     color: #7a7a7a;
   }
+}
+
+// kaminari
+.pagination li.active {
+  background-color: white !important;
 }
 
 @import "chefs";
