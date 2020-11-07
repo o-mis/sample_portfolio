@@ -3,35 +3,34 @@ class MicropostsController < ApplicationController
   # before_action :has_micropost, only: :destroy
 
   def index
-    if params[:tag_name]
-      @microposts = Micropost.tagged_with("#{params[:tag_name]}").page(params[:page]).per(6)
-    else
-      @microposts = Micropost.page(params[:page]).per(6)
-    end
+    @microposts = if params[:tag_name]
+                    Micropost.tagged_with(params[:tag_name].to_s).page(params[:page]).per(25)
+                  else
+                    Micropost.page(params[:page]).per(25)
+                  end
   end
 
   def search
     @q = Micropost.ransack(params[:q])
-    @microposts = @q.result(distinct: true).page(params[:page]).per(12)
+    @microposts = @q.result(distinct: true).page(params[:page]).per(25)
   end
 
   def show
     @micropost = Micropost.find(params[:id])
     @like = Like.new
     @bookmark = Bookmark.new
-    @comments = @micropost.comments.page(params[:page]).per(8)
+    @comments = @micropost.comments.page(params[:page]).per(25)
     @comment = @micropost.comments.build
   end
 
   def new
-    # @micropost = current_user.microposts.build if user_signed_in?
     @micropost = Micropost.new
   end
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      redirect_to root_path
+      redirect_to root_path, notice: '投稿が完了しました'
     else
       render :new
     end

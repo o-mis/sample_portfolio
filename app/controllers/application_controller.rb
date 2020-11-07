@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   protected
 
   def logged_in_user

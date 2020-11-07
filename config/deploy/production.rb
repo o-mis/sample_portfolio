@@ -10,8 +10,6 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -20,15 +18,12 @@
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
 # limited set of options, consult the Net::SSH documentation.
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 #
-
 
 # Global options
 # --------------
@@ -46,11 +41,10 @@ set :rails_env, 'production'
 set :branch, 'master'
 set :migration_role, 'db'
 
-server "54.248.5.111", user: "Mayo", roles: %w{web app db}
-   
-set :ssh_options, {
-     keys: %w(~/.ssh/contrail_key_rsa),
-     forward_agent: true,
-     auth_methods: %w(publickey)
-    }
+server '54.248.5.111', user: 'Mayo', roles: %w[web app db]
 
+set :ssh_options, {
+  keys: %w[~/.ssh/contrail_key_rsa],
+  forward_agent: true,
+  auth_methods: %w[publickey]
+}

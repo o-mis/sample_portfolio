@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_140430) do
+ActiveRecord::Schema.define(version: 2020_11_05_162604) do
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2020_10_31_140430) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "chef_bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "chef_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chef_id"], name: "index_chef_bookmarks_on_chef_id"
+    t.index ["user_id", "chef_id"], name: "index_chef_bookmarks_on_user_id_and_chef_id", unique: true
+    t.index ["user_id"], name: "index_chef_bookmarks_on_user_id"
+  end
+
   create_table "chefs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment", null: false
     t.string "image"
@@ -30,7 +40,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_140430) do
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_chefs_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,6 +63,16 @@ ActiveRecord::Schema.define(version: 2020_10_31_140430) do
     t.integer "chef_id"
     t.index ["micropost_id"], name: "index_likes_on_micropost_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "marks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "chef_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chef_id"], name: "index_marks_on_chef_id"
+    t.index ["user_id", "chef_id"], name: "index_marks_on_user_id_and_chef_id", unique: true
+    t.index ["user_id"], name: "index_marks_on_user_id"
   end
 
   create_table "microposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -123,6 +144,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_140430) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chefs", "users"
   add_foreign_key "comments", "microposts"
   add_foreign_key "comments", "users"
 end

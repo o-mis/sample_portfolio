@@ -36,9 +36,9 @@ RSpec.describe User, type: :model do
 
   it 'ユーザー名、メールアドレス、パスワードが有効であること' do
     user = User.new(
-                name: 'テストユーザー',
-                email: 'test@example.com',
-                password: 'password'
+      name: 'テストユーザー',
+      email: 'test@example.com',
+      password: 'password'
     )
     expect(user).to be_valid
   end

@@ -6,7 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
@@ -16,11 +15,9 @@
 #     - 'bin/webpack'
 #     - 'bin/webpack-dev-server'
 
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: AllowDoxygenCommentStyle.
-
 
 # Offense count: 2
 # Cop supports --auto-correct.

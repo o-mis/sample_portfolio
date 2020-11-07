@@ -2,83 +2,21 @@
 <div class="mb-2 mr-4">
   <ul class="nav justify-content-end">
     <li class="nav-item">
-      <a class="nav-link active home-tab mr-2 px-0 pb-1" id="feed-tab" data-toggle="tab" href="#feed" role="tab" aria-controls="feed" aria-selected="true">フィード</a>
+      <a class="nav-link active mr-2 px-1 pb-1" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">人気</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link home-tab mr-2 px-1 pb-1" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="false">人気</a>
+      <a class="nav-link mr-2 px-0 pb-1" id="feed-tab" data-toggle="tab" href="#feed" role="tab" aria-controls="feed" aria-selected="false">フィード</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link home-tab px-1 pb-1" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">新着</a>
+      <a class="nav-link px-1 pb-1" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">新着</a>
     </li>
   </ul>
 </div>
 
 <%# パネル部分 %>
 <div class="tab-content" id="myTabContent">
-  <%# フィード %>
-  <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab">
-    <% if @feed.any? %>
-      <div class="row mb-2">
-        <% @feed.each do |micropost| %>
-          <div class="card-group col-md-4 mx-auto">
-            <div class="card shadow-sm mb-2">
-              <% if micropost.image.url %>
-                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
-              <% end %>
-              <div class="card-body">
-                <div class="post-user">
-                  <% if micropost.user.avatar? %>
-                    <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
-                  <% else %>
-                    <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
-                  <% end %>
-                  <%= link_to micropost.user.name, micropost.user, class: "post-avatar post-name text-dark" %>
-                  <% if micropost.address %>
-                    <small class="post-address ml-2"><%= micropost.address %></small>
-                  <% end %>
-                  <% if micropost.arrived_at == 'day' %>
-                    <i class="material-icons arrived-at-icon orange-text text-darken-3">brightness_5</i>
-                  <% elsif micropost.arrived_at == 'night' %>
-                    <i class="material-icons arrived-at-icon blue-text text-darken-4">brightness_3</i>
-                  <% else %>
-                  <% end %>
-                </div>
-                <div class="post-content ml-2 mt-1 mb-4">
-                  <%= link_to micropost.content, micropost, class: "text-decoration-none text-dark" %>
-                </div>
-                <div class="mt-2 ml-2 mb-3">
-                  <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
-                </div>
-                <div class="post-info ml-1 d-flex">
-                  <div id="micropost-<%= micropost.id %>">
-                    <%= render "likes/like", micropost: micropost %>
-                  </div>
-                  <div class="comment-info ml-3 text-muted">
-                    <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
-                      <%= micropost.commented_users.count %>
-                  </div>
-                  <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <%= paginate @feed %>
-    <% else %>
-      <div class="no-post-info">
-        <div class="text-center font-weight-bold mt-5 mb-2">
-          投稿がありません
-        </div>
-        <div class="text-muted text-center">
-          投稿したりユーザーをフォローするとそのポストが表示されます
-        </div>
-      </div>
-    <% end %>
-  </div>
-
   <%# 良いね順 %>
-  <div class="tab-pane" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+  <div class="tab-pane active" id="popular" role="tabpanel" aria-labelledby="popular-tab">
     <div class="row mb-2">
       <% @popular.each do |micropost| %>
         <div class="card-group col-md-4">
@@ -128,6 +66,68 @@
     <%= paginate @popular %>
   </div>
 
+  <%# フィード %>
+  <div class="tab-pane" id="feed" role="tabpanel" aria-labelledby="feed-tab">
+    <% if @feed.any? %>
+      <div class="row mb-2">
+        <% @feed.each do |micropost| %>
+          <div class="card-group col-md-4 mx-auto">
+            <div class="card shadow-sm mb-2">
+              <% if micropost.image.url %>
+                <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
+              <% end %>
+              <div class="card-body">
+                <div class="post-user">
+                  <% if micropost.user.avatar? %>
+                    <%= link_to image_tag(micropost.user.avatar.to_s, size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+                  <% else %>
+                    <%= link_to image_tag('no_avatar.png', size: "40x40", class: "post-avatar rounded-circle mb-3", alt: "avatar image"), micropost.user %>
+                  <% end %>
+                  <%= link_to micropost.user.name, micropost.user, class: "post-avatar post-name text-dark" %>
+                  <% if micropost.address %>
+                    <small class="post-address ml-2"><%= micropost.address %></small>
+                  <% end %>
+                  <% if micropost.arrived_at == 'day' %>
+                    <i class="material-icons arrived-at-icon orange-text text-darken-3">brightness_5</i>
+                  <% elsif micropost.arrived_at == 'night' %>
+                    <i class="material-icons arrived-at-icon blue-text text-darken-4">brightness_3</i>
+                  <% else %>
+                  <% end %>
+                </div>
+                <div class="post-content ml-2 mt-1 mb-4">
+                  <%= link_to micropost.content, micropost, class: "text-decoration-none text-dark" %>
+                </div>
+                <div class="mt-2 ml-2 mb-3">
+                  <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
+                </div>
+                <div class="ml-1 d-flex">
+                  <div id="micropost-<%= micropost.id %>">
+                    <%= render "likes/like", micropost: micropost %>
+                  </div>
+                  <div class="comment-info ml-3 text-muted">
+                    <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
+                      <%= micropost.commented_users.count %>
+                  </div>
+                  <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @feed %>
+    <% else %>
+      <div class="no-post-info">
+        <div class="text-center font-weight-bold mt-5 mb-2">
+          投稿がありません
+        </div>
+        <div class="text-muted text-center">
+          投稿したりユーザーをフォローするとそのポストが表示されます
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <%# 最新投稿 %>
   <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">
     <div class="row">
@@ -151,7 +151,7 @@
                   <% if micropost.arrived_at == 'day' %>
                     <i class="material-icons arrived-at-icon orange-text text-darken-3">brightness_5</i>
                   <% elsif micropost.arrived_at == 'night' %>
-                    <i class="material-icons arrived-at-icon blue-text text-darken-4">brightness_2</i>
+                    <i class="material-icons arrived-at-icon blue-text text-darken-4">brightness_3</i>
                   <% else %>
                   <% end %>
                 </div>

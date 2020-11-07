@@ -22,7 +22,7 @@
 #
 FactoryBot.define do
   factory :comment do
-    content { "美味しそうですね！" }
+    content { '美味しそうですね！' }
     association :micropost
     user { micropost.user }
   end

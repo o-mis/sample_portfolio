@@ -13,7 +13,7 @@
           <div><span class="pt-2 mr-4 user-show"><%= @user.name %></span></div>
           <div>
             <% if current_user.id == @user.id %>
-              <%= link_to edit_user_registration_path(@user), class: "btn btn-edit btn-outline-dark rounded-0 ml-2" do %>
+              <%= link_to edit_user_registration_path(@user), class: "btn grey darken-4 ml-2" do %>
                 プロフィールを編集
               <% end %>
             <% end %>
@@ -21,7 +21,7 @@
           <div><%= render 'follow_btn' %></div>
           <% if current_user.admin? %>
             <div class="ml-2">
-              <%= link_to "削除する", @user, method: :delete, data: { confirm: "削除してよろしいですか?" }, class: "btn admin-delete btn-outline-danger rounded-0" %>
+              <%= link_to "削除する", @user, method: :delete, data: { confirm: "削除してよろしいですか?" }, class: "btn admin-delete red darken-1" %>
             </div>
           <% end %>
         </div>
@@ -54,7 +54,7 @@
       <% if @microposts.any? %>
         <div class="row">
           <% @microposts.each do |micropost| %>
-            <div class="col-md-4">
+            <div class="card-group col-md-4">
               <div class="card shadow-sm mb-2">
                 <% if micropost.image.url %>
                   <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
@@ -120,7 +120,7 @@
       <% if @chefs.any? %>
         <div class="row">
           <% @chefs.each do |chef| %>
-            <div class="col-md-4">
+            <div class="card-group col-md-4">
               <div class="card shadow-sm mb-2">
                 <% if chef.image.url %>
                   <%= link_to image_tag(chef.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), chef %>
@@ -160,7 +160,7 @@
       <% if current_user.liked_posts.any? %>
         <div class="row">
           <% current_user.liked_posts.each do |micropost| %>
-            <div class="col-md-6 col-lg-4">
+            <div class="card-group col-md-6 col-lg-4">
               <div class="card shadow-sm mb-2">
                 <%= link_to image_tag(micropost.image.to_s, class: "card-img-top", alt: "投稿画像"), micropost %>
               </div>

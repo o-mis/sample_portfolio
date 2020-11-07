@@ -1,13 +1,14 @@
 class ChefsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :edit, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
   before_action :has_chef, only: :destroy
 
   def index
-    @like = Like.new
-    @bookmark = Bookmark.new
-    @micropost = Micropost.new
-    @chef = Chef.new
-    @chef = Chef.page(params[:page]).per(20)
+    # @like = Like.new
+    # @bookmark = Bookmark.new
+    # @micropost = Micropost.new
+    # @chef = Chef.new
+    @chef = Chef.page(params[:page]).per(25)
+    @mark = Mark.new
   end
 
   def new
@@ -25,9 +26,10 @@ class ChefsController < ApplicationController
 
   def show
     @chef = Chef.find(params[:id])
+    @mark = Mark.new
     # @chefs = @user.chefs.page(params[:page]).per(20)
     @micropost = Micropost.find(params[:id])
-    @comments = @micropost.comments.page(params[:page]).per(8)
+    @comments = @micropost.comments.page(params[:page]).per(10)
     @comment = @micropost.comments.build
   end
 

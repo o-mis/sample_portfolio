@@ -5,7 +5,7 @@ ruby '2.6.4'
 
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootsnap', '>= 1.4.2',       require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.4.1'
 gem 'carrierwave'
 gem 'devise'
@@ -31,7 +31,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'ransack'
 gem 'sassc', '2.1.0'
 gem 'sass-rails', '~> 5'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 gem 'uglifier'
 gem 'webpacker', '~> 4.0'
 

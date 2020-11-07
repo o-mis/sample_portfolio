@@ -1,7 +1,8 @@
-<div class="container">
-<form class="mb-2 ml-5">
-  <div class="form-row">
-      <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
+<div class="container mx-auto">
+<div class="row">
+  <div class="col s12">
+    <%= search_form_for(@q, url: search_microposts_path)  do |f| %>
+      <div class="row">
         <div class="input-field col s3">
           <%= f.label :content_cont, "投稿内容" %>
           <%= f.search_field :content_cont, autocomplete: "off" %>
@@ -10,26 +11,30 @@
           <%= f.label :content_cont, "エリア" %>
           <%= f.search_field :address_cont, autocomplete: "off" %>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s3">
           <%= f.select :budget, Micropost.budgets.keys.map {|k| [I18n.t("enums.micropost.budget.#{k}"), k]} %>
           <%= f.label :budget %>
         </div>
         <% if user_signed_in? %>
-          <div class="input-field col s6">
+          <div class="input-field col s3">
             <%= f.select :sorts, { 'いいねの多い順': 'likes_count desc' }, { include_blank: "並べ替え" } %>
           </div>
         <% end %>
-        <div>
+        <div class="col s3">
           <button class="btn black mt-4" type="submit" name="action">検索</button>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>
 
 <%# <div class="container"> %>
+<div>
   <% if @microposts.any? %>
-    <div class="row search-posts">
+    <div class="row">
       <% @microposts.each do |micropost| %>
-        <div class="card-group col-md-6 mx-auto post-cards">
+        <div class="card-group col-md-4 mx-auto">
           <div class="card shadow-sm mb-2">
             <% if micropost.image.url %>
               <%= link_to image_tag(micropost.image.to_s, class: "card-img-top stretched-link", alt: "投稿画像"), micropost %>
@@ -46,13 +51,9 @@
                   <small class="post-address ml-2"><%= micropost.address %></small>
                 <% end %>
                 <% if micropost.arrived_at == 'day' %>
-                  <span style="color: Tomato">
-                    <i class="fas fa-sun arrived-icon"></i>
-                  </span>
+                  <i class="material-icons arrived-at-icon orange-text text-darken-3">brightness_5</i>
                 <% elsif micropost.arrived_at == 'night' %>
-                  <span style="color: Darkblue">
-                    <i class="fas fa-moon arrived-icon"></i>
-                  <span>
+                  <i class="material-icons arrived-at-icon blue-text text-darken-4">brightness_3</i>
                 <% else %>
                   <div></div>
                 <% end %>
@@ -91,4 +92,4 @@
       </div>
     </div>
   <% end %>
-<%# </div> %>
+</div>
