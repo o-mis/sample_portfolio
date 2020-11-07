@@ -90,9 +90,9 @@ workflows:
   test_code:
     jobs:
       - checkout_code
-      - test
-        requires:
-          - checkout_code
+      - test:
+          requires:
+            - checkout_code
 
   # ECRとECSを使用してRailsのデプロイ
   build-and-deploy-rails:
