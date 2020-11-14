@@ -2,7 +2,7 @@
   <% if micropost.liked?(current_user) %>
     <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do %>
       <%= button_tag type: 'submit', class: "button-like clear-decoration red-text text-darken-1" do %>
-        <i class="material-icons">favorite</i>
+        <i class="material-icons liked-btn">favorite</i>
         <span class="text-muted"><%= micropost.likes.count %></span>
       <% end %>
     <% end %>
@@ -10,7 +10,7 @@
     <%= form_for(micropost.likes.build, remote: true) do %>
       <%= hidden_field_tag :micropost_id, micropost.id %>
       <%= button_tag type: 'submit', class: "button-like clear-decoration grey-text text-darken-1" do %>
-        <i class="material-icons">favorite_border</i>
+        <i class="material-icons like-btn">favorite_border</i>
         <span class="text-muted"><%= micropost.likes.count %></span>
       <% end %>
     <% end %>

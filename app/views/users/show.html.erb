@@ -70,14 +70,10 @@
                     <% if micropost.address %>
                       <small class="post-address ml-2"><%= micropost.address %></small>
                     <% end %>
-                    <% if micropost.arrived_at == "昼" %>
-                      <span style="color: Tomato">
-                        <i class="fas fa-sun arrived-icon"></i>
-                      </span>
-                    <% elsif micropost.arrived_at == "夜" %>
-                      <span style="color: Darkblue">
-                        <i class="fas fa-moon arrived-icon"></i>
-                      <span>
+                    <% if micropost.arrived_at == 'day' %>
+                      <i class="material-icons arrived-at-icon orange-text text-darken-3">brightness_5</i>
+                    <% elsif micropost.arrived_at == 'night' %>
+                      <i class="material-icons arrived-at-icon blue-text text-darken-4">brightness_3</i>
                     <% else %>
                       <div></div>
                     <% end %>
@@ -88,20 +84,15 @@
                   <div class="mt-2 ml-2 mb-3">
                     <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
                   </div>
-                  <div class="post-info ml-2">
-                    <small class="text-muted">
-                      <% if current_user.like?(micropost) %>
-                        <i class="fas fa-heart fa-lg liked-heart"></i>
-                      <% else %>
-                        <i class="fas fa-heart fa-lg muted-heart"></i>
-                      <% end %>
-                      <%= micropost.liked_users.count %>
-                    </small>
-                    <small class="comment-info ml-3 text-muted">
-                      <i class="fas fa-comment-alt fa-lg commented-user"></i>
-                        <%= micropost.commented_users.count %>
-                    </small>
-                    <small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>
+                  <div class="post-info ml-1 d-flex">
+                    <div id="micropost-<%= micropost.id %>">
+                      <%= render "likes/like", micropost: micropost %>
+                    </div>
+                    <div class="comment-info ml-3 text-muted">
+                      <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
+                      <%= micropost.commented_users.count %>
+                    </div>
+                    <div class="ml-auto"><small class="text-muted float-right"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small></div>
                   </div>
                 </div>
               </div>

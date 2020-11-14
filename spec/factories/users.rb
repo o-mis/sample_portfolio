@@ -30,12 +30,6 @@ FactoryBot.define do
     password { 'password' }
   end
 
-  trait :chef do
-    name { 'ChefUser' }
-    email { 'chef_test@example.com' }
-    password { '098765'}
-  end
-
   trait :guest do
     name { 'GuestUser' }
     email { 'guest_test@example.com' }

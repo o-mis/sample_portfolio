@@ -14,9 +14,3 @@
 #  index_likes_on_micropost_id  (micropost_id)
 #  index_likes_on_user_id       (user_id)
 #
-FactoryBot.define do
-  factory :like do
-    association :micropost
-    user { micropost.user }
-  end
-end

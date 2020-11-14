@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
+    @like = Like.new
+    @bookmark = Bookmark.new
     @following = @user.following
     @followers = @user.followers
     @microposts = @user.microposts.page(params[:page]).per(25) if user_signed_in?

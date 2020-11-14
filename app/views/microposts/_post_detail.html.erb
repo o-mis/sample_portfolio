@@ -87,9 +87,6 @@
                   <%= render "bookmarks/bookmark", micropost: @micropost %>
                 </div>
                 <% if user_signed_in? %>
-                  <div class="ml-auto">
-                    <a href="https://twitter.com/share?url=<%= micropost_url(object) %>" target="_blank" class="btn btn-sm btn-outline-dark">Twitter</a>
-                  </div>
                   <% if current_user.id == object.user.id || current_user.admin? %>
                     <div class="ml-2 ml-auto gray-text text-darken-4"><%= link_to '削除', micropost_path(object), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn gray darken-4" %></div>
                   <% end %>
