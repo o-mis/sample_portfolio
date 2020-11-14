@@ -37,11 +37,11 @@ gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'bcrypt_pbkdf'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem 'rubocop', '1.2.0',       require: false
-  gem 'rubocop-rails',              require: false
+  gem 'rubocop', '1.2.0', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
@@ -59,7 +59,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+#  gem 'webdrivers'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -1,6 +1,6 @@
 class ChefsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :has_chef, only: :destroy
+  before_action :logged_in_user, only: %i[create destroy]
+  before_action :chef?, only: :destroy
 
   def index
     # @like = Like.new
@@ -44,7 +44,7 @@ class ChefsController < ApplicationController
     params.require(:chef).permit(:comment, :address, :image, :tag_list)
   end
 
-  def has_chef
+  def chef?
     @chef = current_user.chefs.find_by!(params[:id])
     redirect_to chefs_path if @chef.nil?
   end

@@ -1,25 +1,21 @@
 class BookmarksController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :index]
+  before_action :logged_in_user, only: %i[create destroy index]
+  before_action :find_post, only: :create
 
   def create
-    @micropost = Micropost.find(params[:micropost_id])
-    unless @micropost.bookmarked?(current_user)
-      @micropost.bookmark(current_user)
-      respond_to do |format|
-        format.html { redirect_to request.referer || root_path }
-        format.js
-      end
+    @micropost.bookmark(current_user) unless @micropost.bookmarked?(current_user)
+    respond_to do |format|
+      format.html { redirect_to request.referer || root_path }
+      format.js
     end
   end
 
   def destroy
     @micropost = Bookmark.find(params[:id]).micropost
-    if @micropost.bookmarked?(current_user)
-      @micropost.unbookmark(current_user)
-      respond_to do |format|
-        format.html { redirect_to request.referer || root_path }
-        format.js
-      end
+    @micropost.unbookmark(current_user) if @micropost.bookmarked?(current_user)
+    respond_to do |format|
+      format.html { redirect_to request.referer || root_path }
+      format.js
     end
   end
 

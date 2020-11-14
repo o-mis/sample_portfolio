@@ -20,7 +20,9 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-FactoryBot.define do
-  factory :chef do
-  end
-end
+
+# FactoryBot.define do
+#   factory :chef do
+#     user
+#   end
+# end

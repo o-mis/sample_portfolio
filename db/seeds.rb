@@ -211,8 +211,8 @@ followers.each { |follower| follower.follow(user) }
 # いいね
 users = User.order(:id).take(10)
 microposts = Micropost.order(:id).take(15)
-users.each do |user|
+users.each do |u|
   microposts.each do |micropost|
-    micropost.like(user)
+    micropost.like(u)
   end
 end

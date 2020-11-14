@@ -8,8 +8,7 @@ references:
   defaults: &defaults
     working_directory: ~/Contrail
 
-  ruby-docker-image: &ruby-docker-image
-    #steps共通のプライマリコンテナ
+  ruby-docker-image: &ruby-docker-image #steps共通のプライマリコンテナ
     image: circleci/ruby:2.6.4-node-browsers
     #プライマリコンテナの環境変数
     environment:
@@ -95,6 +94,29 @@ workflows:
           requires:
             - checkout_code
 
+  #nginxのデプロイ
+  build-and-deploy-nginx:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          filters:
+            branches:
+              only: master
+          account-url: AWS_ECR_ACCOUNT_URL
+          region: AWS_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          create-repo: true
+          dockerfile: ./nginx/Dockerfile
+          repo: "${AWS_RESOURCE_NAME_PREFIX_NGINX}"
+          tag: "${CIRCLE_SHA1}"
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          family: "${ECS_TASK}"
+          cluster-name: "${ECS_ARN}"
+          service-name: "${ECS_SERVICE}"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_NGINX},tag=${CIRCLE_SHA1}"
+
   # ECRとECSを使用してRailsのデプロイ
   build-and-deploy-rails:
     jobs:
@@ -118,26 +140,3 @@ workflows:
           cluster-name: "${ECS_ARN}"
           service-name: "${ECS_SERVICE}"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_WEB},tag=${CIRCLE_SHA1}"
-
-  #nginxのデプロイ
-  build-and-deploy-nginx:
-    jobs:
-      - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only: master
-          account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          create-repo: true
-          dockerfile: ./nginx/Dockerfile
-          repo: "${AWS_RESOURCE_NAME_PREFIX_NGINX}"
-          tag: "${CIRCLE_SHA1}"
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
-          family: "${ECS_TASK}"
-          cluster-name: "${ECS_ARN}"
-          service-name: "${ECS_SERVICE}"
-          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX_NGINX},tag=${CIRCLE_SHA1}"

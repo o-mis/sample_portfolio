@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show, :index] do
+  resources :users, only: %i[show index] do
     member do
       get :following, :followers
     end
@@ -23,17 +23,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :microposts,      only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :comments,      only: [:create, :destroy]
+  resources :microposts,      only: %i[index show new create destroy] do
+    resources :comments,      only: %i[create destroy]
     collection do
       get :search
     end
   end
 
-  resources :relationships,   only: [:create, :destroy]
-  resources :likes,           only: [:create, :destroy]
-  resources :bookmarks,       only: [:index, :create, :destroy]
-  resources :marks,           only: [:create, :destroy]
+  resources :relationships,   only: %i[create destroy]
+  resources :likes,           only: %i[create destroy]
+  resources :bookmarks,       only: %i[index create destroy]
+  resources :marks,           only: %i[create destroy]
   resources :maps,            only: :index
-  resources :chefs,           only: [:create, :destroy, :show, :new, :index]
+  resources :chefs,           only: %i[create destroy show new index]
 end

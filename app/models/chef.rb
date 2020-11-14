@@ -24,10 +24,6 @@ class Chef < ApplicationRecord
   belongs_to :user
   has_many :marks, dependent: :destroy
   has_many :marked_users, through: :marks, source: :user
-  # has_many :likes, dependent: :destroy
-  # has_many :liked_users, through: :likes, source: :user
-  # has_many :bookmarks, dependent: :destroy
-  # has_many :bookmarked_users, through: :bookmarks, source: :user
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
 

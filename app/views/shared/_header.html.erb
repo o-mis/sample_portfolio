@@ -17,16 +17,16 @@
     </li>
     <li class="divider"></li>
     <li>
-      <%= link_to sign_out_path, method: :delete, class: "grey-text  text-darken-1 text-decoration-none" do %>
+      <%= link_to sign_out_path, method: :delete, class: "grey-text text-darken-1 text-decoration-none" do %>
         <i class="material-icons">power_settings_new</i>ログアウト
       <% end %>
     </li>
   <% else %>
     <li>
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "black-text text-decoration-none", onclick: "M.toast({html: 'こんにちはゲストさん'}, {displayLength: 10000})" %>
+      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "guest-login black-text text-decoration-none", onclick: "M.toast({html: 'こんにちはゲストさん'}, {displayLength: 10000})" %>
     </li>
     <li>
-      <%= link_to "ログイン", sign_in_path, class: "black-text text-decoration-none" %>
+      <%= link_to "ログイン", sign_in_path, class: "user-login black-text text-decoration-none" %>
     </li>
   <% end %>
 </ul>

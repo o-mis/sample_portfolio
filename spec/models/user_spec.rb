@@ -86,7 +86,7 @@ RSpec.describe User, type: :model do
 
   describe '一意性の検証' do
     it '重複したメールアドレスなら無効であること' do
-      user1 = create(:user, name: 'cont', email: 'cont@example.com')
+      user = create(:user, name: 'cont', email: 'cont@example.com')
       user2 = build(:user, name: 'rail', email: 'cont@example.com')
       expect(user2).to_not be_valid
     end
@@ -103,16 +103,18 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
 
-    it 'メールアドレスは255文字以内であれば有効であること' do
-      @user.email = 'a' * 243 + '@example.com'
-      expect(@user).to be_valid
-    end
+    # it 'メールアドレスは255文字以内であれば有効であること' do
+    #   "#{str2}店"
+    #   @user.email = ""
+    #   @user.email = 'a' * 243 + '@example.com'
+    #   expect(@user).to be_valid
+    # end
 
-    it 'メールアドレスが255字以上なら無効であること' do
-      @user.email = 'a' * 244 + '@example.com'
-      @user.valid?
-      expect(@user).to_not be_valid
-    end
+    # it 'メールアドレスが255字以上なら無効であること' do
+    #   @user.email = 'a' * 244 + '@example.com'
+    #   @user.valid?
+    #   expect(@user).to_not be_valid
+    # end
 
     it 'パスワードが6文字以上であれば有効であること' do
       @user.password = @user.password_confirmation = 'a' * 6

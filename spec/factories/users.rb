@@ -25,9 +25,27 @@
 #
 FactoryBot.define do
   factory :user do
-    name { 'テストユーザー' }
-    sequence(:email, 'test_1@example.com')
+    name { 'TestUser' }
+    sequence(:email) { |n| "test#{n}@example.com" }
     password { 'password' }
-    password_confirmation { 'password' }
+  end
+
+  trait :chef do
+    name { 'ChefUser' }
+    email { 'chef_test@example.com' }
+    password { '098765'}
+  end
+
+  trait :guest do
+    name { 'GuestUser' }
+    email { 'guest_test@example.com' }
+    password { '123456' }
+  end
+
+  trait :admin do
+    name { 'AdminUser' }
+    email { 'admin_test@example.com' }
+    password { 'abcdefg' }
+    admin { true }
   end
 end

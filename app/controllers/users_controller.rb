@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :destroy, :following, :followers]
+  before_action :logged_in_user, only: %i[update destroy following followers]
+  before_action :set_user, only: %i[show following followers]
   before_action :admin_user,     only: :destroy
 
   def index
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     @following = @user.following
     @followers = @user.followers
     @microposts = @user.microposts.page(params[:page]).per(25) if user_signed_in?
@@ -19,16 +20,14 @@ class UsersController < ApplicationController
     @users =
       if params[:q].nil?
         @q.result(distinct: true).page(params[:page]).per(25)
-      # elsif params[:q][:username_cont].blank?
-      #   User.none
       else
         @q.result(distinct: true).page(params[:page]).per(25)
       end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  # def edit
+  #   @user = User.find(params[:id])
+  # end
 
   def create
     @user = User.new(user_params)
@@ -64,14 +63,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @user  = User.find(params[:id])
+    # @user  = User.find(params[:id])
     @users = @user.following
     @following = @user.following
     @followers = @user.followers
   end
 
   def followers
-    @user  = User.find(params[:id])
+    # @user  = User.find(params[:id])
     @users = @user.followers
     @following = @user.following
     @followers = @user.followers

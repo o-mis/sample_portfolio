@@ -1,34 +1,43 @@
 <% provide(:title, 'ログインページ') %>
 
 <h1 class="h5 mt-3 mb-3 font-weight-bold text-center">ログイン</h1>
-    <div class="signin-page mx-auto col-md-8">
+    <div class="signin-page mx-auto col-md-5">
+      <%= render  "devise/shared/error_messages" %>
       <div class="mt-5">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-          <div class="field mb-4">
-            <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", required: true, class: "form-control rounded-0 w-100 pl-3" %>
+          <div class="input-field mb-4">
+            <%= f.label :email do %>
+              メールアドレス
+            <% end %>
+            <%= f.email_field :email, autocomplete: "email", class: "w-100 pl-3" %>
           </div>
 
-          <div class="field mb-2">
-            <%= f.password_field :password, placeholder: "パスワード", required: true, class: "form-control rounded-0 w-100 pl-3" %>
+          <div class="input-field mb-2">
+            <%= f.label :password do %>
+              パスワード
+            <% end %>
+            <%= f.password_field :password, class: "w-100 pl-3" %>
           </div>
 
-          <div class="field remember-box mb-5">
+          <div class="remember-box mb-5">
             <% if devise_mapping.rememberable? %>
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
             <% end %>
           </div>
 
-          <%= f.submit "ログイン", class: "btn signin-btn btn-outline-dark rounded-0 w-100 mb-3" %>
+          <div>
+            <%= f.submit "ログイン", class: "btn signin-btn w-100 mb-3" %>
+          </div>
 
-          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "signin-btn text-decoration-none btn btn-outline-dark rounded-0 w-100 mb-3" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "text-decoration-none btn w-100 mb-3" %>
         <% end %>
 
         <%# <%= link_to "メールが届きませんか?", new_confirmation_path(resource_name), class: "no-confirm text-decoration-none mb-5" %>
 
           <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "新規アカウントを作成", new_registration_path(resource_name), class: 'btn btn-dark rounded-0 w-100 mt-5' %>
+            <%= link_to "新規アカウントを作成", new_registration_path(resource_name), class: 'btn mx-auto w-100 mt-5' %>
           <% end %>
         </div>
       </div>

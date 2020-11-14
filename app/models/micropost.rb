@@ -22,8 +22,6 @@ class Micropost < ApplicationRecord
   has_many :bookmarked_users, through: :bookmarks, source: :user
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
-  has_many :marks, dependent: :destroy
-  has_many :marked_users, through: :marks, source: :user
 
   validates :content, presence: true, length: { maximum: 150 }
   validates :address, presence: true

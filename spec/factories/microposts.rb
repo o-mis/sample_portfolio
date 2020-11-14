@@ -16,11 +16,9 @@
 #
 FactoryBot.define do
   factory :micropost do
-    arrived_at { '昼' }
-    budget { 1 }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_post.jpg')) }
+    address { '紀の善 神楽坂店' }
     content { '本当に美味しかった' }
-    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpg')) }
-    address { 'Contrail 神楽坂店' }
     created_at { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short) }
     association :user
   end

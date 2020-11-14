@@ -9,6 +9,7 @@ AllCops:
     - "bin/**"
     - "db/migrate/*"
     - "db/schema.rb"
+    - "config/puma.rb"
     - "lib/**"
     - "node_modules/**/*"
     - "vendor/**/*"
@@ -23,7 +24,7 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Layout/LineLength:
-  Max: 130
+  Max: 155
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -46,17 +47,44 @@ Style/NegatedIfElseCondition:
 Style/SwapValues:
   Enabled: true
 
+Style/GlobalStdStream:
+  Exclude:
+    - "config/environments/production.rb"
+
+Security/Open:
+  Exclude:
+    - "db/seeds.rb"
+
+Style/IdenticalConditionalBranches:
+  Exclude:
+    - "app/controllers/users_controller.rb"
+
 Rails/InverseOf:
   Enabled: false
+
+Rails/FilePath:
+  Exclude:
+    - "spec/rails_helper.rb"
 
 Lint/DuplicateRegexpCharacterClassElement:
   Enabled: true
 
 Lint/EmptyBlock:
   Enabled: true
+  Exclude:
+    - "config/deploy.rb"
 
 Lint/ToEnumArguments:
   Enabled: true
 
+Lint/UselessAssignment:
+  Enabled: false
+
 Lint/UnmodifiedReduceAccumulator:
   Enabled: true
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/BlockLength:
+  Max: 200
