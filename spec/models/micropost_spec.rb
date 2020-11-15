@@ -27,12 +27,11 @@ RSpec.describe Micropost, type: :model do
     user = create(:user)
     micropost = Micropost.new(
       user: user,
-      arrived_at: '昼',
-      budget: '~¥999',
+      arrived_at: 'day',
+      budget: 'yen1',
       content: '本当に美味しかった',
-      # image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpg')),
-      image: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test_image.jpg')),
-      address: 'Contrail 神楽坂店'
+      image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_post.jpg')),
+      address: 'すきやばし次郎'
     )
     expect(micropost).to be_valid
   end

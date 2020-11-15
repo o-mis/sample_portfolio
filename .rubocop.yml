@@ -63,16 +63,15 @@ Rails/InverseOf:
   Enabled: false
 
 Rails/FilePath:
-  Exclude:
-    - "spec/rails_helper.rb"
+  Enabled: false
 
 Lint/DuplicateRegexpCharacterClassElement:
   Enabled: true
 
-Lint/EmptyBlock:
-  Enabled: true
-  Exclude:
-    - "config/deploy.rb"
+# Lint/EmptyBlock:
+#   Enabled: true
+#   Exclude:
+#     - "config/deploy.rb"
 
 Lint/ToEnumArguments:
   Enabled: true
@@ -88,3 +87,6 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Max: 200
+
+Metrics/MethodLength:
+  Max: 11
