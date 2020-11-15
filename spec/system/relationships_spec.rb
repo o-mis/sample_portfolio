@@ -26,7 +26,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
         click_button 'フォローする'
         expect(page).to have_content 'フォロー中'
       end.to change(bob.following, :count).by(1)
-      # expect(page).to have_content '1 フォロワー'
+      expect(page).to have_content '1 フォロワー'
     end
   end
 end
