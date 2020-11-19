@@ -1,30 +1,44 @@
 <% provide(:title, '新規登録') %>
 
-  <h1 class="h5 mt-3 mb-3 font-weight-bold text-center">新規登録</h1>
+  <h1 class="h5 mt-5 mb-3 font-weight-bold text-center">新規登録</h1>
     <div class="signin-page mx-auto col-md-5">
-      <%= render  "devise/shared/error_messages" %>
+      <%= render "devise/shared/error_messages" %>
       <div class="mt-5">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <div class="field mb-4">
-            <%= f.text_field :name, placeholder: "ユーザー名(10文字以内)", class: "form-control rounded-0 w-100 pl-3" %>
+          <div class="input-field mb-4">
+            <%= f.label :name do %>
+              ユーザー名(10文字以内)
+            <% end %>
+            <%= f.text_field :name, class: "w-100 pl-3" %>
           </div>
 
-          <div class="field mb-4">
-            <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, class: "form-control rounded-0 w-100 pl-3" %>
+          <div class="input-field mb-4">
+            <%= f.label :email do %>
+              メールアドレス
+            <% end %>
+            <%= f.email_field :email, class: "w-100 pl-3" %>
           </div>
 
-          <div class="field mb-4">
-            <%= f.password_field :password, placeholder: "パスワード(6文字以上)", class: "form-control rounded-0 w-100 pl-3" %>
+          <div class="input-field mb-4">
+            <%= f.label :password do %>
+              パスワード(6文字以上)
+            <% end %>
+            <%= f.password_field :password, class: "w-100 pl-3" %>
           </div>
 
-          <div class="field mb-4">
-            <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-control rounded-0 w-100 pl-3" %>
+          <div class="input-field mb-4">
+            <%= f.label :password_confirmation do %>
+              パスワード確認
+            <% end %>
+            <%= f.password_field :password_confirmation, class: "w-100 pl-3" %>
           </div>
 
-          <%= f.submit "登録", class: "btn w-100 mt-5" %>
+          <div class="mt-4 mb-4">
+            <%= f.submit "登録", class: "btn w-100" %>
+          </div>
         <% end %>
 
-        <%= link_to "アカウントをお持ちですか？", new_session_path(resource_name), class: 'l-btn btn rounded-0 btn-dark w-100 mt-3' %>
+        <%= link_to "アカウントをお持ちですか？", new_session_path(resource_name), class: 'btn grey darken-4 w-100 mt-5' %>
       </div>
     </div>
 

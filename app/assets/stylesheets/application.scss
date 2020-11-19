@@ -510,11 +510,19 @@ nav-pills .tab-search {
   }
 }
 
-.avatar-selected {
+#avatar-place {
   display: none;
 }
 
-.user-avatar:hover {
+.hidden {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.avatar-opacity:hover {
   filter: opacity(70%);
   cursor: pointer;
 }

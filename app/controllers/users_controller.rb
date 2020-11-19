@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @bookmark = Bookmark.new
     @following = @user.following
     @followers = @user.followers
-    @microposts = @user.microposts.page(params[:page]).per(25) if user_signed_in?
+    @microposts = @user.microposts.page(params[:page]).per(25)
     @chefs = @user.chefs.page(params[:page]).per(25)
   end
 
@@ -26,9 +26,7 @@ class UsersController < ApplicationController
       end
   end
 
-  # def edit
-  #   @user = User.find(params[:id])
-  # end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -44,15 +42,23 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if current_user.update(user_params)
+      flash[:notice] = 'プロフィールを編集しました。'
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = 'プロフィールを編集できませんでした。'
+      render :edit
     end
+
+    # respond_to do |format|
+    #   if @user.update(user_params)
+    #     format.html { redirect_to @user, notice: 'User was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @user }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def destroy
