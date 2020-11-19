@@ -8,7 +8,7 @@
   <div class="row mb-2">
     <% @chef.each do |chef| %>
       <div class="card-group col-md-4 mx-auto">
-        <div class="card shadow-sm mb-2">
+        <div class="card hoverable mb-2">
           <% if chef.image.url %>
             <%= link_to image_tag(chef.image.to_s, class: "card-img-top", alt: "投稿画像"), chef %>
           <% end %>

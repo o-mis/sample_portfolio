@@ -50,12 +50,12 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false },
                     length: { maximum: 255 }
-  validates :password, presence: true
+  # validates :password, presence: true
 
   mount_uploader :avatar, AvatarUploader
 
   def self.guest
-    find_or_create_by!(name: 'guest', email: 'guest@example.com') do |user|
+    find_or_create_by!(name: 'Guest', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.confirmed_at = Time.zone.now
     end

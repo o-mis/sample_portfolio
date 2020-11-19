@@ -1,6 +1,8 @@
 <div class="container">
   <%= form_with model: @micropost, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="mt-1 mb-5">
       <%= f.label :image do %>
       <% end %>
       <%= f.file_field :image, accept: "image/jpeg,image/png,image/gif", class: "form-image", id: "image" %>
@@ -11,6 +13,7 @@
           <i class="material-icons large gray-text text-lighten-1" style="cursor: pointer">library_add</i>
         <% end %>
       </div>
+    </div>
 
     <div class="row">
       <div class="input-field col s12">
@@ -39,7 +42,7 @@
 
     <div class="input-field">
       <%= f.label :tag_list do %>
-        タグを追加 (例: タグ1,タグ2)
+        タグを追加 (カンマ区切りで入力してください)
       <% end %>
       <%= f.text_field :tag_list, value: @micropost.tag_list.join(','), autocomplete: "off" %>
     </div>

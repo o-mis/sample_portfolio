@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  # before_action :configure_permitted_parameters
   before_action :check_guest, only: %i[update destroy]
-  before_action :configure_permitted_parameters
+  # before_action :check_admin, only: %i[update destroy]
+  # before_action :configure_sign_up_params, only: [:create]
 
   def check_guest
     redirect_to root_path, alert: 'ゲストユーザーの変更、削除はできません。' if resource.email == 'guest@example.com'
   end
+
+  # def check_admin
+  #   redirect_to root_path, alert: '管理ユーザーの変更、削除はできません。' if resource.email == 'admin-contrail@example.com'
+  # end
 
   # # GET /resource/sign_up
   # def new
@@ -16,14 +20,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # # POST /resource
-  def create
-    super
-  end
-
-  # # GET /resource/edit
-  # def edit
+  # def create
   #   super
   # end
+
+  # # GET /resource/edit
+  def edit
+    @user = User.find(current_user.id)
+  end
 
   # # PUT /resource
   # def update
@@ -46,6 +50,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # protected
 
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email])
+  #   devise_parameter_sanitizer.permit(:edit, keys: %i[name email avatar])
+  #   devise_parameter_sanitizer.permit(:update, keys: %i[name email avatar])
+  # end
+
   # def update_resource(resource, params)
   #   resource.update_without_password(params)
   # end
@@ -55,9 +65,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

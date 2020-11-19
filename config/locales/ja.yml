@@ -12,11 +12,11 @@ ja:
         password_confirmation: パスワードの確認
         avatar: プロフィール画像
       micropost:
-        image: 投稿画像
+        image: 画像
         arrived_at: 利用時間帯
         budget: 予算
         address: 店舗名
-        content: 投稿内容
+        content: コメント
   enums:
     micropost:
       arrived_at:
