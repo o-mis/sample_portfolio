@@ -14,5 +14,3 @@
 #  index_bookmarks_on_micropost_id  (micropost_id)
 #  index_bookmarks_on_user_id       (user_id)
 #
-# FactoryBot.define do
-# end
