@@ -124,10 +124,14 @@ main {
 
 .nav-link {
   color: #353535;
-  // font-weight: 600;
+  font-weight: 600;
   &:hover {
     color: $main-color;
   }
+}
+
+.home-link {
+  margin-right: 15px !important;
 }
 
 // .home-tab {
