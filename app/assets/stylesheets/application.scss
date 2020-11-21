@@ -111,6 +111,17 @@ main {
   padding-bottom: 50px;
 }
 
+.contrail-info {
+  position: relative;
+  min-height: 400px;
+  background-image: image-url("contrail-info.jpg");
+  background-size: cover;
+}
+
+.top-image-2 {
+  background-image: image-url("contrail-info.jpg");
+}
+
 .not-signedin-latest {
   font-size: 17px;
   color: #353535;
