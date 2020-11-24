@@ -97,12 +97,6 @@ main {
   .head-logout {
     color: $gray;
   }
-
-  // .nav-items {
-  //   font-family: $fa-family;
-  //   font-style: solid;
-  //   font-weight: 900;
-  // }
 }
 
 // main
@@ -126,7 +120,6 @@ main {
   font-size: 17px;
   color: #353535;
   font-weight: 600;
-  // border-bottom: solid 4px $main-color;
 }
 
 .info-tab {
@@ -144,20 +137,6 @@ main {
 .home-link {
   margin-right: 15px !important;
 }
-
-// .home-tab {
-//   color: #353535;
-//   font-weight: 600;
-//   // border-bottom: solid 3px #353535;
-//   &:hover {
-//     color: $main-color;
-//     border-bottom: solid 3px $main-color;
-//   }
-//   &:active {
-//     color: $main-color;
-//     border-bottom: solid 3px $main-color;
-//   }
-// }
 
 .no-post-info {
   height: 470px;
@@ -561,9 +540,9 @@ nav-pills .tab-search {
 }
 
 // chef
-.chef-info {
-  background-image: url("<%= asset_path('");
-}
+// .chef-info {
+//   background-image: url("<%= asset_path('");
+// }
 
 /* footer */
 .footer {

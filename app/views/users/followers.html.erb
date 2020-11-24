@@ -7,7 +7,7 @@
 
 <div class="col-md-5 mx-auto">
   <% if @user.followers.any? %>
-    <h5 class="text-dark text-center font-weight-bold mt-3">フォロワー</h5>
+    <h6 class="text-dark text-center font-weight-bold mt-3">フォロワー</h6>
       <%= render partial: 'users/followers_list', collection: @followers, as: 'user' %>
   <% else %>
     <%= render 'users/followers_status' %>
