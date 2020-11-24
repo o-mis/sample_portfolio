@@ -97,12 +97,6 @@ main {
   .head-logout {
     color: $gray;
   }
-
-  // .nav-items {
-  //   font-family: $fa-family;
-  //   font-style: solid;
-  //   font-weight: 900;
-  // }
 }
 
 // main
@@ -111,11 +105,21 @@ main {
   padding-bottom: 50px;
 }
 
+.contrail-info {
+  position: relative;
+  min-height: 400px;
+  background-image: image-url("contrail-info.jpg");
+  background-size: cover;
+}
+
+.top-image-2 {
+  background-image: image-url("contrail-info.jpg");
+}
+
 .not-signedin-latest {
   font-size: 17px;
   color: #353535;
   font-weight: 600;
-  // border-bottom: solid 4px $main-color;
 }
 
 .info-tab {
@@ -124,25 +128,15 @@ main {
 
 .nav-link {
   color: #353535;
-  // font-weight: 600;
+  font-weight: 600;
   &:hover {
     color: $main-color;
   }
 }
 
-// .home-tab {
-//   color: #353535;
-//   font-weight: 600;
-//   // border-bottom: solid 3px #353535;
-//   &:hover {
-//     color: $main-color;
-//     border-bottom: solid 3px $main-color;
-//   }
-//   &:active {
-//     color: $main-color;
-//     border-bottom: solid 3px $main-color;
-//   }
-// }
+.home-link {
+  margin-right: 15px !important;
+}
 
 .no-post-info {
   height: 470px;
@@ -546,9 +540,9 @@ nav-pills .tab-search {
 }
 
 // chef
-.chef-info {
-  background-image: url("<%= asset_path('");
-}
+// .chef-info {
+//   background-image: url("<%= asset_path('");
+// }
 
 /* footer */
 .footer {
