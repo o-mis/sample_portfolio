@@ -7,7 +7,7 @@ class ChefsController < ApplicationController
     # @bookmark = Bookmark.new
     # @micropost = Micropost.new
     # @chef = Chef.new
-    @chef = Chef.page(params[:page]).per(25)
+    @chef = Chef.page(params[:page]).per(15)
     @mark = Mark.new
   end
 
