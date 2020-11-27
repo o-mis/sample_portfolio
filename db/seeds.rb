@@ -33,7 +33,7 @@ Micropost.create!(
       user_id: 1,
       image: open("#{Rails.root}/db/fixtures/pic/pic-1.JPG"),
       arrived_at: 'day',
-      budget: 'yen1',
+      budget: 'yen0',
       address: 'まる伊 銀座総本店',
       content: 'ボリュームたっぷりのづけあなちらしがおすすめです。コスパが良い。',
       tag_list: '銀座,寿司,おすすめ,コスパ'
@@ -42,7 +42,7 @@ Micropost.create!(
       user_id: 2,
       image: open("#{Rails.root}/db/fixtures/pic/pic-17.jpg"),
       arrived_at: 'night',
-      budget: 'yen6',
+      budget: 'yen10',
       address: '群馬県 土号駅',
       content: '森の中でバーベキューしてきた！他のお客さんを気にせずゆっくり焼いて食べれる最高の場所。',
       tag_list: '群馬,バーベキュー,三密'
@@ -78,7 +78,7 @@ Micropost.create!(
       user_id: 6,
       image: open("#{Rails.root}/db/fixtures/pic/pic-7.jpg"),
       arrived_at: 'day',
-      budget: 'yen3',
+      budget: 'yen4',
       address: '日暮里駅',
       content: 'フルーツたっぷりのフレンチトースト。お腹いっぱいになった。',
       tag_list: '日暮里,スイーツ'
@@ -87,7 +87,7 @@ Micropost.create!(
       user_id: 7,
       image: open("#{Rails.root}/db/fixtures/pic/pic-15.jpg"),
       arrived_at: 'night',
-      budget: 'yen8',
+      budget: 'yen30',
       address: '新宿駅',
       content: 'ワインの種類が豊富で楽しい。緑を感じるテラス席で開放感も抜群。',
       tag_list: '新宿,ワイン,GoToイート'
@@ -96,7 +96,7 @@ Micropost.create!(
       user_id: 8,
       image: open("#{Rails.root}/db/fixtures/pic/pic-5.jpg"),
       arrived_at: 'night',
-      budget: 'yen3',
+      budget: 'yen5',
       address: '神楽坂駅',
       content: '一番安いおまかせを注文。ハマチが美味しかった。',
       tag_list: '神楽坂,寿司,GoToイート'
@@ -123,7 +123,7 @@ Micropost.create!(
       user_id: 11,
       image: open("#{Rails.root}/db/fixtures/pic/pic-10.jpg"),
       arrived_at: 'day',
-      budget: 'yen2',
+      budget: 'yen8',
       address: '三軒茶屋駅',
       content: 'お店の人がハムサービスしてくれた。また行きます。',
       tag_list: '三軒茶屋,サンドイッチ'
@@ -141,7 +141,7 @@ Micropost.create!(
       user_id: 13,
       image: open("#{Rails.root}/db/fixtures/pic/pic-16.jpg"),
       arrived_at: 'day',
-      budget: 'yen2',
+      budget: 'yen6',
       address: '代官山駅',
       content: 'ティラミス美味しかった！お店ものんびり過ごしたい日に最適。',
       tag_list: '代官山,カフェ,ケーキ'
@@ -150,7 +150,7 @@ Micropost.create!(
       user_id: 14,
       image: open("#{Rails.root}/db/fixtures/pic/pic-4.jpg"),
       arrived_at: 'night',
-      budget: 'yen5',
+      budget: 'yen20',
       address: '新橋駅',
       content: '中トロが美味しくて驚いた店。寿司は最高だ。',
       tag_list: '新橋,寿司'
@@ -159,7 +159,7 @@ Micropost.create!(
       user_id: 15,
       image: open("#{Rails.root}/db/fixtures/pic/pic-3.jpg"),
       arrived_at: 'night',
-      budget: 'yen4',
+      budget: 'yen9',
       address: '表参道駅',
       content: 'この日はお目当てのパスタを食べに。味も良かったけど個人的に店員さんが親切でほっこりした。'
     }
