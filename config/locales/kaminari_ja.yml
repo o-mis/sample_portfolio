@@ -1,10 +1,10 @@
 ja:
   views:
     pagination:
-      first: 最初
-      last: 最後
-      previous: 前
-      next: 次
+      first: <i class="material-icons">first_page</i>
+      last: <i class="material-icons">last_page</i>
+      previous: <i class="material-icons">navigate_before</i>
+      next: <i class="material-icons">navigate_next</i>
       truncate: "..."
   helpers:
     page_entries_info:

@@ -31,7 +31,7 @@
               <%= render 'microposts/tag_list', tag_list: chef.tag_list %>
             </div>
             <div class="d-flex mt-2">
-              <div class="ml-2" id="chefB-<%= chef.id %>">
+              <div id="chefB-<%= chef.id %>">
                 <%= render "marks/mark", chef: chef %>
               </div>
               <div class="ml-auto"><small class="text-muted float-right"><%= chef.created_at.strftime('%m/%d %H:%M') %></small></div>
@@ -42,6 +42,9 @@
     <% end %>
   </div>
 <% end %>
-<%= paginate @chef %>
+
+<div class="ml-5">
+  <%= paginate @chef %>
+</div>
 
 <%= render 'chefs/modal' %>

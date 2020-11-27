@@ -14,7 +14,6 @@
 #  index_marks_on_user_id              (user_id)
 #  index_marks_on_user_id_and_chef_id  (user_id,chef_id) UNIQUE
 #
-# require 'rails_helper'
 
 # RSpec.describe Mark, type: :model do
 #   pending "add some examples to (or delete) #{__FILE__}"

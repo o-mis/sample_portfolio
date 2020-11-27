@@ -566,5 +566,15 @@ nav-pills .tab-search {
   background-color: white !important;
 }
 
+.page-item.active .page-link {
+  background-color: black;
+  border-color: black;
+}
+
+.page-link:hover {
+  color: black !important;
+  background-color: transparent;
+}
+
 @import "chefs";
 @import "materialize";
