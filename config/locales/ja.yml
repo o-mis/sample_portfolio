@@ -17,6 +17,10 @@ ja:
         budget: 予算
         address: 店舗名
         content: コメント
+      chef:
+        image: 画像
+        address: 店舗名
+        comment: コメント
   enums:
     micropost:
       arrived_at:
