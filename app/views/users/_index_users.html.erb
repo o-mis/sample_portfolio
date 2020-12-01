@@ -5,9 +5,10 @@
       <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
     <% else %>
       <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
-      <%= link_to user.name, user, class: "user-index post-name text-dark font-weight-bold ml-2" %>
+      <%= link_to user.name, user, class: "user-index font-weight-bold ml-2 text-dark" %>
     <% end %>
   </div>
+  <%# フォローボタン %>
   <div class="ml-auto mr-5">
     <% if user_signed_in? && user != current_user %>
     <div id="follow_btn">
