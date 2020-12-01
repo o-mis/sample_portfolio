@@ -25,7 +25,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
       expect(page).to have_content '0 フォロワー'
 
       expect do
-        find('.follow-btn').click
+        find('.follow-btn_<%= user.id %>').click
         expect(page).to have_content '1 フォロワー'
       end.to change(bob.following, :count).by(1) &
              change(alice.followers, :count).by(1)
@@ -39,7 +39,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
       expect(page).to have_content '1 フォロワー'
 
       expect do
-        find('.unfollow-btn').click
+        find('.follow-btn_<%= user.id %>').click
         expect(page).to have_content '0 フォロワー'
       end.to change(bob.following, :count).by(-1) &
              change(alice.followers, :count).by(-1)
