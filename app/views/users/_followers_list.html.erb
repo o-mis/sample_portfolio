@@ -10,21 +10,22 @@
   </div>
   <%# フォローボタン %>
   <div class="ml-auto mr-5 list-btn">
+    <%# <%= render 'follow_btn', user: @user %>
     <% if user_signed_in? && user != current_user %>
-    <div id="follow_btn">
-      <% if current_user.following?(user) %>
-        <%# フォロー解除 %>
-        <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
-            html: { method: :delete}) do |f| %>
-          <%= f.submit "フォロー中", class: "btn-rela btn blue lighten-3" %>
+      <div class="follow-btn_<%= user.id %>">
+        <% if current_user.following?(user) %>
+          <%# フォロー解除 %>
+          <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+              method: :delete, remote: true) do |f| %>
+            <%= f.submit "フォロー中", class: "btn-rela btn blue lighten-3" %>
+          <% end %>
+        <% else %>
+          <%# フォロー %>
+          <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+            <div><%= hidden_field_tag :followed_id, user.id %></div>
+            <%= f.submit "フォローする", class: "btn-rela btn grey lighten-1" %>
+          <% end %>
         <% end %>
-      <% else %>
-        <%# フォロー %>
-        <%= form_for(current_user.active_relationships.build) do |f| %>
-          <div><%= hidden_field_tag :followed_id, user.id %></div>
-          <%= f.submit "フォローする", class: "btn-rela btn grey lighten-1" %>
-        <% end %>
-      <% end %>
       </div>
     <% end %>
   </div>

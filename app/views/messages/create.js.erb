@@ -1,0 +1,2 @@
+$(".message").html("<%= escape_javascript(render "messages/content", { messages: @chef.messages }) %>");
+$("textarea").val('');

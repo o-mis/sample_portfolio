@@ -1,0 +1,18 @@
+<% if messages.any? %>
+  <% messages.each do |message| %>
+    <div class="my-4">
+        <% if message.user.avatar? %>
+          <%= link_to image_tag(comment.user.avatar.to_s, size: "30x30", class: "post-avatar rounded-circle mb-2", alt: "avatar image"), message.user %>
+        <% else %>
+          <%= link_to image_tag('no_avatar.png', size: "30x30", class: "post-avatar rounded-circle mb-2", alt: "avatar image"), message.user %>
+        <% end %>
+
+        <%= link_to message.user.name, message.user, class: "post-name text-secondary mr-3" %>
+
+        <span class="text-break"><%= message.content %></span>
+      <small class="text-muted float-right mt-2"><%= time_ago_in_words(message.created_at) %></small>
+    </div>
+  <% end %>
+<% else %>
+  <div class="my-5 ml-1 text-muted">まだコメントがありません。</div>
+<% end %>

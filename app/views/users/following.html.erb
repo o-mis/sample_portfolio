@@ -11,5 +11,13 @@
       <%= render partial: 'users/following_list', collection: @following, as: "user" %>
   <% else %>
     <%= render 'users/following_status' %>
+    <div class="mt-5 no-post-info">
+      <h6 class="text-center font-weight-bold">
+          まだフォローしているユーザーがいません
+      </h6>
+      <div class="text-muted text-center">
+          フォローするとここに表示されます
+      </div>
+    </div>
   <% end %>
 </div>

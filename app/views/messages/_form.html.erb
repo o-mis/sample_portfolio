@@ -1,0 +1,13 @@
+<div class="comment-block">
+  <div class="mb-5 message">
+    <%= render 'messages/content', messages: @messages %>
+  </div>
+
+  <%= form_with(model: [@chef, @message] ) do |f| %>
+    <%= f.hidden_field :chef_id %>
+    <div class="d-flex flex-row">
+      <%= f.text_area :content, class: "materialize-textarea textarea2", maxlength: "150" %>
+      <%= f.submit '送信', class: "btn" %>
+    </div>
+  <% end %>
+</div>

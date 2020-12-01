@@ -487,6 +487,9 @@ nav-pills .tab-search {
 
 .btn-rela {
   font-size: 15px;
+  &:hover {
+    color: white;
+  }
 }
 
 .user-show {
