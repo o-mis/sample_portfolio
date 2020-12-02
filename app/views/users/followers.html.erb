@@ -10,6 +10,13 @@
     <h6 class="text-dark text-center font-weight-bold mt-3">フォロワー</h6>
       <%= render partial: 'users/followers_list', collection: @followers, as: 'user' %>
   <% else %>
-    <%= render 'users/followers_status' %>
+    <div class="no-post-info">
+      <h5 class="text-center font-weight-bold mt-5">
+        まだフォロワーがいません
+      </h5>
+      <div class="text-muted text-center">
+        フォローされるとここに表示されます
+      </div>
+    </div>
   <% end %>
 </div>

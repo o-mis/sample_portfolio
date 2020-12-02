@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+  get 'messages/destroy'
+  get 'comments_chef/create'
+  get 'comments_chef/destroy'
+  get 'comments_chefs/create'
+  get 'comments_chefs/destroy'
   get 'home/index'
   root 'static_pages#home'
 
@@ -35,5 +41,7 @@ Rails.application.routes.draw do
   resources :bookmarks,       only: %i[index create destroy]
   resources :marks,           only: %i[create destroy]
   resources :maps,            only: :index
-  resources :chefs,           only: %i[create destroy show new index]
+  resources :chefs,           only: %i[create destroy show new index] do
+    resources :messages, only: %i[create destroy]
+  end
 end

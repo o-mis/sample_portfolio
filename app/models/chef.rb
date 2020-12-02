@@ -26,6 +26,7 @@ class Chef < ApplicationRecord
   has_many :marked_users, through: :marks, source: :user
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
+  has_many :messages, dependent: :destroy
 
   validates :comment, presence: true
   validates :address, presence: true

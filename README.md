@@ -29,17 +29,17 @@ https://www.contrail-app.com
 **【技術】**
 - Dockerを用いて開発環境と本番環境の差異を無くしたこと
 - CircleCI orbsを使用してビルド、ECSデプロイすることでCI/CDパイプラインを構築していること
-- 独学での学習のため、チーム開発を考慮してGitHubのissue / プルリクを活用しながら開発を進めたこと
+- 独学での学習のため、チーム開発を考慮してGitHubのissue/プルリクを活用しながら開発を進めたこと
 
-# 🔧使用技術
+# 使用技術
 
-- Ruby 2.6.4、Rails 6.0.3.2
+- Ruby 2.6.4 / Rails 6.0.3.2
 - Rspec
 - jQuery
 - JavaScript
 - MySQL 8.0.19
 - Nginx,puma(ソケット通信)
-- Docker, docker-compose
+- Docker / docker-compose(開発環境)
 - AWS
   - VPC
   - EC2/ELB
@@ -49,7 +49,7 @@ https://www.contrail-app.com
   - S3
   - ECS
   - ECR
-- CircleCI(orbs を使用してデプロイしています)
+- CircleCI(orbsを使用してデプロイ)
 - Git, GitHub
 
 # AWS構成図

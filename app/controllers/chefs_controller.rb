@@ -28,9 +28,8 @@ class ChefsController < ApplicationController
     @chef = Chef.find(params[:id])
     @mark = Mark.new
     # @chefs = @user.chefs.page(params[:page]).per(20)
-    @micropost = Micropost.find(params[:id])
-    @comments = @micropost.comments.page(params[:page]).per(10)
-    @comment = @micropost.comments.build
+    @messages = @chef.messages.page(params[:page]).per(25)
+    @message = @chef.messages.build
   end
 
   def destroy

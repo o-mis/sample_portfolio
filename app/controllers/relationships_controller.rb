@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:followed_id])
     current_user.follow(@user) unless current_user.following.include?(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to request.referer || @user }
       format.js
     end
   end
@@ -19,7 +19,7 @@ class RelationshipsController < ApplicationController
       current_user.unfollow(@user)
     end
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to request.referer || @user }
       format.js
     end
   end

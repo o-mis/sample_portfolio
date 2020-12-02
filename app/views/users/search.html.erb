@@ -18,7 +18,7 @@
 
 <div class="col-md-5 mx-auto">
   <% if @users.any? %>
-    <%= render partial: 'users/index_users' , collection: @users, as: "user" %>
+    <%= render partial: 'users/search_results' , collection: @users, as: "user" %>
   <% end %>
 </div>
 <div class="container">
