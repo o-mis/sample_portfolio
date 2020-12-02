@@ -4,13 +4,13 @@
       <%# フォロー解除 %>
       <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
           method: :delete, remote: true) do |f| %>
-        <%= f.submit "フォロー中", class: "btn-rela btn blue lighten-3" %>
+        <%= f.submit "フォロー中", class: "btn-rela btn-unfollow btn blue lighten-3" %>
       <% end %>
     <% else %>
       <%# フォロー %>
       <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :followed_id, user.id %></div>
-        <%= f.submit "フォローする", class: "btn-rela btn grey lighten-1" %>
+        <%= f.submit "フォローする", class: "btn-rela btn-follow btn grey lighten-1" %>
       <% end %>
     <% end %>
   </div>
