@@ -4,15 +4,15 @@ class MicropostsController < ApplicationController
 
   def index
     @microposts = if params[:tag_name]
-                    Micropost.tagged_with(params[:tag_name].to_s).page(params[:page]).per(25)
+                    Micropost.tagged_with(params[:tag_name].to_s).includes(:user, :likes, :liked_users, :taggings, :tags).page(params[:page]).per(25)
                   else
-                    Micropost.page(params[:page]).per(25)
+                    Micropost.includes(:user, :likes, :liked_users, :taggings, :tags).page(params[:page]).per(25)
                   end
   end
 
   def search
     @q = Micropost.ransack(params[:q])
-    @microposts = @q.result(distinct: true).page(params[:page]).per(25)
+    @microposts = @q.result(distinct: true).includes(:user, :likes, :liked_users, :taggings, :tags).page(params[:page]).per(25)
   end
 
   def show
