@@ -8,7 +8,7 @@ ENV APP_ROOT /Contrail
 RUN apt-get update -qq && apt-get install -y chromium-driver
 
 RUN mkdir /noto
-ADD https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip /noto
+ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip /noto
 WORKDIR /noto
 RUN unzip NotoSansCJKjp-hinted.zip && \
     mkdir -p /usr/share/fonts/noto && \

@@ -76,4 +76,13 @@ Rails.application.configure do
   config.web_console.allowed_ips = '172.19.0.1'
 
   config.hosts.clear
+
+  # N+1問題対策のためbulletを使用する
+  # config.after_initialize do
+  #   Bullet.enable = true
+  #   Bullet.alert = true
+  #   Bullet.bullet_logger = true
+  #   Bullet.console = true
+  #   Bullet.rails_logger = true
+  # end
 end

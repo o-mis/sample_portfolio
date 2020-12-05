@@ -3,7 +3,7 @@
     <%= form_for(chef.marks.find_by(user_id: current_user.id), method: :delete, remote: true) do %>
       <%= button_tag type: 'submit', class: "button-like clear-decoration red-text text-darken-1" do %>
         <i class="material-icons grey-text text-darken-3">bookmark</i>
-        <span class="text-muted"><%= chef.marks.count %></span>
+        <span class="text-muted"><%= chef.marks.size %></span>
       <% end %>
     <% end %>
   <% else %>
@@ -11,7 +11,7 @@
       <%= hidden_field_tag :chef_id, chef.id %>
       <%= button_tag type: 'submit', class: "button-like clear-decoration grey-text text-darken-1" do %>
         <i class="material-icons grey-text text-darken-1">bookmark_border</i>
-        <span class="text-muted"><%= chef.marks.count %></span>
+        <span class="text-muted"><%= chef.marks.size %></span>
       <% end %>
     <% end %>
   <% end %>
