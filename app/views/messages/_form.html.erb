@@ -1,6 +1,6 @@
 <div class="comment-block">
   <div class="mb-5 message">
-    <%= render 'messages/content', messages: @messages %>
+    <%= render 'messages/message_list', messages: @messages %>
   </div>
 
   <%= form_with(model: [@chef, @message] ) do |f| %>

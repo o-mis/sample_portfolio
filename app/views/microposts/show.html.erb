@@ -1,1 +1,8 @@
-<%= render 'microposts/post_detail', object: @micropost %>
+<div class="container mt-4 mx-auto">
+  <div class="row">
+    <%= render 'microposts/post_detail', object: @micropost %>
+  </div>
+</div>
+<div class="mt-3 post-detail-map container">
+  <%= render 'microposts/show_map', object: @micropost %>
+</div>

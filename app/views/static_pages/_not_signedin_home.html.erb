@@ -47,11 +47,11 @@
           <div class="post-info ml-1 d-flex">
             <div>
               <i class="material-icons grey-text text-darken-1 like-btn">favorite_border</i>
-              <span class="text-muted"><%= micropost.likes.count.to_s(:delimited) %></span>
+              <span class="text-muted"><%= micropost.likes.size %></span>
             </div>
             <div class="comment-info ml-3 text-muted">
               <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
-              <%= micropost.commented_users.count %>
+              <%= micropost.commented_users.size %>
             </div>
             <div class="ml-auto">
               <small class="text-muted"><%= micropost.created_at.strftime('%m/%d %H:%M') %></small>

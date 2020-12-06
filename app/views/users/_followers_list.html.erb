@@ -1,32 +1,30 @@
-<div class="users-following d-flex flex-row">
-  <div class="mt-1">
-    <% if user.avatar? %>
-      <%= link_to image_tag(user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
-      <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
-    <% else %>
-      <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
-      <%= link_to user.name, user, class: "user-index font-weight-bold ml-2 text-dark" %>
-    <% end %>
-  </div>
-  <%# フォローボタン %>
-  <div class="ml-auto mr-5 list-btn">
-    <%# <%= render 'follow_btn', user: @user %>
-    <% if user_signed_in? && user != current_user %>
-      <div class="follow-btn_<%= user.id %>">
-        <% if current_user.following?(user) %>
-          <%# フォロー解除 %>
-          <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
-              method: :delete, remote: true) do |f| %>
-            <%= f.submit "フォロー中", class: "btn-rela btn blue lighten-3" %>
-          <% end %>
-        <% else %>
-          <%# フォロー %>
-          <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
-            <div><%= hidden_field_tag :followed_id, user.id %></div>
-            <%= f.submit "フォローする", class: "btn-rela btn grey lighten-1" %>
-          <% end %>
+<div class="mt-1">
+  <% if user.avatar? %>
+    <%= link_to image_tag(user.avatar.url, size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
+    <%= link_to user.name, user, class: "user-index text-dark font-weight-bold ml-2" %>
+  <% else %>
+    <%= link_to image_tag('no_avatar.png', size: "50x50", class: "rounded-circle", alt: "avatar image"), user %>
+    <%= link_to user.name, user, class: "user-index font-weight-bold ml-2 text-dark" %>
+  <% end %>
+</div>
+<%# フォローボタン %>
+<div class="ml-auto mr-5 list-btn">
+  <%# <%= render 'follow_btn', user: @user %>
+  <% if user_signed_in? && user != current_user %>
+    <div class="follow-btn_<%= user.id %>">
+      <% if current_user.following?(user) %>
+        <%# フォロー解除 %>
+        <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+            method: :delete, remote: true) do |f| %>
+          <%= f.submit "フォロー中", class: "btn-rela btn blue lighten-3" %>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+      <% else %>
+        <%# フォロー %>
+        <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+          <div><%= hidden_field_tag :followed_id, user.id %></div>
+          <%= f.submit "フォローする", class: "btn-rela btn grey lighten-1" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
