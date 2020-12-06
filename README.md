@@ -75,9 +75,17 @@ https://www.contrail-app.com
 - フォロー/フォロー解除機能(Ajax対応)
 - ページネーション機能(kaminari)
 
+# その他使用gem
+- Rubocop(code formatter)
+- Capybara(System Spec用)
+- selenium-webdriver(Headless Chrome用)
+- rspec_junit_formatter(CircleCIとGitHub連携用)
+- bullet(N+1問題検知)
+- enum_help(enumをI18nに対応)
+- annotate(schemaを表示)
+
 # ポートフォリオの課題
 - jQueryで書いた箇所を素のJavaScriptへ書き換え
-- N+1問題を解消する
 
 # 現在興味がある技術について
 **SPA構成のアプリケーション作成**に興味があります。   
