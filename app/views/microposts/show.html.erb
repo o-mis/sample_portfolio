@@ -1,3 +1,5 @@
+<% provide(:title, @micropost.address) %>
+
 <div class="container mt-4 mx-auto">
   <div class="row">
     <%= render 'microposts/post_detail', object: @micropost %>
