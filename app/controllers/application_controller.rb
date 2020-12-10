@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def logged_in_user
-    redirect_to root_path, alert: 'ログインすると全ての機能が使えます' unless user_signed_in?
+    redirect_to sign_in_path, alert: 'ログインすると全ての機能が使えます' unless user_signed_in?
   end
+
+  # def logged_in_user
+  #   redirect_to sign_in_path
+  # end
 
   def find_post
     @micropost = Micropost.find(params[:micropost_id])

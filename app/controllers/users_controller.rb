@@ -60,13 +60,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    # @users = @user.following
     @following = @user.following
     @followers = @user.followers
   end
 
   def followers
-    # @users = @user.followers
     @following = @user.following
     @followers = @user.followers
   end

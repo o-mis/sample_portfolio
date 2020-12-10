@@ -1,13 +1,15 @@
 <div class="comment-block">
   <div class="mb-5 comment">
-    <%= render 'comments/content', comments: @comments %>
+    <%= render 'comments/comment_list', comments: @comments %>
   </div>
 
-  <%= form_with(model: [@micropost, @comment] ) do |f| %>
-    <%= f.hidden_field :micropost_id %>
-    <div class="d-flex flex-row">
-      <%= f.text_area :content, class: "materialize-textarea textarea2", maxlength: "150" %>
-      <%= f.submit '送信', class: "btn" %>
-    </div>
+  <% if user_signed_in? %>
+    <%= form_with(model: [@micropost, @comment] ) do |f| %>
+      <%= f.hidden_field :micropost_id %>
+      <div class="d-flex flex-row">
+        <%= f.text_area :content, class: "materialize-textarea textarea2", maxlength: "150" %>
+        <%= f.submit '送信', class: "btn" %>
+      </div>
+    <% end %>
   <% end %>
 </div>

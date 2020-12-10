@@ -11,7 +11,7 @@
       <%= hidden_field_tag :micropost_id, micropost.id %>
       <%= button_tag type: 'submit', class: "button-like clear-decoration grey-text text-darken-1" do %>
         <i class="material-icons like-btn">favorite_border</i>
-        <span class="text-muted"><%= micropost.likes.size %></span>
+        <span class="text-muted"><%= micropost.likes.count %></span>
       <% end %>
     <% end %>
   <% end %>

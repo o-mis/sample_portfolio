@@ -46,10 +46,12 @@
                   <%# <%= render "likes/like", micropost: @micropost %>
                 <%# </div> %>
                 <div class="ml-2" id="chefB-<%= @chef.id %>">
-                <%= render "marks/mark", chef: @chef %>
+                <%= render "marks/form", chef: @chef %>
                 </div>
-                <% if current_user.id == @chef.user.id || current_user.admin? %>
-                  <div class="gray darken-4 ml-auto"><%= link_to '削除', chef_path(@chef), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn grey darken-4" %></div>
+                <% if user_signed_in? %>
+                  <% if current_user.id == @chef.user.id || current_user.admin? %>
+                    <div class="gray darken-4 ml-auto"><%= link_to '削除', chef_path(@chef), method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn grey darken-4" %></div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
