@@ -1,5 +1,5 @@
 class ChefsController < ApplicationController
-  before_action :logged_in_user, only: %i[create destroy]
+  before_action :logged_in_user, only: %i[show create destroy]
   before_action :chef?, only: :destroy
 
   def index

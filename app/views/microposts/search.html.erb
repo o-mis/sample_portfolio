@@ -73,14 +73,14 @@
               <div class="post-content ml-2 mt-1 mb-4">
                 <%= micropost.content %>
               </div>
-              <div class="mt-2 ml-2 mb-3">
+              <div class="mt-2 mb-3">
                 <%= render 'microposts/tag_list', tag_list: micropost.tag_list %>
               </div>
-              <div class="post-info ml-2 d-flex">
+              <div class="post-info d-flex">
                 <div id="micropost-<%= micropost.id %>">
                     <%= render "likes/form", micropost: micropost %>
                   </div>
-                  <div class="comment-info ml-3 text-muted">
+                  <div class="ml-3 comment-info text-muted">
                     <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
                     <%= micropost.commented_users.size %>
                   </div>

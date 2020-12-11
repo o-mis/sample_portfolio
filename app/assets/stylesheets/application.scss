@@ -134,6 +134,8 @@ main {
   }
 }
 
+// ホームのタブ
+
 .home-link {
   margin-right: 15px !important;
 }
@@ -160,6 +162,8 @@ nav-pills .tab-search {
     color: black;
   }
 }
+
+// ポスト詳細
 
 .post-name {
   font-size: 15px;
@@ -245,6 +249,8 @@ nav-pills .tab-search {
   color: #19448e;
 }
 
+// FAB
+
 .fab-lg {
   display: block;
   width: 76px;
@@ -315,6 +321,11 @@ nav-pills .tab-search {
     font-weight: 900;
     color: #9f9f9f;
   }
+}
+
+// sessions/new
+.signin-page {
+  height: 490px;
 }
 
 .profile span {
@@ -422,15 +433,6 @@ nav-pills .tab-search {
 
 .details-avatar {
   font-size: 20px;
-}
-
-.pagination li a {
-  border: none;
-  color: #696969;
-}
-
-.pagination .active a {
-  background-color: $main-color;
 }
 
 // Users/index
@@ -546,12 +548,7 @@ nav-pills .tab-search {
   height: 600px;
 }
 
-// chef
-// .chef-info {
-//   background-image: url("<%= asset_path('");
-// }
-
-/* footer */
+// footer
 .footer {
   .footer-brand {
     color: $main-color;
@@ -565,6 +562,15 @@ nav-pills .tab-search {
 }
 
 // kaminari
+.pagination li a {
+  border: none;
+  color: #696969;
+}
+
+.pagination .active a {
+  background-color: $main-color;
+}
+
 .pagination li.active {
   background-color: white !important;
 }

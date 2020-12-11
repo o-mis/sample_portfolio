@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :logged_in_user, only: %i[create destroy]
+  before_action :logged_in_user
   before_action :find_post, only: :create
 
   def create
