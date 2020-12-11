@@ -2,18 +2,18 @@
 
 <script>
   function initMap() {
-    var latlng = new google.maps.LatLng(<%= object.latitude %>,<%= object.longitude %>);
-    var map = new google.maps.Map(document.getElementById('map'), {
+    const latlng = new google.maps.LatLng(<%= object.latitude %>,<%= object.longitude %>);
+    const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: latlng
     });
 
-    var contentString = '<%= image_tag object.image.url, size: "200x200" %>';
-    var infowindow = new google.maps.InfoWindow({
+    const contentString = '<%= image_tag object.image.url, size: "200x200" %>';
+    const infowindow = new google.maps.InfoWindow({
         content: contentString
     });
 
-    var marker = new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: map,
       position: latlng,
     });

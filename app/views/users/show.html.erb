@@ -88,7 +88,7 @@
                   </div>
                   <div class="post-info ml-1 d-flex">
                     <div id="micropost-<%= micropost.id %>">
-                      <%= render "likes/like", micropost: micropost %>
+                      <%= render "likes/form", micropost: micropost %>
                     </div>
                     <div class="comment-info ml-3 text-muted">
                       <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
@@ -138,7 +138,7 @@
                   </div>
                   <div class="d-flex ml-1">
                     <div id="chefB-<%= chef.id %>">
-                      <%= render "marks/mark", chef: chef %>
+                      <%= render "marks/form", chef: chef %>
                     </div>
                     <div class="ml-auto"><small class="text-muted float-right"><%= chef.created_at.strftime('%m/%d %H:%M') %></small></div>
                   </div>

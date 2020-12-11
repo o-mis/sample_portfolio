@@ -1,3 +1,5 @@
+<% provide(:title, '投稿検索') %>
+
 <div class="container mt-4 mx-auto">
 <div class="row">
   <div class="col s12">
@@ -40,7 +42,6 @@
 </div>
 </div>
 
-<%# <div class="container"> %>
 <div>
   <% if @microposts.any? %>
     <div class="row">
@@ -77,7 +78,7 @@
               </div>
               <div class="post-info d-flex">
                 <div id="micropost-<%= micropost.id %>">
-                    <%= render "likes/like", micropost: micropost %>
+                    <%= render "likes/form", micropost: micropost %>
                   </div>
                   <div class="ml-3 comment-info text-muted">
                     <i class="material-icons gray-text text-darken-2">chat_bubble_outline</i>
