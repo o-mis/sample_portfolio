@@ -1,11 +1,25 @@
 <% provide(:title, "トップページ") %>
 
 <% if user_signed_in? %>
-  <%= render 'static_pages/signedin_home' %>
-  <%= render 'microposts/modal' %>
+  <%# <%= render 'static_pages/signedin_home' %>
+  <%# <%= render 'microposts/modal' %>
+  <html>
+    <head>My CloudFront Test</head>
+    <body>
+      <p>My text content goes here.</p>
+      <p><img src="https://contrail-app.com/uploads/chef/image/pic-2.jpg" alt="my test image"/></p>
+    </body>
+  </html>
 <% else %>
-  <%= render partial: 'static_pages/not_signedin_home' %>
-  <%= paginate @latest %>
+  <%# <%= render partial: 'static_pages/not_signedin_home' %>
+  <%# <%= paginate @latest %>
+  <html>
+    <head>My CloudFront Test</head>
+      <body>
+        <p>My text content goes here.</p>
+        <p><img src="https://contrail-app.com/uploads/chef/image/pic-2.jpg" alt="my test image"/></p>
+      </body>
+  </html>
 <% end %>
 
 
