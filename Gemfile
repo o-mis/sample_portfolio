@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.4'
 
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'asset_sync'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.4.1'
