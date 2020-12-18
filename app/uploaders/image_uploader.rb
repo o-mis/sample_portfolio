@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  process resize_to_fill: [1000, 1000, 'Center']
+  process resize_to_fill: [700, 700, 'Center']
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
@@ -12,6 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+  # S3のパス設定
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
