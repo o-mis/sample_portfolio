@@ -1,12 +1,12 @@
 <% provide(:title, "トップページ") %>
 
-<%# <% if user_signed_in? %>
+<% if user_signed_in? %>
   <%= render 'static_pages/signedin_home' %>
   <%= render 'microposts/modal' %>
-<%# <% else %>
-  <%# <%= render partial: 'static_pages/not_signedin_home' %>
-  <%# <%= paginate @latest %>
-<%# <% end %>
+<% else %>
+  <%= render partial: 'static_pages/not_signedin_home' %>
+  <%= paginate @latest %>
+<% end %>
 
 
 
