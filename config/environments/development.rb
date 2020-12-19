@@ -85,4 +85,7 @@ Rails.application.configure do
   #   Bullet.console = true
   #   Bullet.rails_logger = true
   # end
+
+  # session管理にredisを使用する
+  config.session_store :redis_store, servers: 'redis://redis:6379/0', expire_in: 1.day
 end
