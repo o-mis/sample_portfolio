@@ -57,7 +57,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # session管理
-  config.session_store :redis_store, servers: 'redis://ec-redis-0001-001.besjzl.0001.apne1.cache.amazonaws.com:6379/0', expire_in: 1.day
+  # config.session_store :redis_store, servers: 'redis://ec-redis-0001-001.besjzl.0001.apne1.cache.amazonaws.com:6379/0', expire_in: 1.day
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
